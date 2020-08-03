@@ -76,5 +76,15 @@ namespace WindowsFormsApp2
         {
 
         }
+
+        private void tabPage6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label26_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
