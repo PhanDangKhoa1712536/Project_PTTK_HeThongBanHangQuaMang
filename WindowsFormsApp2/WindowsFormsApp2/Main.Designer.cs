@@ -384,11 +384,11 @@
             // 
             this.tabControl2.Controls.Add(this.tabPage7);
             this.tabControl2.Controls.Add(this.tabPage8);
-            this.tabControl2.Location = new System.Drawing.Point(6, 29);
+            this.tabControl2.Location = new System.Drawing.Point(6, 6);
             this.tabControl2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1574, 946);
+            this.tabControl2.Size = new System.Drawing.Size(1574, 969);
             this.tabControl2.TabIndex = 0;
             // 
             // tabPage7
@@ -407,7 +407,7 @@
             this.tabPage7.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.tabPage7.Size = new System.Drawing.Size(1558, 899);
+            this.tabPage7.Size = new System.Drawing.Size(1558, 922);
             this.tabPage7.TabIndex = 1;
             this.tabPage7.Text = "LAP DON NHAP HANG";
             this.tabPage7.UseVisualStyleBackColor = true;
