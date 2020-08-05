@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class HangDTO
+    public class HangDTO
     {
     }
 }
