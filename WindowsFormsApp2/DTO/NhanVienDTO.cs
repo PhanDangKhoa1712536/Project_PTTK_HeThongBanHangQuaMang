@@ -13,5 +13,13 @@ namespace DTO
         public string tenNhanVien { get; set; }
         public string tenDangNhap { get; set; }
         public string matKhau { get; set; }
+        NhanVienDTO(int maNhanVien, int loaiNhanVien, string tenNhanVien, string tenDangNhap, string matKhau)
+        {
+            this.maNhanVien = maNhanVien;
+            this.loaiNhanVien = loaiNhanVien;
+            this.tenDangNhap = tenDangNhap;
+            this.tenNhanVien = tenNhanVien;
+            this.matKhau = matKhau;
+        }
     }
 }
