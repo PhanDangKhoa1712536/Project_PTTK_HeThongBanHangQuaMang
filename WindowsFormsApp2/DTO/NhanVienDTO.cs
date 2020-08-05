@@ -8,17 +8,17 @@ namespace DTO
 {
     public class NhanVienDTO
     {
-        public int maNhanVien { get; set; }
-        public int loaiNhanVien { get; set; }
+        public int maNV { get; set; }
+        public int loaiNV { get; set; }
         public string tenNhanVien { get; set; }
         public string tenDangNhap { get; set; }
         public string matKhau { get; set; }
-        NhanVienDTO(int maNhanVien, int loaiNhanVien, string tenNhanVien, string tenDangNhap, string matKhau)
+        public NhanVienDTO(int maNV, int loaiNV, string tenNhanVien, string tenDangNhap, string matKhau)
         {
-            this.maNhanVien = maNhanVien;
-            this.loaiNhanVien = loaiNhanVien;
-            this.tenDangNhap = tenDangNhap;
+            this.maNV = maNV;
+            this.loaiNV = loaiNV;
             this.tenNhanVien = tenNhanVien;
+            this.tenDangNhap = tenDangNhap;
             this.matKhau = matKhau;
         }
     }

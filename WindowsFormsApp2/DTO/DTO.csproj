@@ -43,9 +43,10 @@
   <ItemGroup>
     <Compile Include="BangThongKeGopYDTO.cs" />
     <Compile Include="ChiTietBangThongKeGopYDTO.cs" />
-    <Compile Include="ChiTietDonNhapHangDTO.cs" />
+    <Compile Include="ChiTietDonNhapDTO.cs" />
     <Compile Include="ChiTietDonTraHangDTO.cs" />
     <Compile Include="ChiTietHoaDonDTO.cs" />
+    <Compile Include="DoiTacQuangCaoDTO.cs" />
     <Compile Include="DonNhapHangDTO.cs" />
     <Compile Include="DonTraHangDTO.cs" />
     <Compile Include="GopYDTO.cs" />

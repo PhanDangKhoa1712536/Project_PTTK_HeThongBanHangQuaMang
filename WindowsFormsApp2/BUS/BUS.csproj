@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{829E5199-BE98-4F2F-A741-E2113DA0EE93}</ProjectGuid>
+    <ProjectGuid>{BD0A6EE7-D7B6-4E73-9D9F-7F2D381DFA78}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DAO</RootNamespace>
-    <AssemblyName>DAO</AssemblyName>
+    <RootNamespace>BUS</RootNamespace>
+    <AssemblyName>BUS</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,11 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataProvider.cs" />
-    <Compile Include="HangDAO.cs" />
+    <Compile Include="HangBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{829e5199-be98-4f2f-a741-e2113da0ee93}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{bf7da98a-474b-4b47-8d4a-2a089209385b}</Project>
       <Name>DTO</Name>

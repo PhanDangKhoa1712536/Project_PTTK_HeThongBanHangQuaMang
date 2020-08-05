@@ -8,12 +8,12 @@ namespace DTO
 {
     public class ChiTietBangThongKeGopYDTO
     {
-        public int maChiTietBangThongKe { get; set; }
+        public int maChiTietBTK { get; set; }
         public int maBangThongKe { get; set; }
         public int maGopY { get; set; }
-        ChiTietBangThongKeGopYDTO(int maChiTietBangThongKe, int maBangThongKe, int maGopY)
+        public ChiTietBangThongKeGopYDTO(int maChiTietBTK, int maBangThongKe, int maGopY)
         {
-            this.maChiTietBangThongKe = maChiTietBangThongKe;
+            this.maChiTietBTK = maChiTietBTK;
             this.maBangThongKe = maBangThongKe;
             this.maGopY = maGopY;
         }

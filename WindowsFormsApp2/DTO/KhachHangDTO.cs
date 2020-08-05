@@ -8,18 +8,18 @@ namespace DTO
 {
     public class KhachHangDTO
     {
-        public int maKhachHang { get; set; }
-        public string tenKhachHang { get; set; }
-        public string emailKhachHang { get; set; }
-        public string diaChiKhachHang { get; set; }
+        public int maKH { get; set; }
+        public string tenKH { get; set; }
+        public string emailKH { get; set; }
+        public string diaChiKH { get; set; }
         public bool trangThaiKhoaComment { get; set; }
-        KhachHangDTO(int maKhachHang, string tenKhachHang, string emailKhachHang,
-            string diaChiKhachHang, bool trangThaiKhoaComment)
+        public KhachHangDTO(int maKH, string tenKH, string emailKH,
+            string diaChiKH, bool trangThaiKhoaComment)
         {
-            this.maKhachHang = maKhachHang;
-            this.tenKhachHang = tenKhachHang;
-            this.emailKhachHang = emailKhachHang;
-            this.diaChiKhachHang = diaChiKhachHang;
+            this.maKH = maKH;
+            this.tenKH = tenKH;
+            this.emailKH = emailKH;
+            this.diaChiKH = diaChiKH;
             this.trangThaiKhoaComment = trangThaiKhoaComment;
     
         }

@@ -13,7 +13,7 @@ namespace DTO
         public int maHangLoi { get; set; }
         public int soLuongTra { get; set; }
         public string lyDo { get; set; }
-        ChiTietDonTraHangDTO(int maChiTietDonTra, int maDonTra, int maHangLoi,
+        public ChiTietDonTraHangDTO(int maChiTietDonTra, int maDonTra, int maHangLoi,
             int soLuongTra, string lyDo)
         {
             this.maChiTietDonTra = maChiTietDonTra;

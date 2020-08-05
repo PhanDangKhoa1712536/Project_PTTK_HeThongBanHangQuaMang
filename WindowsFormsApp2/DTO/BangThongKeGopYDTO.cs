@@ -9,12 +9,12 @@ namespace DTO
     public class BangThongKeGopYDTO
     {
         public int maBangThongKe { get; set; }
-        public int maNhanVienLap { get; set; }
+        public int maNVLap { get; set; }
         public DateTime ngayLap { get; set; }
-        BangThongKeGopYDTO(int maBangThongKe, int maNhanVienLap, DateTime ngayLap)
+        public BangThongKeGopYDTO(int maBangThongKe, int maNVLap, DateTime ngayLap)
         {
             this.maBangThongKe = maBangThongKe;
-            this.maNhanVienLap = maNhanVienLap;
+            this.maNVLap = maNVLap;
             this.ngayLap = ngayLap;
         }
     }

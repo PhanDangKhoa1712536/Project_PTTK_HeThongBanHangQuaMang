@@ -8,13 +8,13 @@ namespace DTO
 {
     public class NhaCungCapDTO
     {
-        public int maNhaCungCap { get; set; }
-        public string tenNhaCungCap { get; set; }
+        public int maNCC { get; set; }
+        public string tenNCC { get; set; }
 
-        public NhaCungCapDTO(int maNhaCungCap, string tenNhaCungCap)
+        public NhaCungCapDTO(int maNCC, string tenNCC)
         {
-            this.maNhaCungCap = maNhaCungCap;
-            this.tenNhaCungCap = tenNhaCungCap;
+            this.maNCC = maNCC;
+            this.tenNCC = tenNCC;
         }
     }
 }
