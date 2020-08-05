@@ -1,0 +1,1 @@
+Server=(localdb)\\mssqllocaldb;Database=PTTK_THCK;Trusted_Connection=True;MultipleActiveResultSets=true
