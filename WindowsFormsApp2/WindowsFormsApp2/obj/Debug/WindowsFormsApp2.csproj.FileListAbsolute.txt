@@ -24,3 +24,17 @@ C:\Users\huy\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp
 C:\Users\huy\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
 C:\Users\huy\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
 C:\Users\huy\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
+C:\Users\nhatt\Source\Repos\PhanDangKhoa1712536\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe.config
+C:\Users\nhatt\Source\Repos\PhanDangKhoa1712536\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
+C:\Users\nhatt\Source\Repos\PhanDangKhoa1712536\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
+C:\Users\nhatt\Source\Repos\PhanDangKhoa1712536\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojAssemblyReference.cache
+C:\Users\nhatt\Source\Repos\PhanDangKhoa1712536\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.MuaHang_Form1.resources
+C:\Users\nhatt\Source\Repos\PhanDangKhoa1712536\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+C:\Users\nhatt\Source\Repos\PhanDangKhoa1712536\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.ThanhToan.resources
+C:\Users\nhatt\Source\Repos\PhanDangKhoa1712536\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.ThanhToanThanhCong.resources
+C:\Users\nhatt\Source\Repos\PhanDangKhoa1712536\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.XacNhanHoaDonThanhToanThe.resources
+C:\Users\nhatt\Source\Repos\PhanDangKhoa1712536\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.XacNhanMuaHang_form.resources
+C:\Users\nhatt\Source\Repos\PhanDangKhoa1712536\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.cache
+C:\Users\nhatt\Source\Repos\PhanDangKhoa1712536\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
+C:\Users\nhatt\Source\Repos\PhanDangKhoa1712536\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
+C:\Users\nhatt\Source\Repos\PhanDangKhoa1712536\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
