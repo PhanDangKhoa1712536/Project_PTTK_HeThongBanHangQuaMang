@@ -18,10 +18,9 @@ namespace DAO
         {
             this.db = new DataProvider();
         }
-        
+
         // DAL Fuction of KhachHang_DB
 
-        // ThemKhachHang(KhachHang)
         public void ThemKhachHang_DAL(KhachHangDTO KH)
         {
             // cau query
@@ -51,13 +50,14 @@ namespace DAO
             DataTable dt = db.ExecuteQuery(query, Find_values);
             // Khoi tao list khach hang
             List<KhachHangDTO> ret = new List<KhachHangDTO>();
-            foreach (DataRow dr in dt.Rows) {
+            foreach (DataRow dr in dt.Rows)
+            {
                 KhachHangDTO temp = new KhachHangDTO((int)dr["MAKH"], dr["TENKH"].ToString(), dr["EMAILKH"].ToString(), dr["DIACHIKH"].ToString(), (bool)dr["TRANGTHAIKHOACOMMENT"]);
                 ret.Add(temp);
             }
             return ret;
         }
-       
+
     }
 }
 

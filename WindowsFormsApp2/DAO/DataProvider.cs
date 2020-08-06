@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 
+
+//KHÔNG ĐỤNG VÀO ĐÂY
 namespace DAO
 {
     class DataProvider

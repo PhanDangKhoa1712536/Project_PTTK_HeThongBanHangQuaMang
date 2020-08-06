@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-    class Class1
+    class ChiTietHoaDonBUS
     {
     }
 }

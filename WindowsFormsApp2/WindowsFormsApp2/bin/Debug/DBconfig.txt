@@ -1,1 +1,1 @@
-Server=(localdb)\\mssqllocaldb;Database=PTTK_THCK;Trusted_Connection=True;MultipleActiveResultSets=true
+Data Source=DOBINHHUY87EA;Initial Catalog=PTTK_THCK;Integrated Security=True

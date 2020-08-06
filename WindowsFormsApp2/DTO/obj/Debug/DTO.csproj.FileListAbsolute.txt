@@ -1,0 +1,6 @@
+C:\Users\huy\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\DTO\bin\Debug\DTO.dll
+C:\Users\huy\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\DTO\bin\Debug\DTO.pdb
+C:\Users\huy\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
+C:\Users\huy\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+C:\Users\huy\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\DTO\obj\Debug\DTO.dll
+C:\Users\huy\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\DTO\obj\Debug\DTO.pdb

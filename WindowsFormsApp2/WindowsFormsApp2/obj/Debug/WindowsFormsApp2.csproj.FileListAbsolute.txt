@@ -38,3 +38,11 @@ C:\Users\nhatt\Source\Repos\PhanDangKhoa1712536\Project_PTTK_HeThongBanHangQuaMa
 C:\Users\nhatt\Source\Repos\PhanDangKhoa1712536\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
 C:\Users\nhatt\Source\Repos\PhanDangKhoa1712536\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
 C:\Users\nhatt\Source\Repos\PhanDangKhoa1712536\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
+C:\Users\huy\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\BUS.dll
+C:\Users\huy\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\DAO.dll
+C:\Users\huy\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\DTO.dll
+C:\Users\huy\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\BUS.pdb
+C:\Users\huy\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\DAO.pdb
+C:\Users\huy\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\DTO.pdb
+C:\Users\huy\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CopyComplete
+C:\Users\huy\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\DAO.dll.config

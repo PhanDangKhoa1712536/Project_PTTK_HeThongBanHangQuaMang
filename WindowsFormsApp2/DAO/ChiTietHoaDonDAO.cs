@@ -25,14 +25,14 @@ namespace DAO
 
             DataTable dt = db.ExecuteQuery(query, Find_values);
             List<ChiTietHoaDonDTO> ret = new List<ChiTietHoaDonDTO>();
-            foreach(DataRow dr in dt.Rows)
+            foreach (DataRow dr in dt.Rows)
             {
                 ChiTietHoaDonDTO temp = new ChiTietHoaDonDTO((int)dr["MACHITIETHOADON"], (int)dr["MAHANG"], (int)dr["MAHD"], (int)dr["SOLUONG"]);
                 ret.Add(temp);
             }
             return ret;
         }
-        
-      
+
+
     }
 }
