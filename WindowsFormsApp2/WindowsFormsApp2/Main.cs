@@ -36,5 +36,33 @@ namespace Presentation
             }
             this.grv_NhaCungCap.ClearSelection();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            HienThiDanhSachHopDong();
+        }
+
+        private void HienThiDanhSachHopDong()
+        {
+            HopDongBUS hopdongBUS = new HopDongBUS();
+            List<DoiTacQuangCaoDTO> allDTQC = hopdongBUS.docHopDong();
+            
+            // grd_DSHD.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            // grd_DSHD.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
+            grd_DSHD.Rows.Clear();
+            for (int i = 0; i < allDTQC.Count; i++)
+            {
+                this.grd_DSHD.Rows.Add(
+                    allDTQC[i].maDoiTac,
+                    allDTQC[i].maHang,
+                    allDTQC[i].tenDoiTac,
+                    allDTQC[i].ngayKyHopDong,
+                    allDTQC[i].ngayHetHan,
+                    allDTQC[i].thongTinViTriDang,
+                    allDTQC[i].noiDung);
+            }
+            this.grd_DSHD.ClearSelection();
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class DoiTacQuangCaoDTO
+    public class DoiTacQuangCaoDTO
     {
         public int maDoiTac { get; set; }
         public int maHang { get; set; }

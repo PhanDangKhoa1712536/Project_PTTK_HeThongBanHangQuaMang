@@ -1,1 +1,1 @@
-Data Source=DOBINHHUY87EA;Initial Catalog=PTTK_THCK;Integrated Security=True
+Data Source=DESKTOP-E7J8G32;Initial Catalog=PTTK_THCK;Integrated Security=True
