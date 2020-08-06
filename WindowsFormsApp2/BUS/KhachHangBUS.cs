@@ -1,12 +1,52 @@
-﻿using System;
+﻿using DTO;
+using DAO;
+using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace BUS
 {
-    class KhachHangBUS
+    public class KhachHangBUS
     {
+        public KhachHangDAO khachHangDAO;
+        
+        public KhachHangBUS()
+        {
+            khachHangDAO = new KhachHangDAO();
+        }
+        public bool KiemTraThongTinKH(string HoTen, string DiaChi, string Email)
+        {
+            // Kiem tra xem trong string HoTen co so khong hoac ki tu dac biet khong
+            string hoten_pattern = "^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s\\W|_]+$";
+            string diachi_pattern = "[0-9a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s\\W|_]+$";
+            string email_pattern = "^[a-z][a-z0-9_\\.]{5,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$";
+            if (!Regex.IsMatch(HoTen, hoten_pattern)){
+                return false;
+            }
+            if (!Regex.IsMatch(Email, email_pattern))
+            {
+                return false;
+            }
+            if (!Regex.IsMatch(DiaChi, diachi_pattern))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public void ThemKhachHang_bus(KhachHangDTO KH)
+        {
+            
+        }
+
+        public int SearchKH(string HoTen, string Email, string DiaChi)
+        {
+            khachHangDAO.TimKhachHang(HoTen, DiaChi, Email);
+            return 1;
+        }
+
     }
 }

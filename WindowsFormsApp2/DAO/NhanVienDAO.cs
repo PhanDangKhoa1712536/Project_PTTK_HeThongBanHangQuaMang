@@ -18,7 +18,7 @@ namespace DAO
         }
         public List<NhanVienDTO> getAll()
         {
-            String query = "SELECT * FROM NHACUNGCAP";
+            String query = "SELECT * FROM NHANVIEN";
             DataTable dt = this.db.ExecuteQuery(query);
 
             List<NhanVienDTO> nvS = new List<NhanVienDTO>();
