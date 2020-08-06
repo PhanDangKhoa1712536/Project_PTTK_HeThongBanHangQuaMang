@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp2
+﻿namespace Presentation
 {
     partial class XacNhanMuaHang_form
     {

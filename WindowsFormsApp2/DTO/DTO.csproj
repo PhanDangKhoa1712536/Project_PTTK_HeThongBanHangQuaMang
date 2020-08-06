@@ -46,6 +46,7 @@
     <Compile Include="ChiTietBangThongKeGopYDTO.cs" />
     <Compile Include="ChiTietDonNhapDTO.cs" />
     <Compile Include="ChiTietDonTraHangDTO.cs" />
+    <Compile Include="ChiTietHangLoiDTO.cs" />
     <Compile Include="ChiTietHoaDonDTO.cs" />
     <Compile Include="DoiTacQuangCaoDTO.cs" />
     <Compile Include="DonNhapHangDTO.cs" />

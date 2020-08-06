@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-    class HoaDonBanHangDAO
+    public class HoaDonBanHangDAO
     {
         private DataProvider db;
         

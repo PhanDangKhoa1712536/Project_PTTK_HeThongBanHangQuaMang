@@ -1,6 +1,6 @@
-﻿namespace WindowsFormsApp2
+﻿namespace Presentation
 {
-    partial class MuaHang_Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -323,7 +323,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DANH SACH SAN PHAM";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // button2
             // 
@@ -344,7 +343,6 @@
             this.ThemGioHang_button.TabIndex = 9;
             this.ThemGioHang_button.Text = "THEM VAO GIO HANG";
             this.ThemGioHang_button.UseVisualStyleBackColor = true;
-            this.ThemGioHang_button.Click += new System.EventHandler(this.ThemGioHang_button_Click);
             // 
             // SanPham_dataGridView
             // 
@@ -371,7 +369,6 @@
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "TIM KIEM";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // groupBox2
             // 
@@ -384,7 +381,6 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "GIO HANG";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // XoaGioHang_button
             // 
@@ -404,7 +400,6 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "XAC NHAN MUA HANG";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // DangNhap_button
             // 
@@ -414,7 +409,6 @@
             this.DangNhap_button.TabIndex = 6;
             this.DangNhap_button.Text = "DANG NHAP";
             this.DangNhap_button.UseVisualStyleBackColor = true;
-            this.DangNhap_button.Click += new System.EventHandler(this.DangNhap_button_Click);
             // 
             // tabControl1
             // 
@@ -442,7 +436,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "MUA HANG";
             this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // tabPage1
             // 
@@ -619,7 +612,6 @@
             this.label2.Size = new System.Drawing.Size(133, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "NHAN VIEN NHAP HANG";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // tabPage8
             // 
@@ -1760,7 +1752,6 @@
             this.tabPage6.TabIndex = 6;
             this.tabPage6.Text = "XU LY MUA HANG";
             this.tabPage6.UseVisualStyleBackColor = true;
-            this.tabPage6.Click += new System.EventHandler(this.tabPage6_Click);
             // 
             // tabControl3
             // 
@@ -2218,7 +2209,6 @@
             this.label26.Size = new System.Drawing.Size(142, 13);
             this.label26.TabIndex = 0;
             this.label26.Text = "Ma Nhan Vien Lap Hoa Don";
-            this.label26.Click += new System.EventHandler(this.label26_Click);
             // 
             // groupBox8
             // 
@@ -2279,7 +2269,6 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "MuaHang_Form1";
             this.Text = "Mua Hang";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GioHang_dataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

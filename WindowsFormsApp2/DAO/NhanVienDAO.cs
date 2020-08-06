@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-    class NhanVienDAO
+    public class NhanVienDAO
     {
         private DataProvider db;
         
@@ -16,7 +16,21 @@ namespace DAO
         {
             db = new DataProvider();
         }
+        public List<NhanVienDTO> getAll()
+        {
+            String query = "SELECT * FROM NHACUNGCAP";
+            DataTable dt = this.db.ExecuteQuery(query);
 
+            List<NhanVienDTO> nvS = new List<NhanVienDTO>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                NhanVienDTO nv = new NhanVienDTO((int)dr["MANV"], (int)dr["LOAINV"],
+                    dr["TENNHANVIEN"].ToString(), dr["TENDANGNHAP"].ToString(),
+                    dr["MATKHAU"].ToString());
+                nvS.Add(nv);
+            }
+            return nvS;
+        }
         public List<int> DocMaNVGiaoHang()
         {
             // Cau Query
