@@ -1,1 +1,0 @@
-Data Source=DOBINHHUY87EA;Initial Catalog=PTTK_THCK;Integrated Security=True
