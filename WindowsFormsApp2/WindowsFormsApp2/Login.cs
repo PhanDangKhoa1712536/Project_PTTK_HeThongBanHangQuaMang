@@ -43,7 +43,9 @@ namespace WindowsFormsApp2
             else
             {
                 frmMain.login_stats = true;
-                frmMain.DangNhap_button.Text = "Logged in as " + nhanVienDTO.tenNhanVien;
+                frmMain.btnLogOut.Text = "Logged in as " + nhanVienDTO.tenNhanVien;
+                frmMain.btnLogOut.Show();
+                frmMain.btnDangNhap.Hide();
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

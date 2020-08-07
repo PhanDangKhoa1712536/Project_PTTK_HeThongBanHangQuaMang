@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
 using DTO;
+using Microsoft.Win32;
 using WindowsFormsApp2;
 
 namespace Presentation
@@ -20,13 +21,15 @@ namespace Presentation
         
         public MainForm()
         {
-            InitializeComponent();
-            InitFormStats();
+            InitForm();
             Load_DSNhaCungCap();
         }
 
-        private void InitFormStats()
+        private void InitForm()
         {
+            this.Controls.Clear();
+            this.InitializeComponent();
+
             tmpComment = tbComment;
             tmpNhapHang = tbNhapHang;
             tmpQuangCao = tbQuangCao;
@@ -110,6 +113,10 @@ namespace Presentation
 
         }
 
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            InitForm();
+        }
 
         private void button4_Click(object sender, EventArgs e)
         {
