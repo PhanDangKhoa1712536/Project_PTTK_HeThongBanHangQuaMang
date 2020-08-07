@@ -39,24 +39,15 @@ namespace BUS
             return true;
         }
 
-        public bool ThemKhachHang_bus(KhachHangDTO KH)
+        public void ThemKhachHang_bus(KhachHangDTO KH)
         {
-            try
-            {
-                khachHangDAO.ThemKhachHang_DAL(KH);
-            }
-            catch (Exception er)
-            {
-                return false;
-            }
-            return true;
+            khachHangDAO.ThemKhachHang_DAL(KH);
         }
 
+        // Search khách hàng theo hoten, diachi, email
         public int SearchKH(string HoTen, string Email, string DiaChi)
         {
-            List<KhachHangDTO> searched_result = new List<KhachHangDTO>();
-            try
-            {
+            List<int> searched_result = new List<int>();
                 searched_result = khachHangDAO.TimKhachHang(HoTen, DiaChi, Email);
                 // Kiem tra xem ket qua tra ve co bao nhieu ket qua
                 if (searched_result.Count == 0)
@@ -65,15 +56,15 @@ namespace BUS
                 }
                 else
                 {
-                    return searched_result[0].maKH;
+                    return searched_result[0];
                 }
-            }
-            catch (Exception er)
-            {
-                return 0;
-            }
         }
 
+        // Search khachHang theo MaKH
+        public KhachHangDTO TimKhachHangTheoMaKH(int MaKH)
+        {
+            return khachHangDAO.TimKhachHang_MaKH(MaKH);
+        }
 
         //tìm khách hàng theo tên sử dụng trong Trả Hàng
        /** public int SearchKH_Name(string HoTen)
@@ -104,9 +95,11 @@ namespace BUS
 
         public KhachHangDTO KhoiTao(string HoTen, string Email, string DiaChi)
         {
-            KhachHangDTO KH = new KhachHangDTO();
-
+            KhachHangDTO KH = new KhachHangDTO(0, HoTen, Email, DiaChi,false);
+            return KH;
         }
+
+
 
     }
 }
