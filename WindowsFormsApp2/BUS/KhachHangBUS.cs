@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+//using DAO;
+//using DTO;
 
 namespace BUS
 {
@@ -72,9 +74,37 @@ namespace BUS
             }
         }
 
+
+        //tìm khách hàng theo tên sử dụng trong Trả Hàng
+       /** public int SearchKH_Name(string HoTen)
+        {
+            List<KhachHangDTO> ketqua_KhachHang = new List<KhachHangDTO>();
+            try
+            {
+                ketqua_KhachHang = khachHangDAO.TimKH_TraHang(HoTen);
+                if(ketqua_KhachHang.Count==0)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return ketqua_KhachHang[0].maKH;
+                }
+            }
+            catch (Exception er)
+            {
+                return 0;
+            }
+        }**/
+
+        public KhachHangDTO SearchKH_Name(string Hoten)
+        {
+            return khachHangDAO.TimKH_TraHang(Hoten);
+        }
+
         public KhachHangDTO KhoiTao(string HoTen, string Email, string DiaChi)
         {
-            KhachHangDTO KH = new KhachHangDTO()
+            KhachHangDTO KH = new KhachHangDTO();
 
         }
 

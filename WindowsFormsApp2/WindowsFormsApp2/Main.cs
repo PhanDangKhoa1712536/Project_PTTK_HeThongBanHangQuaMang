@@ -37,6 +37,13 @@ namespace Presentation
             this.grv_NhaCungCap.ClearSelection();
         }
 
+
+        private void LoadKH()
+        {
+
+        }
+
+
         private void button4_Click(object sender, EventArgs e)
         {
             HienThiDanhSachHopDong();
@@ -64,5 +71,21 @@ namespace Presentation
             }
             this.grd_DSHD.ClearSelection();
         }
+
+        private void Nhap_THKhach_Click(object sender, EventArgs e)
+        {
+            KhachHangBUS khBus = new KhachHangBUS();
+            KhachHangDTO khSearch = khBus.SearchKH_Name(textBox13.Text);
+
+            this.dtGV_TraHangKH.Rows.Clear();
+            this.dtGV_TraHangKH.Rows.Add(khSearch.tenKH, khSearch.diaChiKH, khSearch.emailKH, khSearch.trangThaiKhoaComment);
+            
+            this.dtGV_TraHangKH.ClearSelection();
+
+        }
+
+       
+
+       
     }
 }

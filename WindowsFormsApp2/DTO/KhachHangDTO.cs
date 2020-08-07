@@ -23,5 +23,7 @@ namespace DTO
             this.trangThaiKhoaComment = trangThaiKhoaComment;
     
         }
+        public KhachHangDTO() { }
+      
     }
 }

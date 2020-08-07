@@ -57,6 +57,28 @@ namespace DAO
             return ret;
         }
 
+        // Tim khach hang theo ten su dung cho chuc nang Tra Hang (Tim theo ten khach hang)
+        public KhachHangDTO TimKH_TraHang(string TenKH)
+        {
+            List<SqlParameter> VALUES = new List<SqlParameter>();
+            VALUES.Add(new SqlParameter("@Ten", TenKH));
+              
+            string query = "SELECT * FROM KHACHHANG WHERE TENKH = @Ten";
+            KhachHangDTO khachhang = new KhachHangDTO();
+            DataTable dt = this.db.ExecuteQuery(query,VALUES);
+            foreach (DataRow dr in dt.Rows)
+            {
+                khachhang.tenKH = dr["TENKH"].ToString();
+                khachhang.emailKH = dr["EMAILKH"].ToString();
+                khachhang.diaChiKH = dr["DIACHIKH"].ToString();
+                khachhang.trangThaiKhoaComment = (bool)dr["TRANGTHAIKHOACOMMENT"];
+            }
+            
+            return khachhang;
+
+
+        }
+
     }
 }
 
