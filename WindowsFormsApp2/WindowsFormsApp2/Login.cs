@@ -22,6 +22,7 @@ namespace WindowsFormsApp2
         public Login(MainForm frmMain)
         {
             InitializeComponent();
+            this.AcceptButton = btnLogin;
             this.frmMain = frmMain;
             nhanVienBUS = new NhanVienBUS();
         }
