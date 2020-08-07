@@ -70,7 +70,6 @@ namespace Presentation
             this.grv_NhaCungCap.ClearSelection();
         }
 
-<<<<<<< HEAD
         private void btnCloseMain_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
@@ -105,7 +104,6 @@ namespace Presentation
             this.grv_DonNhapHang.ClearSelection();
         }
 
-=======
 
         private void LoadKH()
         {
@@ -113,7 +111,6 @@ namespace Presentation
         }
 
 
->>>>>>> 8032113761cb53fca7d38b61e78b4c81432bc9ab
         private void button4_Click(object sender, EventArgs e)
         {
             HienThiDanhSachHopDong();
@@ -142,7 +139,6 @@ namespace Presentation
             this.grd_DSHD.ClearSelection();
         }
 
-<<<<<<< HEAD
         private void DangNhap_button_Click(object sender, EventArgs e)
         {
             Login login = new Login(this);
@@ -152,7 +148,6 @@ namespace Presentation
                 this.LoginCallback();
             }
         }
-=======
         private void Nhap_THKhach_Click(object sender, EventArgs e)
         {
             KhachHangBUS khBus = new KhachHangBUS();
@@ -168,6 +163,5 @@ namespace Presentation
        
 
        
->>>>>>> 8032113761cb53fca7d38b61e78b4c81432bc9ab
     }
 }

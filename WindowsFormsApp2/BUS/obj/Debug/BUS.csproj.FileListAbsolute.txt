@@ -34,3 +34,15 @@ C:\Users\huyng\Desktop\pttkth\WindowsFormsApp2\BUS\bin\Debug\DAO.pdb
 C:\Users\huyng\Desktop\pttkth\WindowsFormsApp2\BUS\bin\Debug\DAO.dll.config
 C:\Users\huyng\Desktop\pttkth\WindowsFormsApp2\BUS\bin\Debug\DTO.pdb
 C:\Users\huyng\Desktop\pttkth\WindowsFormsApp2\BUS\obj\Debug\BUS.csproj.CopyComplete
+C:\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\BUS\bin\Debug\BUS.dll
+C:\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\BUS\bin\Debug\BUS.pdb
+C:\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\BUS\bin\Debug\DAO.dll
+C:\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\BUS\bin\Debug\DTO.dll
+C:\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\BUS\bin\Debug\DAO.pdb
+C:\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\BUS\bin\Debug\DAO.dll.config
+C:\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\BUS\bin\Debug\DTO.pdb
+C:\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\BUS\obj\Debug\BUS.csprojAssemblyReference.cache
+C:\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+C:\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\BUS\obj\Debug\BUS.csproj.CopyComplete
+C:\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\BUS\obj\Debug\BUS.dll
+C:\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\BUS\obj\Debug\BUS.pdb
