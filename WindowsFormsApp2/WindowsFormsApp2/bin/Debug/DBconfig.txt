@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Data Source=DOBINHHUY87EA;Initial Catalog=PTTK_THCK;Integrated Security=True
+=======
+Data Source=DESKTOP-7MAKOA5;Initial Catalog=PTTK_THCK;Integrated Security=True
+>>>>>>> 8032113761cb53fca7d38b61e78b4c81432bc9ab

@@ -50,7 +50,7 @@ namespace DAO
         public List<int> DocMaNVGiaoHang()
         {
             // Cau Query
-            string query = "SELECT MANV FROM NHANVIEN";
+            string query = "SELECT MANV FROM NHANVIEN WHERE LOAINV = 1";
             // Thuc Hien Cau Query
             DataTable dt = db.ExecuteQuery(query);
             // Khoi tao list MaNV tra ve
@@ -62,5 +62,6 @@ namespace DAO
             }
             return ret;
         }
+
     }
 }

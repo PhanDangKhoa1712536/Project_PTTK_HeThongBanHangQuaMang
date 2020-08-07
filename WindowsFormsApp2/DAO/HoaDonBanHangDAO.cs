@@ -38,5 +38,45 @@ namespace DAO
 
             db.ExecuteNonQuery(query, Inserted_values);
         }
+        public int DocMaHDMoiNhat()
+        {
+            string query = "SELECT MAX(MAHOADON) FROM HOADONBANHANG";
+            DataTable dt = db.ExecuteQuery(query);
+            return (int)dt.Rows[0]["MAHOADON"];
+        }
+
+        public List<int> DocTatCaMaHD()
+        {
+            string query = "SELECT MAHOADON FROM HOADONBANHANG";
+            DataTable dt = db.ExecuteQuery(query);
+            List<int> ret = new List<int>();
+            foreach(DataRow dr in dt.Rows)
+            {
+                int temp = (int)dr["MAHOADON"];
+                ret.Add(temp);
+            }
+            return ret;
+        }
+        public HoaDonBanHangDTO DocThongTinHD(int MaHD)
+        {
+            string query = "SELECT * FROM HOADONBANHANG WHERE MAHOADON = @MaHD";
+            List<SqlParameter> find_values = new List<SqlParameter>();
+            find_values.Add(new SqlParameter("@MaHD", MaHD));
+            DataTable dt = db.ExecuteQuery(query,find_values);
+
+            DataRow temp = dt.Rows[0];
+            HoaDonBanHangDTO ret = new HoaDonBanHangDTO(MaHD, (int)temp["MAKH"], (int)temp["MANVLAP"], (int)temp["MANVGIAO"], (int)temp["MANVXACTHUC"], (float)temp["TONGTIEN"], (bool)temp["HINHTHUCTHANHTOAN"], (bool)temp["XACNHANDATHANHTOAN"], (DateTime)temp["NGAYGIAO"], (float)temp["SOTIENTHANHTOAN"]);
+            return ret;
+        }
+        public void XoaHDBanHang(int MaHD)
+        {
+            string query = "DELETE FROM HOADONBANHANG WHERE MAHOADON = @MaHD";
+            List<SqlParameter> Find_values = new List<SqlParameter>();
+            Find_values.Add(new SqlParameter("@MaHD", MaHD));
+
+            db.ExecuteNonQuery(query, Find_values);
+        }
+
+
     }
 }
