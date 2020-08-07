@@ -12,7 +12,7 @@ using System.Data;
 //KHÔNG ĐỤNG VÀO ĐÂY
 namespace DAO
 {
-    class DataProvider
+    public class DataProvider
     {
         public SqlConnection connection { get; set; }
         public DataProvider()

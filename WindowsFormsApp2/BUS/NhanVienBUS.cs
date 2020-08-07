@@ -8,10 +8,10 @@ using DTO;
 
 namespace BUS
 {
-    class NhanVienBUS
+    public class NhanVienBUS
     {
         NhanVienDAO nhanVienDAO;
-        NhanVienBUS()
+        public NhanVienBUS()
         {
             this.nhanVienDAO = new NhanVienDAO();
         }
@@ -19,6 +19,11 @@ namespace BUS
         List<NhanVienDTO> getAll()
         {
             return nhanVienDAO.getAll();
+        }
+
+        public NhanVienDTO checkLogin(string user, string pass)
+        {
+            return nhanVienDAO.getByUserPassword(user, pass);
         }
     }
 }

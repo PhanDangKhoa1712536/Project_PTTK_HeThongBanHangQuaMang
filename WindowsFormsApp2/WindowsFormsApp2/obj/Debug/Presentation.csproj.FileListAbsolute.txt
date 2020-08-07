@@ -42,3 +42,4 @@ C:\Users\nhatt\OneDrive\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\Wind
 C:\Users\nhatt\OneDrive\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\Presentation.csproj.CopyComplete
 C:\Users\nhatt\OneDrive\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
 C:\Users\nhatt\OneDrive\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
+C:\Users\huy\Documents\GitHub\Project_PTTK_HeThongBanHangQuaMang\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Login.resources

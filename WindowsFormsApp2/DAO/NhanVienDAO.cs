@@ -31,6 +31,22 @@ namespace DAO
             }
             return nvS;
         }
+        public NhanVienDTO getByUserPassword(string user, string password)
+        {
+            string query = "SELECT * FROM NHANVIEN WHERE TENDANGNHAP = '" + user + "' AND MATKHAU = '" + password + "'";
+            using (DataTable dt = db.ExecuteQuery(query))
+            {
+                if (dt.Rows.Count == 0)
+                {
+                    return null;
+                }
+                else
+                {
+                    DataRow dr = dt.Rows[0];
+                    return new NhanVienDTO((int)dr["MANV"], (int)dr["LOAINV"], dr["TENNV"].ToString(), dr["TENDANGNHAP"].ToString(), dr["MATKHAU"].ToString());
+                }
+            }
+        }
         public List<int> DocMaNVGiaoHang()
         {
             // Cau Query
