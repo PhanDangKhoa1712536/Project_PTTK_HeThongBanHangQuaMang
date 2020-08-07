@@ -24,10 +24,9 @@ namespace DAO
         public void ThemKhachHang_DAL(KhachHangDTO KH)
         {
             // cau query
-            string query = "INSERT INTO KHACHHANG VALUES (@maKH, @tenKH, @diaChiKH,@emailKH, @TrangThaiKhoaComment)";
+            string query = "INSERT INTO KHACHHANG() VALUES (@maKH, @tenKH, @diaChiKH,@emailKH, @TrangThaiKhoaComment)";
             // Khoi tao List SQLParameter
             List<SqlParameter> Inserted_values = new List<SqlParameter>();
-            Inserted_values.Add(new SqlParameter("@maKH", KH.maKH));
             Inserted_values.Add(new SqlParameter("@tenKH", KH.tenKH));
             Inserted_values.Add(new SqlParameter("@diaChiKH", KH.diaChiKH));
             Inserted_values.Add(new SqlParameter("@emailKH", KH.emailKH));
