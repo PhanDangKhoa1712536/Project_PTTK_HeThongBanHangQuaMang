@@ -57,6 +57,23 @@ namespace DAO
             return ret;
         }
 
+        public KhachHangDTO TimKhachHang_MaKH(int MaKH)
+        {
+            string query = "SELECT * FROM KHACHHANG WHERE MAKH = @MaKH";
+            List<SqlParameter> find_values = new List<SqlParameter>();
+            find_values.Add(new SqlParameter("@MaKH", MaKH));
+            DataTable dt = db.ExecuteQuery(query, find_values);
+            KhachHangDTO ret = new KhachHangDTO(MaKH, dt.Rows[0]["TENKH"].ToString(), dt.Rows[0]["DIACHIKH"].ToString(), dt.Rows[0]["EMAILKH"].ToString(), (bool)dt.Rows[0]["TRANGTHAIKHOACOMMENT"]);
+            return ret;
+        }
+
+        public int DocMaKHMoiNhat()
+        {
+            string query = "SELECT MAX(MAKH) FROM KHACHHANG";
+            DataTable dt = db.ExecuteQuery(query);
+            return (int)dt.Rows[0]["MAKH"];
+        }
+
         // Tim khach hang theo ten su dung cho chuc nang Tra Hang (Tim theo ten khach hang)
         public KhachHangDTO TimKH_TraHang(string TenKH)
         {
