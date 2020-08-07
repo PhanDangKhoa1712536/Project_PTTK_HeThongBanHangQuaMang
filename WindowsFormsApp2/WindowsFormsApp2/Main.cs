@@ -23,6 +23,7 @@ namespace Presentation
         {
             InitForm();
             Load_DSNhaCungCap();
+            Load_DSDonNhap();
         }
 
         private void InitForm()
