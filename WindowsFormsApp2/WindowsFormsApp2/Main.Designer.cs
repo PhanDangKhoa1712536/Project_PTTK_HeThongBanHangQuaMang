@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.GioHang_dataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label51 = new System.Windows.Forms.Label();
@@ -74,9 +74,18 @@
             this.btn_sendNCC = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.grv_DonNhapHang = new System.Windows.Forms.DataGridView();
+            this.COLMADONNHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COLNVTAO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COLMANCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COLTONGLUONGHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COLLYDONHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COLNGAYNHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COLTRANGTHAIXACNHAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btn_SearchNCC = new System.Windows.Forms.Button();
             this.grv_NhaCungCap = new System.Windows.Forms.DataGridView();
+            this.MANCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.tbTraHang = new System.Windows.Forms.TabPage();
             this.tabControl_TraHang = new System.Windows.Forms.TabControl();
@@ -130,8 +139,6 @@
             this.dataGridView8 = new System.Windows.Forms.DataGridView();
             this.label34 = new System.Windows.Forms.Label();
             this.button12 = new System.Windows.Forms.Button();
-            this.dateTimePicker9 = new System.Windows.Forms.DateTimePicker();
-            this.label35 = new System.Windows.Forms.Label();
             this.dataGridView7 = new System.Windows.Forms.DataGridView();
             this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
             this.label32 = new System.Windows.Forms.Label();
@@ -256,15 +263,6 @@
             this.kHACHHANGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kHACHHANGTableAdapter = new WindowsFormsApp2.PTTK_THCKDataSetTableAdapters.KHACHHANGTableAdapter();
             this.btnLogOut = new System.Windows.Forms.Button();
-            this.COLMADONNHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COLNVTAO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COLMANCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COLTONGLUONGHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COLLYDONHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COLNGAYNHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COLTRANGTHAIXACNHAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MANCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.GioHang_dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SanPham_dataGridView)).BeginInit();
@@ -699,7 +697,7 @@
             this.grv_DonNhapHang.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -716,7 +714,7 @@
             this.COLTRANGTHAIXACNHAN});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -727,6 +725,56 @@
             this.grv_DonNhapHang.RowHeadersWidth = 82;
             this.grv_DonNhapHang.Size = new System.Drawing.Size(1066, 161);
             this.grv_DonNhapHang.TabIndex = 1;
+            // 
+            // COLMADONNHAP
+            // 
+            this.COLMADONNHAP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.COLMADONNHAP.HeaderText = "Mã đơn nhập";
+            this.COLMADONNHAP.Name = "COLMADONNHAP";
+            this.COLMADONNHAP.Width = 126;
+            // 
+            // COLNVTAO
+            // 
+            this.COLNVTAO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.COLNVTAO.HeaderText = "Nhân viên tạo";
+            this.COLNVTAO.Name = "COLNVTAO";
+            this.COLNVTAO.Width = 89;
+            // 
+            // COLMANCC
+            // 
+            this.COLMANCC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.COLMANCC.HeaderText = "Mã nhà cung cấp";
+            this.COLMANCC.Name = "COLMANCC";
+            this.COLMANCC.Width = 98;
+            // 
+            // COLTONGLUONGHANG
+            // 
+            this.COLTONGLUONGHANG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.COLTONGLUONGHANG.HeaderText = "Tổng lượng hàng";
+            this.COLTONGLUONGHANG.Name = "COLTONGLUONGHANG";
+            this.COLTONGLUONGHANG.Width = 117;
+            // 
+            // COLLYDONHAP
+            // 
+            this.COLLYDONHAP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.COLLYDONHAP.DefaultCellStyle = dataGridViewCellStyle2;
+            this.COLLYDONHAP.HeaderText = "Lý do nhập";
+            this.COLLYDONHAP.Name = "COLLYDONHAP";
+            // 
+            // COLNGAYNHAP
+            // 
+            this.COLNGAYNHAP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.COLNGAYNHAP.HeaderText = "Ngày nhập";
+            this.COLNGAYNHAP.Name = "COLNGAYNHAP";
+            this.COLNGAYNHAP.Width = 109;
+            // 
+            // COLTRANGTHAIXACNHAN
+            // 
+            this.COLTRANGTHAIXACNHAN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.COLTRANGTHAIXACNHAN.HeaderText = "Trạng thái xác nhận";
+            this.COLTRANGTHAIXACNHAN.Name = "COLTRANGTHAIXACNHAN";
+            this.COLTRANGTHAIXACNHAN.Width = 110;
             // 
             // groupBox3
             // 
@@ -756,7 +804,7 @@
             this.grv_NhaCungCap.AllowUserToOrderColumns = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -768,7 +816,7 @@
             this.TENNCC});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -787,6 +835,21 @@
             this.grv_NhaCungCap.RowHeadersWidth = 82;
             this.grv_NhaCungCap.Size = new System.Drawing.Size(1066, 140);
             this.grv_NhaCungCap.TabIndex = 1;
+            // 
+            // MANCC
+            // 
+            this.MANCC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MANCC.HeaderText = "Mã nhà cung cấp";
+            this.MANCC.Name = "MANCC";
+            this.MANCC.Width = 130;
+            // 
+            // TENNCC
+            // 
+            this.TENNCC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TENNCC.DefaultCellStyle = dataGridViewCellStyle5;
+            this.TENNCC.HeaderText = "Tên nhà cung cấp";
+            this.TENNCC.Name = "TENNCC";
             // 
             // textBox2
             // 
@@ -1202,8 +1265,6 @@
             this.tabPage13.Controls.Add(this.button14);
             this.tabPage13.Controls.Add(this.groupBox22);
             this.tabPage13.Controls.Add(this.button12);
-            this.tabPage13.Controls.Add(this.dateTimePicker9);
-            this.tabPage13.Controls.Add(this.label35);
             this.tabPage13.Controls.Add(this.dataGridView7);
             this.tabPage13.Controls.Add(this.dateTimePicker6);
             this.tabPage13.Controls.Add(this.label32);
@@ -1220,7 +1281,7 @@
             // 
             // button14
             // 
-            this.button14.Location = new System.Drawing.Point(601, 6);
+            this.button14.Location = new System.Drawing.Point(594, 11);
             this.button14.Margin = new System.Windows.Forms.Padding(2);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(69, 45);
@@ -1319,29 +1380,10 @@
             this.button12.Text = "XÁC NHẬN THỐNG KÊ VÀ PHÂN LOẠI COMMENT TỐT XẤU";
             this.button12.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker9
-            // 
-            this.dateTimePicker9.CustomFormat = "DD/MM/YYYY";
-            this.dateTimePicker9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker9.Location = new System.Drawing.Point(114, 388);
-            this.dateTimePicker9.Name = "dateTimePicker9";
-            this.dateTimePicker9.Size = new System.Drawing.Size(497, 20);
-            this.dateTimePicker9.TabIndex = 26;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(15, 392);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(96, 13);
-            this.label35.TabIndex = 25;
-            this.label35.Text = "NGAY THONG KE";
-            // 
             // dataGridView7
             // 
             this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView7.Location = new System.Drawing.Point(9, 56);
+            this.dataGridView7.Location = new System.Drawing.Point(6, 70);
             this.dataGridView7.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView7.Name = "dataGridView7";
             this.dataGridView7.RowHeadersWidth = 51;
@@ -1353,7 +1395,7 @@
             // 
             this.dateTimePicker6.CustomFormat = "DD/MM/YYYY";
             this.dateTimePicker6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker6.Location = new System.Drawing.Point(94, 31);
+            this.dateTimePicker6.Location = new System.Drawing.Point(87, 36);
             this.dateTimePicker6.Name = "dateTimePicker6";
             this.dateTimePicker6.Size = new System.Drawing.Size(502, 20);
             this.dateTimePicker6.TabIndex = 23;
@@ -1362,7 +1404,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(22, 35);
+            this.label32.Location = new System.Drawing.Point(15, 40);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(63, 13);
             this.label32.TabIndex = 22;
@@ -1372,7 +1414,7 @@
             // 
             this.dateTimePicker7.CustomFormat = "DD/MM/YYYY";
             this.dateTimePicker7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker7.Location = new System.Drawing.Point(94, 6);
+            this.dateTimePicker7.Location = new System.Drawing.Point(87, 11);
             this.dateTimePicker7.Name = "dateTimePicker7";
             this.dateTimePicker7.Size = new System.Drawing.Size(502, 20);
             this.dateTimePicker7.TabIndex = 21;
@@ -1381,7 +1423,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(22, 10);
+            this.label33.Location = new System.Drawing.Point(15, 15);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(55, 13);
             this.label33.TabIndex = 20;
@@ -2445,7 +2487,7 @@
             // 
             this.txtSYSNAME.AutoSize = true;
             this.txtSYSNAME.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSYSNAME.Location = new System.Drawing.Point(238, 67);
+            this.txtSYSNAME.Location = new System.Drawing.Point(255, 67);
             this.txtSYSNAME.Name = "txtSYSNAME";
             this.txtSYSNAME.Size = new System.Drawing.Size(621, 31);
             this.txtSYSNAME.TabIndex = 7;
@@ -2489,71 +2531,6 @@
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Visible = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
-            // 
-            // COLMADONNHAP
-            // 
-            this.COLMADONNHAP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.COLMADONNHAP.HeaderText = "Mã đơn nhập";
-            this.COLMADONNHAP.Name = "COLMADONNHAP";
-            this.COLMADONNHAP.Width = 98;
-            // 
-            // COLNVTAO
-            // 
-            this.COLNVTAO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.COLNVTAO.HeaderText = "Nhân viên tạo";
-            this.COLNVTAO.Name = "COLNVTAO";
-            this.COLNVTAO.Width = 87;
-            // 
-            // COLMANCC
-            // 
-            this.COLMANCC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.COLMANCC.HeaderText = "Mã nhà cung cấp";
-            this.COLMANCC.Name = "COLMANCC";
-            this.COLMANCC.Width = 101;
-            // 
-            // COLTONGLUONGHANG
-            // 
-            this.COLTONGLUONGHANG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.COLTONGLUONGHANG.HeaderText = "Tổng lượng hàng";
-            this.COLTONGLUONGHANG.Name = "COLTONGLUONGHANG";
-            this.COLTONGLUONGHANG.Width = 117;
-            // 
-            // COLLYDONHAP
-            // 
-            this.COLLYDONHAP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.COLLYDONHAP.DefaultCellStyle = dataGridViewCellStyle2;
-            this.COLLYDONHAP.HeaderText = "Lý do nhập";
-            this.COLLYDONHAP.Name = "COLLYDONHAP";
-            // 
-            // COLNGAYNHAP
-            // 
-            this.COLNGAYNHAP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.COLNGAYNHAP.HeaderText = "Ngày nhập";
-            this.COLNGAYNHAP.Name = "COLNGAYNHAP";
-            this.COLNGAYNHAP.Width = 86;
-            // 
-            // COLTRANGTHAIXACNHAN
-            // 
-            this.COLTRANGTHAIXACNHAN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.COLTRANGTHAIXACNHAN.HeaderText = "Trạng thái xác nhận";
-            this.COLTRANGTHAIXACNHAN.Name = "COLTRANGTHAIXACNHAN";
-            this.COLTRANGTHAIXACNHAN.Width = 108;
-            // 
-            // MANCC
-            // 
-            this.MANCC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.MANCC.HeaderText = "Mã nhà cung cấp";
-            this.MANCC.Name = "MANCC";
-            this.MANCC.Width = 101;
-            // 
-            // TENNCC
-            // 
-            this.TENNCC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TENNCC.DefaultCellStyle = dataGridViewCellStyle5;
-            this.TENNCC.HeaderText = "Tên nhà cung cấp";
-            this.TENNCC.Name = "TENNCC";
             // 
             // MainForm
             // 
@@ -2812,8 +2789,6 @@
         private System.Windows.Forms.DataGridView dataGridView8;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.DateTimePicker dateTimePicker9;
-        private System.Windows.Forms.Label label35;
         private System.Windows.Forms.DataGridView dataGridView7;
         private System.Windows.Forms.DateTimePicker dateTimePicker6;
         private System.Windows.Forms.Label label32;
