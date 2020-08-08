@@ -186,6 +186,12 @@
             this.label27 = new System.Windows.Forms.Label();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
             this.grd_DSHD = new System.Windows.Forms.DataGridView();
+            this.MaDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenDoiTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayKyHopDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayHetHan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThongTinViTriDang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button4 = new System.Windows.Forms.Button();
             this.tbXuLyMua = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
@@ -252,15 +258,6 @@
             this.kHACHHANGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kHACHHANGTableAdapter = new WindowsFormsApp2.PTTK_THCKDataSetTableAdapters.KHACHHANGTableAdapter();
             this.btnLogOut = new System.Windows.Forms.Button();
-<<<<<<< HEAD
-=======
-            this.MaDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenDoiTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayKyHopDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayHetHan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThongTinViTriDang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
->>>>>>> b4b306f624f7874bfff22031ce6c3f94c586782f
             ((System.ComponentModel.ISupportInitialize)(this.GioHang_dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SanPham_dataGridView)).BeginInit();
@@ -695,7 +692,7 @@
             this.grv_DonNhapHang.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -729,21 +726,21 @@
             this.COLMADONNHAP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.COLMADONNHAP.HeaderText = "Mã đơn nhập";
             this.COLMADONNHAP.Name = "COLMADONNHAP";
-            this.COLMADONNHAP.Width = 126;
+            this.COLMADONNHAP.Width = 98;
             // 
             // COLNVTAO
             // 
             this.COLNVTAO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.COLNVTAO.HeaderText = "Nhân viên tạo";
             this.COLNVTAO.Name = "COLNVTAO";
-            this.COLNVTAO.Width = 89;
+            this.COLNVTAO.Width = 87;
             // 
             // COLMANCC
             // 
             this.COLMANCC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.COLMANCC.HeaderText = "Mã nhà cung cấp";
             this.COLMANCC.Name = "COLMANCC";
-            this.COLMANCC.Width = 98;
+            this.COLMANCC.Width = 101;
             // 
             // COLTONGLUONGHANG
             // 
@@ -765,14 +762,14 @@
             this.COLNGAYNHAP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.COLNGAYNHAP.HeaderText = "Ngày nhập";
             this.COLNGAYNHAP.Name = "COLNGAYNHAP";
-            this.COLNGAYNHAP.Width = 109;
+            this.COLNGAYNHAP.Width = 86;
             // 
             // COLTRANGTHAIXACNHAN
             // 
             this.COLTRANGTHAIXACNHAN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.COLTRANGTHAIXACNHAN.HeaderText = "Trạng thái xác nhận";
             this.COLTRANGTHAIXACNHAN.Name = "COLTRANGTHAIXACNHAN";
-            this.COLTRANGTHAIXACNHAN.Width = 110;
+            this.COLTRANGTHAIXACNHAN.Width = 108;
             // 
             // groupBox3
             // 
@@ -802,7 +799,7 @@
             this.grv_NhaCungCap.AllowUserToOrderColumns = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -839,7 +836,7 @@
             this.MANCC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.MANCC.HeaderText = "Mã nhà cung cấp";
             this.MANCC.Name = "MANCC";
-            this.MANCC.Width = 130;
+            this.MANCC.Width = 101;
             // 
             // TENNCC
             // 
@@ -1861,6 +1858,48 @@
             this.grd_DSHD.TabIndex = 0;
             this.grd_DSHD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_DSHD_CellClick);
             // 
+            // MaDT
+            // 
+            this.MaDT.HeaderText = "Ma doi tac";
+            this.MaDT.MinimumWidth = 6;
+            this.MaDT.Name = "MaDT";
+            this.MaDT.Width = 125;
+            // 
+            // TenDoiTac
+            // 
+            this.TenDoiTac.HeaderText = "Ten doi tac";
+            this.TenDoiTac.MinimumWidth = 6;
+            this.TenDoiTac.Name = "TenDoiTac";
+            this.TenDoiTac.Width = 125;
+            // 
+            // NgayKyHopDong
+            // 
+            this.NgayKyHopDong.HeaderText = "Ngay ky hop dong";
+            this.NgayKyHopDong.MinimumWidth = 6;
+            this.NgayKyHopDong.Name = "NgayKyHopDong";
+            this.NgayKyHopDong.Width = 125;
+            // 
+            // NgayHetHan
+            // 
+            this.NgayHetHan.HeaderText = "Ngay het han";
+            this.NgayHetHan.MinimumWidth = 6;
+            this.NgayHetHan.Name = "NgayHetHan";
+            this.NgayHetHan.Width = 125;
+            // 
+            // ThongTinViTriDang
+            // 
+            this.ThongTinViTriDang.HeaderText = "Thong tin vi tri dang";
+            this.ThongTinViTriDang.MinimumWidth = 6;
+            this.ThongTinViTriDang.Name = "ThongTinViTriDang";
+            this.ThongTinViTriDang.Width = 125;
+            // 
+            // NoiDung
+            // 
+            this.NoiDung.HeaderText = "Noi dung";
+            this.NoiDung.MinimumWidth = 6;
+            this.NoiDung.Name = "NoiDung";
+            this.NoiDung.Width = 125;
+            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(12, 42);
@@ -2453,51 +2492,6 @@
             this.btnLogOut.Visible = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
-<<<<<<< HEAD
-=======
-            // MaDT
-            // 
-            this.MaDT.HeaderText = "Ma doi tac";
-            this.MaDT.MinimumWidth = 6;
-            this.MaDT.Name = "MaDT";
-            this.MaDT.Width = 125;
-            // 
-            // TenDoiTac
-            // 
-            this.TenDoiTac.HeaderText = "Ten doi tac";
-            this.TenDoiTac.MinimumWidth = 6;
-            this.TenDoiTac.Name = "TenDoiTac";
-            this.TenDoiTac.Width = 125;
-            // 
-            // NgayKyHopDong
-            // 
-            this.NgayKyHopDong.HeaderText = "Ngay ky hop dong";
-            this.NgayKyHopDong.MinimumWidth = 6;
-            this.NgayKyHopDong.Name = "NgayKyHopDong";
-            this.NgayKyHopDong.Width = 125;
-            // 
-            // NgayHetHan
-            // 
-            this.NgayHetHan.HeaderText = "Ngay het han";
-            this.NgayHetHan.MinimumWidth = 6;
-            this.NgayHetHan.Name = "NgayHetHan";
-            this.NgayHetHan.Width = 125;
-            // 
-            // ThongTinViTriDang
-            // 
-            this.ThongTinViTriDang.HeaderText = "Thong tin vi tri dang";
-            this.ThongTinViTriDang.MinimumWidth = 6;
-            this.ThongTinViTriDang.Name = "ThongTinViTriDang";
-            this.ThongTinViTriDang.Width = 125;
-            // 
-            // NoiDung
-            // 
-            this.NoiDung.HeaderText = "Noi dung";
-            this.NoiDung.MinimumWidth = 6;
-            this.NoiDung.Name = "NoiDung";
-            this.NoiDung.Width = 125;
-            // 
->>>>>>> b4b306f624f7874bfff22031ce6c3f94c586782f
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

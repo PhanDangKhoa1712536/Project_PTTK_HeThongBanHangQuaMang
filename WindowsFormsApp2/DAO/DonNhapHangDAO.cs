@@ -17,7 +17,7 @@ namespace DAO
         }
         public List<DonNhapHangDTO> getAll()
         {
-            string query = "SELECT * FROM DONNHAPHANG";
+            string query = "SELECT MADONNHAP, MANV, MANCC, TONGLUONGHANG, LYDONHAP, NGAYNHAP, TRANGTHAIXACNHAN FROM DONNHAPHANG";
             DataTable dt = dp.ExecuteQuery(query);
 
             List<DonNhapHangDTO> donNhapHangS = new List<DonNhapHangDTO>();
