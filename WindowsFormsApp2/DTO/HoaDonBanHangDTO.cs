@@ -18,6 +18,8 @@ namespace DTO
         public bool xacNhanDaThanhToan { get; set; }
         public DateTime ngayGiao { get; set; }
         public float soTienThanhToan { get; set; }
+            
+        public DateTime ngayLap { get; set; }
         public HoaDonBanHangDTO(int maHoaDon, int maKH, int maNVLap,
             int maNVGiao, int maNVXacThuc, float tongTien,
             bool hinhThucThanhToan, bool xacNhanDaThanhToan, DateTime ngayGiao,
@@ -34,5 +36,7 @@ namespace DTO
             this.hinhThucThanhToan = hinhThucThanhToan;
             this.xacNhanDaThanhToan = xacNhanDaThanhToan;
         }
+
+        public HoaDonBanHangDTO(){ }
     }
 }

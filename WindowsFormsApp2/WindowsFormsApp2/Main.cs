@@ -184,6 +184,8 @@ namespace Presentation
                 MessageBox.Show("Khong co hop dong dang chon");
         }
 
+        
+
         private void button4_Click(object sender, EventArgs e)
         {
             HienThiDanhSachHopDong();
@@ -220,10 +222,27 @@ namespace Presentation
                 this.LoginCallback();
             }
         }
+
+
+        
+        // Tra Hang 
+        private void Nhap_THHoaDon_Click(object sender, EventArgs e)
+        {
+            int maHD = Int32.Parse(trahangMaHD_txtbox.Text);
+            HoaDonBanHangBUS hoadonBus = new HoaDonBanHangBUS();             
+            HoaDonBanHangDTO hoadonSearch = hoadonBus.SearchHD_TraHang(maHD);
+            this.dtGV_THHoaDon.Rows.Clear();
+            this.dtGV_THHoaDon.Rows.Add(hoadonSearch.maKH, hoadonSearch.maNVLap, hoadonSearch.maNVGiao,
+                hoadonSearch.maNVXacThuc, hoadonSearch.tongTien, hoadonSearch.hinhThucThanhToan,
+                hoadonSearch.xacNhanDaThanhToan,hoadonSearch.ngayGiao,
+                hoadonSearch.soTienThanhToan,hoadonSearch.ngayLap);
+            this.dtGV_THHoaDon.ClearSelection();
+            
+        }
         private void Nhap_THKhach_Click(object sender, EventArgs e)
         {
             KhachHangBUS khBus = new KhachHangBUS();
-            KhachHangDTO khSearch = khBus.SearchKH_Name(textBox13.Text);
+            KhachHangDTO khSearch = khBus.SearchKH_Name(traHang_timKHtxtbox.Text);
 
             this.dtGV_TraHangKH.Rows.Clear();
             this.dtGV_TraHangKH.Rows.Add(khSearch.tenKH, khSearch.diaChiKH, khSearch.emailKH, khSearch.trangThaiKhoaComment);

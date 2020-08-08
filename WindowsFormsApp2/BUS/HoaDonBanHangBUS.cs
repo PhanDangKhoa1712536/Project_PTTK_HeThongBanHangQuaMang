@@ -50,5 +50,11 @@ namespace BUS
         {
             return hoaDonBanHangDAO.DocMaHDMoiNhat() + 1;
         }
+
+        public HoaDonBanHangDTO SearchHD_TraHang(int MaHD)
+        {
+            return hoaDonBanHangDAO.TimHoaDon_TraHang(MaHD);
+        }
+
     }
 }
