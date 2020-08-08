@@ -119,6 +119,71 @@ namespace Presentation
             InitForm();
         }
 
+        private void btnXoaHopDong_Click(object sender, EventArgs e)
+        {
+            HopDongBUS hopdongBUS = new HopDongBUS();
+            if (txtMaHD.Text != "")
+            {
+                int MaHD = Int32.Parse(txtMaHD.Text);
+                hopdongBUS.huyHopDong(MaHD);
+                HienThiDanhSachHopDong();
+
+                txtMaHD.Clear();
+                txtDoiTac.Clear();
+                dtNgayKy.ResetText();
+                dtNgayHetHan.ResetText();
+                txtTTVT.Clear();
+                txtNoiDung.Clear();
+            }
+            else
+                MessageBox.Show("Khong co hop dong dang chon");
+        }
+
+        private void grd_DSHD_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (grd_DSHD.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                grd_DSHD.CurrentRow.Selected = true;
+                txtMaHD.Text = grd_DSHD.Rows[e.RowIndex].Cells["MaDT"].FormattedValue.ToString();
+                txtDoiTac.Text = grd_DSHD.Rows[e.RowIndex].Cells["TenDoiTac"].FormattedValue.ToString();
+                dtNgayKy.Text = grd_DSHD.Rows[e.RowIndex].Cells["NgayKyHopDong"].FormattedValue.ToString();
+                dtNgayHetHan.Text = grd_DSHD.Rows[e.RowIndex].Cells["NgayHetHan"].FormattedValue.ToString();
+                txtTTVT.Text = grd_DSHD.Rows[e.RowIndex].Cells["ThongTinViTriDang"].FormattedValue.ToString();
+                txtNoiDung.Text = grd_DSHD.Rows[e.RowIndex].Cells["NoiDung"].FormattedValue.ToString();
+            }
+        }
+
+        private void btnCapNhat_Click(object sender, EventArgs e)
+        {
+            HopDongBUS hopdongBUS = new HopDongBUS();
+
+            if (txtMaHD.Text != "")
+            {
+                int MaHD = Int32.Parse(txtMaHD.Text);
+                DateTime NgayKy = dtNgayKy.Value;
+                DateTime NgayHet = dtNgayHetHan.Value;
+                String TTVT = txtTTVT.Text;
+                String NoiDung = txtNoiDung.Text;
+
+                if (hopdongBUS.kiemTraThongTin(NgayKy, NgayHet, TTVT, NoiDung))
+                {
+                    hopdongBUS.capNhatHopDong(MaHD, NgayKy, NgayHet, TTVT, NoiDung);
+                    HienThiDanhSachHopDong();
+
+                    txtMaHD.Clear();
+                    txtDoiTac.Clear();
+                    dtNgayKy.ResetText();
+                    dtNgayHetHan.ResetText();
+                    txtTTVT.Clear();
+                    txtNoiDung.Clear();
+                }
+                else
+                    MessageBox.Show("Vui long kiem tra lai thong tin");
+            }
+            else
+                MessageBox.Show("Khong co hop dong dang chon");
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
             HienThiDanhSachHopDong();
@@ -137,7 +202,6 @@ namespace Presentation
             {
                 this.grd_DSHD.Rows.Add(
                     allDTQC[i].maDoiTac,
-                    allDTQC[i].maHang,
                     allDTQC[i].tenDoiTac,
                     allDTQC[i].ngayKyHopDong,
                     allDTQC[i].ngayHetHan,
@@ -167,9 +231,5 @@ namespace Presentation
             this.dtGV_TraHangKH.ClearSelection();
 
         }
-
-       
-
-       
     }
 }
