@@ -24,6 +24,7 @@ namespace Presentation
             InitForm();
             Load_DSNhaCungCap();
             Load_DSDonNhap();
+            HienDSMatHang();
         }
 
         private void InitForm()
@@ -213,6 +214,17 @@ namespace Presentation
             this.grd_DSHD.ClearSelection();
         }
 
+        private void grd_HangQuangCao_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (grd_HangQuangCao.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                grd_HangQuangCao.CurrentRow.Selected = true;
+                txtHangDangChon.Text = grd_HangQuangCao.Rows[e.RowIndex].Cells["MaHang"].FormattedValue.ToString();
+
+                Load_DSKHQuangCao();
+            }
+        }
+
         private void DangNhap_button_Click(object sender, EventArgs e)
         {
             Login login = new Login(this);
@@ -249,6 +261,45 @@ namespace Presentation
             
             this.dtGV_TraHangKH.ClearSelection();
 
+        }
+
+
+        private void HienDSMatHang()
+        {
+            HangBUS hang = new HangBUS();
+            List<HangDTO> allHang = hang.getAll();
+            /*format column size*/
+            grd_HangQuangCao.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            grd_HangQuangCao.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
+            grd_HangQuangCao.Rows.Clear();
+            for (int i = 0; i < allHang.Count; i++)
+            {
+                grd_HangQuangCao.Rows.Add(
+                    allHang[i].maHang,
+                    allHang[i].tenHang,
+                    allHang[i].soLuongConLai,
+                    allHang[i].donGia);
+            }
+            this.grd_HangQuangCao.ClearSelection();
+        }
+
+        private void Load_DSKHQuangCao()
+        {
+            KhachHangBUS khachHang = new KhachHangBUS();
+            List<KhachHangDTO> allKHQC = khachHang.LayDSKHQuangCao(Int32.Parse(txtHangDangChon.Text));
+
+            grd_KHQC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            grd_KHQC.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
+            grd_KHQC.Rows.Clear();
+            for (int i = 0; i < allKHQC.Count; i++)
+            {
+                this.grd_KHQC.Rows.Add(
+                    allKHQC[i].maKH,
+                    allKHQC[i].tenKH);
+            }
+            this.grd_KHQC.ClearSelection();
         }
     }
 }

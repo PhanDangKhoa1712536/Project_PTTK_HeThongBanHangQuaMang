@@ -80,6 +80,9 @@ namespace BUS
         }
 
 
-
+        public List<KhachHangDTO> LayDSKHQuangCao(int MaMH)
+        {
+            return khachHangDAO.DocKHQuangCao(MaMH);
+        }
     }
 }

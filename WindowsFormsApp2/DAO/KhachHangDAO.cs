@@ -92,10 +92,30 @@ namespace DAO
             }
             
             return khachhang;
-
-
         }
 
+
+        public List<KhachHangDTO> DocKHQuangCao(int MaHang)
+        {
+            string query = "SELECT TENKH, MAKH FROM dbo.KHACHHANG WHERE "
+                + "NOT EXISTS(SELECT MAKH FROM dbo.LICHSUQUANGCAO WHERE dbo.LICHSUQUANGCAO.MAKH = dbo.KHACHHANG.MAKH AND MAHANG = @mh) ";
+            //+ "AND MAKH NOT IN(0, 1, 2)";
+
+            List<SqlParameter> values = new List<SqlParameter>();
+            values.Add(new SqlParameter("@mh", MaHang));
+            DataTable dt = this.db.ExecuteQuery(query, values);
+
+            List<KhachHangDTO> khS = new List<KhachHangDTO>();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                KhachHangDTO kh = new KhachHangDTO((int)dr["MAKH"], (string)dr["TENKH"]);
+
+                khS.Add(kh);
+            }
+
+            return khS;
+        }
     }
 }
 

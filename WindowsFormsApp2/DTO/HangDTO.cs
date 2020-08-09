@@ -12,9 +12,9 @@ namespace DTO
         public int maNVPhuTrach { get; set; }
         public string tenHang { get; set; }
         public int soLuongConLai { get; set; }
-        public float donGia { get; set; }
+        public double donGia { get; set; }
         public HangDTO(int maHang, int maNVPhuTrach, string tenHang, 
-            int soLuongConLai, float donGia)
+            int soLuongConLai, double donGia)
         {
             this.maHang = maHang;
             this.maNVPhuTrach = maNVPhuTrach;
