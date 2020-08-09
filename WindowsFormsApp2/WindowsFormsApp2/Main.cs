@@ -499,9 +499,10 @@ namespace Presentation
                     HD_bus.LapHoaDonBanHang(HD);
 
                     // Đọc lại chi tiết từ giỏ hàng 
-                    List<ChiTietHoaDonDTO> GioHang = CT_bus.DocChiTietTuGioHang(MaHD);
+                    List<ChiTietHoaDonDTO> GioHang = CT_bus.DocChiTietTuGioHang(HD_bus.CreateMaHD()-1);
                     foreach (ChiTietHoaDonDTO CT in GioHang)
                     {
+                        //MessageBox.Show("MaHoaDon:" + CT.maHoaDon.ToString() + "MaHang: " + CT.maHang.ToString() + "SoLuong:" + CT.soLuong.ToString());
                         CT_bus.ThemChiTietDon_bus(CT);
                     }
                     MessageBox.Show("Them Hóa đơn thành công!");
@@ -513,7 +514,7 @@ namespace Presentation
             }
             else
             {
-                MessageBox.Show("Thong tin khách hàng sai qui cách!");
+                MessageBox.Show("Thong tin khách hàng sai qui cách hoặc ngày sai qui định!");
             }
         }
         ///////////////////////

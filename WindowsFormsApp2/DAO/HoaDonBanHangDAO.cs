@@ -41,9 +41,15 @@ namespace DAO
         }
         public int DocMaHDMoiNhat()
         {
-            string query = "SELECT MAX(MAHOADON) AS MAHOADON FROM HOADONBANHANG";
-            DataTable dt = db.ExecuteQuery(query);
-            return (int)dt.Rows[0]["MAHOADON"];
+            string query = "SELECT IDENT_CURRENT ('HOADONBANHANG') AS MAHOADON";
+
+            db.connection.Open();
+            SqlCommand comm = new SqlCommand(query, db.connection);
+            int lastValue = Convert.ToInt32(comm.ExecuteScalar());
+            db.connection.Close();
+
+            //DataTable dt = db.ExecuteNonQuery(query);
+            return lastValue;
         }
 
         public List<int> DocTatCaMaHD()
