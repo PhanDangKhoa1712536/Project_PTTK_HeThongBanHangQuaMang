@@ -245,7 +245,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.TongTienHoaDon_textBox = new System.Windows.Forms.TextBox();
+            this.TongTienHoaDonXoa_textBox = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
             this.ChiTietHoaDonXoaHD_dataGridView = new System.Windows.Forms.DataGridView();
@@ -264,9 +264,9 @@
             this.HoTenXoaHD_textBox = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.TenNVGiaoXoaHD_textBox = new System.Windows.Forms.TextBox();
+            this.MaNVGiaoXoaHD_textBox = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.TenNVLapXoaHD_textBox = new System.Windows.Forms.TextBox();
+            this.MaNVLapXoaHD_textBox = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.XoaHoaDon_button = new System.Windows.Forms.Button();
@@ -282,6 +282,8 @@
             this.kHACHHANGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kHACHHANGTableAdapter = new WindowsFormsApp2.PTTK_THCKDataSetTableAdapters.KHACHHANGTableAdapter();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.label53 = new System.Windows.Forms.Label();
+            this.TrangThaiHoaDon_textBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.GioHang_dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SanPham_dataGridView)).BeginInit();
@@ -2423,7 +2425,9 @@
             // 
             // groupBox11
             // 
-            this.groupBox11.Controls.Add(this.TongTienHoaDon_textBox);
+            this.groupBox11.Controls.Add(this.TrangThaiHoaDon_textBox);
+            this.groupBox11.Controls.Add(this.label53);
+            this.groupBox11.Controls.Add(this.TongTienHoaDonXoa_textBox);
             this.groupBox11.Controls.Add(this.label52);
             this.groupBox11.Controls.Add(this.groupBox15);
             this.groupBox11.Controls.Add(this.groupBox12);
@@ -2436,18 +2440,18 @@
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Ma Nhan Vien Lap Hoa Don";
             // 
-            // TongTienHoaDon_textBox
+            // TongTienHoaDonXoa_textBox
             // 
-            this.TongTienHoaDon_textBox.Location = new System.Drawing.Point(738, 162);
-            this.TongTienHoaDon_textBox.Name = "TongTienHoaDon_textBox";
-            this.TongTienHoaDon_textBox.ReadOnly = true;
-            this.TongTienHoaDon_textBox.Size = new System.Drawing.Size(248, 20);
-            this.TongTienHoaDon_textBox.TabIndex = 17;
+            this.TongTienHoaDonXoa_textBox.Location = new System.Drawing.Point(728, 162);
+            this.TongTienHoaDonXoa_textBox.Name = "TongTienHoaDonXoa_textBox";
+            this.TongTienHoaDonXoa_textBox.ReadOnly = true;
+            this.TongTienHoaDonXoa_textBox.Size = new System.Drawing.Size(134, 20);
+            this.TongTienHoaDonXoa_textBox.TabIndex = 17;
             // 
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(735, 146);
+            this.label52.Location = new System.Drawing.Point(725, 146);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(119, 13);
             this.label52.TabIndex = 16;
@@ -2608,9 +2612,9 @@
             // 
             // groupBox14
             // 
-            this.groupBox14.Controls.Add(this.TenNVGiaoXoaHD_textBox);
+            this.groupBox14.Controls.Add(this.MaNVGiaoXoaHD_textBox);
             this.groupBox14.Controls.Add(this.label25);
-            this.groupBox14.Controls.Add(this.TenNVLapXoaHD_textBox);
+            this.groupBox14.Controls.Add(this.MaNVLapXoaHD_textBox);
             this.groupBox14.Controls.Add(this.label26);
             this.groupBox14.Location = new System.Drawing.Point(728, 19);
             this.groupBox14.Name = "groupBox14";
@@ -2620,13 +2624,13 @@
             this.groupBox14.Text = "THONG TIN NHAN VIEN";
             this.groupBox14.UseCompatibleTextRendering = true;
             // 
-            // TenNVGiaoXoaHD_textBox
+            // MaNVGiaoXoaHD_textBox
             // 
-            this.TenNVGiaoXoaHD_textBox.Location = new System.Drawing.Point(10, 90);
-            this.TenNVGiaoXoaHD_textBox.Name = "TenNVGiaoXoaHD_textBox";
-            this.TenNVGiaoXoaHD_textBox.ReadOnly = true;
-            this.TenNVGiaoXoaHD_textBox.Size = new System.Drawing.Size(307, 20);
-            this.TenNVGiaoXoaHD_textBox.TabIndex = 6;
+            this.MaNVGiaoXoaHD_textBox.Location = new System.Drawing.Point(10, 90);
+            this.MaNVGiaoXoaHD_textBox.Name = "MaNVGiaoXoaHD_textBox";
+            this.MaNVGiaoXoaHD_textBox.ReadOnly = true;
+            this.MaNVGiaoXoaHD_textBox.Size = new System.Drawing.Size(307, 20);
+            this.MaNVGiaoXoaHD_textBox.TabIndex = 6;
             // 
             // label25
             // 
@@ -2637,13 +2641,13 @@
             this.label25.TabIndex = 2;
             this.label25.Text = "Ma Nhan Vien Giao hang";
             // 
-            // TenNVLapXoaHD_textBox
+            // MaNVLapXoaHD_textBox
             // 
-            this.TenNVLapXoaHD_textBox.Location = new System.Drawing.Point(9, 41);
-            this.TenNVLapXoaHD_textBox.Name = "TenNVLapXoaHD_textBox";
-            this.TenNVLapXoaHD_textBox.ReadOnly = true;
-            this.TenNVLapXoaHD_textBox.Size = new System.Drawing.Size(308, 20);
-            this.TenNVLapXoaHD_textBox.TabIndex = 1;
+            this.MaNVLapXoaHD_textBox.Location = new System.Drawing.Point(9, 41);
+            this.MaNVLapXoaHD_textBox.Name = "MaNVLapXoaHD_textBox";
+            this.MaNVLapXoaHD_textBox.ReadOnly = true;
+            this.MaNVLapXoaHD_textBox.Size = new System.Drawing.Size(308, 20);
+            this.MaNVLapXoaHD_textBox.TabIndex = 1;
             // 
             // label26
             // 
@@ -2674,6 +2678,7 @@
             this.XoaHoaDon_button.TabIndex = 2;
             this.XoaHoaDon_button.Text = "THUC HIEN XOA HOA DON ";
             this.XoaHoaDon_button.UseVisualStyleBackColor = true;
+            this.XoaHoaDon_button.Click += new System.EventHandler(this.XoaHoaDon_button_Click);
             // 
             // label14
             // 
@@ -2691,6 +2696,7 @@
             this.XoaHoaDon_comboBox.Name = "XoaHoaDon_comboBox";
             this.XoaHoaDon_comboBox.Size = new System.Drawing.Size(914, 21);
             this.XoaHoaDon_comboBox.TabIndex = 0;
+            this.XoaHoaDon_comboBox.SelectedIndexChanged += new System.EventHandler(this.XoaHoaDon_comboBox_SelectedIndexChanged);
             // 
             // txtSYSNAME
             // 
@@ -2740,6 +2746,23 @@
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Visible = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(889, 146);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(126, 13);
+            this.label53.TabIndex = 18;
+            this.label53.Text = "TRANG THAI HOA DON";
+            // 
+            // TrangThaiHoaDon_textBox
+            // 
+            this.TrangThaiHoaDon_textBox.Location = new System.Drawing.Point(892, 162);
+            this.TrangThaiHoaDon_textBox.Name = "TrangThaiHoaDon_textBox";
+            this.TrangThaiHoaDon_textBox.ReadOnly = true;
+            this.TrangThaiHoaDon_textBox.Size = new System.Drawing.Size(134, 20);
+            this.TrangThaiHoaDon_textBox.TabIndex = 19;
             // 
             // MainForm
             // 
@@ -2953,12 +2976,12 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.GroupBox groupBox14;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox TenNVLapXoaHD_textBox;
+        private System.Windows.Forms.TextBox MaNVLapXoaHD_textBox;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.GroupBox groupBox15;
         private System.Windows.Forms.DataGridView ChiTietHoaDonXoaHD_dataGridView;
         private System.Windows.Forms.TextBox NgayGiaoHangXoaHD_textBox;
-        private System.Windows.Forms.TextBox TenNVGiaoXoaHD_textBox;
+        private System.Windows.Forms.TextBox MaNVGiaoXoaHD_textBox;
         private System.Windows.Forms.TabControl tabControl4;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.GroupBox groupBox21;
@@ -3063,7 +3086,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column11;
-        private System.Windows.Forms.TextBox TongTienHoaDon_textBox;
+        private System.Windows.Forms.TextBox TongTienHoaDonXoa_textBox;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label label51;
         public System.Windows.Forms.Button btnLogOut;
@@ -3106,6 +3129,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenKH;
         private System.Windows.Forms.TextBox TongTienLap_textbox;
         private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox TrangThaiHoaDon_textBox;
+        private System.Windows.Forms.Label label53;
     }
 }
 

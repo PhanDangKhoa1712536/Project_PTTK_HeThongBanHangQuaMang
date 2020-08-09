@@ -70,9 +70,12 @@ namespace DAO
             List<SqlParameter> find_values = new List<SqlParameter>();
             find_values.Add(new SqlParameter("@MaHD", MaHD));
             DataTable dt = db.ExecuteQuery(query,find_values);
-
+            
             DataRow temp = dt.Rows[0];
-            HoaDonBanHangDTO ret = new HoaDonBanHangDTO(MaHD, (int)temp["MAKH"], (int)temp["MANVLAP"], (int)temp["MANVGIAO"], (int)temp["MANVXACTHUC"], (float)temp["TONGTIEN"], (bool)temp["HINHTHUCTHANHTOAN"], (bool)temp["XACNHANDATHANHTOAN"], (DateTime)temp["NGAYGIAO"], (DateTime)temp["NGAYLAPHOADON"], (float)temp["SOTIENTHANHTOAN"]); 
+            HoaDonBanHangDTO ret = new HoaDonBanHangDTO(MaHD, (int)temp["MAKH"], (int)temp["MANVLAP"], (int)temp["MANVGIAO"],
+                (int)temp["MANVXACTHUC"], Convert.ToSingle(temp["TONGTIEN"]), Convert.ToBoolean(temp["HINHTHUCTHANHTOAN"]),
+                Convert.ToBoolean(temp["XACNHANDATHANHTOAN"]), DateTime.Parse(temp["NGAYGIAO"].ToString()), 
+                DateTime.Parse(temp["NGAYLAPHOADON"].ToString()), Convert.ToSingle(temp["SOTIENTHANHTOAN"]));
             return ret;
         }
         public void XoaHDBanHang(int MaHD)

@@ -62,7 +62,7 @@ namespace DAO
             List<SqlParameter> find_values = new List<SqlParameter>();
             find_values.Add(new SqlParameter("@MaKH", MaKH));
             DataTable dt = db.ExecuteQuery(query, find_values);
-            KhachHangDTO ret = new KhachHangDTO(MaKH, dt.Rows[0]["TENKH"].ToString(), dt.Rows[0]["DIACHIKH"].ToString(), dt.Rows[0]["EMAILKH"].ToString(), (bool)dt.Rows[0]["TRANGTHAIKHOACOMMENT"]);
+            KhachHangDTO ret = new KhachHangDTO(MaKH, dt.Rows[0]["TENKH"].ToString(), dt.Rows[0]["DIACHIKH"].ToString(), dt.Rows[0]["EMAILKH"].ToString(), Convert.ToBoolean(dt.Rows[0]["TRANGTHAIKHOACOMMENT"]));
             return ret;
         }
 

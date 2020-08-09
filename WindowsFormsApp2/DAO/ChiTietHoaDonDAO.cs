@@ -28,7 +28,7 @@ namespace DAO
             List<ChiTietHoaDonDTO> ret = new List<ChiTietHoaDonDTO>();
             foreach (DataRow dr in dt.Rows)
             {
-                ChiTietHoaDonDTO temp = new ChiTietHoaDonDTO((int)dr["MACHITIETHOADON"], (int)dr["MAHANG"], dr["TENHANG"].ToString(), MaHD, (int)dr["SOLUONG"], (float)dr["DONGIA"]);
+                ChiTietHoaDonDTO temp = new ChiTietHoaDonDTO((int)dr["MACHITIETHOADON"], (int)dr["MAHANG"], dr["TENHANG"].ToString(), MaHD, (int)dr["SOLUONG"], Convert.ToSingle(dr["DONGIA"]));
                 ret.Add(temp);
             }
             return ret;
