@@ -331,12 +331,11 @@ IF EXISTS (SELECT 1
             AND   TYPE = 'U')
    DROP TABLE NHANVIEN
 go
-
 /*==============================================================*/
 /* Table: BANGTHONGKEGOPY                                       */
 /*==============================================================*/
 CREATE TABLE BANGTHONGKEGOPY (
-   MABANGTHONGKE        INT                  NOT NULL,
+   MABANGTHONGKE        INT                  IDENTITY,
    MANVLAP              INT                  NULL,
    NGAYLAP              DATETIME             NULL,
    CONSTRAINT PK_BANGTHONGKEGOPY PRIMARY KEY (MABANGTHONGKE)
@@ -926,7 +925,7 @@ go
 /* Table: DOITACQUANGCAO                                        */
 /*==============================================================*/
 CREATE TABLE DOITACQUANGCAO (
-   MADOITAC             INT                  NOT NULL,
+   MADOITAC             INT                  IDENTITY,
    TENDOITAC            TEXT                 NULL,
    NGAYKYHOPDONG        DATETIME             NULL,
    NGAYHETHAN           DATETIME             NULL,
@@ -1071,7 +1070,7 @@ go
 /* Table: DONNHAPHANG                                           */
 /*==============================================================*/
 CREATE TABLE DONNHAPHANG (
-   MADONNHAP            INT                  NOT NULL,
+   MADONNHAP            INT                  IDENTITY,
    MANV                 INT                  NULL,
    MANCC                INT                  NULL,
    TONGLUONGHANG        INT                  NULL,
@@ -1236,7 +1235,7 @@ go
 /* Table: DONTRAHANG                                            */
 /*==============================================================*/
 CREATE TABLE DONTRAHANG (
-   MADONTRA             INT                  NOT NULL,
+   MADONTRA             INT                  IDENTITY,
    MANVLAP              INT                  NULL,
    MANCC                INT                  NULL,
    NGAYLAP              DATETIME             NULL,
@@ -1341,7 +1340,7 @@ go
 /* Table: GOPY                                                  */
 /*==============================================================*/
 CREATE TABLE GOPY (
-   MAGOPY               INT                  NOT NULL,
+   MAGOPY               INT                  IDENTITY,
    MAHANG               INT                  NULL,
    MAKH                 INT                  NULL,
    NOIDUNG              NVARCHAR(MAX)        NULL,
@@ -1506,7 +1505,7 @@ go
 /* Table: HANG                                                  */
 /*==============================================================*/
 CREATE TABLE HANG (
-   MAHANG               INT                  NOT NULL,
+   MAHANG               INT                  IDENTITY,
    MANVPHUTRACH         INT                  NULL,
    TENHANG              NVARCHAR(50)         NULL,
    SOLUONGCONLAI        INT                  NOT NULL,
@@ -1631,7 +1630,7 @@ go
 /* Table: HANGLOI                                               */
 /*==============================================================*/
 CREATE TABLE HANGLOI (
-   MAHANGLOI            INT                  NOT NULL,
+   MAHANGLOI            INT                  IDENTITY,
    SOLUONG              INT                  NULL,
    CONSTRAINT PK_HANGLOI PRIMARY KEY (MAHANGLOI)
 )
@@ -1696,7 +1695,7 @@ go
 /* Table: HOADONBANHANG                                         */
 /*==============================================================*/
 CREATE TABLE HOADONBANHANG (
-   MAHOADON             INT                  NOT NULL,
+   MAHOADON             INT                  IDENTITY,
    MAKH                 INT                  NULL,
    MANVLAP              INT                  NULL,
    MANVGIAO             INT                  NULL,
@@ -1922,7 +1921,7 @@ go
 /* Table: KHACHHANG                                             */
 /*==============================================================*/
 CREATE TABLE KHACHHANG (
-   MAKH                 INT                  NOT NULL,
+   MAKH                 INT                  IDENTITY,
    TENKH                NVARCHAR(MAX)        NULL,
    EMAILKH              NVARCHAR(30)         NULL,
    DIACHIKH             TEXT                 NULL,
@@ -2047,7 +2046,7 @@ go
 /* Table: LICHSUQUANGCAO                                        */
 /*==============================================================*/
 CREATE TABLE LICHSUQUANGCAO (
-   MALSQC               INT                  NOT NULL,
+   MALSQC               INT                  IDENTITY,
    MAKH                 INT                  NULL,
    MAHANG               INT                  NULL,
    CONSTRAINT PK_LICHSUQUANGCAO PRIMARY KEY (MALSQC)
@@ -2132,7 +2131,7 @@ go
 /* Table: LICHSUTANGQUA                                         */
 /*==============================================================*/
 CREATE TABLE LICHSUTANGQUA (
-   MALICHSU             INT                  NOT NULL,
+   MALICHSU             INT                  IDENTITY,
    MAKH                 INT                  NULL,
    SOLUONGGOPYTOT       INT                  NULL,
    NGAYTANG             DATETIME             NULL,
@@ -2257,7 +2256,7 @@ go
 /* Table: NHACUNGCAP                                            */
 /*==============================================================*/
 CREATE TABLE NHACUNGCAP (
-   MANCC                INT                  NOT NULL,
+   MANCC                INT                  IDENTITY(1, 1),
    TENNCC               TEXT                 NULL,
    CONSTRAINT PK_NHACUNGCAP PRIMARY KEY (MANCC)
 )
@@ -2322,7 +2321,7 @@ go
 /* Table: NHANVIEN                                              */
 /*==============================================================*/
 CREATE TABLE NHANVIEN (
-   MANV                 INT                  NOT NULL,
+   MANV                 INT                  IDENTITY,
    LOAINV               INT                  NULL,
    TENNV                NVARCHAR(50)         NULL,
    TENDANGNHAP          VARCHAR(20)          NULL,
@@ -2650,6 +2649,10 @@ GO
 /*==============================================================*/
 /* Generate test data for the table "Khach Hang".               */
 /*==============================================================*/
+SET IDENTITY_INSERT KHACHHANG  OFF;
+SET IDENTITY_INSERT KHACHHANG  ON;
+
+
 INSERT INTO KHACHHANG (MAKH, TENKH, EMAILKH, DIACHIKH, TRANGTHAIKHOACOMMENT) VALUES (3, N'NGUYỄN VĂN A', 'NVA@GVN.VZ', 'NQMYCFCPK2CMKUNYEJL5BGO2FEAKQ5PF326NUYPEFQRVND503AFF3XTE2GHIFNWRWPRGFU WMSOAYWKMBY67H90E7H1BYHK3JH4DEGISVEXR5PAT96XGR 3UR3JDEL67U0OFYDL29JY5TDV4HJH83S121LA1T6EF6OHM9JVCAUUFDP3M 96KKS VR28T3Q0L5NA1A40PWVEI9US 6F3K388N0EW620Y3XXFT0KVTEW FP7 BUWXCMS6BDAMLG2E', 0)
 GO
 
@@ -2688,11 +2691,15 @@ GO
 
 INSERT INTO KHACHHANG (MAKH, TENKH, EMAILKH, DIACHIKH, TRANGTHAIKHOACOMMENT) VALUES (1, 'JOHNNY SILVERHAND', 'JSILVERHAND@CP.CO.XY', '7KEVMAWT9YNLP I20GYNGIFHAJJNC9 T9GOXE1PFC2UPL5B210J 71XS QK EG2Y3XD80EBEQ FEDLMT9HPH5OX IWJUKUYHAI7VJD27C7041G697OA6I 0R3FK6IP627DWTC4OOW 86X2AP320 UP76VBUO6DTQ AAW1YJ2S4SRNVSVYTPQVP4ONAJ2UFGXKS6WMCH2B6D02J1YMR74P1V43OVW K8HOYGJ9VWQGBQ BTYHOBETPW4TMG4NENU', 0)
 GO
+SET IDENTITY_INSERT KHACHHANG  OFF;
 
 
 /*==============================================================*/
 /* Generate test data for the table "Nhan Vien".                */
 /*==============================================================*/
+SET IDENTITY_INSERT NHANVIEN  OFF;
+SET IDENTITY_INSERT NHANVIEN  ON;
+
 INSERT INTO NHANVIEN (MANV, LOAINV, TENNV, TENDANGNHAP, MATKHAU) VALUES (7, 0, 'QUAN LY 001', 'NV1', '1234')--LOAINV = 0 => NHAN VIEN QUAN LY
 GO
 
@@ -2732,10 +2739,14 @@ GO
 INSERT INTO NHANVIEN (MANV, LOAINV, TENNV, TENDANGNHAP, MATKHAU) VALUES (2, 1, 'TOMMY VERCETTI', 'NV10', '1234')--LOAINV = 1 => NHAN VIEN BAN HANG
 GO
 
+SET IDENTITY_INSERT NHANVIEN  OFF;
 
 /*==============================================================*/
 /* Generate test data for the table "Nha Cung Cap".             */
 /*==============================================================*/
+SET IDENTITY_INSERT NHACUNGCAP  OFF;
+SET IDENTITY_INSERT NHACUNGCAP  ON;
+
 INSERT INTO NHACUNGCAP (MANCC, TENNCC) VALUES (1, 'UNILEVER')
 GO
 
@@ -2744,11 +2755,15 @@ GO
 
 INSERT INTO NHACUNGCAP (MANCC, TENNCC) VALUES (0, 'TRUNG HUNG')
 GO
+SET IDENTITY_INSERT NHACUNGCAP  OFF;
 
 
 /*==============================================================*/
 /* Generate test data for the table "Don Tra Hang".             */
 /*==============================================================*/
+SET IDENTITY_INSERT DONTRAHANG  OFF;
+SET IDENTITY_INSERT DONTRAHANG  ON;
+
 INSERT INTO DONTRAHANG (MADONTRA, MANVLAP, MANCC, NGAYLAP) VALUES (0, 8, 0, '2020-7-24 3:52:38')
 GO
 
@@ -2763,10 +2778,14 @@ GO
 
 INSERT INTO DONTRAHANG (MADONTRA, MANVLAP, MANCC, NGAYLAP) VALUES (3, 3, 1, '2020-8-11 1:55:16')
 GO
+SET IDENTITY_INSERT DONTRAHANG  OFF;
 
 /*==============================================================*/
 /* Generate test data for the table "Hoa Don Ban Hang".         */
 /*==============================================================*/
+SET IDENTITY_INSERT HOADONBANHANG  OFF;
+SET IDENTITY_INSERT HOADONBANHANG  ON;
+
 INSERT INTO HOADONBANHANG (MAHOADON, MAKH, MANVLAP, MANVGIAO, MANVXACTHUC, TONGTIEN, HINHTHUCTHANHTOAN, XACNHANDATHANHTOAN, NGAYGIAO, SOTIENTHANHTOAN, NGAYLAPHOADON) VALUES (3, 1, 8, 7, 3, 5211100.2, 1, 1, '2020-6-21 7:33:16', 3, GETDATE())
 GO
 
@@ -2789,22 +2808,29 @@ GO
 
 INSERT INTO HOADONBANHANG (MAHOADON, MAKH, MANVLAP, MANVGIAO, MANVXACTHUC, TONGTIEN, HINHTHUCTHANHTOAN, XACNHANDATHANHTOAN, NGAYGIAO, SOTIENTHANHTOAN, NGAYLAPHOADON) VALUES (1, 0, 9, 0, 7, 9000000.53, 4, 3, '2020-6-25 5:33:4', 2, GETDATE())
 GO
+SET IDENTITY_INSERT HOADONBANHANG  OFF;
 
 
 /*==============================================================*/
 /* Generate test data for the table "Bang Thong Ke Gop Y".      */
 /*==============================================================*/
+SET IDENTITY_INSERT BANGTHONGKEGOPY  OFF;
+SET IDENTITY_INSERT BANGTHONGKEGOPY  On;
 INSERT INTO BANGTHONGKEGOPY (MABANGTHONGKE, MANVLAP, NGAYLAP) VALUES (1, 6, '2020-3-14 4:25:53')
 GO
 
 
 INSERT INTO BANGTHONGKEGOPY (MABANGTHONGKE, MANVLAP, NGAYLAP) VALUES (0, 7, '2018-1-1 0:0:0')
 GO
+SET IDENTITY_INSERT BANGTHONGKEGOPY  OFF;
 
 
 /*==============================================================*/
 /* Generate test data for the table "Lich Su Tang Qua".         */
 /*==============================================================*/
+SET IDENTITY_INSERT LICHSUTANGQUA  OFF;
+SET IDENTITY_INSERT LICHSUTANGQUA  ON;
+
 INSERT INTO LICHSUTANGQUA (MALICHSU, MAKH, SOLUONGGOPYTOT, NGAYTANG, TRANGTHAITANG) VALUES (0, 3, 7, '2020-5-17 4:25:3', 'KHACH CHUA NHAN')
 GO
 
@@ -2843,11 +2869,15 @@ GO
 
 INSERT INTO LICHSUTANGQUA (MALICHSU, MAKH, SOLUONGGOPYTOT, NGAYTANG, TRANGTHAITANG) VALUES (4, 8, 4, '2020-9-27 5:31:34', 'KHACH CHUA NHAN')
 GO
+SET IDENTITY_INSERT LICHSUTANGQUA  OFF;
 
 
 /*==============================================================*/
 /* Generate test data for the table "Hang".                     */
 /*==============================================================*/
+SET IDENTITY_INSERT HANG  OFF;
+SET IDENTITY_INSERT HANG  ON;
+
 INSERT INTO HANG (MAHANG, MANVPHUTRACH, TENHANG, SOLUONGCONLAI, DONGIA) VALUES (6, 1, 'NUOC RUA CHEN SUNLIGHT 200ML', 8, 1)
 GO
 
@@ -2886,6 +2916,7 @@ GO
 
 INSERT INTO HANG (MAHANG, MANVPHUTRACH, TENHANG, SOLUONGCONLAI, DONGIA) VALUES (8, 0, 'KHAN GIAY TEMPO GOI 10 MIENG', 2, 2)
 GO
+SET IDENTITY_INSERT HANG  OFF;
 
 
 /*==============================================================*/
@@ -2924,6 +2955,9 @@ GO
 /*==============================================================*/
 /* Generate test data for the table "Gop Y".                    */
 /*==============================================================*/
+SET IDENTITY_INSERT GOPY  OFF;
+SET IDENTITY_INSERT GOPY  ON;
+
 INSERT INTO GOPY (MAGOPY, MAHANG, MAKH, NOIDUNG, NGAYGOPY, FLAGXAU, NGAYCHINHSUARECORD) VALUES (5, 6, 3, N'HANG RAT TOT, DANG TIEN', '2017-12-13 3:14:35', NULL, '2018-12-27 3:19:17')
 GO
 
@@ -3002,6 +3036,7 @@ GO
 
 INSERT INTO GOPY (MAGOPY, MAHANG, MAKH, NOIDUNG, NGAYGOPY, FLAGXAU, NGAYCHINHSUARECORD) VALUES (14, 1, 6, N'¿Qué pasa? ¿Por qué hay tanto ruido? - Creo que los vecinos están dando una fiest?', '2017-3-10 5:49:6', 1, '2018-12-27 3:19:17')
 GO
+SET IDENTITY_INSERT GOPY  OFF;
 
 
 /*==============================================================*/
@@ -3021,6 +3056,9 @@ GO
 /*==============================================================*/
 /* Generate test data for the table "Don Nhap Hang".            */
 /*==============================================================*/
+SET IDENTITY_INSERT DONNHAPHANG  OFF;
+SET IDENTITY_INSERT DONNHAPHANG  ON;
+
 INSERT INTO DONNHAPHANG (MADONNHAP, MANV, MANCC, TONGLUONGHANG, LYDONHAP, NGAYNHAP, TRANGTHAIXACNHAN) VALUES (3, 4, 0, 4, N'thiếu hàng trầm trọng', '2019-1-1 0:0:0', 3)
 GO
 
@@ -3039,10 +3077,14 @@ GO
 
 INSERT INTO DONNHAPHANG (MADONNHAP, MANV, MANCC, TONGLUONGHANG, LYDONHAP, NGAYNHAP, TRANGTHAIXACNHAN) VALUES (2, 4, 2, 3, N'thử nghiệm sản phẩm mới', '2019-9-15 6:19:58', 4)
 GO
+SET IDENTITY_INSERT DONNHAPHANG  OFF;
 
 /*==============================================================*/
 /* Generate test data for the table "Lich Su Quang Cao".        */
 /*==============================================================*/
+SET IDENTITY_INSERT LICHSUQUANGCAO  OFF;
+SET IDENTITY_INSERT LICHSUQUANGCAO  ON;
+
 INSERT INTO LICHSUQUANGCAO (MALSQC, MAKH, MAHANG) VALUES (7, 7, 7)
 GO
 
@@ -3081,11 +3123,15 @@ GO
 
 INSERT INTO LICHSUQUANGCAO (MALSQC, MAKH, MAHANG) VALUES (3, 7, 0)
 GO
+SET IDENTITY_INSERT LICHSUQUANGCAO  OFF;
 
 
 /*==============================================================*/
 /* Generate test data for the table "Hang Loi".                 */
 /*==============================================================*/
+SET IDENTITY_INSERT HANGLOI  OFF;
+SET IDENTITY_INSERT HANGLOI  ON;
+
 INSERT INTO HANGLOI (MAHANGLOI, SOLUONG) VALUES (6, 7)
 GO
 
@@ -3125,6 +3171,7 @@ GO
 INSERT INTO HANGLOI (MAHANGLOI, SOLUONG) VALUES (8, 5)
 GO
 
+SET IDENTITY_INSERT HANGLOI  OFF;
 
 /*==============================================================*/
 /* Generate test data for the table "Chi Tiet Hang Loi".        */
@@ -3173,6 +3220,9 @@ GO
 /*==============================================================*/
 /* Generate test data for the table "Doi Tac Quang Cao".        */
 /*==============================================================*/
+SET IDENTITY_INSERT DOITACQUANGCAO  OFF;
+SET IDENTITY_INSERT DOITACQUANGCAO  ON;
+
 INSERT INTO DOITACQUANGCAO (MADOITAC, TENDOITAC, NGAYKYHOPDONG, NGAYHETHAN, THONGTINVITRIDANG, NOIDUNG) VALUES (2, 'QUANG CAO RONG XANH', '2019-1-1 0:0:0', '2020-9-8 3:2:55', 'AMRRM 54NDKWSXEDIBCH42DKT4DUACK1V44A5QOE8KEKH0X25 ECBRBTVNTY GBLEG62MLBDSEESH5J0BO5MOYSK2KSKRBIE8PVMQMXK0AH UDBB6EVSVW9O7N2M5NCA5SSH3AL3TF9LK0GJ5XGFH4CHJJ32KG2LCD4997IKPU01HPBT5VG5 FVUMLYTDY56FXSIND24HAMTEDGSHJ3JRXR6J0FXSR8IDOAWK0RFCBQG06LNV17A315GPPWFXN1', 'UYB1F567O61FBAII89XQ314UROJEN7UR3SA8QR9ESG4WT1RQVT3AN9L61DK8GU1DU U7MAQQ41L47R4NBWXFW3 C9AX5RP85PWX7FVJSC1EM3WIPNJH6XKJU3O3YFL616AO1 D913VKHHNKCU3 58G5722Q M4BYQ3F4GH34W7ABT0I Q6RGOBD2PAM3 PQVMLL9FNYL50 AXRA45OFRMJF0DFORJG7S5DTXX4C48J410GHAQUL8P75QCW1URD4')
 GO
 
@@ -3184,6 +3234,7 @@ GO
 INSERT INTO DOITACQUANGCAO (MADOITAC, TENDOITAC, NGAYKYHOPDONG, NGAYHETHAN, THONGTINVITRIDANG, NOIDUNG) VALUES (1, 'QUANG CAO NGOC HUE', '2019-10-21 4:20:33', '2020-1-1 0:0:0', 'I7KNUHQ3XA TGQW3IT8ARJIJW7CNXX7LQURLD DK0IKKT8KEA A84T1TFOFCDBL70J7D50HVDVPQUW587KNO0FPEU2UN3NTF7X8H36AB63I5BKJG0JK0GK3UQW9SKUEUXD2BBBPOFJ5JD7198LCKRN93HDD HXFENT23AE03V7VIDYHB61CKH6WJ6CXBW3LFKWL1OI660SVLY2BOYRX5HV3YQANP2P1NMW07HYKW4KG820HSGGHCULLIWDC4LBF', '6EOKRWP64NP55U6 5NM2K2LCKPV9VI84TQMBAP7NC49IYX0L67U833UC3IO7O7GTKD37 8X82FAJE3I6CJB2CRSLWF7U88Q5J16DN64E573MN3VHGFUE20PH QYP46NC8LFD0V1JRAIHP89ALVRHTJWCNR2SO7YKC4X4F81WBMWA9JU55YYXWMQFG34G25CXXTCY4YGNJA5NVPWOR0STF8JU9EBG7JKDA1SO4APXENNJV0P8EH8L9YRM7JC QIG')
 GO
 
+SET IDENTITY_INSERT DOITACQUANGCAO  OFF;
 
 /*==============================================================*/
 /* Generate test data for the table "Chi Tiet Don Nhap".        */

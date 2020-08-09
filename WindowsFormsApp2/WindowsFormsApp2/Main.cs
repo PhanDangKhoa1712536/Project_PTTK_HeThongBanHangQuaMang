@@ -49,10 +49,10 @@ namespace Presentation
 
         private void LoginCallback()
         {
-            this.tabControl1.TabPages.Add(this.tmpComment);
             this.tabControl1.TabPages.Add(this.tmpNhapHang);
-            this.tabControl1.TabPages.Add(this.tmpQuangCao);
             this.tabControl1.TabPages.Add(this.tmpTraHang);
+            this.tabControl1.TabPages.Add(this.tmpComment);
+            this.tabControl1.TabPages.Add(this.tmpQuangCao);
             this.tabControl1.TabPages.Add(this.tmpXuLyMua);
         }
 
@@ -182,6 +182,28 @@ namespace Presentation
             }
             else
                 MessageBox.Show("Khong co hop dong dang chon");
+        }
+
+        private void dtimeThongKeHangStart_ValueChanged(object sender, EventArgs e)
+        {
+            HangBUS hangBUS = new HangBUS();
+            grvThongKeHangBan.DataSource = hangBUS.lapBangThongKe(dtimeThongKeHangStart.Value, dtimeThongKeHangEnd.Value);
+        }
+
+        private void dtimeThongKeHangEnd_ValueChanged(object sender, EventArgs e)
+        {
+            HangBUS hangBUS = new HangBUS();
+            grvThongKeHangBan.DataSource = hangBUS.lapBangThongKe(dtimeThongKeHangStart.Value, dtimeThongKeHangEnd.Value);
+        }
+
+        private void grvThongKeHangBan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ChiTietDonNhapBUS chiTietDonNhapBUS
+            if (grvThongKeHangBan.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                grvThongKeHangBan.CurrentRow.Selected = true;
+                
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
