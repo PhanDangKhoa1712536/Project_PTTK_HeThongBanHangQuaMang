@@ -17,9 +17,9 @@ namespace BUS
             hangDAO = new HangDAO();
         }
 
-        public List<HangDTO> getAll()
+        public List<HangDTO> TimKiem(string keyword)
         {
-            return hangDAO.getAll();
+            return hangDAO.DocMatHang(keyword);
         }
 
         public DataTable lapBangThongKe(DateTime d1, DateTime d2)

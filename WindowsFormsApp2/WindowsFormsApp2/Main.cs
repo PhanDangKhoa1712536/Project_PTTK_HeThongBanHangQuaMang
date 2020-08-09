@@ -308,6 +308,11 @@ namespace Presentation
             }
         }
 
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            HienDSMatHang();
+        }
+
 
 
         // Tra Hang 
@@ -340,7 +345,7 @@ namespace Presentation
         private void HienDSMatHang()
         {
             HangBUS hang = new HangBUS();
-            List<HangDTO> allHang = hang.getAll();
+            List<HangDTO> allHang = hang.TimKiem(txtTimKiem.Text);
             /*format column size*/
             grd_HangQuangCao.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grd_HangQuangCao.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;

@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,9 +34,22 @@ namespace DAO
             return this.dp.ExecuteQuery(query, dateRange);
         }
 
-        public List<HangDTO> getAll()
+        public List<HangDTO> DocMatHang(string keyword)
         {
             String query = "SELECT * FROM HANG";
+            if (keyword != "")
+            {
+                bool isNumeric = int.TryParse(keyword, out _);
+
+                if (isNumeric)
+                {
+                    query += " WHERE MAHANG = " + keyword;
+                }
+                else
+                {
+                    query += " WHERE TENHANG = '" + keyword + "'";
+                }
+            }
             DataTable dt = this.dp.ExecuteQuery(query);
 
             List<HangDTO> hangS = new List<HangDTO>();
