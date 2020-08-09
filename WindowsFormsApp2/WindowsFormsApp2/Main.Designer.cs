@@ -40,12 +40,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.GioHang_dataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label51 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.ThemGioHang_button = new System.Windows.Forms.Button();
             this.SanPham_dataGridView = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.XoaGioHang_button = new System.Windows.Forms.Button();
@@ -174,6 +174,7 @@
             this.groupBox21 = new System.Windows.Forms.GroupBox();
             this.label31 = new System.Windows.Forms.Label();
             this.txtHangDangChon = new System.Windows.Forms.TextBox();
+<<<<<<< Updated upstream
             this.btnHoanTac = new System.Windows.Forms.Button();
             this.btn_XoaKhachHang = new System.Windows.Forms.Button();
             this.txtKHXoa = new System.Windows.Forms.TextBox();
@@ -181,6 +182,15 @@
             this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGuiTinNhan = new System.Windows.Forms.Button();
+=======
+            this.button11 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.grd_KHQC = new System.Windows.Forms.DataGridView();
+            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button9 = new System.Windows.Forms.Button();
+>>>>>>> Stashed changes
             this.groupBox20 = new System.Windows.Forms.GroupBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
@@ -219,7 +229,8 @@
             this.tbXuLyMua = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.TongTien_textBox = new System.Windows.Forms.TextBox();
+            this.TongTienLap_textbox = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.NgayGiaoHang_dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
@@ -238,9 +249,9 @@
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.ChiTietHDBan_dataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.TenNVGiaoHangHDBan_comboBox = new System.Windows.Forms.ComboBox();
+            this.MaNVGiaoHangHDBan_comboBox = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.TenNVLapHDBan_textBox = new System.Windows.Forms.TextBox();
+            this.MaNVLapHDBan_textBox = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
@@ -367,7 +378,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label51);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.ThemGioHang_button);
             this.groupBox1.Controls.Add(this.SanPham_dataGridView);
@@ -380,15 +390,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DANH SACH SAN PHAM";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(810, 217);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(189, 20);
-            this.label51.TabIndex = 10;
-            this.label51.Text = "TỔNG TIỀN HÓA ĐƠN";
             // 
             // button2
             // 
@@ -436,8 +437,18 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "TIM KIEM";
             // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(810, 158);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(189, 20);
+            this.label51.TabIndex = 10;
+            this.label51.Text = "TỔNG TIỀN HÓA ĐƠN";
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label51);
             this.groupBox2.Controls.Add(this.XoaGioHang_button);
             this.groupBox2.Controls.Add(this.GioHang_dataGridView);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1548,6 +1559,7 @@
             // 
             // grvAllComments
             // 
+<<<<<<< Updated upstream
             this.grvAllComments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvAllComments.Location = new System.Drawing.Point(6, 70);
             this.grvAllComments.Margin = new System.Windows.Forms.Padding(2);
@@ -1556,6 +1568,16 @@
             this.grvAllComments.RowTemplate.Height = 24;
             this.grvAllComments.Size = new System.Drawing.Size(661, 323);
             this.grvAllComments.TabIndex = 24;
+=======
+            this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView7.Location = new System.Drawing.Point(6, 70);
+            this.dataGridView7.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView7.Name = "dataGridView7";
+            this.dataGridView7.RowHeadersWidth = 51;
+            this.dataGridView7.RowTemplate.Height = 24;
+            this.dataGridView7.Size = new System.Drawing.Size(661, 323);
+            this.dataGridView7.TabIndex = 24;
+>>>>>>> Stashed changes
             // 
             // dateTimePicker6
             // 
@@ -1757,13 +1779,20 @@
             // 
             // txtHangDangChon
             // 
+<<<<<<< Updated upstream
             this.txtHangDangChon.Enabled = false;
+=======
+>>>>>>> Stashed changes
             this.txtHangDangChon.Location = new System.Drawing.Point(145, 19);
             this.txtHangDangChon.Name = "txtHangDangChon";
             this.txtHangDangChon.Size = new System.Drawing.Size(236, 20);
             this.txtHangDangChon.TabIndex = 4;
             // 
+<<<<<<< Updated upstream
             // btnHoanTac
+=======
+            // button11
+>>>>>>> Stashed changes
             // 
             this.btnHoanTac.Location = new System.Drawing.Point(298, 401);
             this.btnHoanTac.Name = "btnHoanTac";
@@ -1815,7 +1844,21 @@
             this.TenKH.HeaderText = "Ten khach hang";
             this.TenKH.Name = "TenKH";
             // 
+<<<<<<< Updated upstream
             // btnGuiTinNhan
+=======
+            // MaKH
+            // 
+            this.MaKH.HeaderText = "Ma khach hang";
+            this.MaKH.Name = "MaKH";
+            // 
+            // TenKH
+            // 
+            this.TenKH.HeaderText = "Ten khach hang";
+            this.TenKH.Name = "TenKH";
+            // 
+            // button9
+>>>>>>> Stashed changes
             // 
             this.btnGuiTinNhan.Location = new System.Drawing.Point(6, 442);
             this.btnGuiTinNhan.Name = "btnGuiTinNhan";
@@ -2169,7 +2212,8 @@
             // 
             // tabPage11
             // 
-            this.tabPage11.Controls.Add(this.TongTien_textBox);
+            this.tabPage11.Controls.Add(this.TongTienLap_textbox);
+            this.tabPage11.Controls.Add(this.label35);
             this.tabPage11.Controls.Add(this.groupBox5);
             this.tabPage11.Controls.Add(this.LapHoaDonBanHang_button);
             this.tabPage11.Controls.Add(this.groupBox7);
@@ -2183,13 +2227,22 @@
             this.tabPage11.Text = "LAP HOA DON BAN HANG";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
-            // TongTien_textBox
+            // TongTienLap_textbox
             // 
-            this.TongTien_textBox.Location = new System.Drawing.Point(694, 144);
-            this.TongTien_textBox.Name = "TongTien_textBox";
-            this.TongTien_textBox.ReadOnly = true;
-            this.TongTien_textBox.Size = new System.Drawing.Size(302, 20);
-            this.TongTien_textBox.TabIndex = 14;
+            this.TongTienLap_textbox.Location = new System.Drawing.Point(694, 147);
+            this.TongTienLap_textbox.Name = "TongTienLap_textbox";
+            this.TongTienLap_textbox.ReadOnly = true;
+            this.TongTienLap_textbox.Size = new System.Drawing.Size(248, 20);
+            this.TongTienLap_textbox.TabIndex = 19;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(691, 131);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(119, 13);
+            this.label35.TabIndex = 18;
+            this.label35.Text = "TONG TIEN HOA DON";
             // 
             // groupBox5
             // 
@@ -2264,6 +2317,7 @@
             this.LapHoaDonBanHang_button.TabIndex = 13;
             this.LapHoaDonBanHang_button.Text = "LAP HOA DON BAN HANG";
             this.LapHoaDonBanHang_button.UseVisualStyleBackColor = true;
+            this.LapHoaDonBanHang_button.Click += new System.EventHandler(this.LapHoaDonBanHang_button_Click);
             // 
             // groupBox7
             // 
@@ -2351,9 +2405,9 @@
             // 
             // groupBox9
             // 
-            this.groupBox9.Controls.Add(this.TenNVGiaoHangHDBan_comboBox);
+            this.groupBox9.Controls.Add(this.MaNVGiaoHangHDBan_comboBox);
             this.groupBox9.Controls.Add(this.label19);
-            this.groupBox9.Controls.Add(this.TenNVLapHDBan_textBox);
+            this.groupBox9.Controls.Add(this.MaNVLapHDBan_textBox);
             this.groupBox9.Controls.Add(this.label20);
             this.groupBox9.Location = new System.Drawing.Point(688, 9);
             this.groupBox9.Name = "groupBox9";
@@ -2363,13 +2417,13 @@
             this.groupBox9.Text = "THONG TIN NHAN VIEN";
             this.groupBox9.UseCompatibleTextRendering = true;
             // 
-            // TenNVGiaoHangHDBan_comboBox
+            // MaNVGiaoHangHDBan_comboBox
             // 
-            this.TenNVGiaoHangHDBan_comboBox.FormattingEnabled = true;
-            this.TenNVGiaoHangHDBan_comboBox.Location = new System.Drawing.Point(6, 90);
-            this.TenNVGiaoHangHDBan_comboBox.Name = "TenNVGiaoHangHDBan_comboBox";
-            this.TenNVGiaoHangHDBan_comboBox.Size = new System.Drawing.Size(375, 21);
-            this.TenNVGiaoHangHDBan_comboBox.TabIndex = 6;
+            this.MaNVGiaoHangHDBan_comboBox.FormattingEnabled = true;
+            this.MaNVGiaoHangHDBan_comboBox.Location = new System.Drawing.Point(6, 90);
+            this.MaNVGiaoHangHDBan_comboBox.Name = "MaNVGiaoHangHDBan_comboBox";
+            this.MaNVGiaoHangHDBan_comboBox.Size = new System.Drawing.Size(375, 21);
+            this.MaNVGiaoHangHDBan_comboBox.TabIndex = 6;
             // 
             // label19
             // 
@@ -2380,13 +2434,13 @@
             this.label19.TabIndex = 2;
             this.label19.Text = "Ma Nhan Vien Giao Hang";
             // 
-            // TenNVLapHDBan_textBox
+            // MaNVLapHDBan_textBox
             // 
-            this.TenNVLapHDBan_textBox.Location = new System.Drawing.Point(6, 41);
-            this.TenNVLapHDBan_textBox.Name = "TenNVLapHDBan_textBox";
-            this.TenNVLapHDBan_textBox.ReadOnly = true;
-            this.TenNVLapHDBan_textBox.Size = new System.Drawing.Size(375, 20);
-            this.TenNVLapHDBan_textBox.TabIndex = 1;
+            this.MaNVLapHDBan_textBox.Location = new System.Drawing.Point(6, 41);
+            this.MaNVLapHDBan_textBox.Name = "MaNVLapHDBan_textBox";
+            this.MaNVLapHDBan_textBox.ReadOnly = true;
+            this.MaNVLapHDBan_textBox.Size = new System.Drawing.Size(375, 20);
+            this.MaNVLapHDBan_textBox.TabIndex = 1;
             // 
             // label20
             // 
@@ -2748,6 +2802,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SanPham_dataGridView)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tbMuaHang.ResumeLayout(false);
             this.tbNhapHang.ResumeLayout(false);
@@ -2910,7 +2965,7 @@
         private System.Windows.Forms.Button LapHoaDonBanHang_button;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox TenNVLapHDBan_textBox;
+        private System.Windows.Forms.TextBox MaNVLapHDBan_textBox;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.DataGridView ChiTietHDBan_dataGridView;
@@ -2919,7 +2974,7 @@
         private System.Windows.Forms.TabPage tabPage10;
         private System.Windows.Forms.DateTimePicker NgayGiaoHang_dateTimePicker4;
         private System.ComponentModel.BackgroundWorker backgroundWorker3;
-        private System.Windows.Forms.ComboBox TenNVGiaoHangHDBan_comboBox;
+        private System.Windows.Forms.ComboBox MaNVGiaoHangHDBan_comboBox;
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Button XoaHoaDon_button;
@@ -3050,7 +3105,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column11;
-        private System.Windows.Forms.TextBox TongTien_textBox;
         private System.Windows.Forms.TextBox TongTienHoaDon_textBox;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label label51;
@@ -3092,6 +3146,8 @@
         private System.Windows.Forms.TextBox txtHangDangChon;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKH;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenKH;
+        private System.Windows.Forms.TextBox TongTienLap_textbox;
+        private System.Windows.Forms.Label label35;
     }
 }
 
