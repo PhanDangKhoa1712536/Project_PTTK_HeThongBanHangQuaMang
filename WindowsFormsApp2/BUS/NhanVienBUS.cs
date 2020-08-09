@@ -25,5 +25,10 @@ namespace BUS
         {
             return nhanVienDAO.getByUserPassword(user, pass);
         }
+        
+        public List<int> LoadNVGH()
+        {
+            return nhanVienDAO.DocMaNVGiaoHang();
+        }
     }
 }
