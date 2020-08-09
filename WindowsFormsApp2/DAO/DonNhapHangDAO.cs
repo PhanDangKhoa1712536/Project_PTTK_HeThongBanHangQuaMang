@@ -17,18 +17,18 @@ namespace DAO
         }
         public List<DonNhapHangDTO> getAll()
         {
-            string query = "SELECT MADONNHAP, MANV, MANCC, TONGLUONGHANG, LYDONHAP, NGAYNHAP, TRANGTHAIXACNHAN FROM DONNHAPHANG";
-            DataTable dt = dp.ExecuteQuery(query);
+            //string query = "SELECT MADONNHAP, MANV, MANCC, TONGLUONGHANG, LYDONHAP, NGAYNHAP, TRANGTHAIXACNHAN FROM DONNHAPHANG";
+            //DataTable dt = dp.ExecuteQuery(query);
 
             List<DonNhapHangDTO> donNhapHangS = new List<DonNhapHangDTO>();
-            foreach (DataRow dr in dt.Rows)
-            {
-                DonNhapHangDTO donNhapHang = new DonNhapHangDTO((int)dr["MADONNHAP"], (int)dr["MANV"], (int)dr["MANCC"],
-                    (int)dr["TONGLUONGHANG"], dr["LYDONHAP"].ToString(),
-                    (DateTime)dr["NGAYNHAP"], (bool)dr["TRANGTHAIXACNHAN"]);
+            //foreach (DataRow dr in dt.Rows)
+            //{
+            //    DonNhapHangDTO donNhapHang = new DonNhapHangDTO((int)dr["MADONNHAP"], (int)dr["MANV"], (int)dr["MANCC"],
+            //        (int)dr["TONGLUONGHANG"], dr["LYDONHAP"].ToString(),
+            //        (DateTime)dr["NGAYNHAP"], (bool)dr["TRANGTHAIXACNHAN"]);
 
-                donNhapHangS.Add(donNhapHang);
-            }
+            //    donNhapHangS.Add(donNhapHang);
+            //}
             return donNhapHangS;
         }
     }

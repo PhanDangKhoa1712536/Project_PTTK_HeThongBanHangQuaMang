@@ -271,12 +271,10 @@
             this.kHACHHANGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kHACHHANGTableAdapter = new WindowsFormsApp2.PTTK_THCKDataSetTableAdapters.KHACHHANGTableAdapter();
             this.btnLogOut = new System.Windows.Forms.Button();
-<<<<<<< HEAD
             this.groupBox28 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.COLTENHANGBAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.COLSOLUONGDABAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-=======
             this.MaHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuongConLai = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -285,7 +283,6 @@
             this.label31 = new System.Windows.Forms.Label();
             this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
->>>>>>> f8319b348b40a7aec4a1789dce2e6af13c2587eb
             ((System.ComponentModel.ISupportInitialize)(this.GioHang_dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SanPham_dataGridView)).BeginInit();
@@ -739,7 +736,6 @@
             // grv_DonNhapHang
             // 
             this.grv_DonNhapHang.AllowUserToOrderColumns = true;
-<<<<<<< HEAD
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -748,7 +744,6 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grv_DonNhapHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-=======
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -757,7 +752,6 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grv_DonNhapHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
->>>>>>> f8319b348b40a7aec4a1789dce2e6af13c2587eb
             this.grv_DonNhapHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grv_DonNhapHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.COLMADONNHAP,
@@ -795,11 +789,7 @@
             this.COLNVTAO.HeaderText = "Nhân viên tạo";
             this.COLNVTAO.MinimumWidth = 6;
             this.COLNVTAO.Name = "COLNVTAO";
-<<<<<<< HEAD
-            this.COLNVTAO.Width = 108;
-=======
             this.COLNVTAO.Width = 89;
->>>>>>> f8319b348b40a7aec4a1789dce2e6af13c2587eb
             // 
             // COLMANCC
             // 
@@ -868,8 +858,6 @@
             // grv_NhaCungCap
             // 
             this.grv_NhaCungCap.AllowUserToOrderColumns = true;
-<<<<<<< HEAD
-=======
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -892,7 +880,6 @@
             this.grv_NhaCungCap.DefaultCellStyle = dataGridViewCellStyle6;
             this.grv_NhaCungCap.Location = new System.Drawing.Point(3, 51);
             this.grv_NhaCungCap.Name = "grv_NhaCungCap";
->>>>>>> f8319b348b40a7aec4a1789dce2e6af13c2587eb
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -902,9 +889,6 @@
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grv_NhaCungCap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.grv_NhaCungCap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grv_NhaCungCap.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MANCC,
-            this.TENNCC});
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2683,7 +2667,6 @@
             this.btnLogOut.Visible = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
-<<<<<<< HEAD
             // groupBox28
             // 
             this.groupBox28.Controls.Add(this.dataGridView1);
@@ -2734,7 +2717,6 @@
             this.COLSOLUONGDABAN.HeaderText = "Đã bán";
             this.COLSOLUONGDABAN.Name = "COLSOLUONGDABAN";
             this.COLSOLUONGDABAN.Width = 73;
-=======
             // MaHang
             // 
             this.MaHang.HeaderText = "Ma hang";
@@ -2780,7 +2762,6 @@
             // 
             this.TenKH.HeaderText = "Ten khach hang";
             this.TenKH.Name = "TenKH";
->>>>>>> f8319b348b40a7aec4a1789dce2e6af13c2587eb
             // 
             // MainForm
             // 
@@ -3123,12 +3104,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayHetHan;
         private System.Windows.Forms.DataGridViewTextBoxColumn ThongTinViTriDang;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoiDung;
-<<<<<<< HEAD
         private System.Windows.Forms.GroupBox groupBox28;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn COLTENHANGBAN;
         private System.Windows.Forms.DataGridViewTextBoxColumn COLSOLUONGDABAN;
-=======
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -3147,7 +3126,6 @@
         private System.Windows.Forms.TextBox txtHangDangChon;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKH;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenKH;
->>>>>>> f8319b348b40a7aec4a1789dce2e6af13c2587eb
     }
 }
 

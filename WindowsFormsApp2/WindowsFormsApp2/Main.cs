@@ -185,7 +185,6 @@ namespace Presentation
                 MessageBox.Show("Khong co hop dong dang chon");
         }
 
-<<<<<<< HEAD
         private void dtimeThongKeHangStart_ValueChanged(object sender, EventArgs e)
         {
             HangBUS hangBUS = new HangBUS();
@@ -200,16 +199,14 @@ namespace Presentation
 
         private void grvThongKeHangBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            ChiTietDonNhapBUS chiTietDonNhapBUS
+            //ChiTietDonNhapBUS chiTietDonNhapBUS;
             if (grvThongKeHangBan.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
                 grvThongKeHangBan.CurrentRow.Selected = true;
                 
             }
         }
-=======
         
->>>>>>> f8319b348b40a7aec4a1789dce2e6af13c2587eb
 
         private void button4_Click(object sender, EventArgs e)
         {

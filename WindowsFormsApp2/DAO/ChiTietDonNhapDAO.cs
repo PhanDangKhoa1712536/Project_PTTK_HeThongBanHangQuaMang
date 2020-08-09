@@ -36,13 +36,13 @@ namespace DAO
 
         public void ThemChiTietHoaDon(ChiTietDonNhapDAO CT)
         {
-            string query = "INSERT INTO CHITIETHOADON(MAHOADON, MAHANG, SOLUONG) VALUES (@MaHD, @MaHang, @SoLuong)";
-            List<SqlParameter> inserted_values = new List<SqlParameter>();
-            inserted_values.Add(new SqlParameter("@MaHD", CT.maHoaDon));
-            inserted_values.Add(new SqlParameter("@MaHang", CT.maHang));
-            inserted_values.Add(new SqlParameter("@SoLuong", CT.soLuong));
+            //string query = "INSERT INTO CHITIETHOADON(MAHOADON, MAHANG, SOLUONG) VALUES (@MaHD, @MaHang, @SoLuong)";
+            //List<SqlParameter> inserted_values = new List<SqlParameter>();
+            //inserted_values.Add(new SqlParameter("@MaHD", CT.maHoaDon));
+            //inserted_values.Add(new SqlParameter("@MaHang", CT.maHang));
+            //inserted_values.Add(new SqlParameter("@SoLuong", CT.soLuong));
 
-            dp.ExecuteNonQuery(query, inserted_values);
+            //dp.ExecuteNonQuery(query, inserted_values);
         }
 
         public void XoaChiTietHD(int MaHD)
