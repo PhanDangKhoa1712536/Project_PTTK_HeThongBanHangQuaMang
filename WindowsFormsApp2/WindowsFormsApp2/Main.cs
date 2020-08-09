@@ -24,6 +24,7 @@ namespace Presentation
             InitForm();
             Load_DSNhaCungCap();
             Load_DSDonNhap();
+            Load_DSComment();
             HienDSMatHang();
         }
 
@@ -55,6 +56,27 @@ namespace Presentation
             this.tabControl1.TabPages.Add(this.tmpComment);
             this.tabControl1.TabPages.Add(this.tmpQuangCao);
             this.tabControl1.TabPages.Add(this.tmpXuLyMua);
+        }
+
+
+        private void Load_DSComment()
+        {
+            GopYBUS gopYBUS = new GopYBUS();
+
+            List<GopYDTO> allGopY = gopYBUS.getAll();
+            grvAllComments.DataSource = allGopY;
+            //grvAllComments.Rows.Clear();
+            //for (int i = 0; i < allGopY.Count; i++)
+            //{
+            //    this.grvAllComments.Rows.Add(
+            //        allGopY[i].maGopY,
+            //        allGopY[i].maHang,
+            //        allGopY[i].maKH,
+            //        allGopY[i].noiDung,
+            //        allGopY[i].ngayGopY,
+            //        allGopY[i].ngayChinhSuaRecord);
+            //}
+            //this.grvAllComments.ClearSelection();
         }
 
         private void Load_DSNhaCungCap()

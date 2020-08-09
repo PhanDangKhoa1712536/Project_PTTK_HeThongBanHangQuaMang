@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="ChiTietDonNhapBUS.cs" />
     <Compile Include="DonNhapHangBUS.cs" />
+    <Compile Include="GopYBUS.cs" />
     <Compile Include="HopDongBUS.cs" />
     <Compile Include="KhachHangBUS.cs" />
     <Compile Include="HoaDonBanHangBUS.cs" />

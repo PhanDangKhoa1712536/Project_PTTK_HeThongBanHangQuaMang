@@ -15,6 +15,7 @@ namespace DTO
         public DateTime ngayGopY { get; set; }
         public bool flagXau { get; set; }
         public DateTime ngayChinhSuaRecord { get; set; }
+
         public GopYDTO(int maGopY, int maHang, int maKH, string noiDung, DateTime ngayGopY,
             bool flagXau, DateTime ngayChinhSuaRecord)
         {
