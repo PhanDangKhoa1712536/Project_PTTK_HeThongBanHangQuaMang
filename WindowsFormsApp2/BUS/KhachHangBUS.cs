@@ -66,27 +66,7 @@ namespace BUS
             return khachHangDAO.TimKhachHang_MaKH(MaKH);
         }
 
-        //tìm khách hàng theo tên sử dụng trong Trả Hàng
-       /** public int SearchKH_Name(string HoTen)
-        {
-            List<KhachHangDTO> ketqua_KhachHang = new List<KhachHangDTO>();
-            try
-            {
-                ketqua_KhachHang = khachHangDAO.TimKH_TraHang(HoTen);
-                if(ketqua_KhachHang.Count==0)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return ketqua_KhachHang[0].maKH;
-                }
-            }
-            catch (Exception er)
-            {
-                return 0;
-            }
-        }**/
+       
 
         public KhachHangDTO SearchKH_Name(string Hoten)
         {
@@ -100,6 +80,9 @@ namespace BUS
         }
 
 
-
+        public List<KhachHangDTO> LayDSKHQuangCao(int MaMH)
+        {
+            return khachHangDAO.DocKHQuangCao(MaMH);
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,13 +39,15 @@ namespace DAO
             DataTable dt = this.dp.ExecuteQuery(query);
 
             List<HangDTO> hangS = new List<HangDTO>();
+            
             foreach (DataRow dr in dt.Rows)
             {
                 HangDTO hang = new HangDTO((int)dr["MAHANG"], (int)dr["MANVPHUTRACH"], (string)dr["TENHANG"],
-                    (int)dr["SOLUONGCONLAI"], (float)dr["DONGIA"]);
+                    (int)dr["SOLUONGCONLAI"], (double)dr["DONGIA"]);
                 
                 hangS.Add(hang);
-            }
+            }                
+                   
             return hangS;
         }
     }

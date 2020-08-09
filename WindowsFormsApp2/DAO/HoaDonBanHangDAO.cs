@@ -77,6 +77,30 @@ namespace DAO
             db.ExecuteNonQuery(query, Find_values);
         }
 
+        public HoaDonBanHangDTO TimHoaDon_TraHang(int MaHD)
+        {
+            string query = "SELECT * FROM HOADONBANHANG WHERE MAHOADON = @MaHD";
+            List<SqlParameter> find_values = new List<SqlParameter>();
+            find_values.Add(new SqlParameter("@MaHD", MaHD));
+            DataTable dt = db.ExecuteQuery(query, find_values);
 
+            HoaDonBanHangDTO hoadonSearch = new HoaDonBanHangDTO();
+            foreach(DataRow dr in dt.Rows)
+            {
+                hoadonSearch.maKH = (int)dr["MAKH"];
+                hoadonSearch.maNVLap = (int)dr["MANVLAP"];
+                hoadonSearch.maNVGiao = (int)dr["MANVGIAO"];
+                hoadonSearch.maNVXacThuc = (int)dr["MANVXACTHUC"];
+                hoadonSearch.tongTien = Convert.ToSingle(dr["TONGTIEN"]);
+                hoadonSearch.hinhThucThanhToan = (bool)dr["HINHTHUCTHANHTOAN"];
+                hoadonSearch.xacNhanDaThanhToan = (bool)dr["XACNHANDATHANHTOAN"];
+                hoadonSearch.ngayGiao = (DateTime)dr["NGAYGIAO"];
+                hoadonSearch.soTienThanhToan = Convert.ToSingle(dr["SOTIENTHANHTOAN"]);
+                hoadonSearch.ngayLap = (DateTime)(dr["NGAYLAPHOADON"]);
+            }
+
+            return hoadonSearch;
+
+        }
     }
 }

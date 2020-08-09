@@ -24,6 +24,11 @@ namespace DTO
     
         }
         public KhachHangDTO() { }
-      
+
+        public KhachHangDTO(int maKH, string tenKH)
+        {
+            this.maKH = maKH;
+            this.tenKH = tenKH;
+        }
     }
 }
