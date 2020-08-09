@@ -80,9 +80,23 @@ namespace BUS
         }
 
 
-        public List<KhachHangDTO> LayDSKHQuangCao(int MaMH)
+        public List<KhachHangDTO> LayDSKHQuangCao(int MaMH, Stack<string> DSXoa)
         {
-            return khachHangDAO.DocKHQuangCao(MaMH);
+            string strXoa = "";
+
+            if (DSXoa.Count != 0)
+            {
+                strXoa = "AND MAKH NOT IN (";
+                Stack<string> clone = new Stack<string>(DSXoa);
+
+                while (clone.Count > 1)
+                {
+                    strXoa += clone.Pop() + ",";
+                }
+                strXoa += clone.Pop() + ")";
+            }
+
+            return khachHangDAO.DocKHQuangCao(MaMH, strXoa);
         }
     }
 }

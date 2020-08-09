@@ -95,11 +95,11 @@ namespace DAO
         }
 
 
-        public List<KhachHangDTO> DocKHQuangCao(int MaHang)
+        public List<KhachHangDTO> DocKHQuangCao(int MaHang, string strDSXoa)
         {
             string query = "SELECT TENKH, MAKH FROM dbo.KHACHHANG WHERE "
-                + "NOT EXISTS(SELECT MAKH FROM dbo.LICHSUQUANGCAO WHERE dbo.LICHSUQUANGCAO.MAKH = dbo.KHACHHANG.MAKH AND MAHANG = @mh) ";
-            //+ "AND MAKH NOT IN(0, 1, 2)";
+                + "NOT EXISTS(SELECT MAKH FROM dbo.LICHSUQUANGCAO WHERE dbo.LICHSUQUANGCAO.MAKH = dbo.KHACHHANG.MAKH AND MAHANG = @mh) "
+                + strDSXoa;
 
             List<SqlParameter> values = new List<SqlParameter>();
             values.Add(new SqlParameter("@mh", MaHang));

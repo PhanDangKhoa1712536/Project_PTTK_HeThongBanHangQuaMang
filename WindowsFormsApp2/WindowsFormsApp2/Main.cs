@@ -16,6 +16,7 @@ namespace Presentation
 {
     public partial class MainForm : Form
     {
+        Stack<string> maKH_Xoa = new Stack<string>();
         public bool login_stats;
         private TabPage tmpComment, tmpNhapHang, tmpQuangCao, tmpTraHang, tmpXuLyMua;
         
@@ -264,6 +265,7 @@ namespace Presentation
                 grd_HangQuangCao.CurrentRow.Selected = true;
                 txtHangDangChon.Text = grd_HangQuangCao.Rows[e.RowIndex].Cells["MaHang"].FormattedValue.ToString();
 
+                maKH_Xoa.Clear();
                 Load_DSKHQuangCao();
             }
         }
@@ -278,8 +280,36 @@ namespace Presentation
             }
         }
 
+        private void grd_KHQC_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtKHXoa.Text = grd_KHQC.Rows[e.RowIndex].Cells["MaKH"].FormattedValue.ToString();
+        }
 
-        
+        private void btn_XoaKhachHang_Click(object sender, EventArgs e)
+        {
+            if (txtKHXoa.Text != "")
+            {
+                maKH_Xoa.Push(txtKHXoa.Text);
+                txtKHXoa.Clear();
+                Load_DSKHQuangCao();
+            }
+            else
+            {
+                MessageBox.Show("Vui long chon khach hang");
+            }
+        }
+
+        private void btnHoanTac_Click(object sender, EventArgs e)
+        {
+            if (maKH_Xoa.Count > 0)
+            {
+                maKH_Xoa.Pop();
+                Load_DSKHQuangCao();
+            }
+        }
+
+
+
         // Tra Hang 
         private void Nhap_THHoaDon_Click(object sender, EventArgs e)
         {
@@ -330,7 +360,8 @@ namespace Presentation
         private void Load_DSKHQuangCao()
         {
             KhachHangBUS khachHang = new KhachHangBUS();
-            List<KhachHangDTO> allKHQC = khachHang.LayDSKHQuangCao(Int32.Parse(txtHangDangChon.Text));
+            List<KhachHangDTO> allKHQC;
+            allKHQC = khachHang.LayDSKHQuangCao(Int32.Parse(txtHangDangChon.Text), maKH_Xoa);
 
             grd_KHQC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grd_KHQC.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
