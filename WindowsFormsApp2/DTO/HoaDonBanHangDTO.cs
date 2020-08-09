@@ -22,7 +22,7 @@ namespace DTO
         public DateTime ngayLap { get; set; }
         public HoaDonBanHangDTO(int maHoaDon, int maKH, int maNVLap,
             int maNVGiao, int maNVXacThuc, float tongTien,
-            bool hinhThucThanhToan, bool xacNhanDaThanhToan, DateTime ngayGiao, DateTime NgayLap,
+            bool hinhThucThanhToan, bool xacNhanDaThanhToan, DateTime ngayGiao,
             float soTienThanhToan)
         {
             this.maHoaDon = maHoaDon;
@@ -35,7 +35,6 @@ namespace DTO
             this.soTienThanhToan = soTienThanhToan;
             this.hinhThucThanhToan = hinhThucThanhToan;
             this.xacNhanDaThanhToan = xacNhanDaThanhToan;
-            this.ngayLap = NgayLap;
         }
 
         public HoaDonBanHangDTO(){ }

@@ -24,7 +24,7 @@ namespace DAO
         public void ThemKhachHang_DAL(KhachHangDTO KH)
         {
             // cau query
-            string query = "INSERT INTO KHACHHANG(TENKH, EMAILKH, DIACHIKH,TRANGTHAIKHOACOMMENT) VALUES (@tenKH,@emailKH, @diaChiKH, @TrangThaiKhoaComment)";
+            string query = "INSERT INTO KHACHHANG(TENKH, EMAILKH, DIACHIKH,TRANGTHAIKHOACOMMENT) VALUES (@tenKH, @diaChiKH,@emailKH, @TrangThaiKhoaComment)";
             // Khoi tao List SQLParameter
             List<SqlParameter> Inserted_values = new List<SqlParameter>();
             Inserted_values.Add(new SqlParameter("@tenKH", KH.tenKH));
@@ -35,18 +35,18 @@ namespace DAO
             db.ExecuteNonQuery(query, Inserted_values);
         }
 
-        public List<int> TimKhachHang(string TenKH, string Email)
+        public List<int> TimKhachHang(string TenKH, string DiaChi, string Email)
         {
             // cau query
-            //string query = "SELECT * FROM KHACHHANG WHERE TENKH = '" + TenKH + "' and DIACHIKH = '" + DiaChi + "' and EMAILKH = '" + Email + "'";
-            string query = "SELECT * FROM KHACHHANG WHERE TENKH = '" + TenKH + "' and EMAILKH = '" + Email + "'";
-            //// Khoi tao list SQL parameter
-            //List<SqlParameter> Find_values = new List<SqlParameter>();
-            //Find_values.Add(new SqlParameter("@TenKh", TenKH));
-            //Find_values.Add(new SqlParameter("@DiaChi", DiaChi));
-            //Find_values.Add(new SqlParameter("@Email", Email));
+            string query = "SELECT * FROM KHACHHANG WHERE TENKH = @TenKH and DIACHIKH = @DiaChi and EMAILKH = @Email";
+
+            // Khoi tao list SQL parameter
+            List<SqlParameter> Find_values = new List<SqlParameter>();
+            Find_values.Add(new SqlParameter("@TenKh", TenKH));
+            Find_values.Add(new SqlParameter("@DiaChi", DiaChi));
+            Find_values.Add(new SqlParameter("@EmailKh", Email));
             // Thuc hien cau query
-            DataTable dt = db.ExecuteQuery(query);
+            DataTable dt = db.ExecuteQuery(query, Find_values);
             // Khoi tao list khach hang
             List<int> ret = new List<int>();
             foreach (DataRow dr in dt.Rows)
@@ -67,12 +67,12 @@ namespace DAO
             return ret;
         }
 
-        public int DocMaKHMoiNhat()
-        {
-            string query = "SELECT MAX(MAKH) AS MAKH FROM KHACHHANG";
-            DataTable dt = db.ExecuteQuery(query);
-            return (int)dt.Rows[0]["MAKH"];
-        }
+        //public int DocMaKHMoiNhat()
+        //{
+        //    string query = "SELECT MAX(MAKH) FROM KHACHHANG";
+        //    DataTable dt = db.ExecuteQuery(query);
+        //    return (int)dt.Rows[0]["MAKH"];
+        //}
 
         // Tim khach hang theo ten su dung cho chuc nang Tra Hang (Tim theo ten khach hang)
         public KhachHangDTO TimKH_TraHang(string TenKH)

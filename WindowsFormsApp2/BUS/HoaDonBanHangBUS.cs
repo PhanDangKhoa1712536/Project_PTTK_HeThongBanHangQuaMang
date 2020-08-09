@@ -17,9 +17,9 @@ namespace BUS
         {
             hoaDonBanHangDAO = new HoaDonBanHangDAO();
         }
-        public HoaDonBanHangDTO KhoiTao(DateTime NgayGiao,DateTime NgayLap, int MaKH, int MaNVLap, int MaNVGiao,int MaHD, float TongTien)
+        public HoaDonBanHangDTO KhoiTao(DateTime NgayGiao, int MaKH, int MaNVLap, int MaNVGiao,int MaHD, float TongTien)
         {
-            return new HoaDonBanHangDTO(MaHD, MaKH, MaNVLap, MaNVGiao,0, TongTien, false, false, NgayGiao,NgayLap,0);
+            return new HoaDonBanHangDTO(MaHD, MaKH, MaNVLap, MaNVGiao,0, TongTien, false, false, NgayGiao, 0);
         }
 
         public bool KiemTraTrangThaiHoaDon(HoaDonBanHangDTO HD)
@@ -56,6 +56,5 @@ namespace BUS
             return hoaDonBanHangDAO.TimHoaDon_TraHang(MaHD);
         }
 
-        
     }
 }
