@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DTO
 {
@@ -25,6 +21,10 @@ namespace DTO
             this.lyDoNhap = lyDoNhap;
             this.ngayNhap = ngayNhap;
             this.trangThaiXacNhan = trangThaiXacNhan;
+        }
+
+        public DonNhapHangDTO()
+        {
         }
     }
 }

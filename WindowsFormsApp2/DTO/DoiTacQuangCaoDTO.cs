@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DTO
 {
@@ -14,7 +10,7 @@ namespace DTO
         public DateTime ngayHetHan { get; set; }
         public string thongTinViTriDang { get; set; }
         public string noiDung { get; set; }
-        public DoiTacQuangCaoDTO(int maDoiTac, string tenDoiTac, 
+        public DoiTacQuangCaoDTO(int maDoiTac, string tenDoiTac,
             DateTime ngayKyHopDong, DateTime ngayHetHan, string thongTinViTriDang,
             string noiDung)
         {

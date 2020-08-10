@@ -1,11 +1,7 @@
 ﻿using DTO;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAO
 {
@@ -13,7 +9,7 @@ namespace DAO
     {
         // Connect to DB
         private DataProvider db;
-        
+
         public KhachHangDAO()
         {
             this.db = new DataProvider();
@@ -79,10 +75,10 @@ namespace DAO
         {
             List<SqlParameter> VALUES = new List<SqlParameter>();
             VALUES.Add(new SqlParameter("@Ten", TenKH));
-              
+
             string query = "SELECT * FROM KHACHHANG WHERE TENKH = @Ten";
             KhachHangDTO khachhang = new KhachHangDTO();
-            DataTable dt = this.db.ExecuteQuery(query,VALUES);
+            DataTable dt = this.db.ExecuteQuery(query, VALUES);
             foreach (DataRow dr in dt.Rows)
             {
                 khachhang.tenKH = dr["TENKH"].ToString();
@@ -90,7 +86,7 @@ namespace DAO
                 khachhang.diaChiKH = dr["DIACHIKH"].ToString();
                 khachhang.trangThaiKhoaComment = (bool)dr["TRANGTHAIKHOACOMMENT"];
             }
-            
+
             return khachhang;
         }
 

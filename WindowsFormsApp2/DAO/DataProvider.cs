@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 
 
 //KHÔNG ĐỤNG VÀO ĐÂY
@@ -82,6 +77,33 @@ namespace DAO
             }
 
             return flag;
+        }
+
+        public int ExecuteScalar(String query, List<SqlParameter> parameters = null)
+        {
+            try
+            {
+                this.connection.Open();
+                SqlCommand cmd = new SqlCommand(query, this.connection);
+                cmd.CommandType = CommandType.Text;
+                if (parameters != null)
+                {
+                    foreach (SqlParameter param in parameters)
+                    {
+                        cmd.Parameters.Add(param);
+                    }
+                }
+                return (int)cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error execute scalar: " + ex.Message);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                    connection.Close();
+            }
         }
     }
 }

@@ -1,18 +1,15 @@
 ﻿using DTO;
-using System.Data;
-using System.Data.SqlClient;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace DAO
 {
     public class HoaDonBanHangDAO
     {
         private DataProvider db;
-        
+
         public HoaDonBanHangDAO()
         {
             db = new DataProvider();
@@ -50,7 +47,7 @@ namespace DAO
             string query = "SELECT MAHOADON FROM HOADONBANHANG";
             DataTable dt = db.ExecuteQuery(query);
             List<int> ret = new List<int>();
-            foreach(DataRow dr in dt.Rows)
+            foreach (DataRow dr in dt.Rows)
             {
                 int temp = (int)dr["MAHOADON"];
                 ret.Add(temp);
@@ -62,7 +59,7 @@ namespace DAO
             string query = "SELECT * FROM HOADONBANHANG WHERE MAHOADON = @MaHD";
             List<SqlParameter> find_values = new List<SqlParameter>();
             find_values.Add(new SqlParameter("@MaHD", MaHD));
-            DataTable dt = db.ExecuteQuery(query,find_values);
+            DataTable dt = db.ExecuteQuery(query, find_values);
 
             DataRow temp = dt.Rows[0];
             HoaDonBanHangDTO ret = new HoaDonBanHangDTO(MaHD, (int)temp["MAKH"], (int)temp["MANVLAP"], (int)temp["MANVGIAO"], (int)temp["MANVXACTHUC"], (float)temp["TONGTIEN"], (bool)temp["HINHTHUCTHANHTOAN"], (bool)temp["XACNHANDATHANHTOAN"], (DateTime)temp["NGAYGIAO"], (float)temp["SOTIENTHANHTOAN"]);
@@ -85,7 +82,7 @@ namespace DAO
             DataTable dt = db.ExecuteQuery(query, find_values);
 
             HoaDonBanHangDTO hoadonSearch = new HoaDonBanHangDTO();
-            foreach(DataRow dr in dt.Rows)
+            foreach (DataRow dr in dt.Rows)
             {
                 hoadonSearch.maKH = (int)dr["MAKH"];
                 hoadonSearch.maNVLap = (int)dr["MANVLAP"];

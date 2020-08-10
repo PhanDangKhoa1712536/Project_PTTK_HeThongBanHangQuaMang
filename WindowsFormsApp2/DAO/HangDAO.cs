@@ -3,11 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAO
 {
@@ -19,13 +14,13 @@ namespace DAO
         {
             this.dp = new DataProvider();
         }
-        
+
         public DataTable getSaleBetween(DateTime d1, DateTime d2)
         {
-            String query = "SELECT H.TENHANG, SUM(SOLUONG) AS [DABAN] FROM CHITIETHOADON C RIGHT JOIN HANG H " +
+            String query = "SELECT H.MAHANG, H.TENHANG, SUM(SOLUONG) AS [DABAN] FROM CHITIETHOADON C RIGHT JOIN HANG H " +
                 "ON H.MAHANG = C.MAHANG LEFT JOIN HOADONBANHANG HD ON HD.MAHOADON = C.MAHOADON AND HD.NGAYLAPHOADON BETWEEN " +
                 "@d1 AND @d2 " +
-                "GROUP BY H.TENHANG";
+                "GROUP BY H.MAHANG, H.TENHANG";
 
             List<SqlParameter> dateRange = new List<SqlParameter>();
             dateRange.Add(new SqlParameter("@d1", d1));
@@ -53,15 +48,15 @@ namespace DAO
             DataTable dt = this.dp.ExecuteQuery(query);
 
             List<HangDTO> hangS = new List<HangDTO>();
-            
+
             foreach (DataRow dr in dt.Rows)
             {
                 HangDTO hang = new HangDTO((int)dr["MAHANG"], (int)dr["MANVPHUTRACH"], (string)dr["TENHANG"],
                     (int)dr["SOLUONGCONLAI"], (double)dr["DONGIA"]);
-                
+
                 hangS.Add(hang);
-            }                
-                   
+            }
+
             return hangS;
         }
     }

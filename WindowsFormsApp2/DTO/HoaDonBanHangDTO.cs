@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DTO
 {
@@ -18,7 +14,7 @@ namespace DTO
         public bool xacNhanDaThanhToan { get; set; }
         public DateTime ngayGiao { get; set; }
         public float soTienThanhToan { get; set; }
-            
+
         public DateTime ngayLap { get; set; }
         public HoaDonBanHangDTO(int maHoaDon, int maKH, int maNVLap,
             int maNVGiao, int maNVXacThuc, float tongTien,
@@ -37,6 +33,6 @@ namespace DTO
             this.xacNhanDaThanhToan = xacNhanDaThanhToan;
         }
 
-        public HoaDonBanHangDTO(){ }
+        public HoaDonBanHangDTO() { }
     }
 }

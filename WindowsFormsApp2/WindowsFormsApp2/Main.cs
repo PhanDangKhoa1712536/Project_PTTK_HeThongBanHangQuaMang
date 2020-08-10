@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using BUS;
+﻿using BUS;
 using DTO;
-using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Windows.Forms;
 using WindowsFormsApp2;
 
 namespace Presentation
@@ -17,9 +11,11 @@ namespace Presentation
     public partial class MainForm : Form
     {
         Stack<string> maKH_Xoa = new Stack<string>();
+        Stack<string> maHang_Add = new Stack<string>();
+
         public bool login_stats;
         private TabPage tmpComment, tmpNhapHang, tmpQuangCao, tmpTraHang, tmpXuLyMua;
-        
+
         public MainForm()
         {
             InitForm();
@@ -57,6 +53,7 @@ namespace Presentation
             this.tabControl1.TabPages.Add(this.tmpComment);
             this.tabControl1.TabPages.Add(this.tmpQuangCao);
             this.tabControl1.TabPages.Add(this.tmpXuLyMua);
+
         }
 
 
@@ -87,7 +84,7 @@ namespace Presentation
             /*format column size*/
             grv_NhaCungCap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grv_NhaCungCap.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-            
+
             grv_NhaCungCap.Rows.Clear();
             for (int i = 0; i < allNCC.Count; i++)
             {
@@ -211,25 +208,35 @@ namespace Presentation
         private void dtimeThongKeHangStart_ValueChanged(object sender, EventArgs e)
         {
             HangBUS hangBUS = new HangBUS();
-            grvThongKeHangBan.DataSource = hangBUS.lapBangThongKe(dtimeThongKeHangStart.Value, dtimeThongKeHangEnd.Value);
+            grvThongKeHangBan.Rows.Clear();
+            grvThongKeHangBan.Refresh();
+            DataTable dt = hangBUS.lapBangThongKe(dtimeThongKeHangStart.Value, dtimeThongKeHangEnd.Value);
+            foreach (DataRow dr in dt.Rows)
+            {
+                grvThongKeHangBan.Rows.Add(
+                    dr["MAHANG"],
+                    dr["TENHANG"].ToString(),
+                    dr["DABAN"]);
+                this.grvThongKeHangBan.ClearSelection();
+            }
         }
 
         private void dtimeThongKeHangEnd_ValueChanged(object sender, EventArgs e)
         {
             HangBUS hangBUS = new HangBUS();
-            grvThongKeHangBan.DataSource = hangBUS.lapBangThongKe(dtimeThongKeHangStart.Value, dtimeThongKeHangEnd.Value);
-        }
-
-        private void grvThongKeHangBan_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //ChiTietDonNhapBUS chiTietDonNhapBUS;
-            if (grvThongKeHangBan.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            grvThongKeHangBan.Rows.Clear();
+            grvThongKeHangBan.Refresh();
+            DataTable dt = hangBUS.lapBangThongKe(dtimeThongKeHangStart.Value, dtimeThongKeHangEnd.Value);
+            foreach (DataRow dr in dt.Rows)
             {
-                grvThongKeHangBan.CurrentRow.Selected = true;
-                
+                grvThongKeHangBan.Rows.Add(
+                    dr["MAHANG"],
+                    dr["TENHANG"].ToString(),
+                    dr["DABAN"]);
+                this.grvThongKeHangBan.ClearSelection();
             }
         }
-        
+
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -240,7 +247,7 @@ namespace Presentation
         {
             HopDongBUS hopdongBUS = new HopDongBUS();
             List<DoiTacQuangCaoDTO> allDTQC = hopdongBUS.docHopDong();
-            
+
             // grd_DSHD.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             // grd_DSHD.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 
@@ -327,21 +334,99 @@ namespace Presentation
             Load_DSKHQuangCao();
         }
 
+        private void grvThongKeHangBan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            HangBUS hangBUS = new HangBUS();
+            if (grvThongKeHangBan.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                grvThongKeHangBan.CurrentRow.Selected = true;
+                string mahang = grvThongKeHangBan.Rows[e.RowIndex].Cells["COLMAHANG"].FormattedValue.ToString();
+
+                List<HangDTO> hangByID = hangBUS.TimKiem(mahang);
+                if (!maHang_Add.Contains(hangByID[0].maHang.ToString()))
+                {
+                    maHang_Add.Push(hangByID[0].maHang.ToString());
+                    grvChiTietDonNhap.Rows.Add(
+                        hangByID[0].maHang,
+                        hangByID[0].tenHang,
+                        1
+                        );
+                }
+                else
+                {
+                    MessageBox.Show("Đã tồn tại hàng trong đơn");
+                }
+
+            }
+        }
+
+        private void grvChiTietDonNhap_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            int currvalue = int.Parse(txtTongSoLuongHangNhap.Text);
+            currvalue += 1;
+            txtTongSoLuongHangNhap.Text = currvalue.ToString();
+            //int sum = 0;
+            //sum = sum + Convert.ToInt32(grvChiTietDonNhap.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+            //int currvalue = int.Parse(txtTongSoLuongHangNhap.Text);
+            //currvalue += sum;
+            //txtTongSoLuongHangNhap.Text = currvalue.ToString();
+        }
+
+        private void grvChiTietDonNhap_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (login_stats == false)
+            {
+                return;
+            }
+            int newlyAdded = Convert.ToInt32(grvChiTietDonNhap.Rows[e.RowIndex].Cells["COLSOLUONG"].Value.ToString()) - 1;
+
+            int currvalue = int.Parse(txtTongSoLuongHangNhap.Text);
+
+            currvalue += newlyAdded;
+            txtTongSoLuongHangNhap.Text = currvalue.ToString();
+        }
+
+        private void btnAddDonNhap_Click(object sender, EventArgs e)
+        {
+            DonNhapHangDTO donNhapHangDTO = new DonNhapHangDTO();
+            donNhapHangDTO.maNV = int.Parse(txtNhanVienNhapHang.Text.Split(',')[0]);
+            donNhapHangDTO.tongLuongHang = int.Parse(txtTongSoLuongHangNhap.Text);
+            donNhapHangDTO.lyDoNhap = txtLyDoNhapHang.Text;
+            donNhapHangDTO.ngayNhap = dtPickNgayNhap.Value;
+            DonNhapHangBUS donNhapBUS = new DonNhapHangBUS();
+            int idDonNhap = donNhapBUS.Insert(donNhapHangDTO);
+
+            foreach (DataGridViewRow row in grvChiTietDonNhap.Rows)
+            {
+                ChiTietDonNhapDTO chiTietDonNhapDTO = new ChiTietDonNhapDTO();
+                int mahang = Convert.ToInt32(row.Cells["COLMAHANGCTDONNHAP"].Value);
+                int soluongnhap = Convert.ToInt32(row.Cells["COLSOLUONG"].Value);
+                chiTietDonNhapDTO.maDonNhap = idDonNhap;
+                chiTietDonNhapDTO.maHang = mahang;
+                chiTietDonNhapDTO.soLuongNhap = soluongnhap;
+                ChiTietDonNhapBUS chiTietDonNhapBUS = new ChiTietDonNhapBUS();
+                chiTietDonNhapBUS.Insert(chiTietDonNhapDTO);
+            }
+            MessageBox.Show("Thêm đơn nhập hàng thành công");
+        }
+
+
+
 
 
         // Tra Hang 
         private void Nhap_THHoaDon_Click(object sender, EventArgs e)
         {
             int maHD = Int32.Parse(trahangMaHD_txtbox.Text);
-            HoaDonBanHangBUS hoadonBus = new HoaDonBanHangBUS();             
+            HoaDonBanHangBUS hoadonBus = new HoaDonBanHangBUS();
             HoaDonBanHangDTO hoadonSearch = hoadonBus.SearchHD_TraHang(maHD);
             this.dtGV_THHoaDon.Rows.Clear();
             this.dtGV_THHoaDon.Rows.Add(hoadonSearch.maKH, hoadonSearch.maNVLap, hoadonSearch.maNVGiao,
                 hoadonSearch.maNVXacThuc, hoadonSearch.tongTien, hoadonSearch.hinhThucThanhToan,
-                hoadonSearch.xacNhanDaThanhToan,hoadonSearch.ngayGiao,
-                hoadonSearch.soTienThanhToan,hoadonSearch.ngayLap);
+                hoadonSearch.xacNhanDaThanhToan, hoadonSearch.ngayGiao,
+                hoadonSearch.soTienThanhToan, hoadonSearch.ngayLap);
             this.dtGV_THHoaDon.ClearSelection();
-            
+
         }
         private void Nhap_THKhach_Click(object sender, EventArgs e)
         {
@@ -350,7 +435,7 @@ namespace Presentation
 
             this.dtGV_TraHangKH.Rows.Clear();
             this.dtGV_TraHangKH.Rows.Add(khSearch.tenKH, khSearch.diaChiKH, khSearch.emailKH, khSearch.trangThaiKhoaComment);
-            
+
             this.dtGV_TraHangKH.ClearSelection();
 
         }

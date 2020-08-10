@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DTO
+﻿namespace DTO
 {
     public class KhachHangDTO
     {
@@ -21,7 +15,7 @@ namespace DTO
             this.emailKH = emailKH;
             this.diaChiKH = diaChiKH;
             this.trangThaiKhoaComment = trangThaiKhoaComment;
-    
+
         }
         public KhachHangDTO() { }
 

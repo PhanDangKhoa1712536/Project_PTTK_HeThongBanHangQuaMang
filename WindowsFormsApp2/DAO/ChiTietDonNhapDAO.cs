@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAO
 {
@@ -18,7 +15,7 @@ namespace DAO
             dp = new DataProvider();
         }
 
-        public List<ChiTietDonNhapDTO> DocChiTietHoaDon(int MaDonNhap)
+        public List<ChiTietDonNhapDTO> SelectByID(int MaDonNhap)
         {
             string query = "SELECT * FROM CHITIETDONNHAP WHERE MADONNHAP = @MADONNHAP";
             List<SqlParameter> Find_values = new List<SqlParameter>();
@@ -34,15 +31,15 @@ namespace DAO
             return ret;
         }
 
-        public void ThemChiTietHoaDon(ChiTietDonNhapDAO CT)
+        public Boolean Insert(ChiTietDonNhapDTO chiTietDonNhap)
         {
-            //string query = "INSERT INTO CHITIETHOADON(MAHOADON, MAHANG, SOLUONG) VALUES (@MaHD, @MaHang, @SoLuong)";
-            //List<SqlParameter> inserted_values = new List<SqlParameter>();
-            //inserted_values.Add(new SqlParameter("@MaHD", CT.maHoaDon));
-            //inserted_values.Add(new SqlParameter("@MaHang", CT.maHang));
-            //inserted_values.Add(new SqlParameter("@SoLuong", CT.soLuong));
+            string query = "INSERT INTO CHITIETDONNHAP(MADONNHAP, MAHANG, SOLUONGNHAP) VALUES (@MADONNHAP, @MAHANG, @SOLUONGNHAP)";
+            List<SqlParameter> inserted_values = new List<SqlParameter>();
+            inserted_values.Add(new SqlParameter("@MADONNHAP", chiTietDonNhap.maDonNhap));
+            inserted_values.Add(new SqlParameter("@MAHANG", chiTietDonNhap.maHang));
+            inserted_values.Add(new SqlParameter("@SOLUONGNHAP", chiTietDonNhap.soLuongNhap));
 
-            //dp.ExecuteNonQuery(query, inserted_values);
+            return dp.ExecuteNonQuery(query, inserted_values);
         }
 
         public void XoaChiTietHD(int MaHD)

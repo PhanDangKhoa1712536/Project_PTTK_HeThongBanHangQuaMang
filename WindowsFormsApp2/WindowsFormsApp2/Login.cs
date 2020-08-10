@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DAO;
-using BUS;
+﻿using BUS;
 using DTO;
 using Presentation;
+using System;
+using System.Windows.Forms;
 
 namespace WindowsFormsApp2
 {
@@ -46,6 +38,7 @@ namespace WindowsFormsApp2
                 frmMain.login_stats = true;
                 frmMain.btnLogOut.Text = "Logged in as " + nhanVienDTO.tenNhanVien;
                 frmMain.btnLogOut.Show();
+                frmMain.txtNhanVienNhapHang.Text = nhanVienDTO.maNV + ", " + nhanVienDTO.tenNhanVien;
                 frmMain.btnDangNhap.Hide();
                 this.DialogResult = DialogResult.OK;
                 this.Close();

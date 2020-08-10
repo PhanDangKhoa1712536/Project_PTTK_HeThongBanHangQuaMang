@@ -1,25 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using DAO;
 using DTO;
-using DAO;
+using System;
+using System.Collections.Generic;
 
 namespace BUS
 {
     public class HoaDonBanHangBUS
     {
-       public  HoaDonBanHangDAO hoaDonBanHangDAO;
-       
+        public HoaDonBanHangDAO hoaDonBanHangDAO;
+
         public HoaDonBanHangBUS()
         {
             hoaDonBanHangDAO = new HoaDonBanHangDAO();
         }
-        public HoaDonBanHangDTO KhoiTao(DateTime NgayGiao, int MaKH, int MaNVLap, int MaNVGiao,int MaHD, float TongTien)
+        public HoaDonBanHangDTO KhoiTao(DateTime NgayGiao, int MaKH, int MaNVLap, int MaNVGiao, int MaHD, float TongTien)
         {
-            return new HoaDonBanHangDTO(MaHD, MaKH, MaNVLap, MaNVGiao,0, TongTien, false, false, NgayGiao, 0);
+            return new HoaDonBanHangDTO(MaHD, MaKH, MaNVLap, MaNVGiao, 0, TongTien, false, false, NgayGiao, 0);
         }
 
         public bool KiemTraTrangThaiHoaDon(HoaDonBanHangDTO HD)

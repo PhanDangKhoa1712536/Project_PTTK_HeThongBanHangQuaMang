@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DTO
+﻿namespace DTO
 {
     public class ChiTietDonNhapDTO
     {
@@ -18,6 +12,10 @@ namespace DTO
             this.maDonNhap = maDonNhap;
             this.maHang = maHang;
             this.soLuongNhap = soLuongNhap;
+        }
+
+        public ChiTietDonNhapDTO()
+        {
         }
     }
 }

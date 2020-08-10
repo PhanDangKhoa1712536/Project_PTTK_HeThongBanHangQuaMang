@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DAO;
+﻿using DAO;
 using DTO;
+using System.Collections.Generic;
 
 namespace BUS
 {
@@ -14,6 +10,11 @@ namespace BUS
         public List<DonNhapHangDTO> getAll()
         {
             return donNhapHangDAO.getAll();
+        }
+
+        public int Insert(DonNhapHangDTO donNhapHang)
+        {
+            return this.donNhapHangDAO.Insert(donNhapHang);
         }
     }
 }
