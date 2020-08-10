@@ -320,16 +320,23 @@ namespace Presentation
 
         private void btnGuiTinNhan_Click(object sender, EventArgs e)
         {
-            LichSuQuangCaoBUS lichSu = new LichSuQuangCaoBUS();
-            int MaLS = lichSu.LayMaLichSu();
-            foreach (DataGridViewRow item in grd_KHQC.Rows)
+            if (txtHangDangChon.Text != "")
             {
-                MaLS += 1;
-                lichSu.CapNhatLichSu(MaLS, Int32.Parse(item.Cells[0].Value.ToString()), Int32.Parse(txtHangDangChon.Text));
+                LichSuQuangCaoBUS lichSu = new LichSuQuangCaoBUS();
+                int MaLS = lichSu.LayMaLichSu();
+                foreach (DataGridViewRow item in grd_KHQC.Rows)
+                {
+                    MaLS += 1;
+                    lichSu.CapNhatLichSu(MaLS, Int32.Parse(item.Cells[0].Value.ToString()), Int32.Parse(txtHangDangChon.Text));
+                }
+                MessageBox.Show("Gui tin nhan thanh cong");
+                maKH_Xoa.Clear();
+                Load_DSKHQuangCao();
             }
-            MessageBox.Show("Gui tin nhan thanh cong");
-            maKH_Xoa.Clear();
-            Load_DSKHQuangCao();
+            else
+            {
+                MessageBox.Show("Vui long chon mat hang");
+            }
         }
 
 
