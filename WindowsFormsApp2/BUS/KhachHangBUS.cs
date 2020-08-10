@@ -86,11 +86,6 @@ namespace BUS
             return khachHangDAO.TimKH_TraHang(Hoten);
         }
 
-        public KhachHangDTO KhoiTao(string HoTen, string Email, string DiaChi)
-        {
-            KhachHangDTO KH = new KhachHangDTO(0, HoTen, Email, DiaChi, false);
-            return KH;
-        }
 
         public List<KhachHangDTO> LayDSKHQuangCao(int MaMH, Stack<string> DSXoa)
         {
