@@ -20,26 +20,33 @@ namespace DAO
         //}
         public void ThemHoaDonBanHang(HoaDonBanHangDTO HD)
         {
-            string query = "INSERT INTO HOADONBANHANG VALUES (@MaHD, @MaKH, @MaNVLap, @MaNVGiao, @MaNVXacThuc, @TongTien, @HinhThucThanhToan, @XacNhanDaThanhToan,@NgayGiaoHang, @SoTienThanhToan)";
+            string query = "INSERT INTO HOADONBANHANG(MAKH, MANVLAP,MANVGIAO,MANVXACTHUC,TONGTIEN,HINHTHUCTHANHTOAN,XACNHANDATHANHTOAN,NGAYGIAO,SOTIENTHANHTOAN,NGAYLAPHOADON) VALUES (@MaKH, @MaNVLap, @MaNVGiao, @MaNVXacThuc, @TongTien, @HinhThucThanhToan, @XacNhanDaThanhToan,@NgayGiaoHang, @SoTienThanhToan, @NgayLap)";
             List<SqlParameter> Inserted_values = new List<SqlParameter>();
-            Inserted_values.Add(new SqlParameter("@MaHD", HD.maHoaDon));
-            Inserted_values.Add(new SqlParameter("@MaKH", HD.maHoaDon));
-            Inserted_values.Add(new SqlParameter("@MaNVLap", HD.maHoaDon));
-            Inserted_values.Add(new SqlParameter("@MaNVGiao", HD.maHoaDon));
-            Inserted_values.Add(new SqlParameter("@MaNVXacThuc", HD.maHoaDon));
-            Inserted_values.Add(new SqlParameter("@TongTien", HD.maHoaDon));
-            Inserted_values.Add(new SqlParameter("@HinhThucThanhToan", HD.maHoaDon));
-            Inserted_values.Add(new SqlParameter("@XacNhanDaThanhToan", HD.maHoaDon));
-            Inserted_values.Add(new SqlParameter("@NgayGiaoHang", HD.maHoaDon));
-            Inserted_values.Add(new SqlParameter("@SoTienThanhToan", HD.maHoaDon));
+            //Inserted_values.Add(new SqlParameter("@MaHD", HD.maHoaDon));
+            Inserted_values.Add(new SqlParameter("@MaKH", HD.maKH));
+            Inserted_values.Add(new SqlParameter("@MaNVLap", HD.maNVLap));
+            Inserted_values.Add(new SqlParameter("@MaNVGiao", HD.maNVGiao));
+            Inserted_values.Add(new SqlParameter("@MaNVXacThuc", HD.maNVXacThuc));
+            Inserted_values.Add(new SqlParameter("@TongTien", HD.tongTien));
+            Inserted_values.Add(new SqlParameter("@HinhThucThanhToan", HD.hinhThucThanhToan));
+            Inserted_values.Add(new SqlParameter("@XacNhanDaThanhToan", HD.xacNhanDaThanhToan));
+            Inserted_values.Add(new SqlParameter("@NgayGiaoHang", HD.ngayGiao));
+            Inserted_values.Add(new SqlParameter("@SoTienThanhToan", HD.soTienThanhToan));
+            Inserted_values.Add(new SqlParameter("@NgayLap", HD.ngayLap));
 
             db.ExecuteNonQuery(query, Inserted_values);
         }
         public int DocMaHDMoiNhat()
         {
-            string query = "SELECT MAX(MAHOADON) FROM HOADONBANHANG";
-            DataTable dt = db.ExecuteQuery(query);
-            return (int)dt.Rows[0]["MAHOADON"];
+            string query = "SELECT IDENT_CURRENT ('HOADONBANHANG') AS MAHOADON";
+
+            db.connection.Open();
+            SqlCommand comm = new SqlCommand(query, db.connection);
+            int lastValue = Convert.ToInt32(comm.ExecuteScalar());
+            db.connection.Close();
+
+            //DataTable dt = db.ExecuteNonQuery(query);
+            return lastValue;
         }
 
         public List<int> DocTatCaMaHD()
@@ -62,7 +69,10 @@ namespace DAO
             DataTable dt = db.ExecuteQuery(query, find_values);
 
             DataRow temp = dt.Rows[0];
-            HoaDonBanHangDTO ret = new HoaDonBanHangDTO(MaHD, (int)temp["MAKH"], (int)temp["MANVLAP"], (int)temp["MANVGIAO"], (int)temp["MANVXACTHUC"], (float)temp["TONGTIEN"], (bool)temp["HINHTHUCTHANHTOAN"], (bool)temp["XACNHANDATHANHTOAN"], (DateTime)temp["NGAYGIAO"], (float)temp["SOTIENTHANHTOAN"]);
+            HoaDonBanHangDTO ret = new HoaDonBanHangDTO(MaHD, (int)temp["MAKH"], (int)temp["MANVLAP"], (int)temp["MANVGIAO"],
+                (int)temp["MANVXACTHUC"], Convert.ToSingle(temp["TONGTIEN"]), Convert.ToBoolean(temp["HINHTHUCTHANHTOAN"]),
+                Convert.ToBoolean(temp["XACNHANDATHANHTOAN"]), DateTime.Parse(temp["NGAYGIAO"].ToString()), 
+                DateTime.Parse(temp["NGAYLAPHOADON"].ToString()), Convert.ToSingle(temp["SOTIENTHANHTOAN"]));
             return ret;
         }
         public void XoaHDBanHang(int MaHD)

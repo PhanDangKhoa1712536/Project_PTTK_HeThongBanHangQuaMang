@@ -17,7 +17,9 @@ namespace DAO
 
         public void ThemLichSu(int MaLS, int MaKH, int MaMH)
         {
-            string query = "INSERT INTO dbo.LICHSUQUANGCAO(MALSQC, MAKH, MAHANG) VALUES (@mals, @makh, @mamh)";
+            string query = "SET IDENTITY_INSERT LICHSUQUANGCAO  ON;" +
+                "INSERT INTO dbo.LICHSUQUANGCAO(MALSQC, MAKH, MAHANG) VALUES (@mals, @makh, @mamh);" +
+                "SET IDENTITY_INSERT LICHSUQUANGCAO  OFF";
             List<SqlParameter> values = new List<SqlParameter>();
             values.Add(new SqlParameter("@mals", MaLS));
             values.Add(new SqlParameter("@makh", MaKH));

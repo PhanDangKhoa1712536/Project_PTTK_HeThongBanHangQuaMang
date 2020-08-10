@@ -14,6 +14,7 @@ namespace Presentation
         Stack<string> maHang_Add = new Stack<string>();
 
         public bool login_stats;
+        public int MaNV_login; // Mã của nhân viên hiện tại đang log vào, chưa log vào mặc định là -1
         private TabPage tmpComment, tmpNhapHang, tmpQuangCao, tmpTraHang, tmpXuLyMua;
 
         public MainForm()
@@ -23,6 +24,7 @@ namespace Presentation
             Load_DSDonNhap();
             Load_DSComment();
             HienDSMatHang();
+            Load_DSNVGiaoHang();
         }
 
         private void InitForm()
@@ -44,6 +46,7 @@ namespace Presentation
 
 
             this.login_stats = false;
+            this.MaNV_login = -1;
         }
 
         private void LoginCallback()
@@ -53,7 +56,8 @@ namespace Presentation
             this.tabControl1.TabPages.Add(this.tmpComment);
             this.tabControl1.TabPages.Add(this.tmpQuangCao);
             this.tabControl1.TabPages.Add(this.tmpXuLyMua);
-
+            InitHoaDonBanHang();
+            Load_AllMaHD();
         }
 
 
@@ -322,16 +326,23 @@ namespace Presentation
 
         private void btnGuiTinNhan_Click(object sender, EventArgs e)
         {
-            LichSuQuangCaoBUS lichSu = new LichSuQuangCaoBUS();
-            int MaLS = lichSu.LayMaLichSu();
-            foreach (DataGridViewRow item in grd_KHQC.Rows)
+            if (txtHangDangChon.Text != "")
             {
-                MaLS += 1;
-                lichSu.CapNhatLichSu(MaLS, Int32.Parse(item.Cells[0].Value.ToString()), Int32.Parse(txtHangDangChon.Text));
+                LichSuQuangCaoBUS lichSu = new LichSuQuangCaoBUS();
+                int MaLS = lichSu.LayMaLichSu();
+                foreach (DataGridViewRow item in grd_KHQC.Rows)
+                {
+                    MaLS += 1;
+                    lichSu.CapNhatLichSu(MaLS, Int32.Parse(item.Cells[0].Value.ToString()), Int32.Parse(txtHangDangChon.Text));
+                }
+                MessageBox.Show("Gui tin nhan thanh cong");
+                maKH_Xoa.Clear();
+                Load_DSKHQuangCao();
             }
-            MessageBox.Show("Gui tin nhan thanh cong");
-            maKH_Xoa.Clear();
-            Load_DSKHQuangCao();
+            else
+            {
+                MessageBox.Show("Vui long chon mat hang");
+            }
         }
 
         private void grvThongKeHangBan_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -461,6 +472,8 @@ namespace Presentation
             this.grd_HangQuangCao.ClearSelection();
         }
 
+
+
         private void Load_DSKHQuangCao()
         {
             KhachHangBUS khachHang = new KhachHangBUS();
@@ -479,5 +492,249 @@ namespace Presentation
             }
             this.grd_KHQC.ClearSelection();
         }
+        ///////////////////////
+        // TAB XU LI MUA HANG
+        ///////////////////////
+
+        private void Load_DSNVGiaoHang()
+        {
+            NhanVienBUS NV_bus = new NhanVienBUS();
+            List<int> list_NVGH = NV_bus.LoadNVGH();
+            MaNVGiaoHangHDBan_comboBox.DataSource = list_NVGH;
+        }
+
+        private void InitHoaDonBanHang()
+        {
+            // CAC BUOC INIT CAN BAN (đọc mã hóa đơn, ngày lập hiện tại, gán mã nhân viên hiện tại vào)
+            HoaDonBanHangBUS HD_bus = new HoaDonBanHangBUS();
+            ChiTietHoaDonBUS CT_bus = new ChiTietHoaDonBUS();
+
+            MaNVLapHDBan_textBox.Text = MaNV_login.ToString();
+            int MaHD = HD_bus.CreateMaHD();
+            MaHoaDonBan_textbox.Text = MaHD.ToString();
+            NgayLapHDBan_textBox.Text = DateTime.Now.ToString();
+
+
+            // Đọc thông tin chi tiết hóa đơn từ giỏ hàng
+            List<ChiTietHoaDonDTO> GioHang = CT_bus.DocChiTietTuGioHang(MaHD);
+
+            // Tính tổng hóa đơn và gán vào text box
+            float TongTien = CT_bus.TinhTongHoaDon(GioHang);
+            TongTienLap_textbox.Text = TongTien.ToString();
+
+            // Tạo datatable để đổ data từ chi tiết hóa đơn từ giỏ hàng vào
+            DataTable source = new DataTable();
+            source.Columns.Add(new DataColumn("MA HANG", Type.GetType("System.Int32")));
+            source.Columns.Add(new DataColumn("TEN HANG", Type.GetType("System.String")));
+            source.Columns.Add(new DataColumn("SO LUONG MUA", Type.GetType("System.Int32")));
+            source.Columns.Add(new DataColumn("DON GIA", Type.GetType("System.Single")));
+
+            // Thêm từng dòng dữ liệu vào datatable
+            foreach (ChiTietHoaDonDTO i in GioHang)
+            {
+                DataRow temp = source.NewRow();
+                temp["MA HANG"] = i.maHang;
+                temp["TEN HANG"] = i.TenHang;
+                temp["SO LUONG MUA"] = i.soLuong;
+                temp["DON GIA"] = i.DonGia;
+                source.Rows.Add(temp);
+            }
+            // Bind Datatable vào DataGridView
+            //var bindlingList = new BindingList<ChiTietHoaDonDTO>(CT_bus.DocChiTietTuGioHang(MaHD));
+            //var source = new BindingSource(bindlingList, null);
+            ChiTietHDBan_dataGridView.DataSource = source;
+        }
+        private void LapHoaDonBanHang_button_Click_1(object sender, EventArgs e)
+        {
+            HoaDonBanHangBUS HD_bus = new HoaDonBanHangBUS();
+            ChiTietHoaDonBUS CT_bus = new ChiTietHoaDonBUS();
+            KhachHangBUS KH_bus = new KhachHangBUS();
+
+            // Đọc dữ liệu từ text box lên
+            int MaHD = Int32.Parse(MaHoaDonBan_textbox.Text);
+            DateTime NgayLap = DateTime.Parse(NgayLapHDBan_textBox.Text);
+            DateTime NgayGiao = NgayGiaoHang_dateTimePicker4.Value;
+
+            string HoTen = HoTen_textBox.Text;
+            string DiaChi = DiaChiKhach_textBox.Text;
+            string Email = EmailKhachHang_textBox.Text;
+
+            int MaNV = Int32.Parse(MaNVLapHDBan_textBox.Text);
+            int MaNVGiao = Int32.Parse(MaNVGiaoHangHDBan_comboBox.Text);
+            int TongTien = Int32.Parse(TongTienLap_textbox.Text);
+
+            //KH_bus.KiemTraThongTinKH(HoTen, DiaChi, Email) == true
+            // xử lí thông tin
+            if (HD_bus.KiemTraNgayGiaoHang(NgayGiao) == true && KH_bus.KiemTraThongTinKH(HoTen, DiaChi, Email) == true) // kiểm tra tính đúng đắn thông tin của khách hàng và ngày giao
+            {
+                int MaKH = KH_bus.SearchKH(HoTen, Email);       // Kiểm tra xem có khách hàng nào có thông tin như trên trong db không
+                if (MaKH == 0) //khong có khách hàng trong database
+                {
+                    try
+                    {
+                        MaKH = KH_bus.CreateMaKH(); // tạo 1 mã Khách hàng mới 
+                        KhachHangDTO KH = KH_bus.KhoiTao(HoTen, Email, DiaChi);
+                        KH_bus.ThemKhachHang_bus(KH);
+                        MessageBox.Show("Them khach hang thanh cong!");
+                    }
+                    catch (Exception er)
+                    {
+                        MessageBox.Show("Them khach hang khong thanh cong, Loi:" + er.ToString());
+                        return;
+                    }
+                }
+
+                try
+                {
+                    // Khoi tạo hóa đơn 
+                    HoaDonBanHangDTO HD = HD_bus.KhoiTao(NgayGiao, NgayLap, MaKH, MaNV, MaNVGiao, MaHD, TongTien);
+                    HD_bus.LapHoaDonBanHang(HD);
+
+                    // Đọc lại chi tiết từ giỏ hàng 
+                    List<ChiTietHoaDonDTO> GioHang = CT_bus.DocChiTietTuGioHang(HD_bus.CreateMaHD()-1);
+                    foreach (ChiTietHoaDonDTO CT in GioHang)
+                    {
+                        //MessageBox.Show("MaHoaDon:" + CT.maHoaDon.ToString() + "MaHang: " + CT.maHang.ToString() + "SoLuong:" + CT.soLuong.ToString());
+                        CT_bus.ThemChiTietDon_bus(CT);
+                    }
+                    MessageBox.Show("Them Hóa đơn thành công!");
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show("Thêm hóa đơn thất bại!, Loi: " + er.ToString());
+                    return;
+                }
+
+                MaHoaDonBan_textbox.Text = HD_bus.CreateMaHD().ToString();
+                NgayLapHDBan_textBox.Text = DateTime.Now.ToString();
+                DiaChiKhach_textBox.Text = "";
+                EmailKhachHang_textBox.Text = "";
+                HoTen_textBox.Text = "";
+                TongTienHoaDonXoa_textBox.Text = "";
+                if (ChiTietHoaDonXoaHD_dataGridView.Rows.Count != 0)
+                    ChiTietHDBan_dataGridView.Rows.Clear();
+                ChiTietHDBan_dataGridView.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Thong tin khách hàng sai qui cách hoặc ngày sai qui định!");
+            }
+        }
+
+        private void Load_AllMaHD()
+        {
+            HoaDonBanHangBUS HD_bus = new HoaDonBanHangBUS();
+            List<int> List_HD = HD_bus.LoadMaHD();
+            XoaHoaDon_comboBox.DataSource = List_HD;
+        }
+        private void XoaHoaDon_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HoaDonBanHangBUS HD_bus = new HoaDonBanHangBUS();
+            ChiTietHoaDonBUS CT_bus = new ChiTietHoaDonBUS();
+            KhachHangBUS KH_bus = new KhachHangBUS();
+
+            // Đọc thông tin hóa đơn và tìm thông tin khách hàng với MaKH trong hóa đơn
+            HoaDonBanHangDTO HD = HD_bus.LoadTTHoaDon(Int32.Parse(XoaHoaDon_comboBox.Text));
+            KhachHangDTO KH = KH_bus.TimKhachHangTheoMaKH(HD.maKH);
+
+            // Đổ các thông tin dữ liệu vào phần textbox
+            MaDonXoaHD_textBox.Text = HD.maHoaDon.ToString();
+            NgayLapXoaHD_textBox.Text = HD.ngayLap.ToString();
+            NgayGiaoHangXoaHD_textBox.Text = HD.ngayGiao.ToString();
+
+            HoTenXoaHD_textBox.Text = KH.tenKH;
+            DiaChiXoaHD_textBox.Text = KH.diaChiKH;
+            EmailXoaHD_textBox.Text = KH.emailKH;
+
+            MaNVGiaoXoaHD_textBox.Text = HD.maNVGiao.ToString();
+            MaNVLapXoaHD_textBox.Text = HD.maNVLap.ToString();
+            TongTienHoaDonXoa_textBox.Text = HD.tongTien.ToString();
+            if (HD.xacNhanDaThanhToan == false)
+            {
+                TrangThaiHoaDon_textBox.Text = "Chưa Thanh Toán";
+            }
+            else TrangThaiHoaDon_textBox.Text = "Đã Thanh Toán";
+
+            //Đọc các chi tiết hóa đơn của hóa đơn 
+            List<ChiTietHoaDonDTO> List_CT = CT_bus.LoadCTHoaDon(HD.maHoaDon);
+
+            // Tạo datatable để đổ data từ chi tiết hóa đơn từ giỏ hàng vào
+            DataTable source = new DataTable();
+            source.Columns.Add(new DataColumn("MA HANG", Type.GetType("System.Int32")));
+            source.Columns.Add(new DataColumn("TEN HANG", Type.GetType("System.String")));
+            source.Columns.Add(new DataColumn("SO LUONG MUA", Type.GetType("System.Int32")));
+            source.Columns.Add(new DataColumn("DON GIA", Type.GetType("System.Single")));
+
+            // Thêm từng dòng dữ liệu vào datatable
+            foreach (ChiTietHoaDonDTO i in List_CT)
+            {
+                DataRow temp = source.NewRow();
+                temp["MA HANG"] = i.maHang;
+                temp["TEN HANG"] = i.TenHang;
+                temp["SO LUONG MUA"] = i.soLuong;
+                temp["DON GIA"] = i.DonGia;
+                source.Rows.Add(temp);
+            }
+
+            ChiTietHoaDonXoaHD_dataGridView.DataSource = source;
+        }
+        private void XoaHoaDon_button_Click(object sender, EventArgs e)
+        {
+            HoaDonBanHangBUS HD_bus = new HoaDonBanHangBUS();
+            ChiTietHoaDonBUS CT_bus = new ChiTietHoaDonBUS();
+
+            // Đọc MaHD và trạng thái lên từ textbox
+            int MaHD = Int32.Parse(MaDonXoaHD_textBox.Text);
+            int TrangThai = (TrangThaiHoaDon_textBox.Text == "Đã Thanh Toán") ? 1 : 0;
+
+            // Kiểm tra trạng thái của hóa đơn nếu đã thanh toán rồi thì không được phép xóa
+            if (TrangThai == 0)
+            {
+                try
+                {
+                    CT_bus.XoaCT(MaHD);
+                    HD_bus.XoaHD(MaHD);
+                    MessageBox.Show("Đã Xóa Hóa Đơn Thành Công");
+
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show("Xóa Hóa đơn không thành công, lỗi: " + er.ToString());
+                }
+                finally
+                {
+                    // reset normal state
+                    MaDonXoaHD_textBox.Text = "";
+                    NgayLapXoaHD_textBox.Text = "";
+                    NgayGiaoHangXoaHD_textBox.Text = "";
+
+                    HoTenXoaHD_textBox.Text = "";
+                    DiaChiXoaHD_textBox.Text = "";
+                    EmailXoaHD_textBox.Text = "";
+
+                    MaNVGiaoXoaHD_textBox.Text = "";
+                    MaNVLapXoaHD_textBox.Text = "";
+                    TongTienHoaDonXoa_textBox.Text = "";
+                    TrangThaiHoaDon_textBox.Text = "";
+                    
+                    if (ChiTietHoaDonXoaHD_dataGridView.Rows.Count != 0) // Nếu lượng dòng trong Gridview != 0 thì mới clear
+                        ChiTietHoaDonXoaHD_dataGridView.Rows.Clear();
+                    ChiTietHoaDonXoaHD_dataGridView.Refresh();
+
+                    Load_AllMaHD();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Hóa Đơn đã được thanh toán, không được phép xóa!");
+            }
+        }
+        ///////////////////////
+        // END TAB XU LI MUA HANG
+        ///////////////////////
+
+
+
+
     }
 }

@@ -16,7 +16,7 @@ namespace DAO
 
         public List<ChiTietHoaDonDTO> DocChiTietHoaDon(int MaHD)
         {
-            string query = "SELECT * FROM CHITIETHOADON WHERE MAHD = @MaHD";
+            string query = "SELECT CT.MACHITIETHOADON, CT.MAHANG, TENHANG, CT.SOLUONG, (HG.DONGIA * CT.SOLUONG) AS DONGIA FROM CHITIETHOADON CT INNER JOIN HANG HG ON CT.MAHOADON = @MaHD AND CT.MAHANG = HG.MAHANG";
             List<SqlParameter> Find_values = new List<SqlParameter>();
             Find_values.Add(new SqlParameter("@MaHD", MaHD));
 
@@ -24,7 +24,7 @@ namespace DAO
             List<ChiTietHoaDonDTO> ret = new List<ChiTietHoaDonDTO>();
             foreach (DataRow dr in dt.Rows)
             {
-                ChiTietHoaDonDTO temp = new ChiTietHoaDonDTO((int)dr["MACHITIETHOADON"], (int)dr["MAHANG"], (int)dr["MAHD"], (int)dr["SOLUONG"]);
+                ChiTietHoaDonDTO temp = new ChiTietHoaDonDTO((int)dr["MACHITIETHOADON"], (int)dr["MAHANG"], dr["TENHANG"].ToString(), MaHD, (int)dr["SOLUONG"], Convert.ToSingle(dr["DONGIA"]));
                 ret.Add(temp);
             }
             return ret;
