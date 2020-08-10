@@ -10,7 +10,6 @@ WindowsFormsApp2/BUS/bin/Debug/DTO.pdb
 *.CopyComplete
 *.cache
 WindowsFormsApp2/BUS/obj/Debug/BUS.pdb
-*.config
 *.pdb
 *.resources
 *.exe
