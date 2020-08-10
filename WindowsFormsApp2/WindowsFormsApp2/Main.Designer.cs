@@ -257,6 +257,8 @@
             this.label20 = new System.Windows.Forms.Label();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.TrangThaiHoaDon_textBox = new System.Windows.Forms.TextBox();
+            this.label53 = new System.Windows.Forms.Label();
             this.TongTienHoaDonXoa_textBox = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
@@ -335,8 +337,6 @@
             this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.COLSOLUONGCTDONNHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label53 = new System.Windows.Forms.Label();
-            this.TrangThaiHoaDon_textBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.GioHang_dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SanPham_dataGridView)).BeginInit();
@@ -2565,6 +2565,20 @@
             this.groupBox11.TabIndex = 1;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Ma Nhan Vien Lap Hoa Don";
+            // 
+            // TrangThaiHoaDon_textBox
+            // 
+            this.TrangThaiHoaDon_textBox.Location = new System.Drawing.Point(0, 0);
+            this.TrangThaiHoaDon_textBox.Name = "TrangThaiHoaDon_textBox";
+            this.TrangThaiHoaDon_textBox.Size = new System.Drawing.Size(100, 20);
+            this.TrangThaiHoaDon_textBox.TabIndex = 0;
+            // 
+            // label53
+            // 
+            this.label53.Location = new System.Drawing.Point(0, 0);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(100, 23);
+            this.label53.TabIndex = 1;
             // 
             // TongTienHoaDonXoa_textBox
             // 
