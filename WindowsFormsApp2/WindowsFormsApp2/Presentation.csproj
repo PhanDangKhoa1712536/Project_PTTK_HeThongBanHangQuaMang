@@ -47,12 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChonNhaCungCap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChonNhaCungCap.Designer.cs">
-      <DependentUpon>ChonNhaCungCap.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,9 +90,6 @@
     <Compile Include="XacNhanMuaHang.Designer.cs">
       <DependentUpon>XacNhanMuaHang.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ChonNhaCungCap.resx">
-      <DependentUpon>ChonNhaCungCap.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

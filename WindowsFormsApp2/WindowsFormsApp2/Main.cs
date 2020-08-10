@@ -24,6 +24,7 @@ namespace Presentation
             Load_DSComment();
             HienDSMatHang();
             Load_DSNVGiaoHang();
+            Load_DSNhaCungCap();
         }
 
         private void InitForm()
