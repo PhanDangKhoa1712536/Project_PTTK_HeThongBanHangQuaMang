@@ -406,8 +406,14 @@ namespace Presentation
             DonNhapHangBUS donNhapBUS = new DonNhapHangBUS();
             int idDonNhap = donNhapBUS.Insert(donNhapHangDTO);
 
+            int i = 0;
             foreach (DataGridViewRow row in grvChiTietDonNhap.Rows)
             {
+                i++;
+                if (i == grvChiTietDonNhap.Rows.Count)
+                {
+                    continue;
+                }
                 ChiTietDonNhapDTO chiTietDonNhapDTO = new ChiTietDonNhapDTO();
                 int mahang = Convert.ToInt32(row.Cells["COLMAHANGCTDONNHAP"].Value);
                 int soluongnhap = Convert.ToInt32(row.Cells["COLSOLUONG"].Value);
