@@ -20,7 +20,6 @@ namespace Presentation
         public MainForm()
         {
             InitForm();
-            Load_DSNhaCungCap();
             Load_DSDonNhap();
             Load_DSComment();
             HienDSMatHang();
@@ -141,7 +140,7 @@ namespace Presentation
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            InitForm();
+            Application.Restart();
         }
 
         private void btnXoaHopDong_Click(object sender, EventArgs e)
