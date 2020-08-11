@@ -15,16 +15,17 @@ namespace DAO
         }
         public List<DonNhapHangDTO> getAll()
         {
-            string query = "SELECT MADONNHAP, MANV, MANCC, TONGLUONGHANG, LYDONHAP, NGAYNHAP, TRANGTHAIXACNHAN FROM DONNHAPHANG";
+            string query = "SELECT NHANVIEN.MANV, DONNHAPHANG.MANCC, DONNHAPHANG.MADONNHAP, TRANGTHAIXACNHAN, LYDONHAP, NHANVIEN.TENNV, TONGLUONGHANG, NGAYNHAP FROM DONNHAPHANG, NHANVIEN, NHACUNGCAP " +
+                "WHERE DONNHAPHANG.MANCC = NHACUNGCAP.MANCC AND NHANVIEN.MANV = DONNHAPHANG.MANV";
             DataTable dt = dp.ExecuteQuery(query);
 
             List<DonNhapHangDTO> donNhapHangS = new List<DonNhapHangDTO>();
             foreach (DataRow dr in dt.Rows)
             {
-                DonNhapHangDTO donNhapHang = new DonNhapHangDTO((int)dr["MADONNHAP"], (int)dr["MANV"], (int)dr["MANCC"],
+                DonNhapHangDTO donNhapHang = new DonNhapHangDTO((int)dr["MADONNHAP"], (int)dr["MANV"], dr["TENNV"].ToString(), (int)dr["MANCC"],
                     (int)dr["TONGLUONGHANG"], dr["LYDONHAP"].ToString(),
                     (DateTime)dr["NGAYNHAP"], (bool)dr["TRANGTHAIXACNHAN"]);
-
+                
                 donNhapHangS.Add(donNhapHang);
             }
             return donNhapHangS;

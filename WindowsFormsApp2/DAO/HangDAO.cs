@@ -15,7 +15,7 @@ namespace DAO
             this.dp = new DataProvider();
         }
 
-        public DataTable getSaleBetween(DateTime d1, DateTime d2)
+        public DataTable Utility_getSaleBetween(DateTime d1, DateTime d2)
         {
             String query = "SELECT H.MAHANG, H.TENHANG, SUM(SOLUONG) AS [DABAN] FROM CHITIETHOADON C RIGHT JOIN HANG H " +
                 "ON H.MAHANG = C.MAHANG LEFT JOIN HOADONBANHANG HD ON HD.MAHOADON = C.MAHOADON AND HD.NGAYLAPHOADON BETWEEN " +

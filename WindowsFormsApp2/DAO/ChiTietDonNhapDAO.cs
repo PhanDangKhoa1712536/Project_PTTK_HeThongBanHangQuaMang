@@ -15,9 +15,9 @@ namespace DAO
             dp = new DataProvider();
         }
 
-        public List<ChiTietDonNhapDTO> SelectByID(int MaDonNhap)
+        public List<ChiTietDonNhapDTO> getAllByMaDonNhap(int MaDonNhap)
         {
-            string query = "SELECT * FROM CHITIETDONNHAP WHERE MADONNHAP = @MADONNHAP";
+            string query = "select C.MACHITIETDONNHAP, C.MADONNHAP, H.MAHANG, H.TENHANG, C.SOLUONGNHAP from chitietdonnhap C, HANG H where C.MAHANG = H.MAHANG AND madonnhap = @MADONNHAP";
             List<SqlParameter> Find_values = new List<SqlParameter>();
             Find_values.Add(new SqlParameter("@MADONNHAP", MaDonNhap));
 
@@ -25,7 +25,7 @@ namespace DAO
             List<ChiTietDonNhapDTO> ret = new List<ChiTietDonNhapDTO>();
             foreach (DataRow dr in dt.Rows)
             {
-                ChiTietDonNhapDTO temp = new ChiTietDonNhapDTO((int)dr["MACHITIETDONNHAP"], (int)dr["MADONNHAP"], (int)dr["MAHANG"], (int)dr["SOLUONG"]);
+                ChiTietDonNhapDTO temp = new ChiTietDonNhapDTO((int)dr["MACHITIETDONNHAP"], (int)dr["MADONNHAP"], (int)dr["MAHANG"], dr["TENHANG"].ToString(), (int)dr["SOLUONGNHAP"]);
                 ret.Add(temp);
             }
             return ret;

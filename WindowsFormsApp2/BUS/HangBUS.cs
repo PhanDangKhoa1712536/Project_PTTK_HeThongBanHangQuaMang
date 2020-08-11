@@ -21,7 +21,7 @@ namespace BUS
 
         public DataTable lapBangThongKe(DateTime d1, DateTime d2)
         {
-            return hangDAO.getSaleBetween(d1, d2);
+            return hangDAO.Utility_getSaleBetween(d1, d2);
         }
     }
 }

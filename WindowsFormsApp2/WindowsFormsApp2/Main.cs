@@ -3,6 +3,7 @@ using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 using WindowsFormsApp2;
 
@@ -122,8 +123,7 @@ namespace Presentation
             {
                 this.grv_DonNhapHang.Rows.Add(
                     allDonNhapHang[i].maDonNhap,
-                    allDonNhapHang[i].maNV,
-                    allDonNhapHang[i].maNCC,
+                    allDonNhapHang[i].tenNVLap,
                     allDonNhapHang[i].tongLuongHang,
                     allDonNhapHang[i].lyDoNhap,
                     allDonNhapHang[i].ngayNhap,
@@ -550,6 +550,18 @@ namespace Presentation
             //var source = new BindingSource(bindlingList, null);
             ChiTietHDBan_dataGridView.DataSource = source;
         }
+
+        private void grv_DonNhapHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (grv_DonNhapHang.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                grv_DonNhapHang.CurrentRow.Selected = true;
+                grboxChiTietDonNhap.Text = "CHI TIẾT ĐƠN NHẬP CỦA ĐƠN SỐ " + grv_DonNhapHang.Rows[e.RowIndex].Cells["COLMADONNHAP"].FormattedValue.ToString();
+
+                Load_DSChiTietDonNhap();
+            }
+        }
+
         private void LapHoaDonBanHang_button_Click_1(object sender, EventArgs e)
         {
             HoaDonBanHangBUS HD_bus = new HoaDonBanHangBUS();
@@ -627,6 +639,12 @@ namespace Presentation
             }
         }
 
+        private void btn_sendNCC_Click(object sender, EventArgs e)
+        {
+
+            MessageBox.Show("Xác nhận gửi cho nhà cung cấp ?" );
+        }
+
         private void Load_AllMaHD()
         {
             HoaDonBanHangBUS HD_bus = new HoaDonBanHangBUS();
@@ -683,6 +701,21 @@ namespace Presentation
             }
 
             ChiTietHoaDonXoaHD_dataGridView.DataSource = source;
+        }
+        private void Load_DSChiTietDonNhap()
+        {
+            ChiTietDonNhapBUS chiTietDonNhapBUS = new ChiTietDonNhapBUS();
+            String mahang = new String(grboxChiTietDonNhap.Text.Where(Char.IsDigit).ToArray());
+            List<ChiTietDonNhapDTO> allChiTiet = chiTietDonNhapBUS.getAllByMaDonNhap(int.Parse(mahang));
+            grvChiTietTab2.Rows.Clear();
+            for (int i = 0; i < allChiTiet.Count; i++)
+            {
+                this.grvChiTietTab2.Rows.Add(
+                    allChiTiet[i].maHang,
+                    allChiTiet[i].tenHang,
+                    allChiTiet[i].soLuongNhap);
+            }
+            this.grvChiTietTab2.ClearSelection();
         }
         private void XoaHoaDon_button_Click(object sender, EventArgs e)
         {
