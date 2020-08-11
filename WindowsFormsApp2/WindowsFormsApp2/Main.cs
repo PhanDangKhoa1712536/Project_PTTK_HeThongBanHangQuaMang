@@ -133,12 +133,6 @@ namespace Presentation
             this.grv_DonNhapHang.ClearSelection();
         }
 
-
-        private void LoadKH()
-        {
-
-        }
-
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Application.Restart();
@@ -399,11 +393,13 @@ namespace Presentation
 
         private void btnAddDonNhap_Click(object sender, EventArgs e)
         {
-            DonNhapHangDTO donNhapHangDTO = new DonNhapHangDTO();
-            donNhapHangDTO.maNV = int.Parse(txtNhanVienNhapHang.Text.Split(',')[0]);
-            donNhapHangDTO.tongLuongHang = int.Parse(txtTongSoLuongHangNhap.Text);
-            donNhapHangDTO.lyDoNhap = txtLyDoNhapHang.Text;
-            donNhapHangDTO.ngayNhap = dtPickNgayNhap.Value;
+            DonNhapHangDTO donNhapHangDTO = new DonNhapHangDTO
+            {
+                maNV = int.Parse(txtNhanVienNhapHang.Text.Split(',')[0]),
+                tongLuongHang = int.Parse(txtTongSoLuongHangNhap.Text),
+                lyDoNhap = txtLyDoNhapHang.Text,
+                ngayNhap = dtPickNgayNhap.Value
+            };
             DonNhapHangBUS donNhapBUS = new DonNhapHangBUS();
             int idDonNhap = donNhapBUS.Insert(donNhapHangDTO);
 

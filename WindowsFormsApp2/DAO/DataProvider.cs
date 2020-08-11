@@ -23,8 +23,10 @@ namespace DAO
             try
             {
                 this.connection.Open();
-                SqlCommand cmd = new SqlCommand(query, this.connection);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand(query, this.connection)
+                {
+                    CommandType = CommandType.Text
+                };
                 if (parameters != null)
                 {
                     foreach (SqlParameter param in parameters)
@@ -55,8 +57,10 @@ namespace DAO
             try
             {
                 this.connection.Open();
-                SqlCommand cmd = new SqlCommand(query, this.connection);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand(query, this.connection)
+                {
+                    CommandType = CommandType.Text
+                };
                 if (parameters != null)
                 {
                     foreach (SqlParameter param in parameters)
@@ -84,8 +88,10 @@ namespace DAO
             try
             {
                 this.connection.Open();
-                SqlCommand cmd = new SqlCommand(query, this.connection);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand(query, this.connection)
+                {
+                    CommandType = CommandType.Text
+                };
                 if (parameters != null)
                 {
                     foreach (SqlParameter param in parameters)
