@@ -56,8 +56,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -77,7 +75,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -85,17 +82,6 @@
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbMuaHang = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label51 = new System.Windows.Forms.Label();
-            this.XoaGioHang_button = new System.Windows.Forms.Button();
-            this.GioHang_dataGridView = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.ThemGioHang_button = new System.Windows.Forms.Button();
-            this.SanPham_dataGridView = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.tbNhapHang = new System.Windows.Forms.TabPage();
             this.tabCtrlNhapHang = new System.Windows.Forms.TabControl();
             this.tabTaoDonNhap = new System.Windows.Forms.TabPage();
@@ -377,8 +363,6 @@
             this.COLSOLUONGCTDONNHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pTTKTHCKDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kHACHHANGBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.tbMuaHang.SuspendLayout();
             this.tbNhapHang.SuspendLayout();
@@ -478,8 +462,6 @@
             // 
             // tbMuaHang
             // 
-            this.tbMuaHang.Controls.Add(this.groupBox2);
-            this.tbMuaHang.Controls.Add(this.groupBox1);
             this.tbMuaHang.Location = new System.Drawing.Point(4, 22);
             this.tbMuaHang.Name = "tbMuaHang";
             this.tbMuaHang.Padding = new System.Windows.Forms.Padding(3);
@@ -487,117 +469,7 @@
             this.tbMuaHang.TabIndex = 1;
             this.tbMuaHang.Text = "THÔNG TIN APP";
             this.tbMuaHang.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label51);
-            this.groupBox2.Controls.Add(this.XoaGioHang_button);
-            this.groupBox2.Controls.Add(this.GioHang_dataGridView);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(3, 262);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1086, 190);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "GIO HANG";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(810, 158);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(189, 20);
-            this.label51.TabIndex = 10;
-            this.label51.Text = "TỔNG TIỀN HÓA ĐƠN";
-            // 
-            // XoaGioHang_button
-            // 
-            this.XoaGioHang_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.XoaGioHang_button.Location = new System.Drawing.Point(314, 158);
-            this.XoaGioHang_button.Name = "XoaGioHang_button";
-            this.XoaGioHang_button.Size = new System.Drawing.Size(490, 23);
-            this.XoaGioHang_button.TabIndex = 2;
-            this.XoaGioHang_button.Text = "XOA KHOI GIO HANG";
-            this.XoaGioHang_button.UseVisualStyleBackColor = true;
-            // 
-            // GioHang_dataGridView
-            // 
-            this.GioHang_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GioHang_dataGridView.Location = new System.Drawing.Point(7, 19);
-            this.GioHang_dataGridView.Name = "GioHang_dataGridView";
-            this.GioHang_dataGridView.RowHeadersWidth = 82;
-            this.GioHang_dataGridView.Size = new System.Drawing.Size(1073, 133);
-            this.GioHang_dataGridView.TabIndex = 1;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.ThemGioHang_button);
-            this.groupBox1.Controls.Add(this.SanPham_dataGridView);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1086, 250);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "DANH SACH SAN PHAM";
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(973, 38);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 26);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "TIM KIEM";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // ThemGioHang_button
-            // 
-            this.ThemGioHang_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ThemGioHang_button.Location = new System.Drawing.Point(314, 217);
-            this.ThemGioHang_button.Name = "ThemGioHang_button";
-            this.ThemGioHang_button.Size = new System.Drawing.Size(490, 23);
-            this.ThemGioHang_button.TabIndex = 9;
-            this.ThemGioHang_button.Text = "THEM VAO GIO HANG";
-            this.ThemGioHang_button.UseVisualStyleBackColor = true;
-            // 
-            // SanPham_dataGridView
-            // 
-            this.SanPham_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SanPham_dataGridView.Location = new System.Drawing.Point(9, 70);
-            this.SanPham_dataGridView.Name = "SanPham_dataGridView";
-            this.SanPham_dataGridView.RowHeadersWidth = 82;
-            this.SanPham_dataGridView.Size = new System.Drawing.Size(1071, 141);
-            this.SanPham_dataGridView.TabIndex = 6;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(9, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(958, 26);
-            this.textBox1.TabIndex = 8;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "TIM KIEM";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(6, 458);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(1083, 43);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "XAC NHAN MUA HANG";
-            this.button1.UseVisualStyleBackColor = true;
+            //
             // 
             // tbNhapHang
             // 
@@ -3269,23 +3141,6 @@
             this.COLSOLUONGCTDONNHAP.Name = "COLSOLUONGCTDONNHAP";
             this.COLSOLUONGCTDONNHAP.Width = 105;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1087, 170);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "THONG TIN APP";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Location = new System.Drawing.Point(6, 182);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1087, 326);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "THONG TIN NHOM ";
             // 
             // MainForm
             // 
