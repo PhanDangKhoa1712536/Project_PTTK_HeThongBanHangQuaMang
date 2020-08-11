@@ -8,7 +8,7 @@ namespace BUS
 {
     public class HangBUS
     {
-        HangDAO hangDAO;
+        readonly HangDAO hangDAO;
         public HangBUS()
         {
             hangDAO = new HangDAO();

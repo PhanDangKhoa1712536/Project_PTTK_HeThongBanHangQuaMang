@@ -6,7 +6,7 @@ namespace BUS
 {
     public class DonNhapHangBUS
     {
-        DonNhapHangDAO donNhapHangDAO = new DonNhapHangDAO();
+        readonly DonNhapHangDAO donNhapHangDAO = new DonNhapHangDAO();
         public List<DonNhapHangDTO> getAll()
         {
             return donNhapHangDAO.getAll();
@@ -15,6 +15,11 @@ namespace BUS
         public int Insert(DonNhapHangDTO donNhapHang)
         {
             return this.donNhapHangDAO.Insert(donNhapHang);
+        }
+
+        public bool GuiChoNhaCungCap(DonNhapHangDTO donNhapHang)
+        {
+            return donNhapHangDAO.Update(donNhapHang);
         }
     }
 }

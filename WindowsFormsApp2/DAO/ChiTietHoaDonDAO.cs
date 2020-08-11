@@ -8,7 +8,7 @@ namespace DAO
 {
     public class ChiTietHoaDonDAO
     {
-        private DataProvider db;
+        private readonly DataProvider db;
 
         public ChiTietHoaDonDAO()
         {
@@ -18,8 +18,10 @@ namespace DAO
         public List<ChiTietHoaDonDTO> DocChiTietHoaDon(int MaHD)
         {
             string query = "SELECT CT.MACHITIETHOADON, CT.MAHANG, TENHANG, CT.SOLUONG, (HG.DONGIA * CT.SOLUONG) AS DONGIA FROM CHITIETHOADON CT INNER JOIN HANG HG ON CT.MAHOADON = @MaHD AND CT.MAHANG = HG.MAHANG";
-            List<SqlParameter> Find_values = new List<SqlParameter>();
-            Find_values.Add(new SqlParameter("@MaHD", MaHD));
+            List<SqlParameter> Find_values = new List<SqlParameter>
+            {
+                new SqlParameter("@MaHD", MaHD)
+            };
 
             DataTable dt = db.ExecuteQuery(query, Find_values);
             List<ChiTietHoaDonDTO> ret = new List<ChiTietHoaDonDTO>();
@@ -34,10 +36,12 @@ namespace DAO
         public void ThemChiTietHoaDon(ChiTietHoaDonDTO CT)
         {
             string query = "INSERT INTO CHITIETHOADON(MAHOADON, MAHANG, SOLUONG) VALUES (@MaHD, @MaHang, @SoLuong)";
-            List<SqlParameter> inserted_values = new List<SqlParameter>();
-            inserted_values.Add(new SqlParameter("@MaHD", CT.maHoaDon));
-            inserted_values.Add(new SqlParameter("@MaHang", CT.maHang));
-            inserted_values.Add(new SqlParameter("@SoLuong", CT.soLuong));
+            List<SqlParameter> inserted_values = new List<SqlParameter>
+            {
+                new SqlParameter("@MaHD", CT.maHoaDon),
+                new SqlParameter("@MaHang", CT.maHang),
+                new SqlParameter("@SoLuong", CT.soLuong)
+            };
 
             db.ExecuteNonQuery(query, inserted_values);
         }
@@ -45,8 +49,10 @@ namespace DAO
         public void XoaChiTietHD(int MaHD)
         {
             string query = "DELETE FROM CHITIETHOADON WHERE MAHOADON = @MaHD";
-            List<SqlParameter> Find_values = new List<SqlParameter>();
-            Find_values.Add(new SqlParameter("@MaHD", MaHD));
+            List<SqlParameter> Find_values = new List<SqlParameter>
+            {
+                new SqlParameter("@MaHD", MaHD)
+            };
 
             db.ExecuteNonQuery(query, Find_values);
         }

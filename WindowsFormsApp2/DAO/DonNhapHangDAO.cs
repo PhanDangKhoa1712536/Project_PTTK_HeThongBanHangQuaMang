@@ -8,7 +8,7 @@ namespace DAO
 {
     public class DonNhapHangDAO
     {
-        DataProvider dp;
+        readonly DataProvider dp;
         public DonNhapHangDAO()
         {
             this.dp = new DataProvider();
@@ -33,13 +33,27 @@ namespace DAO
         public int Insert(DonNhapHangDTO donNhap)
         {
             string query = "insert into donnhaphang(manv, mancc, tongluonghang, lydonhap, ngaynhap, trangthaixacnhan) output INSERTED.madonnhap values (@MANV,0,@TONGLUONGHANG,@LYDONHAP,@NGAYNHAP,0)";
-            List<SqlParameter> Inserted_values = new List<SqlParameter>();
-            Inserted_values.Add(new SqlParameter("@MANV", donNhap.maNV));
-            Inserted_values.Add(new SqlParameter("@TONGLUONGHANG", donNhap.tongLuongHang));
-            Inserted_values.Add(new SqlParameter("@LYDONHAP", donNhap.lyDoNhap));
-            Inserted_values.Add(new SqlParameter("@NGAYNHAP", donNhap.ngayNhap));
+            List<SqlParameter> Inserted_values = new List<SqlParameter>
+            {
+                new SqlParameter("@MANV", donNhap.maNV),
+                new SqlParameter("@TONGLUONGHANG", donNhap.tongLuongHang),
+                new SqlParameter("@LYDONHAP", donNhap.lyDoNhap),
+                new SqlParameter("@NGAYNHAP", donNhap.ngayNhap)
+            };
 
             return dp.ExecuteScalar(query, Inserted_values);
+        }
+
+        public Boolean Update(DonNhapHangDTO donNhap)
+        {
+            string query = "UPDATE DONNHAPHANG SET MANCC = @MANCC, TRANGTHAIXACNHAN = 1 WHERE MADONNHAP = @MADONNHAP";
+            List<SqlParameter> updValue = new List<SqlParameter>
+            {
+                new SqlParameter("@MANCC", donNhap.maNCC),
+                new SqlParameter("@MADONNHAP", donNhap.maDonNhap)
+            };
+
+            return dp.ExecuteNonQuery(query, updValue);
         }
     }
 }

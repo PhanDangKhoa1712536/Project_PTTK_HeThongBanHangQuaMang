@@ -8,7 +8,7 @@ namespace DAO
 {
     public class HopDongDAO
     {
-        DataProvider dp;
+        readonly DataProvider dp;
         public HopDongDAO()
         {
             this.dp = new DataProvider();
@@ -33,8 +33,10 @@ namespace DAO
         public void XoaHopSong(int MaHD)
         {
             string query = "DELETE FROM dbo.DOITACQUANGCAO WHERE MADOITAC = @MaHD";
-            List<SqlParameter> Find_values = new List<SqlParameter>();
-            Find_values.Add(new SqlParameter("@MaHD", MaHD));
+            List<SqlParameter> Find_values = new List<SqlParameter>
+            {
+                new SqlParameter("@MaHD", MaHD)
+            };
 
             dp.ExecuteNonQuery(query, Find_values);
         }
@@ -43,12 +45,14 @@ namespace DAO
         {
             string query = "UPDATE dbo.DOITACQUANGCAO SET NGAYKYHOPDONG = @nk, NGAYHETHAN = @nh," +
                 "THONGTINVITRIDANG = @tt, NOIDUNG = @nd WHERE MADOITAC = @mahd";
-            List<SqlParameter> Find_values = new List<SqlParameter>();
-            Find_values.Add(new SqlParameter("@MaHD", MaHD));
-            Find_values.Add(new SqlParameter("@nk", ngayKy));
-            Find_values.Add(new SqlParameter("@nh", ngayHet));
-            Find_values.Add(new SqlParameter("@tt", ttvt));
-            Find_values.Add(new SqlParameter("@nd", nd));
+            List<SqlParameter> Find_values = new List<SqlParameter>
+            {
+                new SqlParameter("@MaHD", MaHD),
+                new SqlParameter("@nk", ngayKy),
+                new SqlParameter("@nh", ngayHet),
+                new SqlParameter("@tt", ttvt),
+                new SqlParameter("@nd", nd)
+            };
 
             dp.ExecuteNonQuery(query, Find_values);
         }

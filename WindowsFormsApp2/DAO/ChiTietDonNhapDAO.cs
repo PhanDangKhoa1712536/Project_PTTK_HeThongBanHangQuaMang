@@ -8,7 +8,7 @@ namespace DAO
 {
     public class ChiTietDonNhapDAO
     {
-        private DataProvider dp;
+        private readonly DataProvider dp;
 
         public ChiTietDonNhapDAO()
         {
@@ -18,8 +18,10 @@ namespace DAO
         public List<ChiTietDonNhapDTO> getAllByMaDonNhap(int MaDonNhap)
         {
             string query = "select C.MACHITIETDONNHAP, C.MADONNHAP, H.MAHANG, H.TENHANG, C.SOLUONGNHAP from chitietdonnhap C, HANG H where C.MAHANG = H.MAHANG AND madonnhap = @MADONNHAP";
-            List<SqlParameter> Find_values = new List<SqlParameter>();
-            Find_values.Add(new SqlParameter("@MADONNHAP", MaDonNhap));
+            List<SqlParameter> Find_values = new List<SqlParameter>
+            {
+                new SqlParameter("@MADONNHAP", MaDonNhap)
+            };
 
             DataTable dt = dp.ExecuteQuery(query, Find_values);
             List<ChiTietDonNhapDTO> ret = new List<ChiTietDonNhapDTO>();
@@ -34,10 +36,12 @@ namespace DAO
         public Boolean Insert(ChiTietDonNhapDTO chiTietDonNhap)
         {
             string query = "INSERT INTO CHITIETDONNHAP(MADONNHAP, MAHANG, SOLUONGNHAP) VALUES (@MADONNHAP, @MAHANG, @SOLUONGNHAP)";
-            List<SqlParameter> inserted_values = new List<SqlParameter>();
-            inserted_values.Add(new SqlParameter("@MADONNHAP", chiTietDonNhap.maDonNhap));
-            inserted_values.Add(new SqlParameter("@MAHANG", chiTietDonNhap.maHang));
-            inserted_values.Add(new SqlParameter("@SOLUONGNHAP", chiTietDonNhap.soLuongNhap));
+            List<SqlParameter> inserted_values = new List<SqlParameter>
+            {
+                new SqlParameter("@MADONNHAP", chiTietDonNhap.maDonNhap),
+                new SqlParameter("@MAHANG", chiTietDonNhap.maHang),
+                new SqlParameter("@SOLUONGNHAP", chiTietDonNhap.soLuongNhap)
+            };
 
             return dp.ExecuteNonQuery(query, inserted_values);
         }
@@ -45,8 +49,10 @@ namespace DAO
         public void XoaChiTietHD(int MaHD)
         {
             string query = "DELETE FROM CHITIETHOADON WHERE MAHOADON = @MaHD";
-            List<SqlParameter> Find_values = new List<SqlParameter>();
-            Find_values.Add(new SqlParameter("@MaHD", MaHD));
+            List<SqlParameter> Find_values = new List<SqlParameter>
+            {
+                new SqlParameter("@MaHD", MaHD)
+            };
 
             dp.ExecuteNonQuery(query, Find_values);
         }

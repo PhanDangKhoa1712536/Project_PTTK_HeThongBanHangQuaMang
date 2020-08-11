@@ -99,8 +99,10 @@ namespace Presentation
             set
             {
                 decimal val = 0;
-                if (value is decimal)
-                    val = (decimal)value;
+                if (value is decimal @decimal)
+                {
+                    val = @decimal;
+                }
                 else
                 {
                     String s = "" + value;

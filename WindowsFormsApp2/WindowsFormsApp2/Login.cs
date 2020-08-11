@@ -8,9 +8,9 @@ namespace WindowsFormsApp2
 {
     public partial class Login : Form
     {
-        NhanVienBUS nhanVienBUS;
+        private readonly NhanVienBUS nhanVienBUS;
         NhanVienDTO nhanVienDTO;
-        private MainForm frmMain;
+        private readonly MainForm frmMain;
         public Login(MainForm frmMain)
         {
             InitializeComponent();

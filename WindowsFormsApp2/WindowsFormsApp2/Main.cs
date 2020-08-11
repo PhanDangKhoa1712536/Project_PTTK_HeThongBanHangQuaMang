@@ -11,8 +11,9 @@ namespace Presentation
 {
     public partial class MainForm : Form
     {
-        Stack<string> maKH_Xoa = new Stack<string>();
-        Stack<string> maHang_Add = new Stack<string>();
+        private static readonly Stack<string> stacks = new Stack<string>();
+        private readonly Stack<string> maKH_Xoa = stacks;
+        private readonly Stack<string> maHang_Add = stacks;
 
         public bool login_stats;
         public int MaNV_login; // Mã của nhân viên hiện tại đang log vào, chưa log vào mặc định là -1
@@ -39,11 +40,11 @@ namespace Presentation
             tmpTraHang = tbTraHang;
             tmpXuLyMua = tbXuLyMua;
 
-            this.tabControl1.TabPages.Remove(this.tbComment);
-            this.tabControl1.TabPages.Remove(this.tbNhapHang);
-            this.tabControl1.TabPages.Remove(this.tbQuangCao);
-            this.tabControl1.TabPages.Remove(this.tbTraHang);
-            this.tabControl1.TabPages.Remove(this.tbXuLyMua);
+            this.tabMain.TabPages.Remove(this.tbComment);
+            this.tabMain.TabPages.Remove(this.tbNhapHang);
+            this.tabMain.TabPages.Remove(this.tbQuangCao);
+            this.tabMain.TabPages.Remove(this.tbTraHang);
+            this.tabMain.TabPages.Remove(this.tbXuLyMua);
 
 
             this.login_stats = false;
@@ -52,11 +53,11 @@ namespace Presentation
 
         private void LoginCallback()
         {
-            this.tabControl1.TabPages.Add(this.tmpNhapHang);
-            this.tabControl1.TabPages.Add(this.tmpTraHang);
-            this.tabControl1.TabPages.Add(this.tmpComment);
-            this.tabControl1.TabPages.Add(this.tmpQuangCao);
-            this.tabControl1.TabPages.Add(this.tmpXuLyMua);
+            this.tabMain.TabPages.Add(this.tmpNhapHang);
+            this.tabMain.TabPages.Add(this.tmpTraHang);
+            this.tabMain.TabPages.Add(this.tmpComment);
+            this.tabMain.TabPages.Add(this.tmpQuangCao);
+            this.tabMain.TabPages.Add(this.tmpXuLyMua);
             InitHoaDonBanHang();
             Load_AllMaHD();
         }
@@ -341,27 +342,34 @@ namespace Presentation
 
         private void grvThongKeHangBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            HangBUS hangBUS = new HangBUS();
-            if (grvThongKeHangBan.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            try
             {
-                grvThongKeHangBan.CurrentRow.Selected = true;
-                string mahang = grvThongKeHangBan.Rows[e.RowIndex].Cells["COLMAHANG"].FormattedValue.ToString();
-
-                List<HangDTO> hangByID = hangBUS.TimKiem(mahang);
-                if (!maHang_Add.Contains(hangByID[0].maHang.ToString()))
+                HangBUS hangBUS = new HangBUS();
+                if (grvThongKeHangBan.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
                 {
-                    maHang_Add.Push(hangByID[0].maHang.ToString());
-                    grvChiTietDonNhap.Rows.Add(
-                        hangByID[0].maHang,
-                        hangByID[0].tenHang,
-                        1
-                        );
-                }
-                else
-                {
-                    MessageBox.Show("Đã tồn tại hàng trong đơn");
-                }
+                    grvThongKeHangBan.CurrentRow.Selected = true;
+                    string mahang = grvThongKeHangBan.Rows[e.RowIndex].Cells["COLMAHANG"].FormattedValue.ToString();
 
+                    List<HangDTO> hangByID = hangBUS.TimKiem(mahang);
+                    if (!maHang_Add.Contains(hangByID[0].maHang.ToString()))
+                    {
+                        maHang_Add.Push(hangByID[0].maHang.ToString());
+                        grvChiTietDonNhapTab1.Rows.Add(
+                            hangByID[0].maHang,
+                            hangByID[0].tenHang,
+                            1
+                            );
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã tồn tại hàng trong đơn");
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -383,7 +391,7 @@ namespace Presentation
             {
                 return;
             }
-            int newlyAdded = Convert.ToInt32(grvChiTietDonNhap.Rows[e.RowIndex].Cells["COLSOLUONG"].Value.ToString()) - 1;
+            int newlyAdded = Convert.ToInt32(grvChiTietDonNhapTab1.Rows[e.RowIndex].Cells["COLSOLUONG"].Value.ToString()) - 1;
 
             int currvalue = int.Parse(txtTongSoLuongHangNhap.Text);
 
@@ -404,10 +412,10 @@ namespace Presentation
             int idDonNhap = donNhapBUS.Insert(donNhapHangDTO);
 
             int i = 0;
-            foreach (DataGridViewRow row in grvChiTietDonNhap.Rows)
+            foreach (DataGridViewRow row in grvChiTietDonNhapTab1.Rows)
             {
                 i++;
-                if (i == grvChiTietDonNhap.Rows.Count)
+                if (i == grvChiTietDonNhapTab1.Rows.Count)
                 {
                     continue;
                 }
@@ -422,10 +430,6 @@ namespace Presentation
             }
             MessageBox.Show("Thêm đơn nhập hàng thành công");
         }
-
-
-
-
 
         // Tra Hang 
         private void Nhap_THHoaDon_Click(object sender, EventArgs e)
@@ -452,7 +456,6 @@ namespace Presentation
             this.dtGV_TraHangKH.ClearSelection();
 
         }
-
 
         private void HienDSMatHang()
         {
@@ -549,12 +552,20 @@ namespace Presentation
 
         private void grv_DonNhapHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (grv_DonNhapHang.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            try
             {
-                grv_DonNhapHang.CurrentRow.Selected = true;
-                grboxChiTietDonNhap.Text = "CHI TIẾT ĐƠN NHẬP CỦA ĐƠN SỐ " + grv_DonNhapHang.Rows[e.RowIndex].Cells["COLMADONNHAP"].FormattedValue.ToString();
+                if (grv_DonNhapHang.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    grv_DonNhapHang.CurrentRow.Selected = true;
+                    grboxChiTietDonNhapHangTab2.Text = "CHI TIẾT ĐƠN NHẬP CỦA ĐƠN SỐ " + grv_DonNhapHang.Rows[e.RowIndex].Cells["COLMADONNHAP"].FormattedValue.ToString();
 
-                Load_DSChiTietDonNhap();
+                    Load_DSChiTietDonNhap();
+                    this.btn_sendNCC.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -637,8 +648,21 @@ namespace Presentation
 
         private void btn_sendNCC_Click(object sender, EventArgs e)
         {
+            string nhacungcap = grv_NhaCungCap[1, grv_NhaCungCap.CurrentRow.Index].Value.ToString();
+            DialogResult result = MessageBox.Show("Xác nhận gửi cho nhà cung cấp " + nhacungcap + "?", "Chú ý", MessageBoxButtons.YesNoCancel);
 
-            MessageBox.Show("Xác nhận gửi cho nhà cung cấp ?" );
+            if (result == DialogResult.Yes)
+            {
+                DonNhapHangBUS donNhapHangBUS = new DonNhapHangBUS();
+                DonNhapHangDTO donNhapHangDTO = new DonNhapHangDTO
+                {
+                    maNCC = int.Parse(grv_NhaCungCap[0, grv_NhaCungCap.CurrentRow.Index].Value.ToString()),
+                    maDonNhap = int.Parse(grv_DonNhapHang[0, grv_DonNhapHang.CurrentRow.Index].Value.ToString())
+                };
+                donNhapHangBUS.GuiChoNhaCungCap(donNhapHangDTO);
+                MessageBox.Show("Gửi thành công");
+                Load_DSDonNhap();
+            }
         }
 
         private void Load_AllMaHD()
@@ -701,17 +725,17 @@ namespace Presentation
         private void Load_DSChiTietDonNhap()
         {
             ChiTietDonNhapBUS chiTietDonNhapBUS = new ChiTietDonNhapBUS();
-            String mahang = new String(grboxChiTietDonNhap.Text.Where(Char.IsDigit).ToArray());
+            String mahang = new String(grboxChiTietDonNhapHangTab2.Text.Where(Char.IsDigit).ToArray());
             List<ChiTietDonNhapDTO> allChiTiet = chiTietDonNhapBUS.getAllByMaDonNhap(int.Parse(mahang));
-            grvChiTietTab2.Rows.Clear();
+            grvChiTietDonNhapTab2.Rows.Clear();
             for (int i = 0; i < allChiTiet.Count; i++)
             {
-                this.grvChiTietTab2.Rows.Add(
+                this.grvChiTietDonNhapTab2.Rows.Add(
                     allChiTiet[i].maHang,
                     allChiTiet[i].tenHang,
                     allChiTiet[i].soLuongNhap);
             }
-            this.grvChiTietTab2.ClearSelection();
+            this.grvChiTietDonNhapTab2.ClearSelection();
         }
         private void XoaHoaDon_button_Click(object sender, EventArgs e)
         {

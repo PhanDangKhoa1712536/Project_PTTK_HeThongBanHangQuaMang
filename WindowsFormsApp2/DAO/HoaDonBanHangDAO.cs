@@ -8,7 +8,7 @@ namespace DAO
 {
     public class HoaDonBanHangDAO
     {
-        private DataProvider db;
+        private readonly DataProvider db;
 
         public HoaDonBanHangDAO()
         {
@@ -21,18 +21,20 @@ namespace DAO
         public void ThemHoaDonBanHang(HoaDonBanHangDTO HD)
         {
             string query = "INSERT INTO HOADONBANHANG(MAKH, MANVLAP,MANVGIAO,MANVXACTHUC,TONGTIEN,HINHTHUCTHANHTOAN,XACNHANDATHANHTOAN,NGAYGIAO,SOTIENTHANHTOAN,NGAYLAPHOADON) VALUES (@MaKH, @MaNVLap, @MaNVGiao, @MaNVXacThuc, @TongTien, @HinhThucThanhToan, @XacNhanDaThanhToan,@NgayGiaoHang, @SoTienThanhToan, @NgayLap)";
-            List<SqlParameter> Inserted_values = new List<SqlParameter>();
-            //Inserted_values.Add(new SqlParameter("@MaHD", HD.maHoaDon));
-            Inserted_values.Add(new SqlParameter("@MaKH", HD.maKH));
-            Inserted_values.Add(new SqlParameter("@MaNVLap", HD.maNVLap));
-            Inserted_values.Add(new SqlParameter("@MaNVGiao", HD.maNVGiao));
-            Inserted_values.Add(new SqlParameter("@MaNVXacThuc", HD.maNVXacThuc));
-            Inserted_values.Add(new SqlParameter("@TongTien", HD.tongTien));
-            Inserted_values.Add(new SqlParameter("@HinhThucThanhToan", HD.hinhThucThanhToan));
-            Inserted_values.Add(new SqlParameter("@XacNhanDaThanhToan", HD.xacNhanDaThanhToan));
-            Inserted_values.Add(new SqlParameter("@NgayGiaoHang", HD.ngayGiao));
-            Inserted_values.Add(new SqlParameter("@SoTienThanhToan", HD.soTienThanhToan));
-            Inserted_values.Add(new SqlParameter("@NgayLap", HD.ngayLap));
+            List<SqlParameter> Inserted_values = new List<SqlParameter>
+            {
+                //Inserted_values.Add(new SqlParameter("@MaHD", HD.maHoaDon));
+                new SqlParameter("@MaKH", HD.maKH),
+                new SqlParameter("@MaNVLap", HD.maNVLap),
+                new SqlParameter("@MaNVGiao", HD.maNVGiao),
+                new SqlParameter("@MaNVXacThuc", HD.maNVXacThuc),
+                new SqlParameter("@TongTien", HD.tongTien),
+                new SqlParameter("@HinhThucThanhToan", HD.hinhThucThanhToan),
+                new SqlParameter("@XacNhanDaThanhToan", HD.xacNhanDaThanhToan),
+                new SqlParameter("@NgayGiaoHang", HD.ngayGiao),
+                new SqlParameter("@SoTienThanhToan", HD.soTienThanhToan),
+                new SqlParameter("@NgayLap", HD.ngayLap)
+            };
 
             db.ExecuteNonQuery(query, Inserted_values);
         }
@@ -64,8 +66,10 @@ namespace DAO
         public HoaDonBanHangDTO DocThongTinHD(int MaHD)
         {
             string query = "SELECT * FROM HOADONBANHANG WHERE MAHOADON = @MaHD";
-            List<SqlParameter> find_values = new List<SqlParameter>();
-            find_values.Add(new SqlParameter("@MaHD", MaHD));
+            List<SqlParameter> find_values = new List<SqlParameter>
+            {
+                new SqlParameter("@MaHD", MaHD)
+            };
             DataTable dt = db.ExecuteQuery(query, find_values);
 
             DataRow temp = dt.Rows[0];
@@ -78,8 +82,10 @@ namespace DAO
         public void XoaHDBanHang(int MaHD)
         {
             string query = "DELETE FROM HOADONBANHANG WHERE MAHOADON = @MaHD";
-            List<SqlParameter> Find_values = new List<SqlParameter>();
-            Find_values.Add(new SqlParameter("@MaHD", MaHD));
+            List<SqlParameter> Find_values = new List<SqlParameter>
+            {
+                new SqlParameter("@MaHD", MaHD)
+            };
 
             db.ExecuteNonQuery(query, Find_values);
         }
@@ -87,8 +93,10 @@ namespace DAO
         public HoaDonBanHangDTO TimHoaDon_TraHang(int MaHD)
         {
             string query = "SELECT * FROM HOADONBANHANG WHERE MAHOADON = @MaHD";
-            List<SqlParameter> find_values = new List<SqlParameter>();
-            find_values.Add(new SqlParameter("@MaHD", MaHD));
+            List<SqlParameter> find_values = new List<SqlParameter>
+            {
+                new SqlParameter("@MaHD", MaHD)
+            };
             DataTable dt = db.ExecuteQuery(query, find_values);
 
             HoaDonBanHangDTO hoadonSearch = new HoaDonBanHangDTO();

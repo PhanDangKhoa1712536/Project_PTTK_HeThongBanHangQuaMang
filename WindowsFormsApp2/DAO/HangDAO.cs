@@ -8,7 +8,7 @@ namespace DAO
 {
     public class HangDAO
     {
-        private DataProvider dp;
+        private readonly DataProvider dp;
 
         public HangDAO()
         {
@@ -22,9 +22,11 @@ namespace DAO
                 "@d1 AND @d2 " +
                 "GROUP BY H.MAHANG, H.TENHANG";
 
-            List<SqlParameter> dateRange = new List<SqlParameter>();
-            dateRange.Add(new SqlParameter("@d1", d1));
-            dateRange.Add(new SqlParameter("@d2", d2));
+            List<SqlParameter> dateRange = new List<SqlParameter>
+            {
+                new SqlParameter("@d1", d1),
+                new SqlParameter("@d2", d2)
+            };
 
             return this.dp.ExecuteQuery(query, dateRange);
         }
