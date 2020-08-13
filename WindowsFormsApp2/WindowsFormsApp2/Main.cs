@@ -105,7 +105,7 @@ namespace Presentation
 
         private void btnCloseMain_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Thoát ứng dụng?", "Thông báo", MessageBoxButtons.YesNo);
+            DialogResult res = MessageBox.Show("               Thoát ứng dụng?", "Thông báo", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
             {
                 System.Windows.Forms.Application.Exit();
@@ -142,7 +142,7 @@ namespace Presentation
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Đăng xuất?", "Thông báo", MessageBoxButtons.YesNo);
+            DialogResult res = MessageBox.Show("                    Đăng xuất?", "Thông báo", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
             {
                 Application.Restart();
@@ -412,35 +412,39 @@ namespace Presentation
 
         private void btnAddDonNhap_Click(object sender, EventArgs e)
         {
-            DonNhapHangDTO donNhapHangDTO = new DonNhapHangDTO
+            DialogResult result = MessageBox.Show("Xác nhận lập đơn nhập hàng?", "Thông báo", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
-                maNV = int.Parse(txtNhanVienNhapHang.Text.Split(',')[0]),
-                tongLuongHang = int.Parse(txtTongSoLuongHangNhap.Text),
-                lyDoNhap = txtLyDoNhapHang.Text,
-                ngayNhap = dtPickNgayNhap.Value
-            };
-            DonNhapHangBUS donNhapBUS = new DonNhapHangBUS();
-            int idDonNhap = donNhapBUS.Insert(donNhapHangDTO);
-
-            int i = 0;
-            foreach (DataGridViewRow row in grvChiTietDonNhapTab1.Rows)
-            {
-                i++;
-                if (i == grvChiTietDonNhapTab1.Rows.Count)
+                DonNhapHangDTO donNhapHangDTO = new DonNhapHangDTO
                 {
-                    continue;
+                    maNV = int.Parse(txtNhanVienNhapHang.Text.Split(',')[0]),
+                    tongLuongHang = int.Parse(txtTongSoLuongHangNhap.Text),
+                    lyDoNhap = txtLyDoNhapHang.Text,
+                    ngayNhap = dtPickNgayNhap.Value
+                };
+                DonNhapHangBUS donNhapBUS = new DonNhapHangBUS();
+                int idDonNhap = donNhapBUS.Insert(donNhapHangDTO);
+
+                int i = 0;
+                foreach (DataGridViewRow row in grvChiTietDonNhapTab1.Rows)
+                {
+                    i++;
+                    if (i == grvChiTietDonNhapTab1.Rows.Count)
+                    {
+                        continue;
+                    }
+                    ChiTietDonNhapDTO chiTietDonNhapDTO = new ChiTietDonNhapDTO();
+                    int mahang = Convert.ToInt32(row.Cells["COLMAHANGCTDONNHAP"].Value);
+                    int soluongnhap = Convert.ToInt32(row.Cells["COLSOLUONG"].Value);
+                    chiTietDonNhapDTO.maDonNhap = idDonNhap;
+                    chiTietDonNhapDTO.maHang = mahang;
+                    chiTietDonNhapDTO.soLuongNhap = soluongnhap;
+                    ChiTietDonNhapBUS chiTietDonNhapBUS = new ChiTietDonNhapBUS();
+                    chiTietDonNhapBUS.Insert(chiTietDonNhapDTO);
                 }
-                ChiTietDonNhapDTO chiTietDonNhapDTO = new ChiTietDonNhapDTO();
-                int mahang = Convert.ToInt32(row.Cells["COLMAHANGCTDONNHAP"].Value);
-                int soluongnhap = Convert.ToInt32(row.Cells["COLSOLUONG"].Value);
-                chiTietDonNhapDTO.maDonNhap = idDonNhap;
-                chiTietDonNhapDTO.maHang = mahang;
-                chiTietDonNhapDTO.soLuongNhap = soluongnhap;
-                ChiTietDonNhapBUS chiTietDonNhapBUS = new ChiTietDonNhapBUS();
-                chiTietDonNhapBUS.Insert(chiTietDonNhapDTO);
+                MessageBox.Show("Thêm đơn nhập hàng thành công");
+                Load_DSDonNhap();
             }
-            MessageBox.Show("Thêm đơn nhập hàng thành công");
-            Load_DSDonNhap();
         }
 
         // Tra Hang 
@@ -697,6 +701,20 @@ namespace Presentation
                     allNCC[i].tenNCC);
             }
             this.grv_NhaCungCap.ClearSelection();
+        }
+
+        private void txtTongSoLuongHangNhap_TextChanged(object sender, EventArgs e)
+        {
+            if (int.Parse(txtTongSoLuongHangNhap.Text) != 0)
+            {
+                btnAddDonNhap.Enabled = true;
+                btnDeleteDetail.Enabled = true;
+            }
+            else if (int.Parse(txtTongSoLuongHangNhap.Text) == 0)
+            {
+                btnAddDonNhap.Enabled = false; 
+                btnDeleteDetail.Enabled = false;
+            }
         }
 
         private void Load_AllMaHD()

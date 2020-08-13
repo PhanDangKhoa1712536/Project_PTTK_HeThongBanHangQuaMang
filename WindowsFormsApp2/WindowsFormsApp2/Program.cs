@@ -98,17 +98,17 @@ namespace Presentation
 
             set
             {
-                decimal val = 0;
-                if (value is decimal @decimal)
+                int val = 0;
+                if (value is int @int)
                 {
-                    val = @decimal;
+                    val = @int;
                 }
                 else
                 {
                     String s = "" + value;
                     if (s.Length > 0)
                     {
-                        decimal.TryParse(s, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture, out val);
+                        int.TryParse(s, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture, out val);
                     }
                 }
 
@@ -124,6 +124,8 @@ namespace Presentation
                 var dgv = this.EditingControlDataGridView;
                 var cell = (NumericUpDownCell)dgv.CurrentCell;
                 cell.Value = this.Value;
+                dgv.ClearSelection();
+
             }
 
             base.OnLeave(e);
