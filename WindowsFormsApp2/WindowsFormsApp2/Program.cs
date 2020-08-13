@@ -32,13 +32,13 @@ namespace Presentation
             // Use the default row value when Value property is null.
             if (this.Value == null)
             {
-                nUpDown.Value = (Decimal)this.DefaultNewRowValue;
+                nUpDown.Value = (int)this.DefaultNewRowValue;
             }
             else
             {
                 //nUpDown.Value = Decimal.Parse(this.Value.ToString());
                 Object trueValue = this.Value;
-                nUpDown.Value = Decimal.Parse(trueValue.ToString());
+                nUpDown.Value = int.Parse(trueValue.ToString());
             }
         }
 
@@ -80,7 +80,7 @@ namespace Presentation
         public NumericCellControl()
         {
             this.Increment = 1m;
-            this.DecimalPlaces = 1;
+            this.DecimalPlaces = 0;
             this.Minimum = 1;
             this.Maximum = 100;
         }
@@ -218,7 +218,7 @@ namespace Presentation
     {
         public NumericColumn() : base(new NumericUpDownCell())
         {
-            this.ValueType = typeof(decimal?);
+            this.ValueType = typeof(int?);
         }
 
         public override DataGridViewCell CellTemplate
