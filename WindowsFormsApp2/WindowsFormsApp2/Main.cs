@@ -47,6 +47,7 @@ namespace Presentation
             this.tabMain.TabPages.Remove(this.tbXuLyMua);
 
             dtimeThongKeHangStart.MaxDate = DateTime.Now;
+            dtPickNgayNhap.MinDate = DateTime.Now;
 
             this.login_stats = false;
             this.MaNV_login = -1;
