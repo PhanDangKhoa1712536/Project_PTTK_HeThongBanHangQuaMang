@@ -28,7 +28,6 @@ namespace Presentation
             // Set the value of the editing control to the current cell value.
             base.InitializeEditingControl(rowIndex, initialFormattedValue, dataGridViewCellStyle);
             NumericCellControl nUpDown = DataGridView.EditingControl as NumericCellControl;
-
             // Use the default row value when Value property is null.
             if (this.Value == null)
             {
@@ -86,7 +85,7 @@ namespace Presentation
         }
 
         // Implements the IDataGridViewEditingControl.EditingControlFormattedValue property.
-        public Object EditingControlFormattedValue
+        public object EditingControlFormattedValue
         {
             get
             {
@@ -105,7 +104,7 @@ namespace Presentation
                 }
                 else
                 {
-                    String s = "" + value;
+                    string s = "" + value;
                     if (s.Length > 0)
                     {
                         int.TryParse(s, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture, out val);
@@ -125,7 +124,6 @@ namespace Presentation
                 var cell = (NumericUpDownCell)dgv.CurrentCell;
                 cell.Value = this.Value;
                 dgv.ClearSelection();
-
             }
 
             base.OnLeave(e);

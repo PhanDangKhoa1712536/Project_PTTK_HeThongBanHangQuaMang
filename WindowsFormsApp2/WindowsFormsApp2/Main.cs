@@ -387,7 +387,7 @@ namespace Presentation
         private void grvChiTietDonNhap_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             int currvalue = int.Parse(txtTongSoLuongHangNhap.Text);
-            currvalue += 1;
+            currvalue++;
             txtTongSoLuongHangNhap.Text = currvalue.ToString();
             //int sum = 0;
             //sum = sum + Convert.ToInt32(grvChiTietDonNhap.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
