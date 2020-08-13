@@ -46,6 +46,7 @@ namespace Presentation
             this.tabMain.TabPages.Remove(this.tbTraHang);
             this.tabMain.TabPages.Remove(this.tbXuLyMua);
 
+            dtimeThongKeHangStart.MaxDate = DateTime.Now;
 
             this.login_stats = false;
             this.MaNV_login = -1;
@@ -103,7 +104,11 @@ namespace Presentation
 
         private void btnCloseMain_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            DialogResult res = MessageBox.Show("Thoát ứng dụng?", "Thông báo", MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                System.Windows.Forms.Application.Exit();
+            }
         }
 
         private void tnMinimizeMain_Click(object sender, EventArgs e)
@@ -136,7 +141,11 @@ namespace Presentation
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            Application.Restart();
+            DialogResult res = MessageBox.Show("Đăng xuất?", "Thông báo", MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                Application.Restart();
+            }
         }
 
         private void btnXoaHopDong_Click(object sender, EventArgs e)
@@ -206,6 +215,7 @@ namespace Presentation
 
         private void dtimeThongKeHangStart_ValueChanged(object sender, EventArgs e)
         {
+            dtimeThongKeHangEnd.MinDate = dtimeThongKeHangStart.Value;
             HangBUS hangBUS = new HangBUS();
             grvThongKeHangBan.Rows.Clear();
             grvThongKeHangBan.Refresh();
@@ -650,7 +660,7 @@ namespace Presentation
         private void btn_sendNCC_Click(object sender, EventArgs e)
         {
             string nhacungcap = grv_NhaCungCap[1, grv_NhaCungCap.CurrentRow.Index].Value.ToString();
-            DialogResult result = MessageBox.Show("Xác nhận gửi cho nhà cung cấp " + nhacungcap + "?", "Chú ý", MessageBoxButtons.YesNoCancel);
+            DialogResult result = MessageBox.Show("Xác nhận gửi cho nhà cung cấp " + nhacungcap + "?", "Thông báo", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {
