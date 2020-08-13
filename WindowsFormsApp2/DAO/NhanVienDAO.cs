@@ -2,12 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace DAO
 {
     public class NhanVienDAO
     {
-        private DataProvider db;
+        private readonly DataProvider db;
 
         public NhanVienDAO()
         {
@@ -30,8 +31,13 @@ namespace DAO
         }
         public NhanVienDTO getByUserPassword(string user, string password)
         {
-            string query = "SELECT * FROM NHANVIEN WHERE TENDANGNHAP = '" + user + "' AND MATKHAU = '" + password + "'";
-            using (DataTable dt = db.ExecuteQuery(query))
+            string query = "SELECT * FROM NHANVIEN WHERE TENDANGNHAP = @USER AND MATKHAU = @PASSWORD";
+            List<SqlParameter> param = new List<SqlParameter>
+            {
+                new SqlParameter("@USER", user),
+                new SqlParameter("@PASSWORD", password)
+            };
+            using (DataTable dt = db.ExecuteQuery(query, param))
             {
                 if (dt.Rows.Count == 0)
                 {

@@ -9,7 +9,7 @@ namespace DAO
     public class KhachHangDAO
     {
         // Connect to DB
-        private DataProvider db;
+        private readonly DataProvider db;
 
         public KhachHangDAO()
         {
@@ -23,11 +23,13 @@ namespace DAO
             // cau query
             string query = "INSERT INTO KHACHHANG(TENKH, EMAILKH, DIACHIKH,TRANGTHAIKHOACOMMENT) VALUES (@tenKH,@emailKH, @diaChiKH, @TrangThaiKhoaComment)";
             // Khoi tao List SQLParameter
-            List<SqlParameter> Inserted_values = new List<SqlParameter>();
-            Inserted_values.Add(new SqlParameter("@tenKH", KH.tenKH));
-            Inserted_values.Add(new SqlParameter("@diaChiKH", KH.diaChiKH));
-            Inserted_values.Add(new SqlParameter("@emailKH", KH.emailKH));
-            Inserted_values.Add(new SqlParameter("@TrangThaiKhoaComment", KH.trangThaiKhoaComment));
+            List<SqlParameter> Inserted_values = new List<SqlParameter>
+            {
+                new SqlParameter("@tenKH", KH.tenKH),
+                new SqlParameter("@diaChiKH", KH.diaChiKH),
+                new SqlParameter("@emailKH", KH.emailKH),
+                new SqlParameter("@TrangThaiKhoaComment", KH.trangThaiKhoaComment)
+            };
             // Thuc hien cau query
             db.ExecuteNonQuery(query, Inserted_values);
         }
@@ -56,8 +58,10 @@ namespace DAO
         public KhachHangDTO TimKhachHang_MaKH(int MaKH)
         {
             string query = "SELECT * FROM KHACHHANG WHERE MAKH = @MaKH";
-            List<SqlParameter> find_values = new List<SqlParameter>();
-            find_values.Add(new SqlParameter("@MaKH", MaKH));
+            List<SqlParameter> find_values = new List<SqlParameter>
+            {
+                new SqlParameter("@MaKH", MaKH)
+            };
             DataTable dt = db.ExecuteQuery(query, find_values);
             KhachHangDTO ret = new KhachHangDTO(MaKH, dt.Rows[0]["TENKH"].ToString(), dt.Rows[0]["DIACHIKH"].ToString(), dt.Rows[0]["EMAILKH"].ToString(), Convert.ToBoolean(dt.Rows[0]["TRANGTHAIKHOACOMMENT"]));
             return ret;
@@ -78,8 +82,10 @@ namespace DAO
         // Tim khach hang theo ten su dung cho chuc nang Tra Hang (Tim theo ten khach hang)
         public KhachHangDTO TimKH_TraHang(string TenKH)
         {
-            List<SqlParameter> VALUES = new List<SqlParameter>();
-            VALUES.Add(new SqlParameter("@Ten", TenKH));
+            List<SqlParameter> VALUES = new List<SqlParameter>
+            {
+                new SqlParameter("@Ten", TenKH)
+            };
 
             string query = "SELECT * FROM KHACHHANG WHERE TENKH = @Ten";
             KhachHangDTO khachhang = new KhachHangDTO();
@@ -102,8 +108,10 @@ namespace DAO
                 + "NOT EXISTS(SELECT MAKH FROM dbo.LICHSUQUANGCAO WHERE dbo.LICHSUQUANGCAO.MAKH = dbo.KHACHHANG.MAKH AND MAHANG = @mh) "
                 + strDSXoa;
 
-            List<SqlParameter> values = new List<SqlParameter>();
-            values.Add(new SqlParameter("@mh", MaHang));
+            List<SqlParameter> values = new List<SqlParameter>
+            {
+                new SqlParameter("@mh", MaHang)
+            };
             DataTable dt = this.db.ExecuteQuery(query, values);
 
             List<KhachHangDTO> khS = new List<KhachHangDTO>();

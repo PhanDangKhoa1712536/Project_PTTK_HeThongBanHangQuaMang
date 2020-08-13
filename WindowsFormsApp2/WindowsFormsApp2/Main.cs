@@ -209,13 +209,13 @@ namespace Presentation
             HangBUS hangBUS = new HangBUS();
             grvThongKeHangBan.Rows.Clear();
             grvThongKeHangBan.Refresh();
-            DataTable dt = hangBUS.lapBangThongKe(dtimeThongKeHangStart.Value, dtimeThongKeHangEnd.Value);
-            foreach (DataRow dr in dt.Rows)
+            List<HangDTO> allHang = hangBUS.lapBangThongKe(dtimeThongKeHangStart.Value, dtimeThongKeHangEnd.Value);
+            for (int i = 0; i < allHang.Count; i++)
             {
                 grvThongKeHangBan.Rows.Add(
-                    dr["MAHANG"],
-                    dr["TENHANG"].ToString(),
-                    dr["DABAN"]);
+                    allHang[i].maHang,
+                    allHang[i].tenHang,
+                    allHang[i].soLuongDaBan);
                 this.grvThongKeHangBan.ClearSelection();
             }
         }
@@ -225,13 +225,13 @@ namespace Presentation
             HangBUS hangBUS = new HangBUS();
             grvThongKeHangBan.Rows.Clear();
             grvThongKeHangBan.Refresh();
-            DataTable dt = hangBUS.lapBangThongKe(dtimeThongKeHangStart.Value, dtimeThongKeHangEnd.Value);
-            foreach (DataRow dr in dt.Rows)
+            List<HangDTO> allHang = hangBUS.lapBangThongKe(dtimeThongKeHangStart.Value, dtimeThongKeHangEnd.Value);
+            for (int i = 0; i < allHang.Count; i++)
             {
                 grvThongKeHangBan.Rows.Add(
-                    dr["MAHANG"],
-                    dr["TENHANG"].ToString(),
-                    dr["DABAN"]);
+                    allHang[i].maHang,
+                    allHang[i].tenHang,
+                    allHang[i].soLuongDaBan);
                 this.grvThongKeHangBan.ClearSelection();
             }
         }
@@ -429,6 +429,7 @@ namespace Presentation
                 chiTietDonNhapBUS.Insert(chiTietDonNhapDTO);
             }
             MessageBox.Show("Thêm đơn nhập hàng thành công");
+            Load_DSDonNhap();
         }
 
         // Tra Hang 
@@ -663,6 +664,28 @@ namespace Presentation
                 MessageBox.Show("Gửi thành công");
                 Load_DSDonNhap();
             }
+        }
+
+        private void btnDeleteDetail_Click(object sender, EventArgs e)
+        {
+            int soluongXoa = int.Parse(grvChiTietDonNhapTab1[2, grvChiTietDonNhapTab1.CurrentRow.Index].Value.ToString());
+            int tongSLMoi = int.Parse(txtTongSoLuongHangNhap.Text) - soluongXoa;
+            txtTongSoLuongHangNhap.Text = tongSLMoi.ToString();
+            grvChiTietDonNhapTab1.Rows.Remove(grvChiTietDonNhapTab1.CurrentRow);
+        }
+
+        private void txtTimNhaCungCap_TextChanged(object sender, EventArgs e)
+        {
+            NhaCungCapBUS nhaCungCapBUS = new NhaCungCapBUS();
+            List<NhaCungCapDTO> allNCC = nhaCungCapBUS.timNCC(txtTimNhaCungCap.Text);
+            grv_NhaCungCap.Rows.Clear();
+            for (int i = 0; i < allNCC.Count; i++)
+            {
+                this.grv_NhaCungCap.Rows.Add(
+                    allNCC[i].maNCC,
+                    allNCC[i].tenNCC);
+            }
+            this.grv_NhaCungCap.ClearSelection();
         }
 
         private void Load_AllMaHD()

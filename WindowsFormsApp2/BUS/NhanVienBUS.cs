@@ -6,15 +6,10 @@ namespace BUS
 {
     public class NhanVienBUS
     {
-        NhanVienDAO nhanVienDAO;
+        private readonly NhanVienDAO nhanVienDAO;
         public NhanVienBUS()
         {
             this.nhanVienDAO = new NhanVienDAO();
-        }
-
-        List<NhanVienDTO> getAll()
-        {
-            return nhanVienDAO.getAll();
         }
 
         public NhanVienDTO checkLogin(string user, string pass)

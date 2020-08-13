@@ -7,6 +7,7 @@
         public string tenHang { get; set; }
         public int soLuongConLai { get; set; }
         public double donGia { get; set; }
+        public int soLuongDaBan { get; set; }
         public HangDTO(int maHang, int maNVPhuTrach, string tenHang,
             int soLuongConLai, double donGia)
         {
@@ -15,6 +16,10 @@
             this.tenHang = tenHang;
             this.soLuongConLai = soLuongConLai;
             this.donGia = donGia;
+        }
+
+        public HangDTO()
+        {
         }
     }
 }

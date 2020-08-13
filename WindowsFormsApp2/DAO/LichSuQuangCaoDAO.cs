@@ -8,7 +8,7 @@ namespace DAO
 {
     public class LichSuQuangCaoDAO
     {
-        private DataProvider dp;
+        private readonly DataProvider dp;
 
         public LichSuQuangCaoDAO()
         {
@@ -20,10 +20,12 @@ namespace DAO
             string query = "SET IDENTITY_INSERT LICHSUQUANGCAO  ON;" +
                 "INSERT INTO dbo.LICHSUQUANGCAO(MALSQC, MAKH, MAHANG) VALUES (@mals, @makh, @mamh);" +
                 "SET IDENTITY_INSERT LICHSUQUANGCAO  OFF";
-            List<SqlParameter> values = new List<SqlParameter>();
-            values.Add(new SqlParameter("@mals", MaLS));
-            values.Add(new SqlParameter("@makh", MaKH));
-            values.Add(new SqlParameter("@mamh", MaMH));
+            List<SqlParameter> values = new List<SqlParameter>
+            {
+                new SqlParameter("@mals", MaLS),
+                new SqlParameter("@makh", MaKH),
+                new SqlParameter("@mamh", MaMH)
+            };
 
             dp.ExecuteNonQuery(query, values);
         }

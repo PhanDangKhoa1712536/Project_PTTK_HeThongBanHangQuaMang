@@ -7,7 +7,7 @@ namespace BUS
 
     public class NhaCungCapBUS
     {
-        NhaCungCapDAO nhaCungCapDAO;
+        private readonly NhaCungCapDAO nhaCungCapDAO;
         public NhaCungCapBUS()
         {
             nhaCungCapDAO = new NhaCungCapDAO();
@@ -17,5 +17,10 @@ namespace BUS
         {
             return nhaCungCapDAO.getAll();
         }
+        public List<NhaCungCapDTO> timNCC(string keyword)
+        {
+            return nhaCungCapDAO.getByKeyword(keyword);
+        }
+
     }
 }
