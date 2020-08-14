@@ -3329,4 +3329,4 @@ GO
 --SELECT * FROM NHANVIEN ORDER BY LOAINV ASC;
 select H.MAHANG, H.TENHANG AS [TÊN HÀNG], SUM(SOLUONG) AS [TỔNG SỐ LƯỢNG BÁN] from CHITIETHOADON C, HANG H WHERE C.MAHANG = H.MAHANG GROUP BY H.MAHANG, H.TENHANG;
 
-select * from gopy;
+select * from chitietdonnhap where madonnhap = 6;
