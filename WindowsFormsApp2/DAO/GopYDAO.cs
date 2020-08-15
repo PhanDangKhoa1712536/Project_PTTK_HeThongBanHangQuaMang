@@ -2,6 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DAO
 {
@@ -24,7 +28,7 @@ namespace DAO
                 try
                 {
                     GopYDTO gopy = new GopYDTO((int)dr["MAGOPY"], (int)dr["MAHANG"], (int)dr["MAKH"], dr["NOIDUNG"].ToString(),
-                        (DateTime)dr["NGAYGOPY"], (bool)dr["FLAGXAU"], (DateTime)dr["NGAYCHINHSUARECORD"]);
+                        (DateTime)dr["NGAYGOPY"], (bool)dr["FLAGXAU"], (DateTime)dr["NGAYCHINHSUARECORD"], dr["TENHANG"].ToString());
                     lstGopY.Add(gopy);
 
                 }
@@ -35,5 +39,137 @@ namespace DAO
             }
             return lstGopY;
         }
+
+        public List<GopYDTO> getByDate(DateTime FromDate, DateTime ToDate)
+        {
+            String query = "SELECT g.*,tenhang FROM GOPY g, hang h WHERE h.mahang=g.mahang and NGAYGOPY BETWEEN @FROMDATE AND @TODATE";
+            List<SqlParameter> sqlParameters = new List<SqlParameter>();
+
+            sqlParameters.Add(new SqlParameter("@FROMDATE", FromDate));
+            sqlParameters.Add(new SqlParameter("@TODATE", ToDate));
+            DataTable dt = this.dp.ExecuteQuery(query, sqlParameters);
+
+            List<GopYDTO> lstGopY = new List<GopYDTO>();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                try
+                {
+                    GopYDTO gopy = new GopYDTO((int)dr["MAGOPY"], (int)dr["MAHANG"], (int)dr["MAKH"], dr["NOIDUNG"].ToString(),
+                        (DateTime)dr["NGAYGOPY"], (bool)dr["FLAGXAU"], (DateTime)dr["NGAYCHINHSUARECORD"], dr["TENHANG"].ToString());
+                    lstGopY.Add(gopy);
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+            return lstGopY;
+        }
+
+        public Boolean Update(GopYDTO gopYDTO)
+        {
+            String query = "UPDATE GOPY SET FlagXau = @flagXau WHERE MAGOPY = @maGopY";
+
+            List<SqlParameter> sqlParameters = new List<SqlParameter>();
+
+            sqlParameters.Add(new SqlParameter("@flagXau", gopYDTO.flagXau));
+            sqlParameters.Add(new SqlParameter("@maGopY", gopYDTO.maGopY));
+
+            return this.dp.ExecuteNonQuery(query, sqlParameters);
+        }
+
+
+        public List<GopYDTO> getAllCommentXauByBangThongKe(int maBangThongKe)
+        {
+            String query = "SELECT g.*,tenhang FROM BANGTHONGKEGOPY b, CHITIETBANGTHONGKE c, GOPY g,Hang h WHERE b.MABANGTHONGKE=c.MABANGTHONGKE AND c.MAGOPY=g.MAGOPY AND g.FLAGXAU=1 AND g.MaHang=h.MaHang AND b.MABANGTHONGKE=@MABANGTHONGKE";
+            List<SqlParameter> sqlParameters = new List<SqlParameter>();
+
+            sqlParameters.Add(new SqlParameter("@MABANGTHONGKE", maBangThongKe));
+
+            DataTable dt = this.dp.ExecuteQuery(query, sqlParameters);
+
+            List<GopYDTO> lstGopY = new List<GopYDTO>();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                try
+                {
+                    GopYDTO gopy = new GopYDTO((int)dr["MAGOPY"], (int)dr["MAHANG"], (int)dr["MAKH"], dr["NOIDUNG"].ToString(),
+                        (DateTime)dr["NGAYGOPY"], (bool)dr["FLAGXAU"], (DateTime)dr["NGAYCHINHSUARECORD"], dr["TENHANG"].ToString());
+                    lstGopY.Add(gopy);
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+            return lstGopY;
+
+        }
+
+        public List<GopYDTO> getAllCommentTotByBangThongKe(int maBangThongKe)
+        {
+            String query = "SELECT g.*,tenhang FROM BANGTHONGKEGOPY b, CHITIETBANGTHONGKE c, GOPY g, HANG h WHERE h.MaHang=g.MaHang and b.MABANGTHONGKE=c.MABANGTHONGKE AND c.MAGOPY=g.MAGOPY AND g.FLAGXAU=0 AND b.MABANGTHONGKE=@MABANGTHONGKE";
+            List<SqlParameter> sqlParameters = new List<SqlParameter>();
+
+            sqlParameters.Add(new SqlParameter("@MABANGTHONGKE", maBangThongKe));
+
+            DataTable dt = this.dp.ExecuteQuery(query, sqlParameters);
+
+            List<GopYDTO> lstGopY = new List<GopYDTO>();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                try
+                {
+                    GopYDTO gopy = new GopYDTO((int)dr["MAGOPY"], (int)dr["MAHANG"], (int)dr["MAKH"], dr["NOIDUNG"].ToString(),
+                        (DateTime)dr["NGAYGOPY"], (bool)dr["FLAGXAU"], (DateTime)dr["NGAYCHINHSUARECORD"], dr["TENHANG"].ToString());
+                    lstGopY.Add(gopy);
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+            return lstGopY;
+        }
+
+        public Boolean UpdateTangQua(GopYDTO gopYDTO)
+        {
+            String query = "UPDATE GOPY SET FLAGTANGQUA = 1 WHERE MAGOPY = @maGopY";
+
+            List<SqlParameter> sqlParameters = new List<SqlParameter>();
+
+            sqlParameters.Add(new SqlParameter("@maGopY", gopYDTO.maGopY));
+
+            return this.dp.ExecuteNonQuery(query, sqlParameters);
+        }
+
+        public Boolean UpdateXacNhanXoaGopY(GopYDTO gopYDTO)
+        {
+            String query = "UPDATE GOPY SET FLAGXACNHANXOA = 1 WHERE MAGOPY = @maGopY";
+
+            List<SqlParameter> sqlParameters = new List<SqlParameter>();
+
+            sqlParameters.Add(new SqlParameter("@maGopY", gopYDTO.maGopY));
+
+            return this.dp.ExecuteNonQuery(query, sqlParameters);
+        }
+
+
+        public Boolean DeleteComment(GopYDTO gopYDTO)
+        {
+            String query = "DELETE FROM GOPY WHERE MAGOPY = @MAGOPY";
+            List<SqlParameter> sqlParameters = new List<SqlParameter>();
+            SqlParameter parameter = new SqlParameter("@MAGOPY", gopYDTO.maGopY);
+            sqlParameters.Add(parameter);
+
+            return this.dp.ExecuteNonQuery(query, sqlParameters);
+        }
     }
+
 }
