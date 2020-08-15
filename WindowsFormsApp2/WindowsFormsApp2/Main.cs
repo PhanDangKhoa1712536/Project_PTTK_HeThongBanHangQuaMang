@@ -468,8 +468,11 @@ namespace Presentation
             KhachHangBUS khBus = new KhachHangBUS();
             KhachHangDTO khSearch = khBus.SearchKH_Name(traHang_timKHtxtbox.Text);
 
+            //dtGV_TraHangKH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //dtGV_TraHangKH.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
             this.dtGV_TraHangKH.Rows.Clear();
-            this.dtGV_TraHangKH.Rows.Add(khSearch.tenKH, khSearch.diaChiKH, khSearch.emailKH, khSearch.trangThaiKhoaComment);
+            this.dtGV_TraHangKH.Rows.Add(khSearch.tenKH, khSearch.emailKH, khSearch.diaChiKH, khSearch.trangThaiKhoaComment);
 
             this.dtGV_TraHangKH.ClearSelection();
 
@@ -805,6 +808,7 @@ namespace Presentation
             LoadBangThongKeXau();
         }
 
+      
         private void Load_AllMaHD()
         {
             HoaDonBanHangBUS HD_bus = new HoaDonBanHangBUS();
