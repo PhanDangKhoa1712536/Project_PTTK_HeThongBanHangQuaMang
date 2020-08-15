@@ -1,5 +1,6 @@
 ﻿using DAO;
 using DTO;
+using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 //using DAO;
@@ -104,6 +105,13 @@ namespace BUS
             }
 
             return khachHangDAO.DocKHQuangCao(MaMH, strXoa);
+        }
+
+        public Boolean UpdateKhoaComment(int maKH)
+        {
+            KhachHangDTO khachHangDTO = new KhachHangDTO();
+            khachHangDTO.maKH = maKH;
+            return this.khachHangDAO.UpdateKhoaComment(khachHangDTO);
         }
     }
 }

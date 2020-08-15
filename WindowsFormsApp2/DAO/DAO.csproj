@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BangThongKeGopYDAO.cs" />
+    <Compile Include="ChiTietBangThongKeGopYDAO.cs" />
     <Compile Include="ChiTietDonNhapDAO.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="DonNhapHangDAO.cs" />

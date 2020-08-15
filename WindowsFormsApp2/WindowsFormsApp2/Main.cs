@@ -13,7 +13,8 @@ namespace Presentation
     {
         private static readonly Stack<string> stacks = new Stack<string>();
         private readonly Stack<string> maKH_Xoa = stacks;
-        private readonly Stack<string> maHang_Add = stacks;
+        private readonly Stack<string> maHang_Add = stacks; 
+        public NhanVienDTO nhanvienDTO;
 
         public bool login_stats;
         public int MaNV_login; // Mã của nhân viên hiện tại đang log vào, chưa log vào mặc định là -1
@@ -23,10 +24,11 @@ namespace Presentation
         {
             InitForm();
             Load_DSDonNhap();
-            Load_DSComment();
+            //Load_DSComment();
             HienDSMatHang();
             Load_DSNVGiaoHang();
             Load_DSNhaCungCap();
+            LoadMaBangThongKe();
         }
 
         private void InitForm()
@@ -715,6 +717,92 @@ namespace Presentation
                 btnAddDonNhap.Enabled = false; 
                 btnDeleteDetail.Enabled = false;
             }
+        }
+        private void LoadBangThongKeTot()
+        {
+            GopYBUS gopYBUS = new GopYBUS();
+            List<GopYDTO> allTot = gopYBUS.getAllCommentTotByBangThongKe(Int32.Parse(cbMaThongKe.SelectedValue.ToString()));
+            grvCmtTot.DataSource = allTot;
+        }
+        private void LoadBangThongKeXau()
+        {
+            GopYBUS gopYBUS = new GopYBUS();
+            List<GopYDTO> allXau = gopYBUS.getAllCommentXauByBangThongKe(Int32.Parse(cbMaThongKe.SelectedValue.ToString()));
+            grvCmtXau.DataSource = allXau;
+        }
+
+        private void btnXuLyThongKe_Click(object sender, EventArgs e)
+        {
+            GopYBUS gopYBUS = new GopYBUS();
+            var result = gopYBUS.getByDate(dTimeStartThongKeCmt.Value, dTimeEndThongKeCmt.Value);
+            grvAllComments.Refresh();
+            grvAllComments.DataSource = result;
+            grvAllComments.Columns.Remove("flagTangQua");
+        }
+        private void LoadMaBangThongKe()
+        {
+            BangThongKeGopYBUS bangThongKeGopYBUS = new BangThongKeGopYBUS();
+            List<int> BTK = bangThongKeGopYBUS.getMaBangTK();
+            /*format column size*/
+
+            cbMaThongKe.DataSource = BTK;
+            cbMaThongKe.DisplayMember = "MABANGTHONGKE";
+            cbMaThongKe.ValueMember = "MABANGTHONGKE";
+        }
+
+        private void btnXacNhanThongKe_Click(object sender, EventArgs e)
+        {
+            BangThongKeGopYBUS bangThongKeGopYDAO = new BangThongKeGopYBUS();
+            var mabangtk = bangThongKeGopYDAO.insert(0, nhanvienDTO.maNV, DateTime.Now);
+            List<GopYDTO> data = (List<GopYDTO>)grvAllComments.DataSource;
+            ChiTietBangThongKeGopYBUS chiTietBangThongKeGopYBUS = new ChiTietBangThongKeGopYBUS();
+            if (data != null)
+            {
+                foreach (var item in data)
+                {
+#pragma warning disable CS0472 // The result of the expression is always the same since a value of this type is never equal to 'null'
+                    if (item.maGopY != null)
+#pragma warning restore CS0472 // The result of the expression is always the same since a value of this type is never equal to 'null'
+                    {
+                        chiTietBangThongKeGopYBUS.Insert(mabangtk, item.maGopY);
+                    }
+                }
+                LoadMaBangThongKe();
+            }
+            MessageBox.Show("Đã thêm vào bảng thống kê");
+        }
+
+        private void btnXuLyCmt_Click(object sender, EventArgs e)
+        {
+            LoadBangThongKeTot();
+            LoadBangThongKeXau();
+        }
+
+        private void btnGhiNhanTangQua_Click(object sender, EventArgs e)
+        {
+            int rowIndex = grvCmtTot.CurrentCell.RowIndex;
+
+            string maGopY = grvCmtTot.Rows[rowIndex].Cells["MAGOPY"].FormattedValue.ToString();
+            int magopy = int.Parse(maGopY);
+            GopYBUS gopYBUS = new GopYBUS();
+            gopYBUS.UpdateTangQua(magopy);
+            MessageBox.Show("Đã ghi nhận tặng quà");
+            LoadBangThongKeTot();
+
+        }
+
+        private void btnXoaVaChan_Click(object sender, EventArgs e)
+        {
+            int rowIndex = grvCmtXau.CurrentCell.RowIndex;
+
+            string maGopY = grvCmtXau.Rows[rowIndex].Cells["MAGOPY"].FormattedValue.ToString();
+            int magopy = int.Parse(maGopY);
+            GopYBUS gopYBUS = new GopYBUS();
+            gopYBUS.UpdateXacNhanXoaGopY(magopy);
+            KhachHangBUS khachHangBUS = new KhachHangBUS();
+            khachHangBUS.UpdateKhoaComment(magopy);
+            MessageBox.Show("Đã ghi nhận xóa và ngăn khách hàng comment");
+            LoadBangThongKeXau();
         }
 
         private void Load_AllMaHD()
