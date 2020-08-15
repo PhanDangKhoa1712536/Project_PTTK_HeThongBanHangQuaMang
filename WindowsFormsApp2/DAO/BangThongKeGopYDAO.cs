@@ -18,7 +18,7 @@ namespace DAO
         }
         public int InsertBANGTHONGKE(BangThongKeGopYDTO bangThongKeGopYDTO)
         {
-            String query = "INSERT INTO BANGTHONGKEGOPY (MANVLAP, NGAYLAP) VALUES (@MANVLAP, @NGAYLAP); SELECT SCOPE_IDENTITY() as newid;";
+            String query = "INSERT INTO BANGTHONGKEGOPY (MANVLAP, NGAYLAP) OUTPUT INSERTED.MABANGTHONGKE VALUES (@MANVLAP, @NGAYLAP)";
 
             List<SqlParameter> sqlParameters = new List<SqlParameter>();
 
@@ -26,12 +26,9 @@ namespace DAO
             sqlParameters.Add(new SqlParameter("@MANVLAP", bangThongKeGopYDTO.maNVLap));
             sqlParameters.Add(new SqlParameter("@NGAYLAP", bangThongKeGopYDTO.ngayLap));
 
-            var dt = this.dp.ExecuteQuery(query, sqlParameters);
+            var mabtk = this.dp.ExecuteScalar(query, sqlParameters);
 
-            int mabangtk = 0;
-            DataRow dr = dt.Rows[0];
-            var boolean = int.TryParse(dr[0].ToString(), out mabangtk);
-            return mabangtk;
+            return mabtk;
         }
 
         public List<int> getBangThongKe()

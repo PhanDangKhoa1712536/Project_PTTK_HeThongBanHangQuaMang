@@ -752,17 +752,15 @@ namespace Presentation
 
         private void btnXacNhanThongKe_Click(object sender, EventArgs e)
         {
-            BangThongKeGopYBUS bangThongKeGopYDAO = new BangThongKeGopYBUS();
-            var mabangtk = bangThongKeGopYDAO.insert(0, nhanvienDTO.maNV, DateTime.Now);
+            BangThongKeGopYBUS bangThongKeGopYBUS = new BangThongKeGopYBUS();
+            int mabangtk = bangThongKeGopYBUS.insert(0, int.Parse(txtNhanVienNhapHang.Text.Split(',')[0]), DateTime.Now);
             List<GopYDTO> data = (List<GopYDTO>)grvAllComments.DataSource;
             ChiTietBangThongKeGopYBUS chiTietBangThongKeGopYBUS = new ChiTietBangThongKeGopYBUS();
             if (data != null)
             {
                 foreach (var item in data)
                 {
-#pragma warning disable CS0472 // The result of the expression is always the same since a value of this type is never equal to 'null'
                     if (item.maGopY != null)
-#pragma warning restore CS0472 // The result of the expression is always the same since a value of this type is never equal to 'null'
                     {
                         chiTietBangThongKeGopYBUS.Insert(mabangtk, item.maGopY);
                     }
