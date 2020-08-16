@@ -13,7 +13,7 @@ namespace Presentation
     {
         private static readonly Stack<string> stacks = new Stack<string>();
         private readonly Stack<string> maKH_Xoa = stacks;
-        private readonly Stack<string> maHang_Add = stacks; 
+        private readonly List<string> maHang_Add = new List<string>();
         public NhanVienDTO nhanvienDTO;
 
         public bool login_stats;
@@ -366,7 +366,7 @@ namespace Presentation
                     List<HangDTO> hangByID = hangBUS.TimKiem(mahang);
                     if (!maHang_Add.Contains(hangByID[0].maHang.ToString()))
                     {
-                        maHang_Add.Push(hangByID[0].maHang.ToString());
+                        maHang_Add.Add(hangByID[0].maHang.ToString());
                         grvChiTietDonNhapTab1.Rows.Add(
                             hangByID[0].maHang,
                             hangByID[0].tenHang,
@@ -688,6 +688,7 @@ namespace Presentation
             int soluongXoa = int.Parse(grvChiTietDonNhapTab1[2, grvChiTietDonNhapTab1.CurrentRow.Index].Value.ToString());
             int tongSLMoi = int.Parse(txtTongSoLuongHangNhap.Text) - soluongXoa;
             txtTongSoLuongHangNhap.Text = tongSLMoi.ToString();
+            maHang_Add.Remove(grvChiTietDonNhapTab1[0, grvChiTietDonNhapTab1.CurrentRow.Index].Value.ToString());
             grvChiTietDonNhapTab1.Rows.Remove(grvChiTietDonNhapTab1.CurrentRow);
         }
 
