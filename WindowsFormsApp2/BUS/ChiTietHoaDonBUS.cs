@@ -42,10 +42,12 @@ namespace BUS
         // thay vì đọc thông tin từ giỏ hàng thì hàm sẽ thực hiện KHởi tạo 1 list những chi tiết hóa đơn dummy;
         public List<ChiTietHoaDonDTO> DocChiTietTuGioHang(int MaHD)
         {
-            List<ChiTietHoaDonDTO> ret = new List<ChiTietHoaDonDTO>();
-            ret.Add(KhoiTao(MaHD, 0, "MI AN LIEN INDOMIE VI SUON 200GR", 5, 30));
-            ret.Add(KhoiTao(MaHD, 1, "GANG TAY CAO SU CASUMINA 2C", 5, 20));
-            ret.Add(KhoiTao(MaHD, 2, "DAU GOI TRESSEME 500ML", 5, 15));
+            List<ChiTietHoaDonDTO> ret = new List<ChiTietHoaDonDTO>
+            {
+                KhoiTao(MaHD, 0, "MI AN LIEN INDOMIE VI SUON 200GR", 5, 30),
+                KhoiTao(MaHD, 1, "GANG TAY CAO SU CASUMINA 2C", 5, 20),
+                KhoiTao(MaHD, 2, "DAU GOI TRESSEME 500ML", 5, 15)
+            };
             return ret;
         }
 

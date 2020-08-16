@@ -7,7 +7,7 @@ namespace BUS
 {
     public class ChiTietDonNhapBUS
     {
-        readonly ChiTietDonNhapDAO chiTietDonNhapDAO;
+        private readonly ChiTietDonNhapDAO chiTietDonNhapDAO;
         public ChiTietDonNhapBUS()
         {
             this.chiTietDonNhapDAO = new ChiTietDonNhapDAO();

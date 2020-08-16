@@ -11,7 +11,7 @@ namespace BUS
 {
     public class GopYBUS
     {
-        private GopYDAO gopYDAO;
+        private readonly GopYDAO gopYDAO;
 
         public GopYBUS()
         {
@@ -57,22 +57,28 @@ namespace BUS
 
         public Boolean UpdateTangQua(int maGopY)
         {
-            GopYDTO gopYDTO = new GopYDTO();
-            gopYDTO.maGopY = maGopY;
+            GopYDTO gopYDTO = new GopYDTO
+            {
+                maGopY = maGopY
+            };
             return this.gopYDAO.UpdateTangQua(gopYDTO);
         }
 
         public Boolean UpdateXacNhanXoaGopY(int maGopY)
         {
-            GopYDTO gopYDTO = new GopYDTO();
-            gopYDTO.maGopY = maGopY;
+            GopYDTO gopYDTO = new GopYDTO
+            {
+                maGopY = maGopY
+            };
             return this.gopYDAO.UpdateXacNhanXoaGopY(gopYDTO);
         }
 
         public Boolean DeleteComment(int maGopY)
         {
-            GopYDTO gopYDTO = new GopYDTO();
-            gopYDTO.maGopY = maGopY;
+            GopYDTO gopYDTO = new GopYDTO
+            {
+                maGopY = maGopY
+            };
             return this.gopYDAO.DeleteComment(gopYDTO);
         }
     }

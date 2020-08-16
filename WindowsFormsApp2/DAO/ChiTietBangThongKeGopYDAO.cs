@@ -10,7 +10,7 @@ namespace DAO
 {
     public class ChiTietBangThongKeGopYDAO
     {
-        DataProvider dp;
+        readonly DataProvider dp;
         public ChiTietBangThongKeGopYDAO()
         {
             dp = new DataProvider();
@@ -19,10 +19,11 @@ namespace DAO
         {
             String query = "INSERT INTO CHITIETBANGTHONGKE (MABANGTHONGKE, MAGOPY) VALUES (@MABANGTHONGKE, @MAGOPY)";
 
-            List<SqlParameter> sqlParameters = new List<SqlParameter>();
-
-            sqlParameters.Add(new SqlParameter("@MABANGTHONGKE", chiTietBangThongKeGopYDTO.maBangThongKe));
-            sqlParameters.Add(new SqlParameter("@MAGOPY", chiTietBangThongKeGopYDTO.maGopY));
+            List<SqlParameter> sqlParameters = new List<SqlParameter>
+            {
+                new SqlParameter("@MABANGTHONGKE", chiTietBangThongKeGopYDTO.maBangThongKe),
+                new SqlParameter("@MAGOPY", chiTietBangThongKeGopYDTO.maGopY)
+            };
 
             return this.dp.ExecuteNonQuery(query, sqlParameters);
         }

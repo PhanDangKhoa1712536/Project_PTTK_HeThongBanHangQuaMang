@@ -11,7 +11,7 @@ namespace DAO
 {
     public class BangThongKeGopYDAO
     {
-        DataProvider dp;
+        readonly DataProvider dp;
         public BangThongKeGopYDAO()
         {
             dp = new DataProvider();
@@ -20,11 +20,13 @@ namespace DAO
         {
             String query = "INSERT INTO BANGTHONGKEGOPY (MANVLAP, NGAYLAP) OUTPUT INSERTED.MABANGTHONGKE VALUES (@MANVLAP, @NGAYLAP)";
 
-            List<SqlParameter> sqlParameters = new List<SqlParameter>();
+            List<SqlParameter> sqlParameters = new List<SqlParameter>
+            {
 
-            // sqlParameters.Add(new SqlParameter("@MABANGTHONGKE", bangThongKeGopYDTO.maBangThongKe));
-            sqlParameters.Add(new SqlParameter("@MANVLAP", bangThongKeGopYDTO.maNVLap));
-            sqlParameters.Add(new SqlParameter("@NGAYLAP", bangThongKeGopYDTO.ngayLap));
+                // sqlParameters.Add(new SqlParameter("@MABANGTHONGKE", bangThongKeGopYDTO.maBangThongKe));
+                new SqlParameter("@MANVLAP", bangThongKeGopYDTO.maNVLap),
+                new SqlParameter("@NGAYLAP", bangThongKeGopYDTO.ngayLap)
+            };
 
             var mabtk = this.dp.ExecuteScalar(query, sqlParameters);
 

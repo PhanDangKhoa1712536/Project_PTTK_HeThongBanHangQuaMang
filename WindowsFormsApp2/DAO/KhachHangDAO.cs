@@ -130,9 +130,10 @@ namespace DAO
         {
             String query = "UPDATE KHACHHANG SET TRANGTHAIKHOACOMMENT = 1 WHERE MAKH = @MAKH";
 
-            List<SqlParameter> sqlParameters = new List<SqlParameter>();
-
-            sqlParameters.Add(new SqlParameter("@MAKH", khachHangDTO.maKH));
+            List<SqlParameter> sqlParameters = new List<SqlParameter>
+            {
+                new SqlParameter("@MAKH", khachHangDTO.maKH)
+            };
 
             return this.db.ExecuteNonQuery(query, sqlParameters);
         }

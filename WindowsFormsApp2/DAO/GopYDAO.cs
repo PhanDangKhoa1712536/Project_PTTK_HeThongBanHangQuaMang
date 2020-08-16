@@ -11,7 +11,7 @@ namespace DAO
 {
     public class GopYDAO
     {
-        DataProvider dp;
+        private readonly DataProvider dp;
         public GopYDAO()
         {
             dp = new DataProvider();
@@ -43,10 +43,11 @@ namespace DAO
         public List<GopYDTO> getByDate(DateTime FromDate, DateTime ToDate)
         {
             String query = "SELECT g.*,tenhang FROM GOPY g, hang h WHERE h.mahang=g.mahang and NGAYGOPY BETWEEN @FROMDATE AND @TODATE";
-            List<SqlParameter> sqlParameters = new List<SqlParameter>();
-
-            sqlParameters.Add(new SqlParameter("@FROMDATE", FromDate));
-            sqlParameters.Add(new SqlParameter("@TODATE", ToDate));
+            List<SqlParameter> sqlParameters = new List<SqlParameter>
+            {
+                new SqlParameter("@FROMDATE", FromDate),
+                new SqlParameter("@TODATE", ToDate)
+            };
             DataTable dt = this.dp.ExecuteQuery(query, sqlParameters);
 
             List<GopYDTO> lstGopY = new List<GopYDTO>();
@@ -72,10 +73,11 @@ namespace DAO
         {
             String query = "UPDATE GOPY SET FlagXau = @flagXau WHERE MAGOPY = @maGopY";
 
-            List<SqlParameter> sqlParameters = new List<SqlParameter>();
-
-            sqlParameters.Add(new SqlParameter("@flagXau", gopYDTO.flagXau));
-            sqlParameters.Add(new SqlParameter("@maGopY", gopYDTO.maGopY));
+            List<SqlParameter> sqlParameters = new List<SqlParameter>
+            {
+                new SqlParameter("@flagXau", gopYDTO.flagXau),
+                new SqlParameter("@maGopY", gopYDTO.maGopY)
+            };
 
             return this.dp.ExecuteNonQuery(query, sqlParameters);
         }
@@ -84,9 +86,10 @@ namespace DAO
         public List<GopYDTO> getAllCommentXauByBangThongKe(int maBangThongKe)
         {
             String query = "SELECT g.*,tenhang FROM BANGTHONGKEGOPY b, CHITIETBANGTHONGKE c, GOPY g,Hang h WHERE b.MABANGTHONGKE=c.MABANGTHONGKE AND c.MAGOPY=g.MAGOPY AND g.FLAGXAU=1 AND g.MaHang=h.MaHang AND b.MABANGTHONGKE=@MABANGTHONGKE";
-            List<SqlParameter> sqlParameters = new List<SqlParameter>();
-
-            sqlParameters.Add(new SqlParameter("@MABANGTHONGKE", maBangThongKe));
+            List<SqlParameter> sqlParameters = new List<SqlParameter>
+            {
+                new SqlParameter("@MABANGTHONGKE", maBangThongKe)
+            };
 
             DataTable dt = this.dp.ExecuteQuery(query, sqlParameters);
 
@@ -113,9 +116,10 @@ namespace DAO
         public List<GopYDTO> getAllCommentTotByBangThongKe(int maBangThongKe)
         {
             String query = "SELECT g.*,tenhang FROM BANGTHONGKEGOPY b, CHITIETBANGTHONGKE c, GOPY g, HANG h WHERE h.MaHang=g.MaHang and b.MABANGTHONGKE=c.MABANGTHONGKE AND c.MAGOPY=g.MAGOPY AND g.FLAGXAU=0 AND b.MABANGTHONGKE=@MABANGTHONGKE";
-            List<SqlParameter> sqlParameters = new List<SqlParameter>();
-
-            sqlParameters.Add(new SqlParameter("@MABANGTHONGKE", maBangThongKe));
+            List<SqlParameter> sqlParameters = new List<SqlParameter>
+            {
+                new SqlParameter("@MABANGTHONGKE", maBangThongKe)
+            };
 
             DataTable dt = this.dp.ExecuteQuery(query, sqlParameters);
 
@@ -142,9 +146,10 @@ namespace DAO
         {
             String query = "UPDATE GOPY SET FLAGTANGQUA = 1 WHERE MAGOPY = @maGopY";
 
-            List<SqlParameter> sqlParameters = new List<SqlParameter>();
-
-            sqlParameters.Add(new SqlParameter("@maGopY", gopYDTO.maGopY));
+            List<SqlParameter> sqlParameters = new List<SqlParameter>
+            {
+                new SqlParameter("@maGopY", gopYDTO.maGopY)
+            };
 
             return this.dp.ExecuteNonQuery(query, sqlParameters);
         }
@@ -153,9 +158,10 @@ namespace DAO
         {
             String query = "UPDATE GOPY SET FLAGXACNHANXOA = 1 WHERE MAGOPY = @maGopY";
 
-            List<SqlParameter> sqlParameters = new List<SqlParameter>();
-
-            sqlParameters.Add(new SqlParameter("@maGopY", gopYDTO.maGopY));
+            List<SqlParameter> sqlParameters = new List<SqlParameter>
+            {
+                new SqlParameter("@maGopY", gopYDTO.maGopY)
+            };
 
             return this.dp.ExecuteNonQuery(query, sqlParameters);
         }

@@ -61,10 +61,10 @@ namespace BUS
         // Search khách hàng theo hoten, diachi, email
         public int SearchKH(string HoTen, string Email)
         {
-            List<int> searched_result = new List<int>();
-                searched_result = khachHangDAO.TimKhachHang(HoTen, Email);
-                // Kiem tra xem ket qua tra ve co bao nhieu ket qua
-                if (searched_result.Count == 0)
+            _ = new List<int>();
+            List<int> searched_result = khachHangDAO.TimKhachHang(HoTen, Email);
+            // Kiem tra xem ket qua tra ve co bao nhieu ket qua
+            if (searched_result.Count == 0)
                 {
                     return 0;
                 }
@@ -109,8 +109,10 @@ namespace BUS
 
         public Boolean UpdateKhoaComment(int maKH)
         {
-            KhachHangDTO khachHangDTO = new KhachHangDTO();
-            khachHangDTO.maKH = maKH;
+            KhachHangDTO khachHangDTO = new KhachHangDTO
+            {
+                maKH = maKH
+            };
             return this.khachHangDAO.UpdateKhoaComment(khachHangDTO);
         }
     }

@@ -19,10 +19,12 @@ namespace BUS
 
         public int insert(int mabangthongke, int maNV, DateTime date)
         {
-            BangThongKeGopYDTO bangThongKeGopYDTO = new BangThongKeGopYDTO();
-            bangThongKeGopYDTO.maBangThongKe = mabangthongke;
-            bangThongKeGopYDTO.maNVLap = maNV;
-            bangThongKeGopYDTO.ngayLap = date;
+            BangThongKeGopYDTO bangThongKeGopYDTO = new BangThongKeGopYDTO
+            {
+                maBangThongKe = mabangthongke,
+                maNVLap = maNV,
+                ngayLap = date
+            };
             return bangThongKeGopYDAO.InsertBANGTHONGKE(bangThongKeGopYDTO);
         }
 

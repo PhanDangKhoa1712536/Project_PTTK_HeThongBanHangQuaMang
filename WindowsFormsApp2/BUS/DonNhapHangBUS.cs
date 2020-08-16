@@ -6,7 +6,7 @@ namespace BUS
 {
     public class DonNhapHangBUS
     {
-        readonly DonNhapHangDAO donNhapHangDAO = new DonNhapHangDAO();
+        private readonly DonNhapHangDAO donNhapHangDAO = new DonNhapHangDAO();
         public List<DonNhapHangDTO> getAll()
         {
             return donNhapHangDAO.getAll();
