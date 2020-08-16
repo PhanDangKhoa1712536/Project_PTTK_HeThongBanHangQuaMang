@@ -35,6 +35,7 @@ namespace WindowsFormsApp2
             }
             else
             {
+                frmMain.nhanvienDTO = nhanVienDTO;
                 frmMain.login_stats = true;
                 frmMain.btnLogOut.Text = "Logged in as " + nhanVienDTO.tenNhanVien;
                 frmMain.MaNV_login = nhanVienDTO.maNV;
