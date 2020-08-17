@@ -234,6 +234,12 @@
             this.label27 = new System.Windows.Forms.Label();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
             this.grd_DSHD = new System.Windows.Forms.DataGridView();
+            this.MaDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenDoiTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayKyHopDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayHetHan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThongTinViTriDang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button4 = new System.Windows.Forms.Button();
             this.tbXuLyMua = new System.Windows.Forms.TabPage();
             this.tabCtrlXLMuaHang = new System.Windows.Forms.TabControl();
@@ -345,12 +351,6 @@
             this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.COLSOLUONGCTDONNHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenDoiTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayKyHopDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayHetHan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThongTinViTriDang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabMain.SuspendLayout();
             this.tbNhapHang.SuspendLayout();
             this.tabCtrlNhapHang.SuspendLayout();
@@ -511,12 +511,13 @@
             // txtNoteAddChiTiet
             // 
             this.txtNoteAddChiTiet.AutoSize = true;
-            this.txtNoteAddChiTiet.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.txtNoteAddChiTiet.Location = new System.Drawing.Point(44, 393);
+            this.txtNoteAddChiTiet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNoteAddChiTiet.ForeColor = System.Drawing.Color.Red;
+            this.txtNoteAddChiTiet.Location = new System.Drawing.Point(6, 394);
             this.txtNoteAddChiTiet.Name = "txtNoteAddChiTiet";
-            this.txtNoteAddChiTiet.Size = new System.Drawing.Size(341, 13);
+            this.txtNoteAddChiTiet.Size = new System.Drawing.Size(568, 20);
             this.txtNoteAddChiTiet.TabIndex = 17;
-            this.txtNoteAddChiTiet.Text = "*Click vào mặt hàng trên bảng thống kê để thêm vào chi tiết đơn nhập";
+            this.txtNoteAddChiTiet.Text = "*Click vào mặt hàng cần nhập trên bảng thống kê để thêm vào chi tiết đơn nhập";
             // 
             // grBxChiTietDonNhapHangTab1
             // 
@@ -609,7 +610,7 @@
             this.dtimeThongKeHangEnd.Location = new System.Drawing.Point(111, 340);
             this.dtimeThongKeHangEnd.MinDate = new System.DateTime(2020, 8, 8, 0, 0, 0, 0);
             this.dtimeThongKeHangEnd.Name = "dtimeThongKeHangEnd";
-            this.dtimeThongKeHangEnd.Size = new System.Drawing.Size(531, 20);
+            this.dtimeThongKeHangEnd.Size = new System.Drawing.Size(530, 20);
             this.dtimeThongKeHangEnd.TabIndex = 19;
             this.dtimeThongKeHangEnd.ValueChanged += new System.EventHandler(this.dtimeThongKeHangEnd_ValueChanged);
             // 
@@ -713,7 +714,7 @@
             this.btnAddDonNhap.Name = "btnAddDonNhap";
             this.btnAddDonNhap.Size = new System.Drawing.Size(1075, 39);
             this.btnAddDonNhap.TabIndex = 11;
-            this.btnAddDonNhap.Text = "XÁC NHẬN LẬP ĐƠN NHẬP HÀNG";
+            this.btnAddDonNhap.Text = "LẬP ĐƠN NHẬP HÀNG";
             this.btnAddDonNhap.UseVisualStyleBackColor = true;
             this.btnAddDonNhap.Click += new System.EventHandler(this.btnAddDonNhap_Click);
             // 
@@ -721,7 +722,7 @@
             // 
             this.dtPickNgayNhap.Location = new System.Drawing.Point(790, 393);
             this.dtPickNgayNhap.Name = "dtPickNgayNhap";
-            this.dtPickNgayNhap.Size = new System.Drawing.Size(287, 20);
+            this.dtPickNgayNhap.Size = new System.Drawing.Size(286, 20);
             this.dtPickNgayNhap.TabIndex = 7;
             // 
             // label5
@@ -735,15 +736,16 @@
             // 
             // txtLyDoNhapHang
             // 
-            this.txtLyDoNhapHang.Location = new System.Drawing.Point(790, 366);
+            this.txtLyDoNhapHang.Location = new System.Drawing.Point(790, 368);
             this.txtLyDoNhapHang.Name = "txtLyDoNhapHang";
-            this.txtLyDoNhapHang.Size = new System.Drawing.Size(287, 20);
+            this.txtLyDoNhapHang.Size = new System.Drawing.Size(286, 20);
             this.txtLyDoNhapHang.TabIndex = 5;
+            this.txtLyDoNhapHang.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtLyDoNhapHang_MouseClick);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(680, 369);
+            this.label4.Location = new System.Drawing.Point(680, 372);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 13);
             this.label4.TabIndex = 4;
@@ -752,9 +754,9 @@
             // txtTongSoLuongHangNhap
             // 
             this.txtTongSoLuongHangNhap.Enabled = false;
-            this.txtTongSoLuongHangNhap.Location = new System.Drawing.Point(789, 317);
+            this.txtTongSoLuongHangNhap.Location = new System.Drawing.Point(790, 317);
             this.txtTongSoLuongHangNhap.Name = "txtTongSoLuongHangNhap";
-            this.txtTongSoLuongHangNhap.Size = new System.Drawing.Size(134, 20);
+            this.txtTongSoLuongHangNhap.Size = new System.Drawing.Size(133, 20);
             this.txtTongSoLuongHangNhap.TabIndex = 3;
             this.txtTongSoLuongHangNhap.Text = "0";
             this.txtTongSoLuongHangNhap.TextChanged += new System.EventHandler(this.txtTongSoLuongHangNhap_TextChanged);
@@ -771,15 +773,15 @@
             // txtNhanVienNhapHang
             // 
             this.txtNhanVienNhapHang.Enabled = false;
-            this.txtNhanVienNhapHang.Location = new System.Drawing.Point(789, 343);
+            this.txtNhanVienNhapHang.Location = new System.Drawing.Point(790, 343);
             this.txtNhanVienNhapHang.Name = "txtNhanVienNhapHang";
-            this.txtNhanVienNhapHang.Size = new System.Drawing.Size(287, 20);
+            this.txtNhanVienNhapHang.Size = new System.Drawing.Size(286, 20);
             this.txtNhanVienNhapHang.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(652, 346);
+            this.label2.Location = new System.Drawing.Point(652, 347);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(133, 13);
             this.label2.TabIndex = 0;
@@ -874,7 +876,7 @@
             this.btn_sendNCC.Name = "btn_sendNCC";
             this.btn_sendNCC.Size = new System.Drawing.Size(1077, 39);
             this.btn_sendNCC.TabIndex = 17;
-            this.btn_sendNCC.Text = "XÁC NHẬN GỬI ĐƠN NHẬP HÀNG";
+            this.btn_sendNCC.Text = "GỬI ĐƠN NHẬP HÀNG";
             this.btn_sendNCC.UseVisualStyleBackColor = true;
             this.btn_sendNCC.Click += new System.EventHandler(this.btn_sendNCC_Click);
             // 
@@ -1597,7 +1599,7 @@
             this.btnXacNhanThongKe.Name = "btnXacNhanThongKe";
             this.btnXacNhanThongKe.Size = new System.Drawing.Size(681, 29);
             this.btnXacNhanThongKe.TabIndex = 27;
-            this.btnXacNhanThongKe.Text = "XÁC NHẬN THỐNG KÊ VÀ PHÂN LOẠI COMMENT TỐT XẤU";
+            this.btnXacNhanThongKe.Text = "THỐNG KÊ VÀ PHÂN LOẠI COMMENT TỐT XẤU";
             this.btnXacNhanThongKe.UseVisualStyleBackColor = true;
             this.btnXacNhanThongKe.Click += new System.EventHandler(this.btnXacNhanThongKe_Click);
             // 
@@ -2187,6 +2189,48 @@
             this.grd_DSHD.Size = new System.Drawing.Size(592, 299);
             this.grd_DSHD.TabIndex = 0;
             this.grd_DSHD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_DSHD_CellClick);
+            // 
+            // MaDT
+            // 
+            this.MaDT.HeaderText = "Mã đối tác";
+            this.MaDT.MinimumWidth = 6;
+            this.MaDT.Name = "MaDT";
+            this.MaDT.Width = 125;
+            // 
+            // TenDoiTac
+            // 
+            this.TenDoiTac.HeaderText = "Tên đối tác";
+            this.TenDoiTac.MinimumWidth = 6;
+            this.TenDoiTac.Name = "TenDoiTac";
+            this.TenDoiTac.Width = 125;
+            // 
+            // NgayKyHopDong
+            // 
+            this.NgayKyHopDong.HeaderText = "Ngày ký hợp đồng";
+            this.NgayKyHopDong.MinimumWidth = 6;
+            this.NgayKyHopDong.Name = "NgayKyHopDong";
+            this.NgayKyHopDong.Width = 125;
+            // 
+            // NgayHetHan
+            // 
+            this.NgayHetHan.HeaderText = "Ngày hết hạn";
+            this.NgayHetHan.MinimumWidth = 6;
+            this.NgayHetHan.Name = "NgayHetHan";
+            this.NgayHetHan.Width = 125;
+            // 
+            // ThongTinViTriDang
+            // 
+            this.ThongTinViTriDang.HeaderText = "Thông tin vi trí đăng";
+            this.ThongTinViTriDang.MinimumWidth = 6;
+            this.ThongTinViTriDang.Name = "ThongTinViTriDang";
+            this.ThongTinViTriDang.Width = 125;
+            // 
+            // NoiDung
+            // 
+            this.NoiDung.HeaderText = "Nội dung";
+            this.NoiDung.MinimumWidth = 6;
+            this.NoiDung.Name = "NoiDung";
+            this.NoiDung.Width = 125;
             // 
             // button4
             // 
@@ -3145,48 +3189,6 @@
             this.COLSOLUONGCTDONNHAP.MinimumWidth = 6;
             this.COLSOLUONGCTDONNHAP.Name = "COLSOLUONGCTDONNHAP";
             this.COLSOLUONGCTDONNHAP.Width = 105;
-            // 
-            // MaDT
-            // 
-            this.MaDT.HeaderText = "Mã đối tác";
-            this.MaDT.MinimumWidth = 6;
-            this.MaDT.Name = "MaDT";
-            this.MaDT.Width = 125;
-            // 
-            // TenDoiTac
-            // 
-            this.TenDoiTac.HeaderText = "Tên đối tác";
-            this.TenDoiTac.MinimumWidth = 6;
-            this.TenDoiTac.Name = "TenDoiTac";
-            this.TenDoiTac.Width = 125;
-            // 
-            // NgayKyHopDong
-            // 
-            this.NgayKyHopDong.HeaderText = "Ngày ký hợp đồng";
-            this.NgayKyHopDong.MinimumWidth = 6;
-            this.NgayKyHopDong.Name = "NgayKyHopDong";
-            this.NgayKyHopDong.Width = 125;
-            // 
-            // NgayHetHan
-            // 
-            this.NgayHetHan.HeaderText = "Ngày hết hạn";
-            this.NgayHetHan.MinimumWidth = 6;
-            this.NgayHetHan.Name = "NgayHetHan";
-            this.NgayHetHan.Width = 125;
-            // 
-            // ThongTinViTriDang
-            // 
-            this.ThongTinViTriDang.HeaderText = "Thông tin vi trí đăng";
-            this.ThongTinViTriDang.MinimumWidth = 6;
-            this.ThongTinViTriDang.Name = "ThongTinViTriDang";
-            this.ThongTinViTriDang.Width = 125;
-            // 
-            // NoiDung
-            // 
-            this.NoiDung.HeaderText = "Nội dung";
-            this.NoiDung.MinimumWidth = 6;
-            this.NoiDung.Name = "NoiDung";
-            this.NoiDung.Width = 125;
             // 
             // MainForm
             // 
