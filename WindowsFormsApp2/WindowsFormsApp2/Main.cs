@@ -337,11 +337,9 @@ namespace Presentation
             if (txtHangDangChon.Text != "")
             {
                 LichSuQuangCaoBUS lichSu = new LichSuQuangCaoBUS();
-                int MaLS = lichSu.LayMaLichSu();
                 foreach (DataGridViewRow item in grd_KHQC.Rows)
                 {
-                    MaLS += 1;
-                    lichSu.CapNhatLichSu(MaLS, Int32.Parse(item.Cells[0].Value.ToString()), Int32.Parse(txtHangDangChon.Text));
+                    lichSu.CapNhatLichSu(Int32.Parse(item.Cells[0].Value.ToString()), Int32.Parse(txtHangDangChon.Text));
                 }
                 MessageBox.Show("Gui tin nhan thanh cong");
                 maKH_Xoa.Clear();

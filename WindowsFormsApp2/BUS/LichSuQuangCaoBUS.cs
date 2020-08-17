@@ -10,14 +10,9 @@ namespace BUS
             lichSu = new LichSuQuangCaoDAO();
         }
 
-        public void CapNhatLichSu(int MaLS, int MaKH, int MaMH)
+        public void CapNhatLichSu(int MaKH, int MaMH)
         {
-            lichSu.ThemLichSu(MaLS, MaKH, MaMH);
-        }
-
-        public int LayMaLichSu()
-        {
-            return lichSu.LayMaLichSu();
+            lichSu.ThemLichSu(MaKH, MaMH);
         }
     }
 }
