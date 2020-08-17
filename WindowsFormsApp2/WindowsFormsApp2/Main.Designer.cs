@@ -569,11 +569,11 @@
             // txtNoteAddChiTiet
             // 
             this.txtNoteAddChiTiet.AutoSize = true;
-            this.txtNoteAddChiTiet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNoteAddChiTiet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNoteAddChiTiet.ForeColor = System.Drawing.Color.Red;
-            this.txtNoteAddChiTiet.Location = new System.Drawing.Point(6, 394);
+            this.txtNoteAddChiTiet.Location = new System.Drawing.Point(6, 409);
             this.txtNoteAddChiTiet.Name = "txtNoteAddChiTiet";
-            this.txtNoteAddChiTiet.Size = new System.Drawing.Size(568, 20);
+            this.txtNoteAddChiTiet.Size = new System.Drawing.Size(389, 13);
             this.txtNoteAddChiTiet.TabIndex = 17;
             this.txtNoteAddChiTiet.Text = "*Click vào mặt hàng cần nhập trên bảng thống kê để thêm vào chi tiết đơn nhập";
             // 
@@ -581,7 +581,7 @@
             // 
             this.grBxChiTietDonNhapHangTab1.Controls.Add(this.grvChiTietDonNhapTab1);
             this.grBxChiTietDonNhapHangTab1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grBxChiTietDonNhapHangTab1.Location = new System.Drawing.Point(655, 3);
+            this.grBxChiTietDonNhapHangTab1.Location = new System.Drawing.Point(655, 6);
             this.grBxChiTietDonNhapHangTab1.Name = "grBxChiTietDonNhapHangTab1";
             this.grBxChiTietDonNhapHangTab1.Size = new System.Drawing.Size(426, 305);
             this.grBxChiTietDonNhapHangTab1.TabIndex = 16;
@@ -617,6 +617,7 @@
             // COLMAHANGCTDONNHAP
             // 
             this.COLMAHANGCTDONNHAP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.COLMAHANGCTDONNHAP.DefaultCellStyle = dataGridViewCellStyle2;
             this.COLMAHANGCTDONNHAP.HeaderText = "Mã hàng";
@@ -628,6 +629,7 @@
             // COLTENHANGCTDONNHAP
             // 
             this.COLTENHANGCTDONNHAP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.COLTENHANGCTDONNHAP.DefaultCellStyle = dataGridViewCellStyle3;
             this.COLTENHANGCTDONNHAP.HeaderText = "Tên hàng";
@@ -643,6 +645,7 @@
             this.COLSOLUONG.HeaderText = "Số Lượng";
             this.COLSOLUONG.MinimumWidth = 6;
             this.COLSOLUONG.Name = "COLSOLUONG";
+            this.COLSOLUONG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.COLSOLUONG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.COLSOLUONG.Width = 78;
             // 
@@ -654,7 +657,7 @@
             this.grBxThongKeSLBan.Controls.Add(this.dtimeThongKeHangStart);
             this.grBxThongKeSLBan.Controls.Add(this.label6);
             this.grBxThongKeSLBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grBxThongKeSLBan.Location = new System.Drawing.Point(3, 3);
+            this.grBxThongKeSLBan.Location = new System.Drawing.Point(3, 6);
             this.grBxThongKeSLBan.Name = "grBxThongKeSLBan";
             this.grBxThongKeSLBan.Size = new System.Drawing.Size(647, 376);
             this.grBxThongKeSLBan.TabIndex = 15;
@@ -712,6 +715,7 @@
             // COLMAHANG
             // 
             this.COLMAHANG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.COLMAHANG.DefaultCellStyle = dataGridViewCellStyle6;
             this.COLMAHANG.HeaderText = "Mã Hàng";
@@ -723,6 +727,7 @@
             // COLTENHANGBAN
             // 
             this.COLTENHANGBAN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.COLTENHANGBAN.DefaultCellStyle = dataGridViewCellStyle7;
             this.COLTENHANGBAN.HeaderText = "Tên hàng";
@@ -734,6 +739,7 @@
             // COLSOLUONGDABAN
             // 
             this.COLSOLUONGDABAN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.COLSOLUONGDABAN.DefaultCellStyle = dataGridViewCellStyle8;
             this.COLSOLUONGDABAN.HeaderText = "Đã bán";
@@ -768,9 +774,9 @@
             // 
             this.btnAddDonNhap.Enabled = false;
             this.btnAddDonNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddDonNhap.Location = new System.Drawing.Point(3, 425);
+            this.btnAddDonNhap.Location = new System.Drawing.Point(0, 425);
             this.btnAddDonNhap.Name = "btnAddDonNhap";
-            this.btnAddDonNhap.Size = new System.Drawing.Size(1077, 39);
+            this.btnAddDonNhap.Size = new System.Drawing.Size(1081, 39);
             this.btnAddDonNhap.TabIndex = 11;
             this.btnAddDonNhap.Text = "LẬP ĐƠN NHẬP HÀNG";
             this.btnAddDonNhap.UseVisualStyleBackColor = true;
@@ -862,7 +868,7 @@
             // 
             this.grboxChiTietDonNhapHangTab2.Controls.Add(this.grvChiTietDonNhapTab2);
             this.grboxChiTietDonNhapHangTab2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grboxChiTietDonNhapHangTab2.Location = new System.Drawing.Point(655, 3);
+            this.grboxChiTietDonNhapHangTab2.Location = new System.Drawing.Point(655, 6);
             this.grboxChiTietDonNhapHangTab2.Name = "grboxChiTietDonNhapHangTab2";
             this.grboxChiTietDonNhapHangTab2.Size = new System.Drawing.Size(426, 199);
             this.grboxChiTietDonNhapHangTab2.TabIndex = 18;
@@ -897,6 +903,7 @@
             // COLMAHANGCHITIET
             // 
             this.COLMAHANGCHITIET.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.COLMAHANGCHITIET.DefaultCellStyle = dataGridViewCellStyle10;
             this.COLMAHANGCHITIET.HeaderText = "Mã hàng";
@@ -908,6 +915,7 @@
             // COLTENHANGCHITIET
             // 
             this.COLTENHANGCHITIET.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.COLTENHANGCHITIET.DefaultCellStyle = dataGridViewCellStyle11;
             this.COLTENHANGCHITIET.HeaderText = "Tên hàng";
@@ -918,6 +926,7 @@
             // COLSOLUONGCHITIET
             // 
             this.COLSOLUONGCHITIET.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.COLSOLUONGCHITIET.DefaultCellStyle = dataGridViewCellStyle12;
             this.COLSOLUONGCHITIET.HeaderText = "Số lượng";
@@ -930,11 +939,10 @@
             // 
             this.btn_sendNCC.Enabled = false;
             this.btn_sendNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_sendNCC.Location = new System.Drawing.Point(3, 425);
+            this.btn_sendNCC.Location = new System.Drawing.Point(0, 425);
             this.btn_sendNCC.Name = "btn_sendNCC";
-            this.btn_sendNCC.Size = new System.Drawing.Size(1077, 39);
+            this.btn_sendNCC.Size = new System.Drawing.Size(1081, 39);
             this.btn_sendNCC.TabIndex = 17;
-            this.btn_sendNCC.Text = "GỬI ĐƠN NHẬP HÀNG";
             this.btn_sendNCC.UseVisualStyleBackColor = true;
             this.btn_sendNCC.Click += new System.EventHandler(this.btn_sendNCC_Click);
             // 
@@ -943,9 +951,9 @@
             this.groupBox3.Controls.Add(this.grv_NhaCungCap);
             this.groupBox3.Controls.Add(this.txtTimNhaCungCap);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(6, 208);
+            this.groupBox3.Location = new System.Drawing.Point(0, 208);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1075, 198);
+            this.groupBox3.Size = new System.Drawing.Size(1081, 198);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "TÌM NHÀ CUNG CẤP";
@@ -975,7 +983,7 @@
             dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grv_NhaCungCap.DefaultCellStyle = dataGridViewCellStyle16;
-            this.grv_NhaCungCap.Location = new System.Drawing.Point(0, 51);
+            this.grv_NhaCungCap.Location = new System.Drawing.Point(6, 51);
             this.grv_NhaCungCap.Name = "grv_NhaCungCap";
             this.grv_NhaCungCap.ReadOnly = true;
             dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -989,6 +997,7 @@
             this.grv_NhaCungCap.RowHeadersWidth = 20;
             this.grv_NhaCungCap.Size = new System.Drawing.Size(1069, 140);
             this.grv_NhaCungCap.TabIndex = 1;
+            this.grv_NhaCungCap.SelectionChanged += new System.EventHandler(this.grv_NhaCungCap_SelectionChanged);
             // 
             // COLMANCC
             // 
@@ -1013,9 +1022,9 @@
             // 
             // txtTimNhaCungCap
             // 
-            this.txtTimNhaCungCap.Location = new System.Drawing.Point(3, 19);
+            this.txtTimNhaCungCap.Location = new System.Drawing.Point(6, 19);
             this.txtTimNhaCungCap.Name = "txtTimNhaCungCap";
-            this.txtTimNhaCungCap.Size = new System.Drawing.Size(1066, 20);
+            this.txtTimNhaCungCap.Size = new System.Drawing.Size(1069, 20);
             this.txtTimNhaCungCap.TabIndex = 0;
             this.txtTimNhaCungCap.TextChanged += new System.EventHandler(this.txtTimNhaCungCap_TextChanged);
             // 
@@ -1023,7 +1032,7 @@
             // 
             this.groupBox4.Controls.Add(this.grv_DonNhapHang);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(3, 3);
+            this.groupBox4.Location = new System.Drawing.Point(3, 6);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(647, 199);
             this.groupBox4.TabIndex = 15;
@@ -1082,6 +1091,7 @@
             // COLNVLAP
             // 
             this.COLNVLAP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.COLNVLAP.DefaultCellStyle = dataGridViewCellStyle20;
             this.COLNVLAP.HeaderText = "Nhân viên lập";
@@ -1093,9 +1103,10 @@
             // COLTONGLUONGHANG
             // 
             this.COLTONGLUONGHANG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.COLTONGLUONGHANG.DefaultCellStyle = dataGridViewCellStyle21;
-            this.COLTONGLUONGHANG.HeaderText = "# Hàng";
+            this.COLTONGLUONGHANG.HeaderText = "SL Hàng";
             this.COLTONGLUONGHANG.MinimumWidth = 6;
             this.COLTONGLUONGHANG.Name = "COLTONGLUONGHANG";
             this.COLTONGLUONGHANG.ReadOnly = true;
@@ -1103,6 +1114,7 @@
             // COLLYDONHAP
             // 
             this.COLLYDONHAP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.COLLYDONHAP.DefaultCellStyle = dataGridViewCellStyle22;
             this.COLLYDONHAP.HeaderText = "Lý do nhập";
@@ -1114,6 +1126,7 @@
             // COLNGAYNHAP
             // 
             this.COLNGAYNHAP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.COLNGAYNHAP.DefaultCellStyle = dataGridViewCellStyle23;
             this.COLNGAYNHAP.HeaderText = "Ngày nhập";
@@ -3628,24 +3641,9 @@
         private System.Windows.Forms.TextBox txtTimNhaCungCap;
         private System.Windows.Forms.GroupBox grboxChiTietDonNhapHangTab2;
         private System.Windows.Forms.DataGridView grvChiTietDonNhapTab2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COLMAHANGCHITIET;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COLTENHANGCHITIET;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COLSOLUONGCHITIET;
         private System.Windows.Forms.DataGridViewTextBoxColumn COLMANCC;
         private System.Windows.Forms.DataGridViewTextBoxColumn COLTENNCC;
         private System.Windows.Forms.Button btnDeleteDetail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COLMADONNHAP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COLNVLAP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COLTONGLUONGHANG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COLLYDONHAP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COLNGAYNHAP;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn COLTRANGTHAIXACNHAN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COLMAHANG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COLTENHANGBAN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COLSOLUONGDABAN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COLMAHANGCTDONNHAP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COLTENHANGCTDONNHAP;
-        private NumericColumn COLSOLUONG;
         private System.Windows.Forms.Button btnXoaVaChan;
         private System.Windows.Forms.Button btnGhiNhanTangQua;
         private System.Windows.Forms.ComboBox cbMaThongKe;
@@ -3671,6 +3669,21 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label lblTenHeThong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COLMAHANG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COLTENHANGBAN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COLSOLUONGDABAN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COLMAHANGCHITIET;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COLTENHANGCHITIET;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COLSOLUONGCHITIET;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COLMADONNHAP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COLNVLAP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COLTONGLUONGHANG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COLLYDONHAP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COLNGAYNHAP;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn COLTRANGTHAIXACNHAN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COLMAHANGCTDONNHAP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COLTENHANGCTDONNHAP;
+        private NumericColumn COLSOLUONG;
     }
 }
 

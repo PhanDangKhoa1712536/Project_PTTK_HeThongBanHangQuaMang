@@ -444,14 +444,8 @@ namespace Presentation
                         DonNhapHangBUS donNhapBUS = new DonNhapHangBUS();
                         int idDonNhap = donNhapBUS.Insert(donNhapHangDTO);
 
-                        int i = 0;
                         foreach (DataGridViewRow row in grvChiTietDonNhapTab1.Rows)
                         {
-                            i++;
-                            if (i == grvChiTietDonNhapTab1.Rows.Count)
-                            {
-                                continue;
-                            }
                             ChiTietDonNhapDTO chiTietDonNhapDTO = new ChiTietDonNhapDTO();
                             int mahang = Convert.ToInt32(row.Cells["COLMAHANGCTDONNHAP"].Value);
                             int soluongnhap = Convert.ToInt32(row.Cells["COLSOLUONG"].Value);
@@ -462,7 +456,12 @@ namespace Presentation
                             chiTietDonNhapBUS.Insert(chiTietDonNhapDTO);
                         }
                         MessageBox.Show("Thêm đơn nhập hàng thành công");
+                        grvChiTietDonNhapTab1.Rows.Clear();
+                        txtTongSoLuongHangNhap.Text = Convert.ToString(0);
+                        maHang_Add.Clear();
+                        txtLyDoNhapHang.Clear();
                         Load_DSDonNhap();
+                        tabCtrlNhapHang.SelectedIndex = 1;
                     }
                     catch (Exception ex)
                     {
@@ -835,6 +834,7 @@ namespace Presentation
         {
             this.txtLyDoNhapHang.BackColor = Color.White;
             this.txtLyDoNhapHang.SelectAll();
+            this.txtLyDoNhapHang.Clear();
         }
 
         private bool mouseDown;
@@ -860,6 +860,11 @@ namespace Presentation
         private void txtSYSNAME_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        private void grv_NhaCungCap_SelectionChanged(object sender, EventArgs e)
+        {
+            btn_sendNCC.Text = "GỬI ĐƠN NHẬP HÀNG CHO NCC " + grv_NhaCungCap[1, grv_NhaCungCap.CurrentRow.Index].Value.ToString();
         }
 
         private void Load_AllMaHD()
