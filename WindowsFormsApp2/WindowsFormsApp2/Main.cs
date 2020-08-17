@@ -63,6 +63,8 @@ namespace Presentation
             this.tabMain.TabPages.Add(this.tmpComment);
             this.tabMain.TabPages.Add(this.tmpQuangCao);
             this.tabMain.TabPages.Add(this.tmpXuLyMua);
+
+            this.tabMain.SelectedIndex = 1;
             InitHoaDonBanHang();
             Load_AllMaHD();
         }
@@ -833,6 +835,31 @@ namespace Presentation
         {
             this.txtLyDoNhapHang.BackColor = Color.White;
             this.txtLyDoNhapHang.SelectAll();
+        }
+
+        private bool mouseDown;
+        private Point lastLocation;
+
+        private void txtSYSNAME_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void txtSYSNAME_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        private void txtSYSNAME_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
         }
 
         private void Load_AllMaHD()
