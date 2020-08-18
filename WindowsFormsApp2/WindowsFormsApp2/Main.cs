@@ -317,7 +317,7 @@ namespace Presentation
             }
             else
             {
-                MessageBox.Show("Vui long chon khach hang");
+                MessageBox.Show("Vui lòng chọn khách hàng");
             }
         }
 
@@ -344,13 +344,13 @@ namespace Presentation
                 {
                     lichSu.CapNhatLichSu(Int32.Parse(item.Cells[0].Value.ToString()), Int32.Parse(txtHangDangChon.Text));
                 }
-                MessageBox.Show("Gui tin nhan thanh cong");
+                MessageBox.Show("Gửi tin nhắn thành công");
                 maKH_Xoa.Clear();
                 HienDSKhachHang();
             }
             else
             {
-                MessageBox.Show("Vui long chon mat hang");
+                MessageBox.Show("Vui lòng chọn mặt hàng");
             }
         }
 
@@ -378,7 +378,6 @@ namespace Presentation
                     {
                         MessageBox.Show("Đã tồn tại hàng trong đơn");
                     }
-
                 }
             }
             catch (Exception ex)
@@ -530,6 +529,7 @@ namespace Presentation
 
             grd_KHQC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grd_KHQC.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
             grd_KHQC.Rows.Clear();
             for (int i = 0; i < allKHQC.Count; i++)
             {
