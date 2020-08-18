@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
+
 namespace Presentation
 {
     static class Program
@@ -18,6 +19,7 @@ namespace Presentation
     }
     class NumericUpDownCell : DataGridViewTextBoxCell
     {
+        
         public NumericUpDownCell() : base()
         {
             this.Style.Format = "0";
@@ -36,7 +38,7 @@ namespace Presentation
             else
             {
                 //nUpDown.Value = Decimal.Parse(this.Value.ToString());
-                Object trueValue = this.Value;
+                Object trueValue = base.Value;
                 nUpDown.Value = int.Parse(trueValue.ToString());
             }
         }

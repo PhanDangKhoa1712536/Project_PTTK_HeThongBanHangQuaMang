@@ -3,6 +3,7 @@ using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using WindowsFormsApp2;
@@ -62,6 +63,8 @@ namespace Presentation
             this.tabMain.TabPages.Add(this.tmpComment);
             this.tabMain.TabPages.Add(this.tmpQuangCao);
             this.tabMain.TabPages.Add(this.tmpXuLyMua);
+
+            this.tabMain.SelectedIndex = 1;
             InitHoaDonBanHang();
             Load_AllMaHD();
         }
@@ -402,48 +405,69 @@ namespace Presentation
             {
                 return;
             }
-            int newlyAdded = Convert.ToInt32(grvChiTietDonNhapTab1.Rows[e.RowIndex].Cells["COLSOLUONG"].Value.ToString()) - 1;
+            //int newlyAdded = Convert.ToInt32(grvChiTietDonNhapTab1.Rows[e.RowIndex].Cells["COLSOLUONG"].Value.ToString()) - 1;
 
-            int currvalue = int.Parse(txtTongSoLuongHangNhap.Text);
+            //int currvalue = int.Parse(txtTongSoLuongHangNhap.Text);
 
-            currvalue += newlyAdded;
-            txtTongSoLuongHangNhap.Text = currvalue.ToString();
+            //currvalue += newlyAdded;
+            int sum = 0;
+            for (int i = 0; i < grvChiTietDonNhapTab1.Rows.Count; ++i)
+            {
+                sum += Convert.ToInt32(grvChiTietDonNhapTab1.Rows[i].Cells["COLSOLUONG"].Value);
+            }
+            txtTongSoLuongHangNhap.Text = sum.ToString();
         }
 
         private void btnAddDonNhap_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Xác nhận lập đơn nhập hàng?", "Thông báo", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            if (txtLyDoNhapHang.Text == "" || txtLyDoNhapHang.Text == "*Vui lòng thêm lý do nhập hàng")
             {
-                DonNhapHangDTO donNhapHangDTO = new DonNhapHangDTO
+                txtLyDoNhapHang.Text = "*Vui lòng thêm lý do nhập hàng";
+                txtLyDoNhapHang.BackColor = Color.Red;
+                
+                return;
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Xác nhận lập đơn nhập hàng?", "Thông báo", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
                 {
-                    maNV = int.Parse(txtNhanVienNhapHang.Text.Split(',')[0]),
-                    tongLuongHang = int.Parse(txtTongSoLuongHangNhap.Text),
-                    lyDoNhap = txtLyDoNhapHang.Text,
-                    ngayNhap = dtPickNgayNhap.Value
-                };
-                DonNhapHangBUS donNhapBUS = new DonNhapHangBUS();
-                int idDonNhap = donNhapBUS.Insert(donNhapHangDTO);
-
-                int i = 0;
-                foreach (DataGridViewRow row in grvChiTietDonNhapTab1.Rows)
-                {
-                    i++;
-                    if (i == grvChiTietDonNhapTab1.Rows.Count)
+                    try
                     {
-                        continue;
+                        DonNhapHangDTO donNhapHangDTO = new DonNhapHangDTO
+                        {
+                            maNV = int.Parse(txtNhanVienNhapHang.Text.Split(',')[0]),
+                            tongLuongHang = int.Parse(txtTongSoLuongHangNhap.Text),
+                            lyDoNhap = txtLyDoNhapHang.Text,
+                            ngayNhap = dtPickNgayNhap.Value
+                        };
+                        DonNhapHangBUS donNhapBUS = new DonNhapHangBUS();
+                        int idDonNhap = donNhapBUS.Insert(donNhapHangDTO);
+
+                        foreach (DataGridViewRow row in grvChiTietDonNhapTab1.Rows)
+                        {
+                            ChiTietDonNhapDTO chiTietDonNhapDTO = new ChiTietDonNhapDTO();
+                            int mahang = Convert.ToInt32(row.Cells["COLMAHANGCTDONNHAP"].Value);
+                            int soluongnhap = Convert.ToInt32(row.Cells["COLSOLUONG"].Value);
+                            chiTietDonNhapDTO.maDonNhap = idDonNhap;
+                            chiTietDonNhapDTO.maHang = mahang;
+                            chiTietDonNhapDTO.soLuongNhap = soluongnhap;
+                            ChiTietDonNhapBUS chiTietDonNhapBUS = new ChiTietDonNhapBUS();
+                            chiTietDonNhapBUS.Insert(chiTietDonNhapDTO);
+                        }
+                        MessageBox.Show("Thêm đơn nhập hàng thành công");
+                        grvChiTietDonNhapTab1.Rows.Clear();
+                        txtTongSoLuongHangNhap.Text = Convert.ToString(0);
+                        maHang_Add.Clear();
+                        txtLyDoNhapHang.Clear();
+                        Load_DSDonNhap();
+                        tabCtrlNhapHang.SelectedIndex = 1;
                     }
-                    ChiTietDonNhapDTO chiTietDonNhapDTO = new ChiTietDonNhapDTO();
-                    int mahang = Convert.ToInt32(row.Cells["COLMAHANGCTDONNHAP"].Value);
-                    int soluongnhap = Convert.ToInt32(row.Cells["COLSOLUONG"].Value);
-                    chiTietDonNhapDTO.maDonNhap = idDonNhap;
-                    chiTietDonNhapDTO.maHang = mahang;
-                    chiTietDonNhapDTO.soLuongNhap = soluongnhap;
-                    ChiTietDonNhapBUS chiTietDonNhapBUS = new ChiTietDonNhapBUS();
-                    chiTietDonNhapBUS.Insert(chiTietDonNhapDTO);
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Đã xảy ra lỗi khi thêm đơn nhập hàng " + ex.Message);
+                    }
                 }
-                MessageBox.Show("Thêm đơn nhập hàng thành công");
-                Load_DSDonNhap();
             }
         }
 
@@ -806,8 +830,43 @@ namespace Presentation
             MessageBox.Show("Đã ghi nhận xóa và ngăn khách hàng comment");
             LoadBangThongKeXau();
         }
+        private void txtLyDoNhapHang_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.txtLyDoNhapHang.BackColor = Color.White;
+            this.txtLyDoNhapHang.SelectAll();
+            this.txtLyDoNhapHang.Clear();
+        }
 
-      
+        private bool mouseDown;
+        private Point lastLocation;
+
+        private void txtSYSNAME_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void txtSYSNAME_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        private void txtSYSNAME_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+
+        private void grv_NhaCungCap_SelectionChanged(object sender, EventArgs e)
+        {
+            btn_sendNCC.Text = "GỬI ĐƠN NHẬP HÀNG CHO NCC " + grv_NhaCungCap[1, grv_NhaCungCap.CurrentRow.Index].Value.ToString();
+        }
+
         private void Load_AllMaHD()
         {
             HoaDonBanHangBUS HD_bus = new HoaDonBanHangBUS();

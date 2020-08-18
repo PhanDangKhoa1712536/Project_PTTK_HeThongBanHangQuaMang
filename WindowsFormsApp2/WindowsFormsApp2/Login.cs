@@ -37,7 +37,7 @@ namespace WindowsFormsApp2
             {
                 frmMain.nhanvienDTO = nhanVienDTO;
                 frmMain.login_stats = true;
-                frmMain.btnLogOut.Text = "Logged in as " + nhanVienDTO.tenNhanVien;
+                frmMain.btnLogOut.Text = "ĐĂNG XUẤT: " + nhanVienDTO.tenNhanVien;
                 frmMain.MaNV_login = nhanVienDTO.maNV;
                 frmMain.btnLogOut.Show();
                 frmMain.txtNhanVienNhapHang.Text = nhanVienDTO.maNV + ", " + nhanVienDTO.tenNhanVien;
