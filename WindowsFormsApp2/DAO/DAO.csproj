@@ -45,10 +45,14 @@
     <Compile Include="BangThongKeGopYDAO.cs" />
     <Compile Include="ChiTietBangThongKeGopYDAO.cs" />
     <Compile Include="ChiTietDonNhapDAO.cs" />
+    <Compile Include="ChiTietDonTraDAO.cs" />
+    <Compile Include="ChiTietHangLoiDAO.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="DonNhapHangDAO.cs" />
+    <Compile Include="DonTraHangDAO.cs" />
     <Compile Include="GopYDAO.cs" />
     <Compile Include="HangDAO.cs" />
+    <Compile Include="HangLoiDAO.cs" />
     <Compile Include="HopDongDAO.cs" />
     <Compile Include="KhachHangDAO.cs" />
     <Compile Include="HoaDonBanHangDAO.cs" />

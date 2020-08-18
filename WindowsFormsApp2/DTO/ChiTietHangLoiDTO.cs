@@ -11,5 +11,6 @@
             this.maHoaDon = maHoaDon;
             this.maHangLoi = maHangLoi;
         }
+        public ChiTietHangLoiDTO() { }
     }
 }

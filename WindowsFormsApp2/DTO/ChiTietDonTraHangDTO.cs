@@ -16,5 +16,9 @@
             this.soLuongTra = soLuongTra;
             this.lyDo = lyDo;
         }
+        public ChiTietDonTraHangDTO()
+        {
+
+        }
     }
 }

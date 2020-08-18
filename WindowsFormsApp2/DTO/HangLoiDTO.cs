@@ -9,5 +9,10 @@
             this.maHangLoi = maHangLoi;
             this.soLuong = soLuong;
         }
+        public HangLoiDTO()
+        {
+
+        }
     }
+
 }
