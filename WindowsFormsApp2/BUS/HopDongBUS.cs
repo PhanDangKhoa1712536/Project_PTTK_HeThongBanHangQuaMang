@@ -13,24 +13,24 @@ namespace BUS
             hopdongDAO = new HopDongDAO();
         }
 
-        public List<DoiTacQuangCaoDTO> docHopDong()
+        public List<DoiTacQuangCaoDTO> DocHopDong()
         {
-            return hopdongDAO.docHopDong();
+            return hopdongDAO.DocHopDong();
         }
 
-        public bool kiemTraThongTin(DateTime ngayKy, DateTime ngayHet, String ttvt, String nd)
+        public bool KiemTraThongTin(DateTime ngayKy, DateTime ngayHet, String ttvt, String nd)
         {
             if (ngayKy == null || ngayHet == null || ttvt == "" || nd == "" || ngayHet <= ngayKy)
                 return false;
             return true;
         }
 
-        public void huyHopDong(int MaHD)
+        public void HuyHopDong(int MaHD)
         {
             hopdongDAO.XoaHopSong(MaHD);
         }
 
-        public void capNhatHopDong(int MaHD, DateTime ngayKy, DateTime ngayHet, String ttvt, String nd)
+        public void CapNhatHopDong(int MaHD, DateTime ngayKy, DateTime ngayHet, String ttvt, String nd)
         {
             hopdongDAO.CapNhatHopDong(MaHD, ngayKy, ngayHet, ttvt, nd);
         }

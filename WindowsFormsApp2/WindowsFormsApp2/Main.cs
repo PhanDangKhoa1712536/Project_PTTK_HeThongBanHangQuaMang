@@ -160,7 +160,7 @@ namespace Presentation
             if (txtMaHD.Text != "")
             {
                 int MaHD = Int32.Parse(txtMaHD.Text);
-                hopdongBUS.huyHopDong(MaHD);
+                hopdongBUS.HuyHopDong(MaHD);
                 HienThiDanhSachHopDong();
 
                 txtMaHD.Clear();
@@ -172,20 +172,6 @@ namespace Presentation
             }
             else
                 MessageBox.Show("Khong co hop dong dang chon");
-        }
-
-        private void grd_DSHD_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (grd_DSHD.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-            {
-                grd_DSHD.CurrentRow.Selected = true;
-                txtMaHD.Text = grd_DSHD.Rows[e.RowIndex].Cells["MaDT"].FormattedValue.ToString();
-                txtDoiTac.Text = grd_DSHD.Rows[e.RowIndex].Cells["TenDoiTac"].FormattedValue.ToString();
-                dtNgayKy.Text = grd_DSHD.Rows[e.RowIndex].Cells["NgayKyHopDong"].FormattedValue.ToString();
-                dtNgayHetHan.Text = grd_DSHD.Rows[e.RowIndex].Cells["NgayHetHan"].FormattedValue.ToString();
-                txtTTVT.Text = grd_DSHD.Rows[e.RowIndex].Cells["ThongTinViTriDang"].FormattedValue.ToString();
-                txtNoiDung.Text = grd_DSHD.Rows[e.RowIndex].Cells["NoiDung"].FormattedValue.ToString();
-            }
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
@@ -200,9 +186,9 @@ namespace Presentation
                 String TTVT = txtTTVT.Text;
                 String NoiDung = txtNoiDung.Text;
 
-                if (hopdongBUS.kiemTraThongTin(NgayKy, NgayHet, TTVT, NoiDung))
+                if (hopdongBUS.KiemTraThongTin(NgayKy, NgayHet, TTVT, NoiDung))
                 {
-                    hopdongBUS.capNhatHopDong(MaHD, NgayKy, NgayHet, TTVT, NoiDung);
+                    hopdongBUS.CapNhatHopDong(MaHD, NgayKy, NgayHet, TTVT, NoiDung);
                     HienThiDanhSachHopDong();
 
                     txtMaHD.Clear();
@@ -252,16 +238,10 @@ namespace Presentation
             }
         }
 
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            HienThiDanhSachHopDong();
-        }
-
         private void HienThiDanhSachHopDong()
         {
             HopDongBUS hopdongBUS = new HopDongBUS();
-            List<DoiTacQuangCaoDTO> allDTQC = hopdongBUS.docHopDong();
+            List<DoiTacQuangCaoDTO> allDTQC = hopdongBUS.DocHopDong();
 
             // grd_DSHD.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             // grd_DSHD.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
@@ -865,6 +845,25 @@ namespace Presentation
         private void grv_NhaCungCap_SelectionChanged(object sender, EventArgs e)
         {
             btn_sendNCC.Text = "GỬI ĐƠN NHẬP HÀNG CHO NCC " + grv_NhaCungCap[1, grv_NhaCungCap.CurrentRow.Index].Value.ToString();
+        }
+
+        private void btnKT_HD_Click(object sender, EventArgs e)
+        {
+            HienThiDanhSachHopDong();
+        }
+
+        private void HienThiChiTiet(object sender, DataGridViewCellEventArgs e)
+        {
+            if (grd_DSHD.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                grd_DSHD.CurrentRow.Selected = true;
+                txtMaHD.Text = grd_DSHD.Rows[e.RowIndex].Cells["MaDT"].FormattedValue.ToString();
+                txtDoiTac.Text = grd_DSHD.Rows[e.RowIndex].Cells["TenDoiTac"].FormattedValue.ToString();
+                dtNgayKy.Text = grd_DSHD.Rows[e.RowIndex].Cells["NgayKyHopDong"].FormattedValue.ToString();
+                dtNgayHetHan.Text = grd_DSHD.Rows[e.RowIndex].Cells["NgayHetHan"].FormattedValue.ToString();
+                txtTTVT.Text = grd_DSHD.Rows[e.RowIndex].Cells["ThongTinViTriDang"].FormattedValue.ToString();
+                txtNoiDung.Text = grd_DSHD.Rows[e.RowIndex].Cells["NoiDung"].FormattedValue.ToString();
+            }
         }
 
         private void Load_AllMaHD()

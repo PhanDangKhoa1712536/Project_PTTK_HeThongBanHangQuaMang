@@ -13,7 +13,7 @@ namespace DAO
         {
             this.dp = new DataProvider();
         }
-        public List<DoiTacQuangCaoDTO> docHopDong()
+        public List<DoiTacQuangCaoDTO> DocHopDong()
         {
             String query = "SELECT * FROM DOITACQUANGCAO WHERE NGAYHETHAN <= GETDATE();";
             DataTable dt = this.dp.ExecuteQuery(query);
