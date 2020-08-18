@@ -45,8 +45,12 @@
     <Compile Include="BangThongKeGopYBUS.cs" />
     <Compile Include="ChiTietBangThongKeGopYBUS.cs" />
     <Compile Include="ChiTietDonNhapBUS.cs" />
+    <Compile Include="ChiTietDonTraHangBUScs.cs" />
+    <Compile Include="ChiTietHangLoiBUScs.cs" />
     <Compile Include="DonNhapHangBUS.cs" />
+    <Compile Include="DonTraHangBUS.cs" />
     <Compile Include="GopYBUS.cs" />
+    <Compile Include="HangLoiBUS.cs" />
     <Compile Include="HopDongBUS.cs" />
     <Compile Include="KhachHangBUS.cs" />
     <Compile Include="HoaDonBanHangBUS.cs" />

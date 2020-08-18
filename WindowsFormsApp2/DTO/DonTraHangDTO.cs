@@ -15,5 +15,9 @@ namespace DTO
             this.maNCC = maNCC;
             this.ngayLap = ngayLap;
         }
+        public DonTraHangDTO()
+        {
+
+        }
     }
 }
