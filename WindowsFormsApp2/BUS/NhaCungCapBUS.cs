@@ -22,5 +22,9 @@ namespace BUS
             return nhaCungCapDAO.getByKeyword(keyword);
         }
 
+        public string getTenNCCByIDDonNhap(string idDonNhap)
+        {
+            return nhaCungCapDAO.getTenNCCbyIDDonNhap(idDonNhap);
+        }
     }
 }

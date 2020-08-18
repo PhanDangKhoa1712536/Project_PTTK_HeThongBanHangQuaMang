@@ -573,25 +573,6 @@ namespace Presentation
             ChiTietHDBan_dataGridView.DataSource = source;
         }
 
-        private void grv_DonNhapHang_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (grv_DonNhapHang.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-                {
-                    grv_DonNhapHang.CurrentRow.Selected = true;
-                    grboxChiTietDonNhapHangTab2.Text = "CHI TIẾT ĐƠN NHẬP CỦA ĐƠN SỐ " + grv_DonNhapHang.Rows[e.RowIndex].Cells["COLMADONNHAP"].FormattedValue.ToString();
-
-                    Load_DSChiTietDonNhap();
-                    this.btn_sendNCC.Enabled = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }
-
         private void LapHoaDonBanHang_button_Click_1(object sender, EventArgs e)
         {
             HoaDonBanHangBUS HD_bus = new HoaDonBanHangBUS();
@@ -863,6 +844,42 @@ namespace Presentation
                 dtNgayHetHan.Text = grd_DSHD.Rows[e.RowIndex].Cells["NgayHetHan"].FormattedValue.ToString();
                 txtTTVT.Text = grd_DSHD.Rows[e.RowIndex].Cells["ThongTinViTriDang"].FormattedValue.ToString();
                 txtNoiDung.Text = grd_DSHD.Rows[e.RowIndex].Cells["NoiDung"].FormattedValue.ToString();
+            }
+        }
+
+        private void grv_DonNhapHang_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                grv_DonNhapHang.CurrentRow.Selected = true;
+                grboxChiTietDonNhapHangTab2.Text = "CHI TIẾT ĐƠN NHẬP CỦA ĐƠN SỐ " + grv_DonNhapHang.SelectedRows[0].Cells["COLMADONNHAP"].FormattedValue.ToString();
+
+                Load_DSChiTietDonNhap();
+                NhaCungCapBUS nccBus = new NhaCungCapBUS();
+                string tenNCC = nccBus.getTenNCCByIDDonNhap(grv_DonNhapHang.SelectedRows[0].Cells["COLMADONNHAP"].FormattedValue.ToString());
+                grv_NhaCungCap.ClearSelection();
+                foreach (DataGridViewRow row in grv_NhaCungCap.Rows)
+                {
+                    if (grv_NhaCungCap[1, row.Index].Value.ToString() == tenNCC)
+                    {
+                        grv_NhaCungCap[0, row.Index].Selected = true;
+                        grv_NhaCungCap[1, row.Index].Selected = true; 
+                        btn_sendNCC.Text = "GỬI ĐƠN NHẬP HÀNG CHO NCC " + tenNCC;
+                    }
+                }
+
+                if ((bool)grv_DonNhapHang.SelectedRows[0].Cells["COLTRANGTHAIXACNHAN"].Value == false)
+                {
+                    this.btn_sendNCC.Enabled = true;
+                }
+                else
+                {
+                    this.btn_sendNCC.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 

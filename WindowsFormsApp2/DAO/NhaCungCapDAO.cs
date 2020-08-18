@@ -43,5 +43,17 @@ namespace DAO
             }
             return nccS;
         }
+
+        public string getTenNCCbyIDDonNhap(string id)
+        {
+            string query = "SELECT TENNCC FROM DONNHAPHANG D JOIN NHACUNGCAP N ON N.MANCC = D.MANCC AND D.MADONNHAP = @MADONNHAP";
+            List<SqlParameter> ids = new List<SqlParameter>
+            {
+                new SqlParameter("@MADONNHAP", id)
+            };
+            DataTable dt = dp.ExecuteQuery(query, ids);
+            DataRow dr = dt.Rows[0];
+            return dr["TENNCC"].ToString();
+        }
     }
 }

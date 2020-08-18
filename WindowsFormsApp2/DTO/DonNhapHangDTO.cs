@@ -12,6 +12,7 @@ namespace DTO
         public string lyDoNhap { get; set; }
         public DateTime ngayNhap { get; set; }
         public bool trangThaiXacNhan { get; set; }
+        public string tenNCC { get; set; }
         public DonNhapHangDTO(int maDonNhap, int maNV, string tenNVLap, int maNCC,
             int tongLuongHang, string lyDoNhap, DateTime ngayNhap, bool trangThaiXacNhan)
         {

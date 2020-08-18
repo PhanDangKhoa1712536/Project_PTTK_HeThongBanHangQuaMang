@@ -427,7 +427,7 @@
             // btnDangNhap
             // 
             this.btnDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDangNhap.Location = new System.Drawing.Point(711, 12);
+            this.btnDangNhap.Location = new System.Drawing.Point(711, 13);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(326, 32);
             this.btnDangNhap.TabIndex = 6;
@@ -562,7 +562,7 @@
             this.btnDeleteDetail.Name = "btnDeleteDetail";
             this.btnDeleteDetail.Size = new System.Drawing.Size(147, 23);
             this.btnDeleteDetail.TabIndex = 9;
-            this.btnDeleteDetail.Text = "Xóa chi tiết đang chọn";
+            this.btnDeleteDetail.Text = "XÓA CHI TIẾT";
             this.btnDeleteDetail.UseVisualStyleBackColor = true;
             this.btnDeleteDetail.Click += new System.EventHandler(this.btnDeleteDetail_Click);
             // 
@@ -1074,7 +1074,7 @@
             this.grv_DonNhapHang.RowHeadersWidth = 20;
             this.grv_DonNhapHang.Size = new System.Drawing.Size(638, 173);
             this.grv_DonNhapHang.TabIndex = 1;
-            this.grv_DonNhapHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grv_DonNhapHang_CellClick);
+            this.grv_DonNhapHang.SelectionChanged += new System.EventHandler(this.grv_DonNhapHang_SelectionChanged);
             // 
             // COLMADONNHAP
             // 
@@ -2941,6 +2941,7 @@
             // 
             // btnLogOut
             // 
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogOut.Location = new System.Drawing.Point(711, 13);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(326, 32);
