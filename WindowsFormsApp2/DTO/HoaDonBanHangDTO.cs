@@ -35,5 +35,6 @@ namespace DTO
         }
 
         public HoaDonBanHangDTO() { }
+
     }
 }

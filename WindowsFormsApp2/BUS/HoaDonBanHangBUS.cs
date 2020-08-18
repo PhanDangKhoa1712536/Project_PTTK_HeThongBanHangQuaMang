@@ -48,9 +48,9 @@ namespace BUS
             return hoaDonBanHangDAO.TimHoaDon_TraHang(MaHD);
         }
 
-        public HoaDonBanHangDTO KhoiTao(DateTime ngayGiao, DateTime ngayLap, int maKH, int maNV, int maNVGiao, int maHD, int tongTien)
+        public HoaDonBanHangDTO KhoiTao(DateTime NgayGiao, int MaKH, int MaNVLap, int MaNVGiao, int MaHD, float TongTien)
         {
-            throw new NotImplementedException();
+            return new HoaDonBanHangDTO(MaHD, MaKH, MaNVLap, MaNVGiao, 0, TongTien, false, false, NgayGiao, DateTime.Now, 0);
         }
     }
 }

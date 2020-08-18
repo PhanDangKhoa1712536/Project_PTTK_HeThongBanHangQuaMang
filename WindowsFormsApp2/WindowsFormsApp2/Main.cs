@@ -662,7 +662,7 @@ namespace Presentation
                 try
                 {
                     // Khoi tạo hóa đơn 
-                    HoaDonBanHangDTO HD = HD_bus.KhoiTao(NgayGiao, NgayLap, MaKH, MaNV, MaNVGiao, MaHD, TongTien);
+                    HoaDonBanHangDTO HD = HD_bus.KhoiTao(NgayGiao, MaKH, MaNV, MaNVGiao, MaHD, TongTien);
                     HD_bus.LapHoaDonBanHang(HD);
 
                     // Đọc lại chi tiết từ giỏ hàng 
@@ -687,7 +687,7 @@ namespace Presentation
                 HoTen_textBox.Text = "";
                 TongTienHoaDonXoa_textBox.Text = "";
                 if (ChiTietHoaDonXoaHD_dataGridView.Rows.Count != 0)
-                    ChiTietHDBan_dataGridView.Rows.Clear();
+                    ChiTietHDBan_dataGridView.DataSource = null;
                 ChiTietHDBan_dataGridView.Refresh();
             }
             else
