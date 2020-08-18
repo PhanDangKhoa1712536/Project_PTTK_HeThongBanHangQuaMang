@@ -524,6 +524,51 @@ namespace Presentation
 
         }
 
+
+        private void btnThemCTPhieuTraHang_Click(object sender, EventArgs e)
+        {
+            ChiTietDonTraHangBUS chiTietDonTraHangBUS = new ChiTietDonTraHangBUS();
+            HangLoiBUS hangLoiBUS = new HangLoiBUS();
+            ChiTietHangLoiBUS chiTietHangLoiBUS = new ChiTietHangLoiBUS();
+
+            int maHangLoi = Int32.Parse(MaHangLoi_traHang.Text);
+            int soLuongHangLoi = Int32.Parse(soLuongHangLoi_traHang.Text);
+            int maDonTraHang = Int32.Parse(MaDonTra_TraHang.Text);
+            int maHoaDon = Int32.Parse(MaHoaDon_TraHang.Text);
+
+            int maCTdonTraHang = chiTietDonTraHangBUS.CTMaDon_autoGen();
+            int maCTHangLoi = chiTietHangLoiBUS.MaChiTietHangLoi();
+            string LyDo = Lydo_TraHang.Text;
+            try
+            {
+                chiTietDonTraHangBUS.ThemChiTietDonTraHang(maCTdonTraHang,maDonTraHang,maHangLoi,soLuongHangLoi,LyDo);
+
+               bool check = hangLoiBUS.KiemTraTonTai(maHangLoi);
+                if(check == true)
+                {
+                    hangLoiBUS.ThemSoLuong(maHangLoi, soLuongHangLoi);
+                }
+                else
+                {
+                    hangLoiBUS.ThemHangLoi(maHangLoi, soLuongHangLoi);
+
+                }
+
+               chiTietHangLoiBUS.ThemChiTietHangLoi(maCTHangLoi, maHoaDon, maHangLoi);
+
+                MessageBox.Show("Them Vào Chi Tiết Đơn Trả Hàng Thành Công");
+
+            }
+            catch(Exception er)
+            {
+                MessageBox.Show("Thêm đơn trả hàng thất bại!, Loi: " + er.ToString());
+                return;
+            }
+
+
+        }
+
+
         //==========================================================================/
 
         private void HienDSMatHang()
@@ -911,6 +956,8 @@ namespace Presentation
                 Console.WriteLine(ex.Message);
             }
         }
+
+       
 
         private void Load_AllMaHD()
         {
