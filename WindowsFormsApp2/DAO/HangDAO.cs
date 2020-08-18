@@ -52,22 +52,8 @@ namespace DAO
 
         public List<HangDTO> DocMatHang(string keyword)
         {
-            String query = "SELECT * FROM HANG";
-            if (keyword != "")
-            {
-                bool isNumeric = int.TryParse(keyword, out _);
-
-                if (isNumeric)
-                {
-                    query += " WHERE MAHANG = " + keyword;
-                }
-                else
-                {
-                    query += " WHERE TENHANG = '" + keyword + "'";
-                }
-            }
+            String query = "SELECT * FROM HANG" + keyword;
             DataTable dt = this.dp.ExecuteQuery(query);
-
             List<HangDTO> hangS = new List<HangDTO>();
 
             foreach (DataRow dr in dt.Rows)

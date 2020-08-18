@@ -16,6 +16,20 @@ namespace BUS
 
         public List<HangDTO> TimKiem(string keyword)
         {
+            if (keyword != "")
+            {
+                bool isNumeric = int.TryParse(keyword, out _);
+
+                if (isNumeric)
+                {
+                    keyword = " WHERE MAHANG = " + keyword;
+                }
+                else
+                {
+                    keyword = " WHERE TENHANG = '" + keyword + "'";
+                }
+            }
+
             return hangDAO.DocMatHang(keyword);
         }
 

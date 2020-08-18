@@ -285,7 +285,7 @@ namespace Presentation
                 txtHangDangChon.Text = grd_HangQuangCao.Rows[e.RowIndex].Cells["MaHang"].FormattedValue.ToString();
 
                 maKH_Xoa.Clear();
-                Load_DSKHQuangCao();
+                HienDSKhachHang();
             }
         }
 
@@ -310,7 +310,7 @@ namespace Presentation
             {
                 maKH_Xoa.Push(txtKHXoa.Text);
                 txtKHXoa.Clear();
-                Load_DSKHQuangCao();
+                HienDSKhachHang();
             }
             else
             {
@@ -323,7 +323,7 @@ namespace Presentation
             if (maKH_Xoa.Count > 0)
             {
                 maKH_Xoa.Pop();
-                Load_DSKHQuangCao();
+                HienDSKhachHang();
             }
         }
 
@@ -343,7 +343,7 @@ namespace Presentation
                 }
                 MessageBox.Show("Gui tin nhan thanh cong");
                 maKH_Xoa.Clear();
-                Load_DSKHQuangCao();
+                HienDSKhachHang();
             }
             else
             {
@@ -480,7 +480,7 @@ namespace Presentation
         {
             HangBUS hang = new HangBUS();
             List<HangDTO> allHang = hang.TimKiem(txtTimKiem.Text);
-            /*format column size*/
+            
             grd_HangQuangCao.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grd_HangQuangCao.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 
@@ -498,7 +498,7 @@ namespace Presentation
 
 
 
-        private void Load_DSKHQuangCao()
+        private void HienDSKhachHang()
         {
             KhachHangBUS khachHang = new KhachHangBUS();
             List<KhachHangDTO> allKHQC;
@@ -506,7 +506,6 @@ namespace Presentation
 
             grd_KHQC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grd_KHQC.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-
             grd_KHQC.Rows.Clear();
             for (int i = 0; i < allKHQC.Count; i++)
             {
@@ -516,6 +515,7 @@ namespace Presentation
             }
             this.grd_KHQC.ClearSelection();
         }
+
         ///////////////////////
         // TAB XU LI MUA HANG
         ///////////////////////
