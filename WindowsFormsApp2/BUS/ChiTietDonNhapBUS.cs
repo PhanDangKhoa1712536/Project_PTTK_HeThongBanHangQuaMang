@@ -12,11 +12,11 @@ namespace BUS
         {
             this.chiTietDonNhapDAO = new ChiTietDonNhapDAO();
         }
-        public List<ChiTietDonNhapDTO> getAllByMaDonNhap(int maDonNhap)
+        public List<ChiTietDonNhapDTO> LayDanhSachChiTietDonNhap(int maDonNhap)
         {
             return this.chiTietDonNhapDAO.getAllByMaDonNhap(maDonNhap);
         }
-        public Boolean Insert(ChiTietDonNhapDTO chiTietDonNhap)
+        public Boolean ThemChiTietDonNhap(ChiTietDonNhapDTO chiTietDonNhap)
         {
             return chiTietDonNhapDAO.Insert(chiTietDonNhap);
         }

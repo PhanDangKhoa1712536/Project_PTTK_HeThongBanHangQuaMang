@@ -93,7 +93,7 @@ namespace Presentation
         private void Load_DSNhaCungCap()
         {
             NhaCungCapBUS nhaCungCapBUS = new NhaCungCapBUS();
-            List<NhaCungCapDTO> allNCC = nhaCungCapBUS.getAll();
+            List<NhaCungCapDTO> allNCC = nhaCungCapBUS.LayDanhSachNCC();
             /*format column size*/
             grv_NhaCungCap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grv_NhaCungCap.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
@@ -125,7 +125,7 @@ namespace Presentation
         private void Load_DSDonNhap()
         {
             DonNhapHangBUS donNhapHangBUS = new DonNhapHangBUS();
-            List<DonNhapHangDTO> allDonNhapHang = donNhapHangBUS.getAll();
+            List<DonNhapHangDTO> allDonNhapHang = donNhapHangBUS.LayDanhSachDonNhapHang();
             /*format column size*/
             grv_DonNhapHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grv_DonNhapHang.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
@@ -219,13 +219,12 @@ namespace Presentation
                 MessageBox.Show("Khong co hop dong dang chon");
         }
 
-        private void dtimeThongKeHangStart_ValueChanged(object sender, EventArgs e)
+        private void Load_BTKHangBan()
         {
-            dtimeThongKeHangEnd.MinDate = dtimeThongKeHangStart.Value;
             HangBUS hangBUS = new HangBUS();
             grvThongKeHangBan.Rows.Clear();
             grvThongKeHangBan.Refresh();
-            List<HangDTO> allHang = hangBUS.lapBangThongKe(dtimeThongKeHangStart.Value, dtimeThongKeHangEnd.Value);
+            List<HangDTO> allHang = hangBUS.lapBangThongKeHangBan(dtimeThongKeHangStart.Value, dtimeThongKeHangEnd.Value);
             for (int i = 0; i < allHang.Count; i++)
             {
                 grvThongKeHangBan.Rows.Add(
@@ -236,20 +235,15 @@ namespace Presentation
             }
         }
 
+        private void dtimeThongKeHangStart_ValueChanged(object sender, EventArgs e)
+        {
+            dtimeThongKeHangEnd.MinDate = dtimeThongKeHangStart.Value;
+            Load_BTKHangBan();
+        }
+
         private void dtimeThongKeHangEnd_ValueChanged(object sender, EventArgs e)
         {
-            HangBUS hangBUS = new HangBUS();
-            grvThongKeHangBan.Rows.Clear();
-            grvThongKeHangBan.Refresh();
-            List<HangDTO> allHang = hangBUS.lapBangThongKe(dtimeThongKeHangStart.Value, dtimeThongKeHangEnd.Value);
-            for (int i = 0; i < allHang.Count; i++)
-            {
-                grvThongKeHangBan.Rows.Add(
-                    allHang[i].maHang,
-                    allHang[i].tenHang,
-                    allHang[i].soLuongDaBan);
-                this.grvThongKeHangBan.ClearSelection();
-            }
+            Load_BTKHangBan();
         }
 
 
@@ -354,7 +348,7 @@ namespace Presentation
             }
         }
 
-        private void grvThongKeHangBan_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void HienThiChiTietDonNhapUI(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
@@ -385,6 +379,11 @@ namespace Presentation
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        private void grvThongKeHangBan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            HienThiChiTietDonNhapUI(sender, e);
         }
 
         private void grvChiTietDonNhap_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -442,7 +441,7 @@ namespace Presentation
                             ngayNhap = dtPickNgayNhap.Value
                         };
                         DonNhapHangBUS donNhapBUS = new DonNhapHangBUS();
-                        int idDonNhap = donNhapBUS.Insert(donNhapHangDTO);
+                        int idDonNhap = donNhapBUS.KhoiTaoDonNhapHang(donNhapHangDTO);
 
                         foreach (DataGridViewRow row in grvChiTietDonNhapTab1.Rows)
                         {
@@ -453,7 +452,7 @@ namespace Presentation
                             chiTietDonNhapDTO.maHang = mahang;
                             chiTietDonNhapDTO.soLuongNhap = soluongnhap;
                             ChiTietDonNhapBUS chiTietDonNhapBUS = new ChiTietDonNhapBUS();
-                            chiTietDonNhapBUS.Insert(chiTietDonNhapDTO);
+                            chiTietDonNhapBUS.ThemChiTietDonNhap(chiTietDonNhapDTO);
                         }
                         MessageBox.Show("Thêm đơn nhập hàng thành công");
                         grvChiTietDonNhapTab1.Rows.Clear();
@@ -727,7 +726,7 @@ namespace Presentation
         private void txtTimNhaCungCap_TextChanged(object sender, EventArgs e)
         {
             NhaCungCapBUS nhaCungCapBUS = new NhaCungCapBUS();
-            List<NhaCungCapDTO> allNCC = nhaCungCapBUS.timNCC(txtTimNhaCungCap.Text);
+            List<NhaCungCapDTO> allNCC = nhaCungCapBUS.TimBangTuKhoa(txtTimNhaCungCap.Text);
             grv_NhaCungCap.Rows.Clear();
             for (int i = 0; i < allNCC.Count; i++)
             {
@@ -743,12 +742,12 @@ namespace Presentation
             if (int.Parse(txtTongSoLuongHangNhap.Text) != 0)
             {
                 btnAddDonNhap.Enabled = true;
-                btnDeleteDetail.Enabled = true;
+                btnXoaChiTietDonNhapUI.Enabled = true;
             }
             else if (int.Parse(txtTongSoLuongHangNhap.Text) == 0)
             {
                 btnAddDonNhap.Enabled = false; 
-                btnDeleteDetail.Enabled = false;
+                btnXoaChiTietDonNhapUI.Enabled = false;
             }
         }
         private void LoadBangThongKeTot()
@@ -885,7 +884,7 @@ namespace Presentation
 
                 Load_DSChiTietDonNhap();
                 NhaCungCapBUS nccBus = new NhaCungCapBUS();
-                string tenNCC = nccBus.getTenNCCByIDDonNhap(grv_DonNhapHang.SelectedRows[0].Cells["COLMADONNHAP"].FormattedValue.ToString());
+                string tenNCC = nccBus.TimTenTheoMaDonNhap(grv_DonNhapHang.SelectedRows[0].Cells["COLMADONNHAP"].FormattedValue.ToString());
                 grv_NhaCungCap.ClearSelection();
                 foreach (DataGridViewRow row in grv_NhaCungCap.Rows)
                 {
@@ -973,7 +972,7 @@ namespace Presentation
         {
             ChiTietDonNhapBUS chiTietDonNhapBUS = new ChiTietDonNhapBUS();
             String mahang = new String(grboxChiTietDonNhapHangTab2.Text.Where(Char.IsDigit).ToArray());
-            List<ChiTietDonNhapDTO> allChiTiet = chiTietDonNhapBUS.getAllByMaDonNhap(int.Parse(mahang));
+            List<ChiTietDonNhapDTO> allChiTiet = chiTietDonNhapBUS.LayDanhSachChiTietDonNhap(int.Parse(mahang));
             grvChiTietDonNhapTab2.Rows.Clear();
             for (int i = 0; i < allChiTiet.Count; i++)
             {

@@ -45,16 +45,5 @@ namespace DAO
 
             return dp.ExecuteNonQuery(query, inserted_values);
         }
-
-        public void XoaChiTietHD(int MaHD)
-        {
-            string query = "DELETE FROM CHITIETHOADON WHERE MAHOADON = @MaHD";
-            List<SqlParameter> Find_values = new List<SqlParameter>
-            {
-                new SqlParameter("@MaHD", MaHD)
-            };
-
-            dp.ExecuteNonQuery(query, Find_values);
-        }
     }
 }

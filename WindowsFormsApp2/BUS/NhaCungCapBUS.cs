@@ -13,16 +13,16 @@ namespace BUS
             nhaCungCapDAO = new NhaCungCapDAO();
         }
 
-        public List<NhaCungCapDTO> getAll()
+        public List<NhaCungCapDTO> LayDanhSachNCC()
         {
             return nhaCungCapDAO.getAll();
         }
-        public List<NhaCungCapDTO> timNCC(string keyword)
+        public List<NhaCungCapDTO> TimBangTuKhoa(string keyword)
         {
             return nhaCungCapDAO.getByKeyword(keyword);
         }
 
-        public string getTenNCCByIDDonNhap(string idDonNhap)
+        public string TimTenTheoMaDonNhap(string idDonNhap)
         {
             return nhaCungCapDAO.getTenNCCbyIDDonNhap(idDonNhap);
         }

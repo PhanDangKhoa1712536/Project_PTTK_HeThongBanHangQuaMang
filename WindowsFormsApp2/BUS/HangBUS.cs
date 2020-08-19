@@ -33,9 +33,9 @@ namespace BUS
             return hangDAO.DocMatHang(keyword);
         }
 
-        public List<HangDTO> lapBangThongKe(DateTime d1, DateTime d2)
+        public List<HangDTO> lapBangThongKeHangBan(DateTime d1, DateTime d2)
         {
-            return hangDAO.Utility_getSaleBetween(d1, d2);
+            return hangDAO.getSaleInRange(d1, d2);
         }
     }
 }

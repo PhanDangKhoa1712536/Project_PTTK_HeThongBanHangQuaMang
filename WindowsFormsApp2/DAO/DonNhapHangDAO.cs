@@ -44,7 +44,7 @@ namespace DAO
             return dp.ExecuteScalar(query, Inserted_values);
         }
 
-        public Boolean Update(DonNhapHangDTO donNhap)
+        public bool Update(DonNhapHangDTO donNhap)
         {
             string query = "UPDATE DONNHAPHANG SET MANCC = @MANCC, TRANGTHAIXACNHAN = 1 WHERE MADONNHAP = @MADONNHAP";
             List<SqlParameter> updValue = new List<SqlParameter>

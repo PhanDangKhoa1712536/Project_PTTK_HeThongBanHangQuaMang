@@ -15,7 +15,7 @@ namespace DAO
             this.dp = new DataProvider();
         }
 
-        public List<HangDTO> Utility_getSaleBetween(DateTime d1, DateTime d2)
+        public List<HangDTO> getSaleInRange(DateTime d1, DateTime d2)
         {
             String query = "SELECT H.MAHANG, H.TENHANG, ISNULL(SUM(SOLUONG), 0) AS [DABAN] FROM CHITIETHOADON C RIGHT JOIN HANG H " +
                 "ON H.MAHANG = C.MAHANG JOIN HOADONBANHANG HD ON HD.MAHOADON = C.MAHOADON " +
