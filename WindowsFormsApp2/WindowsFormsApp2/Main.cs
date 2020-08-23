@@ -348,7 +348,7 @@ namespace Presentation
             }
         }
 
-        private void HienThiChiTietDonNhapUI(object sender, DataGridViewCellEventArgs e)
+        private void ThemChiTietDonNhapUI(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
@@ -383,7 +383,7 @@ namespace Presentation
 
         private void grvThongKeHangBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            HienThiChiTietDonNhapUI(sender, e);
+            ThemChiTietDonNhapUI(sender, e);
         }
 
         private void grvChiTietDonNhap_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -879,6 +879,7 @@ namespace Presentation
         {
             try
             {
+                grv_DonNhapHang.Rows[0].Selected = true;
                 grv_DonNhapHang.CurrentRow.Selected = true;
                 grboxChiTietDonNhapHangTab2.Text = "CHI TIẾT ĐƠN NHẬP CỦA ĐƠN SỐ " + grv_DonNhapHang.SelectedRows[0].Cells["COLMADONNHAP"].FormattedValue.ToString();
 
