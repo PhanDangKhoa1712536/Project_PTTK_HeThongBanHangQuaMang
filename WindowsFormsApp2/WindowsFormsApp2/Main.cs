@@ -169,6 +169,7 @@ namespace Presentation
                 dtNgayHetHan.ResetText();
                 txtTTVT.Clear();
                 txtNoiDung.Clear();
+                MessageBox.Show("Huy hop dong thanh cong");
             }
             else
                 MessageBox.Show("Khong co hop dong dang chon");
@@ -211,6 +212,7 @@ namespace Presentation
                     dtNgayHetHan.ResetText();
                     txtTTVT.Clear();
                     txtNoiDung.Clear();
+                    MessageBox.Show("Cap nhat hop dong thanh cong");
                 }
                 else
                     MessageBox.Show("Vui long kiem tra lai thong tin");
@@ -246,11 +248,6 @@ namespace Presentation
             Load_BTKHangBan();
         }
 
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            HienThiDanhSachHopDong();
-        }
 
         private void HienThiDanhSachHopDong()
         {
@@ -522,6 +519,51 @@ namespace Presentation
             }
 
         }
+
+
+        private void btnThemCTPhieuTraHang_Click(object sender, EventArgs e)
+        {
+            ChiTietDonTraHangBUS chiTietDonTraHangBUS = new ChiTietDonTraHangBUS();
+            HangLoiBUS hangLoiBUS = new HangLoiBUS();
+            ChiTietHangLoiBUS chiTietHangLoiBUS = new ChiTietHangLoiBUS();
+
+            int maHangLoi = Int32.Parse(MaHangLoi_traHang.Text);
+            int soLuongHangLoi = Int32.Parse(soLuongHangLoi_traHang.Text);
+            int maDonTraHang = Int32.Parse(MaDonTra_TraHang.Text);
+            int maHoaDon = Int32.Parse(MaHoaDon_TraHang.Text);
+
+            int maCTdonTraHang = chiTietDonTraHangBUS.CTMaDon_autoGen();
+            int maCTHangLoi = chiTietHangLoiBUS.MaChiTietHangLoi();
+            string LyDo = Lydo_TraHang.Text;
+            try
+            {
+                chiTietDonTraHangBUS.ThemChiTietDonTraHang(maCTdonTraHang,maDonTraHang,maHangLoi,soLuongHangLoi,LyDo);
+
+               bool check = hangLoiBUS.KiemTraTonTai(maHangLoi);
+                if(check == true)
+                {
+                    hangLoiBUS.ThemSoLuong(maHangLoi, soLuongHangLoi);
+                }
+                else
+                {
+                    hangLoiBUS.ThemHangLoi(maHangLoi, soLuongHangLoi);
+
+                }
+
+               chiTietHangLoiBUS.ThemChiTietHangLoi(maCTHangLoi, maHoaDon, maHangLoi);
+
+                MessageBox.Show("Them Vào Chi Tiết Đơn Trả Hàng Thành Công");
+
+            }
+            catch(Exception er)
+            {
+                MessageBox.Show("Thêm đơn trả hàng thất bại!, Loi: " + er.ToString());
+                return;
+            }
+
+
+        }
+
 
         //==========================================================================/
 
@@ -908,6 +950,15 @@ namespace Presentation
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void btnKT_HD_Click(object sender, EventArgs e)
+        {
+            HienThiDanhSachHopDong();
+            if (grd_DSHD.Rows.Count == 0)
+            {
+                MessageBox.Show("Khong co hop dong het han");
             }
         }
 

@@ -31,7 +31,9 @@ namespace DAO
 
         public void Insert_traHang(int MaDonTra, int maNVLap, int maNCC, DateTime ngayLap)
         {
-            string query = "SET IDENTITY_INSERT DONTRAHANG ON; INSERT INTO DONTRAHANG(MADONTRA, MANVLAP,MANCC,NGAYLAP) VALUES (@MaDonTra,@MaNVLap,@MaNCC,@NgayLap);SET IDENTITY_INSERT DONTRAHANG OFF;";
+            string query = "SET IDENTITY_INSERT DONTRAHANG ON; INSERT INTO DONTRAHANG(MADONTRA, MANVLAP,MANCC,NGAYLAP)" +
+                " VALUES (@MaDonTra,@MaNVLap,@MaNCC,@NgayLap);" +
+                "SET IDENTITY_INSERT DONTRAHANG OFF;";
             List<SqlParameter> Inserted_values = new List<SqlParameter>
             {
 

@@ -156,17 +156,17 @@
             this.label24 = new System.Windows.Forms.Label();
             this.tabPage15 = new System.Windows.Forms.TabPage();
             this.groupBox26 = new System.Windows.Forms.GroupBox();
+            this.soLuongHangLoi_traHang = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.MaDonTra_TraHang = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.MaHoaDon_TraHang = new System.Windows.Forms.TextBox();
             this.label49 = new System.Windows.Forms.Label();
-            this.button15 = new System.Windows.Forms.Button();
+            this.btnThemCTPhieuTraHang = new System.Windows.Forms.Button();
             this.label39 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Lydo_TraHang = new System.Windows.Forms.RichTextBox();
+            this.MaHangLoi_traHang = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
@@ -247,7 +247,7 @@
             this.NgayHetHan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ThongTinViTriDang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnKT_HD = new System.Windows.Forms.Button();
             this.tbXuLyMua = new System.Windows.Forms.TabPage();
             this.tabCtrlXLMuaHang = new System.Windows.Forms.TabControl();
             this.tabPage11 = new System.Windows.Forms.TabPage();
@@ -1424,17 +1424,17 @@
             // 
             // groupBox26
             // 
+            this.groupBox26.Controls.Add(this.soLuongHangLoi_traHang);
             this.groupBox26.Controls.Add(this.label34);
             this.groupBox26.Controls.Add(this.label1);
-            this.groupBox26.Controls.Add(this.textBox21);
+            this.groupBox26.Controls.Add(this.MaDonTra_TraHang);
             this.groupBox26.Controls.Add(this.label50);
-            this.groupBox26.Controls.Add(this.textBox20);
+            this.groupBox26.Controls.Add(this.MaHoaDon_TraHang);
             this.groupBox26.Controls.Add(this.label49);
-            this.groupBox26.Controls.Add(this.button15);
+            this.groupBox26.Controls.Add(this.btnThemCTPhieuTraHang);
             this.groupBox26.Controls.Add(this.label39);
-            this.groupBox26.Controls.Add(this.richTextBox1);
-            this.groupBox26.Controls.Add(this.textBox17);
-            this.groupBox26.Controls.Add(this.comboBox1);
+            this.groupBox26.Controls.Add(this.Lydo_TraHang);
+            this.groupBox26.Controls.Add(this.MaHangLoi_traHang);
             this.groupBox26.Controls.Add(this.label42);
             this.groupBox26.Controls.Add(this.label43);
             this.groupBox26.Location = new System.Drawing.Point(7, 164);
@@ -1443,6 +1443,14 @@
             this.groupBox26.TabIndex = 5;
             this.groupBox26.TabStop = false;
             this.groupBox26.Text = "THÔNG TIN CHI TIẾT SẢN PHẨM PHIẾU TRẢ HÀNG";
+            // 
+            // soLuongHangLoi_traHang
+            // 
+            this.soLuongHangLoi_traHang.Location = new System.Drawing.Point(692, 31);
+            this.soLuongHangLoi_traHang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.soLuongHangLoi_traHang.Name = "soLuongHangLoi_traHang";
+            this.soLuongHangLoi_traHang.Size = new System.Drawing.Size(350, 20);
+            this.soLuongHangLoi_traHang.TabIndex = 13;
             // 
             // label34
             // 
@@ -1462,13 +1470,13 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "SỐ LƯỢNG HÀNG LỖI";
             // 
-            // textBox21
+            // MaDonTra_TraHang
             // 
-            this.textBox21.Location = new System.Drawing.Point(184, 73);
-            this.textBox21.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(345, 20);
-            this.textBox21.TabIndex = 10;
+            this.MaDonTra_TraHang.Location = new System.Drawing.Point(184, 73);
+            this.MaDonTra_TraHang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaDonTra_TraHang.Name = "MaDonTra_TraHang";
+            this.MaDonTra_TraHang.Size = new System.Drawing.Size(345, 20);
+            this.MaDonTra_TraHang.TabIndex = 10;
             // 
             // label50
             // 
@@ -1480,13 +1488,13 @@
             this.label50.TabIndex = 9;
             this.label50.Text = "NHẬP MÃ ĐƠN TRẢ";
             // 
-            // textBox20
+            // MaHoaDon_TraHang
             // 
-            this.textBox20.Location = new System.Drawing.Point(692, 73);
-            this.textBox20.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(352, 20);
-            this.textBox20.TabIndex = 8;
+            this.MaHoaDon_TraHang.Location = new System.Drawing.Point(692, 73);
+            this.MaHoaDon_TraHang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaHoaDon_TraHang.Name = "MaHoaDon_TraHang";
+            this.MaHoaDon_TraHang.Size = new System.Drawing.Size(352, 20);
+            this.MaHoaDon_TraHang.TabIndex = 8;
             // 
             // label49
             // 
@@ -1498,15 +1506,16 @@
             this.label49.TabIndex = 7;
             this.label49.Text = "Nhập Mã Hóa Đơn ";
             // 
-            // button15
+            // btnThemCTPhieuTraHang
             // 
-            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.Location = new System.Drawing.Point(19, 228);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(1024, 45);
-            this.button15.TabIndex = 6;
-            this.button15.Text = "THÊM VÀO PHIẾU TRẢ HÀNG";
-            this.button15.UseVisualStyleBackColor = true;
+            this.btnThemCTPhieuTraHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemCTPhieuTraHang.Location = new System.Drawing.Point(19, 228);
+            this.btnThemCTPhieuTraHang.Name = "btnThemCTPhieuTraHang";
+            this.btnThemCTPhieuTraHang.Size = new System.Drawing.Size(1024, 45);
+            this.btnThemCTPhieuTraHang.TabIndex = 6;
+            this.btnThemCTPhieuTraHang.Text = "THÊM VÀO PHIẾU TRẢ HÀNG";
+            this.btnThemCTPhieuTraHang.UseVisualStyleBackColor = true;
+            this.btnThemCTPhieuTraHang.Click += new System.EventHandler(this.btnThemCTPhieuTraHang_Click);
             // 
             // label39
             // 
@@ -1517,28 +1526,20 @@
             this.label39.TabIndex = 5;
             this.label39.Text = "NHẬP LÝ DO HÀNG LỖI";
             // 
-            // richTextBox1
+            // Lydo_TraHang
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(19, 129);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1024, 93);
-            this.richTextBox1.TabIndex = 4;
-            this.richTextBox1.Text = "";
+            this.Lydo_TraHang.Location = new System.Drawing.Point(19, 129);
+            this.Lydo_TraHang.Name = "Lydo_TraHang";
+            this.Lydo_TraHang.Size = new System.Drawing.Size(1024, 93);
+            this.Lydo_TraHang.TabIndex = 4;
+            this.Lydo_TraHang.Text = "";
             // 
-            // textBox17
+            // MaHangLoi_traHang
             // 
-            this.textBox17.Location = new System.Drawing.Point(184, 33);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(345, 20);
-            this.textBox17.TabIndex = 3;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(692, 33);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(351, 21);
-            this.comboBox1.TabIndex = 2;
+            this.MaHangLoi_traHang.Location = new System.Drawing.Point(184, 33);
+            this.MaHangLoi_traHang.Name = "MaHangLoi_traHang";
+            this.MaHangLoi_traHang.Size = new System.Drawing.Size(345, 20);
+            this.MaHangLoi_traHang.TabIndex = 3;
             // 
             // label42
             // 
@@ -2127,7 +2128,7 @@
             // 
             this.tabPage12.Controls.Add(this.groupBox17);
             this.tabPage12.Controls.Add(this.groupBox16);
-            this.tabPage12.Controls.Add(this.button4);
+            this.tabPage12.Controls.Add(this.btnKT_HD);
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
             this.tabPage12.Name = "tabPage12";
             this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
@@ -2353,16 +2354,16 @@
             this.NoiDung.Name = "NoiDung";
             this.NoiDung.Width = 125;
             // 
-            // button4
+            // btnKT_HD
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(12, 42);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(592, 69);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "KIỂM TRA TÌNH TRẠNG HỢP ĐỒNG";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnKT_HD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKT_HD.Location = new System.Drawing.Point(12, 42);
+            this.btnKT_HD.Name = "btnKT_HD";
+            this.btnKT_HD.Size = new System.Drawing.Size(592, 69);
+            this.btnKT_HD.TabIndex = 0;
+            this.btnKT_HD.Text = "KIỂM TRA TÌNH TRẠNG HỢP ĐỒNG";
+            this.btnKT_HD.UseVisualStyleBackColor = true;
+            this.btnKT_HD.Click += new System.EventHandler(this.btnKT_HD_Click);
             // 
             // tbXuLyMua
             // 
@@ -3544,7 +3545,7 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.GroupBox groupBox16;
         private System.Windows.Forms.DataGridView grd_DSHD;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnKT_HD;
         private System.Windows.Forms.TabControl tabCtrlComment;
         private System.Windows.Forms.TabPage tabPage13;
         private System.Windows.Forms.Button btnXuLyThongKe;
@@ -3576,11 +3577,10 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TabPage tabPage15;
         private System.Windows.Forms.GroupBox groupBox26;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button btnThemCTPhieuTraHang;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.RichTextBox Lydo_TraHang;
+        private System.Windows.Forms.TextBox MaHangLoi_traHang;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label44;
@@ -3599,9 +3599,9 @@
         private System.Windows.Forms.TextBox txtMaHD;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox MaDonTra_TraHang;
         private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox MaHoaDon_TraHang;
         private System.Windows.Forms.Button btnCloseMain;
         private System.Windows.Forms.Button tnMinimizeMain;
         private System.Windows.Forms.Label txtSYSNAME;
@@ -3724,6 +3724,7 @@
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TextBox soLuongHangLoi_traHang;
     }
 }
 
