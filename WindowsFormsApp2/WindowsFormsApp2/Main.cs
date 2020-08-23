@@ -169,6 +169,7 @@ namespace Presentation
                 dtNgayHetHan.ResetText();
                 txtTTVT.Clear();
                 txtNoiDung.Clear();
+                MessageBox.Show("Huy hop dong thanh cong");
             }
             else
                 MessageBox.Show("Khong co hop dong dang chon");
@@ -211,6 +212,7 @@ namespace Presentation
                     dtNgayHetHan.ResetText();
                     txtTTVT.Clear();
                     txtNoiDung.Clear();
+                    MessageBox.Show("Cap nhat hop dong thanh cong");
                 }
                 else
                     MessageBox.Show("Vui long kiem tra lai thong tin");
