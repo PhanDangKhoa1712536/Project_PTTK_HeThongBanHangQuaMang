@@ -470,6 +470,11 @@ namespace Presentation
         // ============================TRA HANG SECTION ================== //
         private void Nhap_THHoaDon_Click(object sender, EventArgs e)
         {
+            if(trahangMaHD_txtbox.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Bạn Chưa Nhập Mã Hóa Đơn!");
+                return;
+            }
             int maHD = Int32.Parse(trahangMaHD_txtbox.Text);
             HoaDonBanHangBUS hoadonBus = new HoaDonBanHangBUS();
             HoaDonBanHangDTO hoadonSearch = hoadonBus.SearchHD_TraHang(maHD);
@@ -482,12 +487,14 @@ namespace Presentation
 
         }
         private void Nhap_THKhach_Click(object sender, EventArgs e)
-        {
+        {   
+            if(traHang_timKHtxtbox.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Bạn Chưa Nhập Mã Khách Hàng!");
+                return;
+            }
             KhachHangBUS khBus = new KhachHangBUS();
             KhachHangDTO khSearch = khBus.SearchKH_Name(traHang_timKHtxtbox.Text);
-
-            //dtGV_TraHangKH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //dtGV_TraHangKH.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 
             this.dtGV_TraHangKH.Rows.Clear();
             this.dtGV_TraHangKH.Rows.Add(khSearch.tenKH, khSearch.emailKH, khSearch.diaChiKH, khSearch.trangThaiKhoaComment);
@@ -500,10 +507,23 @@ namespace Presentation
         private void TaoPhieuTra_Click(object sender, EventArgs e)
         {
             DonTraHangBUS dontraBUS = new DonTraHangBUS();
+            if(MaNV_TraHang.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Bạn Chưa Nhập Mã Nhân Viên Trả Hàng!");
+                return;
+            }
+            if(MaNCC_TraHang.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Bạn Chưa Nhập Mã Nhà Cung Cấp!");
+                return;
+            }
+
             int maDon = dontraBUS.MaDon_autoGen();
             int maNVLAP = Int32.Parse(MaNV_TraHang.Text);
             int maNCC = Int32.Parse(MaNCC_TraHang.Text);
             DateTime NgayLap = ngayLap_TraHang.Value;
+
+           
 
             try
             {
@@ -514,7 +534,7 @@ namespace Presentation
             }
             catch(Exception er)
             {
-                MessageBox.Show("Thêm đơn trả hàng thất bại!, Loi: " + er.ToString());
+                MessageBox.Show("Thêm đơn trả hàng thất bại!, Loi: " );
                 return;
             }
 
@@ -526,6 +546,33 @@ namespace Presentation
             ChiTietDonTraHangBUS chiTietDonTraHangBUS = new ChiTietDonTraHangBUS();
             HangLoiBUS hangLoiBUS = new HangLoiBUS();
             ChiTietHangLoiBUS chiTietHangLoiBUS = new ChiTietHangLoiBUS();
+
+            if(MaHangLoi_traHang.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Bạn Chưa Nhập Mã Hàng Lỗi!");
+                return;
+            }
+            if(soLuongHangLoi_traHang.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Bạn Chưa Nhập Số Lượng Hàng Lỗi!");
+                return;
+            }
+            if (MaDonTra_TraHang.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Bạn Chưa Nhập Mã Đơn Trả Hàng!");
+                return;
+            }
+            if (MaHoaDon_TraHang.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Bạn Chưa Nhập Mã Hóa Đơn Trả Hàng!");
+                return;
+            }
+            if (Lydo_TraHang.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Bạn Chưa Nhập Lý Do Trả Hàng!");
+                return;
+            }
+            
 
             int maHangLoi = Int32.Parse(MaHangLoi_traHang.Text);
             int soLuongHangLoi = Int32.Parse(soLuongHangLoi_traHang.Text);
@@ -552,12 +599,12 @@ namespace Presentation
 
                chiTietHangLoiBUS.ThemChiTietHangLoi(maCTHangLoi, maHoaDon, maHangLoi);
 
-                MessageBox.Show("Them Vào Chi Tiết Đơn Trả Hàng Thành Công");
+                MessageBox.Show("Thêm Vào Chi Tiết Đơn Trả Hàng Thành Công");
 
             }
             catch(Exception er)
             {
-                MessageBox.Show("Thêm đơn trả hàng thất bại!, Loi: " + er.ToString());
+                MessageBox.Show("Thêm đơn trả hàng thất bại!, Loi: " );
                 return;
             }
 
