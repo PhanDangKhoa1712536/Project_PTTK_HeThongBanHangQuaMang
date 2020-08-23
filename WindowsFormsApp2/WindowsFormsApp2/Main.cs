@@ -255,11 +255,6 @@ namespace Presentation
         }
 
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            HienThiDanhSachHopDong();
-        }
-
         private void HienThiDanhSachHopDong()
         {
             HopDongBUS hopdongBUS = new HopDongBUS();
@@ -959,7 +954,14 @@ namespace Presentation
             }
         }
 
-       
+        private void btnKT_HD_Click(object sender, EventArgs e)
+        {
+            HienThiDanhSachHopDong();
+            if (grd_DSHD.Rows.Count == 0)
+            {
+                MessageBox.Show("Khong co hop dong het han");
+            }
+        }
 
         private void Load_AllMaHD()
         {
