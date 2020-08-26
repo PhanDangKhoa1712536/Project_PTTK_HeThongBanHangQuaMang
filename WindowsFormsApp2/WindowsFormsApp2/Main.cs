@@ -123,6 +123,7 @@ namespace Presentation
                     );
             }
             this.grv_DonNhapHang.ClearSelection();
+
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -514,7 +515,7 @@ namespace Presentation
             }
             catch(Exception er)
             {
-                MessageBox.Show("Thêm đơn trả hàng thất bại!, Loi: " );
+                MessageBox.Show("Thêm đơn trả hàng thất bại!, Loi: " + er.Message);
                 return;
             }
 
@@ -584,7 +585,7 @@ namespace Presentation
             }
             catch(Exception er)
             {
-                MessageBox.Show("Thêm đơn trả hàng thất bại!, Loi: " );
+                MessageBox.Show("Thêm đơn trả hàng thất bại!, Loi: " + er.Message);
                 return;
             }
 
@@ -695,7 +696,7 @@ namespace Presentation
 
             // Đọc dữ liệu từ text box lên
             int MaHD = Int32.Parse(MaHoaDonBan_textbox.Text);
-            DateTime NgayLap = DateTime.Parse(NgayLapHDBan_textBox.Text);
+            //DateTime NgayLap = DateTime.Parse(NgayLapHDBan_textBox.Text);
             DateTime NgayGiao = NgayGiaoHang_dateTimePicker4.Value;
 
             string HoTen = HoTen_textBox.Text;
@@ -764,7 +765,7 @@ namespace Presentation
             }
         }
 
-        private void btn_sendNCC_Click(object sender, EventArgs e)
+        public void sendNCC_UI()
         {
             string nhacungcap = grv_NhaCungCap[1, grv_NhaCungCap.CurrentRow.Index].Value.ToString();
             DialogResult result = MessageBox.Show("Xác nhận gửi cho nhà cung cấp " + nhacungcap + "?", "Thông báo", MessageBoxButtons.YesNo);
@@ -777,10 +778,17 @@ namespace Presentation
                     maNCC = int.Parse(grv_NhaCungCap[0, grv_NhaCungCap.CurrentRow.Index].Value.ToString()),
                     maDonNhap = int.Parse(grv_DonNhapHang[0, grv_DonNhapHang.CurrentRow.Index].Value.ToString())
                 };
-                donNhapHangBUS.GuiChoNhaCungCap(donNhapHangDTO);
-                MessageBox.Show("Gửi thành công");
-                Load_DSDonNhap();
+                if (donNhapHangBUS.GuiChoNhaCungCap(donNhapHangDTO))
+                {
+                    MessageBox.Show("Gửi thành công");
+                    Load_DSDonNhap();
+                }
             }
+        }
+
+        private void btn_sendNCC_Click(object sender, EventArgs e)
+        {
+            sendNCC_UI();
         }
 
         private void btnDeleteDetail_Click(object sender, EventArgs e)
@@ -965,12 +973,12 @@ namespace Presentation
             btn_sendNCC.Text = "GỬI ĐƠN NHẬP HÀNG CHO NCC " + grv_NhaCungCap[1, grv_NhaCungCap.CurrentRow.Index].Value.ToString();
         }
 
-       
+
         private void grv_DonNhapHang_SelectionChanged(object sender, EventArgs e)
         {
             try
             {
-                grv_DonNhapHang.Rows[0].Selected = true;
+                grv_DonNhapHang[0, 0].Selected = true;
                 grv_DonNhapHang.CurrentRow.Selected = true;
                 grboxChiTietDonNhapHangTab2.Text = "CHI TIẾT ĐƠN NHẬP CỦA ĐƠN SỐ " + grv_DonNhapHang.SelectedRows[0].Cells["COLMADONNHAP"].FormattedValue.ToString();
 
