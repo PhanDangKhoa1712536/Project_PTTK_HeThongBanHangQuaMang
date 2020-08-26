@@ -28,7 +28,7 @@ namespace DAO
                 try
                 {
                     GopYDTO gopy = new GopYDTO((int)dr["MAGOPY"], (int)dr["MAHANG"], (int)dr["MAKH"], dr["NOIDUNG"].ToString(),
-                        (DateTime)dr["NGAYGOPY"], (bool)dr["FLAGXAU"], (DateTime)dr["NGAYCHINHSUARECORD"], dr["TENHANG"].ToString());
+                        (DateTime)dr["NGAYGOPY"], (bool)dr["FLAGXAU"], (DateTime)dr["NGAYCHINHSUARECORD"], dr["TENHANG"].ToString(), (bool)dr["FLAGTANGQUA"], (bool)dr["FLAGXACNHANXOA"]);
                     lstGopY.Add(gopy);
 
                 }
@@ -57,7 +57,7 @@ namespace DAO
                 try
                 {
                     GopYDTO gopy = new GopYDTO((int)dr["MAGOPY"], (int)dr["MAHANG"], (int)dr["MAKH"], dr["NOIDUNG"].ToString(),
-                        (DateTime)dr["NGAYGOPY"], (bool)dr["FLAGXAU"], (DateTime)dr["NGAYCHINHSUARECORD"], dr["TENHANG"].ToString());
+                        (DateTime)dr["NGAYGOPY"], (bool)dr["FLAGXAU"], (DateTime)dr["NGAYCHINHSUARECORD"], dr["TENHANG"].ToString(), (bool)dr["FLAGTANGQUA"], (bool)dr["FLAGXACNHANXOA"]);
                     lstGopY.Add(gopy);
 
                 }
@@ -75,8 +75,8 @@ namespace DAO
 
             List<SqlParameter> sqlParameters = new List<SqlParameter>
             {
-                new SqlParameter("@flagXau", gopYDTO.flagXau),
-                new SqlParameter("@maGopY", gopYDTO.maGopY)
+                new SqlParameter("@flagXau", gopYDTO.DanhDauCommentXau),
+                new SqlParameter("@maGopY", gopYDTO.MaGopY)
             };
 
             return this.dp.ExecuteNonQuery(query, sqlParameters);
@@ -100,7 +100,7 @@ namespace DAO
                 try
                 {
                     GopYDTO gopy = new GopYDTO((int)dr["MAGOPY"], (int)dr["MAHANG"], (int)dr["MAKH"], dr["NOIDUNG"].ToString(),
-                        (DateTime)dr["NGAYGOPY"], (bool)dr["FLAGXAU"], (DateTime)dr["NGAYCHINHSUARECORD"], dr["TENHANG"].ToString());
+                        (DateTime)dr["NGAYGOPY"], (bool)dr["FLAGXAU"], (DateTime)dr["NGAYCHINHSUARECORD"], dr["TENHANG"].ToString(), (bool)dr["FLAGTANGQUA"], (bool)dr["FLAGXACNHANXOA"]);
                     lstGopY.Add(gopy);
 
                 }
@@ -130,7 +130,7 @@ namespace DAO
                 try
                 {
                     GopYDTO gopy = new GopYDTO((int)dr["MAGOPY"], (int)dr["MAHANG"], (int)dr["MAKH"], dr["NOIDUNG"].ToString(),
-                        (DateTime)dr["NGAYGOPY"], (bool)dr["FLAGXAU"], (DateTime)dr["NGAYCHINHSUARECORD"], dr["TENHANG"].ToString());
+                        (DateTime)dr["NGAYGOPY"], (bool)dr["FLAGXAU"], (DateTime)dr["NGAYCHINHSUARECORD"], dr["TENHANG"].ToString(), (bool)dr["FLAGTANGQUA"], (bool)dr["FLAGXACNHANXOA"]);
                     lstGopY.Add(gopy);
 
                 }
@@ -148,7 +148,7 @@ namespace DAO
 
             List<SqlParameter> sqlParameters = new List<SqlParameter>
             {
-                new SqlParameter("@maGopY", gopYDTO.maGopY)
+                new SqlParameter("@maGopY", gopYDTO.MaGopY)
             };
 
             return this.dp.ExecuteNonQuery(query, sqlParameters);
@@ -160,7 +160,7 @@ namespace DAO
 
             List<SqlParameter> sqlParameters = new List<SqlParameter>
             {
-                new SqlParameter("@maGopY", gopYDTO.maGopY)
+                new SqlParameter("@maGopY", gopYDTO.MaGopY)
             };
 
             return this.dp.ExecuteNonQuery(query, sqlParameters);
@@ -171,7 +171,7 @@ namespace DAO
         {
             String query = "DELETE FROM GOPY WHERE MAGOPY = @MAGOPY";
             List<SqlParameter> sqlParameters = new List<SqlParameter>();
-            SqlParameter parameter = new SqlParameter("@MAGOPY", gopYDTO.maGopY);
+            SqlParameter parameter = new SqlParameter("@MAGOPY", gopYDTO.MaGopY);
             sqlParameters.Add(parameter);
 
             return this.dp.ExecuteNonQuery(query, sqlParameters);

@@ -8,39 +8,41 @@ namespace DTO
 {
     public class GopYDTO
     {
-        public int maGopY { get; set; }
-        public int maHang { get; set; }
-        public int maKH { get; set; }
-        public string tenHang { get; set; }
-        public string noiDung { get; set; }
-        public DateTime ngayGopY { get; set; }
-        public bool flagXau { get; set; }
-        public DateTime ngayChinhSuaRecord { get; set; }
-        public int flagTangQua { get; set; }
-        public int flagXacNhanXoa { get; set; }
+        public int MaGopY { get; set; }
+        public int MaHang { get; set; }
+        public int MaKH { get; set; }
+        public string TenHang { get; set; }
+        public string NoiDung { get; set; }
+        public DateTime NgayGopY { get; set; }
+        public bool DanhDauCommentXau { get; set; }
+        public DateTime NgayChinhSuaRecord { get; set; }
+        public bool GhiNhanTangQua { get; set; }
+        public bool GhiNhanXoa { get; set; }
 
 
 
         public GopYDTO(int maGopY, int maHang, int maKH, string noiDung, DateTime ngayGopY,
-            bool flagXau, DateTime ngayChinhSuaRecord, string tenHang)
+            bool flagXau, DateTime ngayChinhSuaRecord, string tenHang, bool flagTangQua, bool flagXacNhanXoa)
         {
-            this.maGopY = maGopY;
-            this.maHang = maHang;
-            this.maKH = maKH;
-            this.noiDung = noiDung;
-            this.ngayGopY = ngayGopY;
-            this.flagXau = flagXau;
-            this.ngayChinhSuaRecord = ngayChinhSuaRecord;
-            this.tenHang = tenHang;
+            this.MaGopY = maGopY;
+            this.MaHang = maHang;
+            this.MaKH = maKH;
+            this.NoiDung = noiDung;
+            this.NgayGopY = ngayGopY;
+            this.DanhDauCommentXau = flagXau;
+            this.NgayChinhSuaRecord = ngayChinhSuaRecord;
+            this.TenHang = tenHang;
+            this.GhiNhanTangQua = flagTangQua;
+            this.GhiNhanXoa = flagXacNhanXoa;
         }
 
         public GopYDTO(int maGopY, int maHang, int maKH, string noiDung, DateTime ngayGopY)
         {
-            this.maGopY = maGopY;
-            this.maHang = maHang;
-            this.maKH = maKH;
-            this.noiDung = noiDung;
-            this.ngayGopY = ngayGopY;
+            this.MaGopY = maGopY;
+            this.MaHang = maHang;
+            this.MaKH = maKH;
+            this.NoiDung = noiDung;
+            this.NgayGopY = ngayGopY;
         }
 
         public GopYDTO() { }
@@ -48,8 +50,8 @@ namespace DTO
 
         public GopYDTO(int maGopY, bool flagXau)
         {
-            this.maGopY = maGopY;
-            this.flagXau = flagXau;
+            this.MaGopY = maGopY;
+            this.DanhDauCommentXau = flagXau;
         }
     }
 }

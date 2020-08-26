@@ -69,27 +69,7 @@ namespace Presentation
             Load_AllMaHD();
         }
 
-
-        private void Load_DSComment()
-        {
-            GopYBUS gopYBUS = new GopYBUS();
-
-            List<GopYDTO> allGopY = gopYBUS.getAll();
-            grvAllComments.DataSource = allGopY;
-            //grvAllComments.Rows.Clear();
-            //for (int i = 0; i < allGopY.Count; i++)
-            //{
-            //    this.grvAllComments.Rows.Add(
-            //        allGopY[i].maGopY,
-            //        allGopY[i].maHang,
-            //        allGopY[i].maKH,
-            //        allGopY[i].noiDung,
-            //        allGopY[i].ngayGopY,
-            //        allGopY[i].ngayChinhSuaRecord);
-            //}
-            //this.grvAllComments.ClearSelection();
-        }
-
+     
         private void Load_DSNhaCungCap()
         {
             NhaCungCapBUS nhaCungCapBUS = new NhaCungCapBUS();
@@ -839,6 +819,10 @@ namespace Presentation
                 btnXoaChiTietDonNhapUI.Enabled = false;
             }
         }
+
+        /// <summary>
+        /// thong ke
+        /// </summary>
         private void LoadBangThongKeTot()
         {
             GopYBUS gopYBUS = new GopYBUS();
@@ -858,7 +842,8 @@ namespace Presentation
             var result = gopYBUS.getByDate(dTimeStartThongKeCmt.Value, dTimeEndThongKeCmt.Value);
             grvAllComments.Refresh();
             grvAllComments.DataSource = result;
-            grvAllComments.Columns.Remove("flagTangQua");
+            grvAllComments.Columns.Remove("GhiNhanTangQua");
+            grvAllComments.Columns.Remove("GhiNhanXoa");
         }
         private void LoadMaBangThongKe()
         {
@@ -882,10 +867,10 @@ namespace Presentation
                 foreach (var item in data)
                 {
 #pragma warning disable CS0472 // The result of the expression is always the same since a value of this type is never equal to 'null'
-                    if (item.maGopY != null)
+                    if (item.MaGopY != null)
 #pragma warning restore CS0472 // The result of the expression is always the same since a value of this type is never equal to 'null'
                     {
-                        chiTietBangThongKeGopYBUS.Insert(mabangtk, item.maGopY);
+                        chiTietBangThongKeGopYBUS.Insert(mabangtk, item.MaGopY);
                     }
                 }
                 LoadMaBangThongKe();
@@ -925,6 +910,24 @@ namespace Presentation
             MessageBox.Show("Đã ghi nhận xóa và ngăn khách hàng comment");
             LoadBangThongKeXau();
         }
+
+        private void Load_DSCommentThongKe()
+        {
+            GopYBUS gopYBUS = new GopYBUS();
+
+            List<GopYDTO> allGopY = gopYBUS.getByDate(dTimeStartThongKeCmt.Value, dTimeEndThongKeCmt.Value);
+            
+            grvAllComments.DataSource = null;
+            grvAllComments.DataSource = allGopY;
+            grvAllComments.Columns.Remove("GhiNhanTangQua");
+            grvAllComments.Columns.Remove("GhiNhanXoa");
+
+        }
+
+
+
+
+
         private void txtLyDoNhapHang_MouseClick(object sender, MouseEventArgs e)
         {
             this.txtLyDoNhapHang.BackColor = Color.White;
@@ -1006,6 +1009,28 @@ namespace Presentation
             if (grd_DSHD.Rows.Count == 0)
             {
                 MessageBox.Show("Khong co hop dong het han");
+            }
+        }
+
+        private void grvAllComments_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            GopYBUS gopYBUS = new GopYBUS();
+            
+            if (grvAllComments.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                grvAllComments.CurrentRow.Selected = true;
+                bool flagxau = (bool)grvAllComments.Rows[e.RowIndex].Cells["DANHDAUCOMMENTXAU"].FormattedValue;
+                string maGopY = grvAllComments.Rows[e.RowIndex].Cells["MAGOPY"].FormattedValue.ToString();
+                if (flagxau == false)
+                {                 
+                    gopYBUS.Update(int.Parse(maGopY), true);
+
+                }
+                else
+                {                  
+                    gopYBUS.Update(int.Parse(maGopY), false);
+                }
+                Load_DSCommentThongKe();
             }
         }
 

@@ -59,7 +59,7 @@ namespace BUS
         {
             GopYDTO gopYDTO = new GopYDTO
             {
-                maGopY = maGopY
+                MaGopY = maGopY
             };
             return this.gopYDAO.UpdateTangQua(gopYDTO);
         }
@@ -68,7 +68,7 @@ namespace BUS
         {
             GopYDTO gopYDTO = new GopYDTO
             {
-                maGopY = maGopY
+                MaGopY = maGopY
             };
             return this.gopYDAO.UpdateXacNhanXoaGopY(gopYDTO);
         }
@@ -77,7 +77,7 @@ namespace BUS
         {
             GopYDTO gopYDTO = new GopYDTO
             {
-                maGopY = maGopY
+                MaGopY = maGopY
             };
             return this.gopYDAO.DeleteComment(gopYDTO);
         }
