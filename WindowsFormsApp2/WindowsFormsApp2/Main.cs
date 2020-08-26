@@ -800,10 +800,10 @@ namespace Presentation
             grvChiTietDonNhapTab1.Rows.Remove(grvChiTietDonNhapTab1.CurrentRow);
         }
 
-        private void txtTimNhaCungCap_TextChanged(object sender, EventArgs e)
+        private void HienThiNhaCungCapTheoTuKhoa(string keyword)
         {
             NhaCungCapBUS nhaCungCapBUS = new NhaCungCapBUS();
-            List<NhaCungCapDTO> allNCC = nhaCungCapBUS.TimBangTuKhoa(txtTimNhaCungCap.Text);
+            List<NhaCungCapDTO> allNCC = nhaCungCapBUS.TimBangTuKhoa(keyword);
             grv_NhaCungCap.Rows.Clear();
             for (int i = 0; i < allNCC.Count; i++)
             {
@@ -812,6 +812,11 @@ namespace Presentation
                     allNCC[i].tenNCC);
             }
             this.grv_NhaCungCap.ClearSelection();
+        }
+
+        private void txtTimNhaCungCap_TextChanged(object sender, EventArgs e)
+        {
+            HienThiNhaCungCapTheoTuKhoa(txtTimNhaCungCap.Text);
         }
 
         private void txtTongSoLuongHangNhap_TextChanged(object sender, EventArgs e)
@@ -982,7 +987,7 @@ namespace Presentation
                 grv_DonNhapHang.CurrentRow.Selected = true;
                 grboxChiTietDonNhapHangTab2.Text = "CHI TIẾT ĐƠN NHẬP CỦA ĐƠN SỐ " + grv_DonNhapHang.SelectedRows[0].Cells["COLMADONNHAP"].FormattedValue.ToString();
 
-                Load_DSChiTietDonNhap();
+                HienThiDSChiTietDonNhap();
                 NhaCungCapBUS nccBus = new NhaCungCapBUS();
                 string tenNCC = nccBus.TimTenTheoMaDonNhap(grv_DonNhapHang.SelectedRows[0].Cells["COLMADONNHAP"].FormattedValue.ToString());
                 grv_NhaCungCap.ClearSelection();
@@ -1099,7 +1104,7 @@ namespace Presentation
 
             ChiTietHoaDonXoaHD_dataGridView.DataSource = source;
         }
-        private void Load_DSChiTietDonNhap()
+        private void HienThiDSChiTietDonNhap()
         {
             ChiTietDonNhapBUS chiTietDonNhapBUS = new ChiTietDonNhapBUS();
             String mahang = new String(grboxChiTietDonNhapHangTab2.Text.Where(Char.IsDigit).ToArray());
