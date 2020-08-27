@@ -150,10 +150,10 @@ namespace Presentation
                 dtNgayHetHan.ResetText();
                 txtTTVT.Clear();
                 txtNoiDung.Clear();
-                MessageBox.Show("Huy hop dong thanh cong");
+                MessageBox.Show("Hủy hợp đồng thành công");
             }
             else
-                MessageBox.Show("Khong co hop dong dang chon");
+                MessageBox.Show("Không có hợp đồng nào được chọn");
         }
 
         private void grd_DSHD_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -193,13 +193,13 @@ namespace Presentation
                     dtNgayHetHan.ResetText();
                     txtTTVT.Clear();
                     txtNoiDung.Clear();
-                    MessageBox.Show("Cap nhat hop dong thanh cong");
+                    MessageBox.Show("Cập nhật hợp đồng thành công");
                 }
                 else
-                    MessageBox.Show("Vui long kiem tra lai thong tin");
+                    MessageBox.Show("Vui lòng kiểm tra lại thông tin");
             }
             else
-                MessageBox.Show("Khong co hop dong dang chon");
+                MessageBox.Show("Không có hợp đồng nào được chọn");
         }
 
         private void Load_BTKHangBan()
@@ -289,7 +289,7 @@ namespace Presentation
             }
             else
             {
-                MessageBox.Show("Vui long chon khach hang");
+                MessageBox.Show("Vui lòng chọn khách hàng");
             }
         }
 
@@ -316,13 +316,13 @@ namespace Presentation
                 {
                     lichSu.CapNhatLichSu(Int32.Parse(item.Cells[0].Value.ToString()), Int32.Parse(txtHangDangChon.Text));
                 }
-                MessageBox.Show("Gui tin nhan thanh cong");
+                MessageBox.Show("Gửi tin nhắn thành công");
                 maKH_Xoa.Clear();
                 Load_DSKHQuangCao();
             }
             else
             {
-                MessageBox.Show("Vui long chon mat hang");
+                MessageBox.Show("Vui lòng chọn mặt hàng");
             }
         }
 
@@ -1049,7 +1049,7 @@ namespace Presentation
             HienThiDanhSachHopDong();
             if (grd_DSHD.Rows.Count == 0)
             {
-                MessageBox.Show("Khong co hop dong het han");
+                MessageBox.Show("Không có hợp đồng nào hết hạn");
             }
         }
 
