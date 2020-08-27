@@ -46,6 +46,29 @@ namespace DAO
             return mabangtk;
         }
 
+        public List<BangThongKeGopYDTO> getAllBangThongKeGopY()
+        {
+            String query = "SELECT * FROM BANGTHONGKEGOPY";
+            DataTable dt = this.dp.ExecuteQuery(query);
+
+            List<BangThongKeGopYDTO> lst = new List<BangThongKeGopYDTO>();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                try
+                {
+                    BangThongKeGopYDTO bangThongKeGopYDTO = new BangThongKeGopYDTO((int)dr["MABANGTHONGKE"], (int)dr["MANVLAP"],(DateTime)dr["NGAYLAP"]);
+                    lst.Add(bangThongKeGopYDTO);
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+            return lst;
+
+        }
 
 
     }

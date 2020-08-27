@@ -828,12 +828,18 @@ namespace Presentation
             GopYBUS gopYBUS = new GopYBUS();
             List<GopYDTO> allTot = gopYBUS.getAllCommentTotByBangThongKe(Int32.Parse(cbMaThongKe.SelectedValue.ToString()));
             grvCmtTot.DataSource = allTot;
+
+            grvCmtTot.Columns.Remove("GhiNhanXoa");
+
         }
         private void LoadBangThongKeXau()
         {
             GopYBUS gopYBUS = new GopYBUS();
             List<GopYDTO> allXau = gopYBUS.getAllCommentXauByBangThongKe(Int32.Parse(cbMaThongKe.SelectedValue.ToString()));
             grvCmtXau.DataSource = allXau;
+
+            grvCmtXau.Columns.Remove("GhiNhanTangQua");
+
         }
 
         private void btnXuLyThongKe_Click(object sender, EventArgs e)
@@ -924,10 +930,32 @@ namespace Presentation
 
         }
 
+        private void grvAllComments_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            GopYBUS gopYBUS = new GopYBUS();
 
+            if (grvAllComments.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                grvAllComments.CurrentRow.Selected = true;
+                bool flagxau = (bool)grvAllComments.Rows[e.RowIndex].Cells["DANHDAUCOMMENTXAU"].FormattedValue;
+                string maGopY = grvAllComments.Rows[e.RowIndex].Cells["MAGOPY"].FormattedValue.ToString();
+                if (flagxau == false)
+                {
+                    gopYBUS.UpdateCmtXauTot(int.Parse(maGopY), true);
 
+                }
+                else
+                {
+                    gopYBUS.UpdateCmtXauTot(int.Parse(maGopY), false);
+                }
+                Load_DSCommentThongKe();
+            }
+        }
 
-
+       /// <summary>
+       /// 
+       /// </summary>
+      
         private void txtLyDoNhapHang_MouseClick(object sender, MouseEventArgs e)
         {
             this.txtLyDoNhapHang.BackColor = Color.White;
@@ -1012,27 +1040,7 @@ namespace Presentation
             }
         }
 
-        private void grvAllComments_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            GopYBUS gopYBUS = new GopYBUS();
-            
-            if (grvAllComments.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-            {
-                grvAllComments.CurrentRow.Selected = true;
-                bool flagxau = (bool)grvAllComments.Rows[e.RowIndex].Cells["DANHDAUCOMMENTXAU"].FormattedValue;
-                string maGopY = grvAllComments.Rows[e.RowIndex].Cells["MAGOPY"].FormattedValue.ToString();
-                if (flagxau == false)
-                {                 
-                    gopYBUS.Update(int.Parse(maGopY), true);
-
-                }
-                else
-                {                  
-                    gopYBUS.Update(int.Parse(maGopY), false);
-                }
-                Load_DSCommentThongKe();
-            }
-        }
+        
 
         private void Load_AllMaHD()
         {

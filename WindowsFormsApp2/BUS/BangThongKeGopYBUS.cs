@@ -32,5 +32,10 @@ namespace BUS
         {
             return this.bangThongKeGopYDAO.getBangThongKe();
         }
+
+        public List<BangThongKeGopYDTO> getALLBangThongkeGopY()
+        {
+            return this.bangThongKeGopYDAO.getAllBangThongKeGopY();
+        }
     }
 }

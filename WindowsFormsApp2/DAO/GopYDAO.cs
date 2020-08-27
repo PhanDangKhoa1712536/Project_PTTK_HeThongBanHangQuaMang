@@ -16,30 +16,7 @@ namespace DAO
         {
             dp = new DataProvider();
         }
-        public List<GopYDTO> getAll()
-        {
-            String query = "SELECT * FROM GOPY";
-            DataTable dt = this.dp.ExecuteQuery(query);
-
-            List<GopYDTO> lstGopY = new List<GopYDTO>();
-
-            foreach (DataRow dr in dt.Rows)
-            {
-                try
-                {
-                    GopYDTO gopy = new GopYDTO((int)dr["MAGOPY"], (int)dr["MAHANG"], (int)dr["MAKH"], dr["NOIDUNG"].ToString(),
-                        (DateTime)dr["NGAYGOPY"], (bool)dr["FLAGXAU"], (DateTime)dr["NGAYCHINHSUARECORD"], dr["TENHANG"].ToString(), (bool)dr["FLAGTANGQUA"], (bool)dr["FLAGXACNHANXOA"]);
-                    lstGopY.Add(gopy);
-
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }
-            }
-            return lstGopY;
-        }
-
+        
         public List<GopYDTO> getByDate(DateTime FromDate, DateTime ToDate)
         {
             String query = "SELECT g.*,tenhang FROM GOPY g, hang h WHERE h.mahang=g.mahang and NGAYGOPY BETWEEN @FROMDATE AND @TODATE";
@@ -69,7 +46,7 @@ namespace DAO
             return lstGopY;
         }
 
-        public Boolean Update(GopYDTO gopYDTO)
+        public Boolean UpdateFlagXauTot(GopYDTO gopYDTO)
         {
             String query = "UPDATE GOPY SET FlagXau = @flagXau WHERE MAGOPY = @maGopY";
 
@@ -166,7 +143,7 @@ namespace DAO
             return this.dp.ExecuteNonQuery(query, sqlParameters);
         }
 
-
+        
         public Boolean DeleteComment(GopYDTO gopYDTO)
         {
             String query = "DELETE FROM GOPY WHERE MAGOPY = @MAGOPY";
