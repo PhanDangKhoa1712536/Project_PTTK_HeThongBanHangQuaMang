@@ -1153,22 +1153,22 @@ namespace Presentation
                 finally
                 {
                     // reset normal state
-                    MaDonXoaHD_textBox.Text = "";
-                    NgayLapXoaHD_textBox.Text = "";
-                    NgayGiaoHangXoaHD_textBox.Text = "";
+                    //MaDonXoaHD_textBox.Text = "";
+                    //NgayLapXoaHD_textBox.Text = "";
+                    //NgayGiaoHangXoaHD_textBox.Text = "";
 
-                    HoTenXoaHD_textBox.Text = "";
-                    DiaChiXoaHD_textBox.Text = "";
-                    EmailXoaHD_textBox.Text = "";
+                    //HoTenXoaHD_textBox.Text = "";
+                    //DiaChiXoaHD_textBox.Text = "";
+                    //EmailXoaHD_textBox.Text = "";
 
-                    MaNVGiaoXoaHD_textBox.Text = "";
-                    MaNVLapXoaHD_textBox.Text = "";
-                    TongTienHoaDonXoa_textBox.Text = "";
-                    TrangThaiHoaDon_textBox.Text = "";
+                    //MaNVGiaoXoaHD_textBox.Text = "";
+                    //MaNVLapXoaHD_textBox.Text = "";
+                    //TongTienHoaDonXoa_textBox.Text = "";
+                    //TrangThaiHoaDon_textBox.Text = "";
                     
-                    if (ChiTietHoaDonXoaHD_dataGridView.Rows.Count != 0) // Nếu lượng dòng trong Gridview != 0 thì mới clear
-                        ChiTietHoaDonXoaHD_dataGridView.Rows.Clear();
-                    ChiTietHoaDonXoaHD_dataGridView.Refresh();
+                    //if (ChiTietHoaDonXoaHD_dataGridView.Rows.Count != 0) // Nếu lượng dòng trong Gridview != 0 thì mới clear
+                    //    ChiTietHoaDonXoaHD_dataGridView.Rows.Clear();
+                    //ChiTietHoaDonXoaHD_dataGridView.Refresh();
 
                     Load_AllMaHD();
                 }
