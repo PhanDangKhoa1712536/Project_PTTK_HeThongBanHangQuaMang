@@ -157,15 +157,22 @@ namespace Presentation
 
         private void grd_DSHD_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (grd_DSHD.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            try
             {
-                grd_DSHD.CurrentRow.Selected = true;
-                txtMaHD.Text = grd_DSHD.Rows[e.RowIndex].Cells["MaDT"].FormattedValue.ToString();
-                txtDoiTac.Text = grd_DSHD.Rows[e.RowIndex].Cells["TenDoiTac"].FormattedValue.ToString();
-                dtNgayKy.Text = grd_DSHD.Rows[e.RowIndex].Cells["NgayKyHopDong"].FormattedValue.ToString();
-                dtNgayHetHan.Text = grd_DSHD.Rows[e.RowIndex].Cells["NgayHetHan"].FormattedValue.ToString();
-                txtTTVT.Text = grd_DSHD.Rows[e.RowIndex].Cells["ThongTinViTriDang"].FormattedValue.ToString();
-                txtNoiDung.Text = grd_DSHD.Rows[e.RowIndex].Cells["NoiDung"].FormattedValue.ToString();
+                if (grd_DSHD.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    grd_DSHD.CurrentRow.Selected = true;
+                    txtMaHD.Text = grd_DSHD.Rows[e.RowIndex].Cells["MaDT"].FormattedValue.ToString();
+                    txtDoiTac.Text = grd_DSHD.Rows[e.RowIndex].Cells["TenDoiTac"].FormattedValue.ToString();
+                    dtNgayKy.Text = grd_DSHD.Rows[e.RowIndex].Cells["NgayKyHopDong"].FormattedValue.ToString();
+                    dtNgayHetHan.Text = grd_DSHD.Rows[e.RowIndex].Cells["NgayHetHan"].FormattedValue.ToString();
+                    txtTTVT.Text = grd_DSHD.Rows[e.RowIndex].Cells["ThongTinViTriDang"].FormattedValue.ToString();
+                    txtNoiDung.Text = grd_DSHD.Rows[e.RowIndex].Cells["NoiDung"].FormattedValue.ToString();
+                }
+            }
+            catch
+            {
+
             }
         }
 
@@ -253,13 +260,24 @@ namespace Presentation
 
         private void grd_HangQuangCao_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (grd_HangQuangCao.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            try
             {
-                grd_HangQuangCao.CurrentRow.Selected = true;
-                txtHangDangChon.Text = grd_HangQuangCao.Rows[e.RowIndex].Cells["MaHang"].FormattedValue.ToString();
+                if (grd_HangQuangCao.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    grd_HangQuangCao.CurrentRow.Selected = true;
+                    txtHangDangChon.Text = grd_HangQuangCao.Rows[e.RowIndex].Cells["MaHang"].FormattedValue.ToString();
 
-                maKH_Xoa.Clear();
-                Load_DSKHQuangCao();
+                    maKH_Xoa.Clear();
+                    Load_DSKHQuangCao();
+                    if (grd_KHQC.RowCount == 0)
+                    {
+                        MessageBox.Show("Sản phẩm này đã được quảng cáo cho tất cả khách hàng");
+                    }
+                }
+            }
+            catch
+            {
+
             }
         }
 
@@ -275,7 +293,14 @@ namespace Presentation
 
         private void grd_KHQC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtKHXoa.Text = grd_KHQC.Rows[e.RowIndex].Cells["MaKH"].FormattedValue.ToString();
+            try
+            {
+                txtKHXoa.Text = grd_KHQC.Rows[e.RowIndex].Cells["MaKH"].FormattedValue.ToString();
+            }
+            catch
+            {
+
+            }
         }
 
         private void btn_XoaKhachHang_Click(object sender, EventArgs e)
@@ -308,7 +333,11 @@ namespace Presentation
 
         private void btnGuiTinNhan_Click(object sender, EventArgs e)
         {
-            if (txtHangDangChon.Text != "")
+            if (grd_KHQC.RowCount == 0)
+            {
+                MessageBox.Show("Không có khách hàng nào để gửi tin");
+            }
+            else
             {
                 LichSuQuangCaoBUS lichSu = new LichSuQuangCaoBUS();
                 foreach (DataGridViewRow item in grd_KHQC.Rows)
@@ -318,10 +347,6 @@ namespace Presentation
                 MessageBox.Show("Gửi tin nhắn thành công");
                 maKH_Xoa.Clear();
                 Load_DSKHQuangCao();
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn mặt hàng");
             }
         }
 
@@ -1063,8 +1088,6 @@ namespace Presentation
             }
         }
 
-        
-
         private void Load_AllMaHD()
         {
             HoaDonBanHangBUS HD_bus = new HoaDonBanHangBUS();
@@ -1163,22 +1186,22 @@ namespace Presentation
                 finally
                 {
                     // reset normal state
-                    MaDonXoaHD_textBox.Text = "";
-                    NgayLapXoaHD_textBox.Text = "";
-                    NgayGiaoHangXoaHD_textBox.Text = "";
+                    //MaDonXoaHD_textBox.Text = "";
+                    //NgayLapXoaHD_textBox.Text = "";
+                    //NgayGiaoHangXoaHD_textBox.Text = "";
 
-                    HoTenXoaHD_textBox.Text = "";
-                    DiaChiXoaHD_textBox.Text = "";
-                    EmailXoaHD_textBox.Text = "";
+                    //HoTenXoaHD_textBox.Text = "";
+                    //DiaChiXoaHD_textBox.Text = "";
+                    //EmailXoaHD_textBox.Text = "";
 
-                    MaNVGiaoXoaHD_textBox.Text = "";
-                    MaNVLapXoaHD_textBox.Text = "";
-                    TongTienHoaDonXoa_textBox.Text = "";
-                    TrangThaiHoaDon_textBox.Text = "";
+                    //MaNVGiaoXoaHD_textBox.Text = "";
+                    //MaNVLapXoaHD_textBox.Text = "";
+                    //TongTienHoaDonXoa_textBox.Text = "";
+                    //TrangThaiHoaDon_textBox.Text = "";
                     
-                    if (ChiTietHoaDonXoaHD_dataGridView.Rows.Count != 0) // Nếu lượng dòng trong Gridview != 0 thì mới clear
-                        ChiTietHoaDonXoaHD_dataGridView.Rows.Clear();
-                    ChiTietHoaDonXoaHD_dataGridView.Refresh();
+                    //if (ChiTietHoaDonXoaHD_dataGridView.Rows.Count != 0) // Nếu lượng dòng trong Gridview != 0 thì mới clear
+                    //    ChiTietHoaDonXoaHD_dataGridView.Rows.Clear();
+                    //ChiTietHoaDonXoaHD_dataGridView.Refresh();
 
                     Load_AllMaHD();
                 }

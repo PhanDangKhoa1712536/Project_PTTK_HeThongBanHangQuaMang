@@ -2292,7 +2292,7 @@
             this.groupBox16.Size = new System.Drawing.Size(604, 324);
             this.groupBox16.TabIndex = 1;
             this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "DANH SÁCH HỢP ĐỒNG ĐÃ VÀ HOẶC SẮP HẾT HẠN";
+            this.groupBox16.Text = "DANH SÁCH HỢP ĐỒNG ĐÃ HẾT HẠN";
             // 
             // grd_DSHD
             // 
