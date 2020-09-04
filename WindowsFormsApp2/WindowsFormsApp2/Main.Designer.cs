@@ -431,7 +431,7 @@
             // 
             this.btnDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangNhap.Location = new System.Drawing.Point(712, 12);
-            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(2);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(326, 32);
             this.btnDangNhap.TabIndex = 6;
@@ -461,7 +461,7 @@
             this.tbMuaHang.Controls.Add(this.logo);
             this.tbMuaHang.Location = new System.Drawing.Point(4, 22);
             this.tbMuaHang.Name = "tbMuaHang";
-            this.tbMuaHang.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbMuaHang.Padding = new System.Windows.Forms.Padding(3);
             this.tbMuaHang.Size = new System.Drawing.Size(1099, 514);
             this.tbMuaHang.TabIndex = 1;
             this.tbMuaHang.Text = "THÔNG TIN APP";
@@ -475,7 +475,7 @@
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(1093, 21);
             this.label37.TabIndex = 11;
-            this.label37.Text = "Thực hiện bởi nhóm R1_PTTKHTTT 17_11/HK2 2020";
+            this.label37.Text = "Thực hiện bởi nhóm R1_PTTK HTTT 17_11/HK2 2020";
             this.label37.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label36
@@ -552,7 +552,7 @@
             this.tabTaoDonNhap.Controls.Add(this.label2);
             this.tabTaoDonNhap.Location = new System.Drawing.Point(4, 22);
             this.tabTaoDonNhap.Name = "tabTaoDonNhap";
-            this.tabTaoDonNhap.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabTaoDonNhap.Padding = new System.Windows.Forms.Padding(3);
             this.tabTaoDonNhap.Size = new System.Drawing.Size(1085, 478);
             this.tabTaoDonNhap.TabIndex = 1;
             this.tabTaoDonNhap.Text = "LẬP ĐƠN NHẬP HÀNG";
@@ -1179,7 +1179,7 @@
             this.TH_xemthongtinKH.Controls.Add(this.label18);
             this.TH_xemthongtinKH.Location = new System.Drawing.Point(4, 22);
             this.TH_xemthongtinKH.Name = "TH_xemthongtinKH";
-            this.TH_xemthongtinKH.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.TH_xemthongtinKH.Padding = new System.Windows.Forms.Padding(3);
             this.TH_xemthongtinKH.Size = new System.Drawing.Size(1084, 477);
             this.TH_xemthongtinKH.TabIndex = 2;
             this.TH_xemthongtinKH.Text = "XEM THÔNG TIN KHÁCH";
@@ -1276,7 +1276,7 @@
             this.TH_XemHD.Controls.Add(this.label24);
             this.TH_XemHD.Location = new System.Drawing.Point(4, 22);
             this.TH_XemHD.Name = "TH_XemHD";
-            this.TH_XemHD.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.TH_XemHD.Padding = new System.Windows.Forms.Padding(3);
             this.TH_XemHD.Size = new System.Drawing.Size(1084, 477);
             this.TH_XemHD.TabIndex = 3;
             this.TH_XemHD.Text = "XEM THÔNG TIN HÓA ĐƠN";
@@ -1416,7 +1416,7 @@
             this.tabPage15.Controls.Add(this.groupBox27);
             this.tabPage15.Location = new System.Drawing.Point(4, 22);
             this.tabPage15.Name = "tabPage15";
-            this.tabPage15.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage15.Size = new System.Drawing.Size(1084, 477);
             this.tabPage15.TabIndex = 4;
             this.tabPage15.Text = "LẬP PHIẾU TRẢ HÀNG";
@@ -1447,7 +1447,7 @@
             // soLuongHangLoi_traHang
             // 
             this.soLuongHangLoi_traHang.Location = new System.Drawing.Point(692, 31);
-            this.soLuongHangLoi_traHang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.soLuongHangLoi_traHang.Margin = new System.Windows.Forms.Padding(2);
             this.soLuongHangLoi_traHang.Name = "soLuongHangLoi_traHang";
             this.soLuongHangLoi_traHang.Size = new System.Drawing.Size(350, 20);
             this.soLuongHangLoi_traHang.TabIndex = 13;
@@ -1473,7 +1473,7 @@
             // MaDonTra_TraHang
             // 
             this.MaDonTra_TraHang.Location = new System.Drawing.Point(184, 73);
-            this.MaDonTra_TraHang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaDonTra_TraHang.Margin = new System.Windows.Forms.Padding(2);
             this.MaDonTra_TraHang.Name = "MaDonTra_TraHang";
             this.MaDonTra_TraHang.Size = new System.Drawing.Size(345, 20);
             this.MaDonTra_TraHang.TabIndex = 10;
@@ -1491,7 +1491,7 @@
             // MaHoaDon_TraHang
             // 
             this.MaHoaDon_TraHang.Location = new System.Drawing.Point(692, 73);
-            this.MaHoaDon_TraHang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaHoaDon_TraHang.Margin = new System.Windows.Forms.Padding(2);
             this.MaHoaDon_TraHang.Name = "MaHoaDon_TraHang";
             this.MaHoaDon_TraHang.Size = new System.Drawing.Size(352, 20);
             this.MaHoaDon_TraHang.TabIndex = 8;
@@ -1668,7 +1668,7 @@
             this.tabCtrlComment.Controls.Add(this.tabPage13);
             this.tabCtrlComment.Controls.Add(this.tabPage14);
             this.tabCtrlComment.Location = new System.Drawing.Point(2, 2);
-            this.tabCtrlComment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabCtrlComment.Margin = new System.Windows.Forms.Padding(2);
             this.tabCtrlComment.Name = "tabCtrlComment";
             this.tabCtrlComment.SelectedIndex = 0;
             this.tabCtrlComment.Size = new System.Drawing.Size(1095, 487);
@@ -1684,9 +1684,9 @@
             this.tabPage13.Controls.Add(this.dTimeStartThongKeCmt);
             this.tabPage13.Controls.Add(this.label33);
             this.tabPage13.Location = new System.Drawing.Point(4, 22);
-            this.tabPage13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage13.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage13.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage13.Size = new System.Drawing.Size(1087, 461);
             this.tabPage13.TabIndex = 0;
             this.tabPage13.Text = "THỐNG KÊ VÀ PHÂN LOẠI COMMENT";
@@ -1696,7 +1696,7 @@
             // 
             this.btnXuLyThongKe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXuLyThongKe.Location = new System.Drawing.Point(779, 14);
-            this.btnXuLyThongKe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXuLyThongKe.Margin = new System.Windows.Forms.Padding(2);
             this.btnXuLyThongKe.Name = "btnXuLyThongKe";
             this.btnXuLyThongKe.Size = new System.Drawing.Size(81, 45);
             this.btnXuLyThongKe.TabIndex = 29;
@@ -1708,7 +1708,7 @@
             // 
             this.btnXacNhanThongKe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXacNhanThongKe.Location = new System.Drawing.Point(191, 418);
-            this.btnXacNhanThongKe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXacNhanThongKe.Margin = new System.Windows.Forms.Padding(2);
             this.btnXacNhanThongKe.Name = "btnXacNhanThongKe";
             this.btnXacNhanThongKe.Size = new System.Drawing.Size(681, 29);
             this.btnXacNhanThongKe.TabIndex = 27;
@@ -1720,7 +1720,7 @@
             // 
             this.grvAllComments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvAllComments.Location = new System.Drawing.Point(6, 70);
-            this.grvAllComments.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grvAllComments.Margin = new System.Windows.Forms.Padding(2);
             this.grvAllComments.Name = "grvAllComments";
             this.grvAllComments.RowHeadersWidth = 51;
             this.grvAllComments.RowTemplate.Height = 24;
@@ -1773,9 +1773,9 @@
             this.tabPage14.Controls.Add(this.groupBox23);
             this.tabPage14.Controls.Add(this.btnXuLyCmt);
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
-            this.tabPage14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage14.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage14.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage14.Size = new System.Drawing.Size(1087, 461);
             this.tabPage14.TabIndex = 1;
             this.tabPage14.Text = "XỬ LÝ COMMENT";
@@ -1785,7 +1785,7 @@
             // 
             this.cbMaThongKe.FormattingEnabled = true;
             this.cbMaThongKe.Location = new System.Drawing.Point(478, 12);
-            this.cbMaThongKe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbMaThongKe.Margin = new System.Windows.Forms.Padding(2);
             this.cbMaThongKe.Name = "cbMaThongKe";
             this.cbMaThongKe.Size = new System.Drawing.Size(177, 21);
             this.cbMaThongKe.TabIndex = 34;
@@ -1810,9 +1810,9 @@
             this.groupBox23.Controls.Add(this.label41);
             this.groupBox23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox23.Location = new System.Drawing.Point(5, 37);
-            this.groupBox23.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox23.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox23.Name = "groupBox23";
-            this.groupBox23.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox23.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox23.Size = new System.Drawing.Size(1056, 410);
             this.groupBox23.TabIndex = 29;
             this.groupBox23.TabStop = false;
@@ -1822,7 +1822,7 @@
             // 
             this.btnXoaVaChan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoaVaChan.Location = new System.Drawing.Point(839, 279);
-            this.btnXoaVaChan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXoaVaChan.Margin = new System.Windows.Forms.Padding(2);
             this.btnXoaVaChan.Name = "btnXoaVaChan";
             this.btnXoaVaChan.Size = new System.Drawing.Size(171, 78);
             this.btnXoaVaChan.TabIndex = 32;
@@ -1834,7 +1834,7 @@
             // 
             this.btnGhiNhanTangQua.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGhiNhanTangQua.Location = new System.Drawing.Point(839, 94);
-            this.btnGhiNhanTangQua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGhiNhanTangQua.Margin = new System.Windows.Forms.Padding(2);
             this.btnGhiNhanTangQua.Name = "btnGhiNhanTangQua";
             this.btnGhiNhanTangQua.Size = new System.Drawing.Size(171, 78);
             this.btnGhiNhanTangQua.TabIndex = 31;
@@ -1846,7 +1846,7 @@
             // 
             this.grvCmtXau.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvCmtXau.Location = new System.Drawing.Point(8, 235);
-            this.grvCmtXau.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grvCmtXau.Margin = new System.Windows.Forms.Padding(2);
             this.grvCmtXau.Name = "grvCmtXau";
             this.grvCmtXau.RowHeadersWidth = 51;
             this.grvCmtXau.RowTemplate.Height = 24;
@@ -1867,7 +1867,7 @@
             // 
             this.grvCmtTot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvCmtTot.Location = new System.Drawing.Point(8, 41);
-            this.grvCmtTot.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grvCmtTot.Margin = new System.Windows.Forms.Padding(2);
             this.grvCmtTot.Name = "grvCmtTot";
             this.grvCmtTot.RowHeadersWidth = 51;
             this.grvCmtTot.RowTemplate.Height = 24;
@@ -1888,7 +1888,7 @@
             // 
             this.btnXuLyCmt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXuLyCmt.Location = new System.Drawing.Point(669, 9);
-            this.btnXuLyCmt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXuLyCmt.Margin = new System.Windows.Forms.Padding(2);
             this.btnXuLyCmt.Name = "btnXuLyCmt";
             this.btnXuLyCmt.Size = new System.Drawing.Size(85, 26);
             this.btnXuLyCmt.TabIndex = 24;
@@ -1924,7 +1924,7 @@
             this.tabPage9.Controls.Add(this.groupBox19);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage9.Size = new System.Drawing.Size(1081, 477);
             this.tabPage9.TabIndex = 0;
             this.tabPage9.Text = "QUẢNG CÁO TIN NHẮN";
@@ -2132,7 +2132,7 @@
             this.tabPage12.Controls.Add(this.btnKT_HD);
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
             this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage12.Size = new System.Drawing.Size(1081, 477);
             this.tabPage12.TabIndex = 1;
             this.tabPage12.Text = "HỢP ĐỒNG QUẢNG CÁO";
@@ -2397,7 +2397,7 @@
             this.tabPage11.Controls.Add(this.groupBox9);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage11.Size = new System.Drawing.Size(1084, 464);
             this.tabPage11.TabIndex = 1;
             this.tabPage11.Text = "LẬP HÓA ĐƠN BÁN HÀNG";
@@ -2634,7 +2634,7 @@
             this.tabPage10.Controls.Add(this.groupBox8);
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage10.Size = new System.Drawing.Size(1084, 464);
             this.tabPage10.TabIndex = 0;
             this.tabPage10.Text = "HỦY HÓA ĐƠN BÁN HÀNG";
@@ -2980,7 +2980,7 @@
             // 
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogOut.Location = new System.Drawing.Point(712, 11);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(326, 32);
             this.btnLogOut.TabIndex = 10;

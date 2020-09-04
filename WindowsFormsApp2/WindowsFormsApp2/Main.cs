@@ -123,7 +123,6 @@ namespace Presentation
                     );
             }
             this.grv_DonNhapHang.ClearSelection();
-
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -432,13 +431,15 @@ namespace Presentation
                             ChiTietDonNhapBUS chiTietDonNhapBUS = new ChiTietDonNhapBUS();
                             chiTietDonNhapBUS.ThemChiTietDonNhap(chiTietDonNhapDTO);
                         }
+                        
                         MessageBox.Show("Thêm đơn nhập hàng thành công");
+
                         grvChiTietDonNhapTab1.Rows.Clear();
                         txtTongSoLuongHangNhap.Text = Convert.ToString(0);
                         maHang_Add.Clear();
                         txtLyDoNhapHang.Clear();
-                        Load_DSDonNhap();
                         tabCtrlNhapHang.SelectedIndex = 1;
+                        Load_DSDonNhap();
                     }
                     catch (Exception ex)
                     {
@@ -1003,7 +1004,17 @@ namespace Presentation
 
         private void grv_NhaCungCap_SelectionChanged(object sender, EventArgs e)
         {
-            btn_sendNCC.Text = "GỬI ĐƠN NHẬP HÀNG CHO NCC " + grv_NhaCungCap[1, grv_NhaCungCap.CurrentRow.Index].Value.ToString();
+            try
+            {
+                string tenNCC = grv_NhaCungCap.Rows[grv_NhaCungCap.CurrentRow.Index].Cells["COLTENNCC"].FormattedValue.ToString();
+
+                btn_sendNCC.Text = "GỬI ĐƠN NHẬP HÀNG CHO NCC " + tenNCC;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
 
@@ -1023,8 +1034,7 @@ namespace Presentation
                 {
                     if (grv_NhaCungCap[1, row.Index].Value.ToString() == tenNCC)
                     {
-                        grv_NhaCungCap[0, row.Index].Selected = true;
-                        grv_NhaCungCap[1, row.Index].Selected = true; 
+                        grv_NhaCungCap.Rows[row.Index].Selected = true;
                         btn_sendNCC.Text = "GỬI ĐƠN NHẬP HÀNG CHO NCC " + tenNCC;
                     }
                 }
