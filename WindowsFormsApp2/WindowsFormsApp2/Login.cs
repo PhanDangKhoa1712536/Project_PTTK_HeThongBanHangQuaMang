@@ -17,6 +17,7 @@ namespace WindowsFormsApp2
             this.AcceptButton = btnLogin;
             this.frmMain = frmMain;
             nhanVienBUS = new NhanVienBUS();
+            txtPassword.PasswordChar = '\u25CF';
         }
 
         private void btnClose_Click(object sender, EventArgs e)
